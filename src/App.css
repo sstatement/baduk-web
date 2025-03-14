@@ -1,0 +1,395 @@
+/* 전체 앱 스타일 */
+.App {
+  text-align: center;
+}
+
+/* 헤더 스타일 */
+.App-header {
+  width: 100%;
+  height: 250px;
+  position: relative;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .App-header {
+    height: 200px;
+  }
+} 
+
+/* 네비게이션 바 스타일 */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ff7f32;
+  padding: 10px 20px;
+  border-radius: 10px;
+  width: 97%;
+  list-style-type: none;
+}
+
+/* 버튼 스타일 */
+.nav-button {
+  padding: 10px 20px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.nav-button:hover {
+  background-color: #f56b00;
+}
+
+
+
+/* 메인 컨텐츠 레이아웃 */
+.main-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* 2열 */
+  grid-template-rows: 1fr 2fr 1fr; /* 3행 */
+  gap: 20px; /* 간격 */
+  max-width: 1200px;
+  width: 100%;
+  margin: 20px auto;
+}
+
+.box {
+  background-color: orange;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+
+.slider { grid-area: 1 / 1 / 2 / 2; }  /* 1번 */
+.login { grid-area: 1 / 2 / 2 / 3;height: auto; }   /* 2번 */
+.notice { grid-area: 2 / 1 / 3 / 2; }  /* 3번 */
+.ads { grid-area: 2 / 2 / 3 / 3; }     /* 4번 */
+.posts { grid-area: 3 / 1 / 4 / 2; }   /* 5번 */
+.empty { grid-area: 3 / 2 / 4 / 3; }   /* 6번 (미정) */
+
+/* 로그인 페이지 스타일 */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; 
+}
+
+.login-form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.login-form .input-field {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.login-form .submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff7f32;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-form .submit-btn:hover {
+  background-color: #f56b00;
+}
+
+/* 마이페이지 스타일 */
+.my-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.my-page-container {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+.my-page-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.my-page-container .user-info {
+  margin-bottom: 20px;
+}
+
+.my-page-container .user-info p {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.my-page-container .logout-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff7f32;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.my-page-container .logout-btn:hover {
+  background-color: #f56b00;
+}
+
+/* 구글 로그인 버튼 스타일 */
+.google-login-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #4285f4;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.google-login-btn:hover {
+  background-color: #357ae8;
+}
+
+.google-login-btn .google-icon {
+  margin-right: 10px;
+}
+
+
+/* App.css */
+
+/* Article 스타일 */
+.article {
+  width: 100%;
+  padding: 1rem;
+}
+
+.article h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.article .login-container {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.article .login-container button {
+  background-color: #4285f4;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.article .login-container button:hover {
+  background-color: #357ae8;
+}
+
+.article .login-container .google-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.article .logout-container {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.article .logout-container p {
+  margin-bottom: 1rem;
+}
+
+.article .logout-container button {
+  background-color: #f44336;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.article .logout-container button:hover {
+  background-color: #d32f2f;
+}
+
+/* AdSlider 스타일 */
+.ad-slider {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 600px; /* 최대 너비 설정 */
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  top: -150px; /* nav 아래에 위치하도록 여백 설정 */
+  left: 50%; /* 수평 중앙 정렬 */
+  transform: translateX(-80%); 
+  border: 2px solid #333; /* 테두리 추가 */
+  border-radius: 10px; /* 테두리 모서리 둥글게 처리 */
+}
+
+.ad-slider img.slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* 이미지 비율을 유지하면서 크기에 맞게 표시 */
+}
+
+.ad-slider .slide-description {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.ad-slider .next-button,
+.ad-slider .prev-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.ad-slider .next-button {
+  right: 4px;
+}
+
+.ad-slider .prev-button {
+  left: 4px;
+}
+
+/* 공지사항 카드 스타일 */
+.announcement-card {
+  padding: 20px;
+  background-color: white;
+  border-left: 8px solid;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.announcement-card:hover {
+  border-color: #f97316; /* 주황색 테두리 */
+  border-width: 3px; /* 테두리 두께 증가 */
+  transform: scale(1.05); /* 확대 효과 */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* 그림자 확대 */
+  transition: all 0.3s ease; /* 부드러운 전환 효과 추가 */
+}
+
+/* 테두리 색상 기본 설정 */
+.announcement-card-blue {
+  border-left-color: #3b82f6; /* 파란색 테두리 */
+}
+
+.announcement-card-green {
+  border-left-color: #10b981; /* 초록색 테두리 */
+}
+
+
+/* 푸터 스타일 */
+.footer {
+  width: 100%;
+  padding: 20px;
+  background:  #ff8000; /* 주황색 배경 */
+  color: white; /* 흰색 글씨 */
+  text-align: center;
+  border-top: 2px solid darkorange; /* 테두리 색상 */
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.social-links a {
+  margin: 0 10px;
+  font-size: 24px;
+  color: white;
+  transition: color 0.3s ease-in-out;
+}
+
+.social-links a:hover {
+  color: yellow;
+}
+
+.links a {
+  margin: 0 5px;
+  color: white;
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+
+
+/* 반응형 */
+@media (max-width: 1024px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .right-section {
+    flex-direction: column;
+  }
+}
