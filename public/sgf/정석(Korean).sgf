@@ -1,0 +1,5761 @@
+(;CA[ks_c_5601-1987]AP[MultiGo:4.4.4]SZ[19]C[Encoding \: Korean
+
+알파벳 순서는 기본적으로 가장 먼저 알아야할 수 → 최선의 수 → 차선의 수 순으로 정리했다.
+
+주석(Annotiation)은 일반적인 정석 혹은 일반적인 국면에서는 불리하더라도 특정 국면에서 활용되는 정석이면 Very Good Move를, 충분히 좋지만 현대에는 다른 정석으로 대체되어 거의 사용되지 않는 정석은 Good Move로 정리하였다.
+
+표현의 강도는 호각 < 근소하게 유리 < 충분 < 만족 < 유리 < (상대)망함,
+근소하게 유리 < 약간 유리 < 유리의 순서이다.
+
+정석에 준하는 결과의 구정석이면 구정석으로, 결과가 나쁜 구정석이면 폐기된 정석으로 정리하였다.
+
+크게 불리하지는 않지만 정수가 아닌 변화는 변칙수, 결과가 좋지 않은 수는 실수, 수읽기 착오는 무리수 혹은 착각으로 정리하였다.
+
+호각 이상이더라도, 변칙수를 확실하게 응징할 기회를 놓쳤다면 미흡으로 정리하였다.
+
+
+
+//////////
+
+연구 계획
+
+소목 두칸높은굳힘 \: 변 다가섬에 2선 한칸뜀 연구 필요
+소목 두칸높은협공 \: 전부 재검토
+                            빠지는 수 이후 들여다보지 않는 정석 갱신
+소목 두칸낮은협공 \: 밭전자 받지 않는 정석 연구 필요,
+                            날일자 뻗는 정석 갱신 필요,
+                            날일자 두번 밀 때 반발 정석 연구 필요
+                            한칸 쌍립 정석 연구 필요
+화점 협공 높은양걸침 \: 갱신 필요
+화점 삼삼백변 함정수 \: 갱신 필요
+화점 삼삼백변 호구정석 \: 갱신 필요
+화점 삼삼백변 기본형 이외 나머지 \: 연구 필요
+화점 모붙임정석 날일자 씌움 \: 연구 필요
+소목 눈목자굳힘 붙이고 끊음 \: 연구 필요
+소목 한칸협공 눈목자 함정수 \: 연구 필요
+
+대고목, 대외목 수록 필요
+
+삼삼, 천원 갱신 완]
+DT[2024-10-19]MULTIGOGM[1]
+
+(;B[qd]C[백이 손 빼는 것도 가능
+
+A나 B가 보통]TE[2]
+(;W[oc]C[손뺌도 수록]TE[2]
+(;B[pe]C[손뺌도 수록.]TE[2]
+(;W[lc]C[기본 정석
+
+흑이 손 빼는 것이 보통]
+(;B[jc]C[손 빼는 것이 보통, 손뺌 수록
+
+B가 정수, A로 두면 중앙에서 선수로 활용 당한다]
+(;W[qc];B[rc];W[qb])
+(;W[qb];B[nd];W[nc];B[md]C[손뺌 수록
+
+예시를 보려면 손뺌으로
+
+흑이 어깨 짚으면 A로 잇거나 빈삼각으로 굴복해야 하기 때문에 흑이 약간 좋다]
+(;W[mc]CR[ke]C[봉쇄하는 수가 남아있기 때문에 흑 충분])
+(;W[ld];B[pc];W[ob]C[흑 충분])
+(;W[];B[pc];W[pb];B[mc];W[mb];B[lb];W[nb];B[ld]))
+(;W[];B[pc];W[ob]C[흑은 손 빼는 것이 보통
+
+이후 수순은 참고도];B[];W[qb];B[pb]
+;W[pa];B[rc];W[rb]C[흑이 백을 잡으러 가려면 1선을 젖혀야 하는데-];B[sb];W[qc];B[pd]
+;W[rd];B[sd];W[re];B[ra]C[이와 같이 흑의 부담이 너무 크기 때문에 사실상 백이 2선으로 한 칸 뛰면 거의 살아있는 형태다]))
+(;B[pc]CR[pc][qd][pe]C[백이 손 빼는 것도 가능
+
+A로 뻗어주면 실리로 이득이라는 것이 흑의 의도이기 때문에 응수해주지 않는 것도 유력하다]
+(;W[od]CR[pc][od]TR[nd][qf]C[흑이 손 빼는 것도 가능
+
+이 교환은 일견 흑이 실리로 이득이기 때문에 우상귀는 흑이 득봤다고 생각할 수도 있으나, 흑이 세모로 씌워 중앙을 키우는 수도 사라졌고, 백이 우변 다가서는 맛도 남았다. 분명 실리론 득을 봤으나 중앙, 우변 방면으론 손해라 꼭 흑이 득이라고만 할 순 없다.
+
+흑은 교환을 아끼는 것이 보통이다.]
+(;B[pg])
+(;B[oe])
+(;B[]C[흑이 생각보다 튼튼한 형태이기 때문에 응징이 잘 되지 않는다]
+(;W[qf]
+(;B[pf];W[qg])
+(;B[pb];W[nf]
+(;B[];W[pf];B[oe];W[ne];B[];W[ob];B[re];W[rf];B[];W[rc];B[rb];W[ra];B[qc];W[pa]
+C[패])
+(;B[pf];W[pg]
+(;B[og];W[ph];B[ne];W[mf];B[of];W[pj])
+(;B[qg];W[qh];B[rg];W[ph];B[rf]C[백 두터움]))))
+(;W[qh])
+(;W[nf])))
+(;W[ic]CR[pc][ic]C[흑의 모붙임과 백의 두 칸 벌림은 기본적으로 동일한 가치라고 생각하면 좋다.]))
+(;B[]
+(;W[qh]C[흑이 손 빼는 것이 보통]
+(;B[pc];W[od]
+(;B[qf])
+(;B[oe];W[qf];B[ob];W[nb];B[pb]))
+(;B[];W[qf]))
+(;W[ne]C[상황적인 수법];B[pc];W[ob])))
+(;W[ld])
+(;W[]
+(;B[lc]C[손뺌도 수록.
+
+C는 좋지 않은 수법.]
+(;W[nd]
+(;B[le]
+(;W[oe]CR[qb]C[호구 모양이기 때문에 한 칸 뜀보다 안형으로 이득이다]
+(;B[pg];W[qc];B[rc];W[pd];B[qe];W[qb])
+(;B[pb];W[og];B[ph];W[oh]C[B가 집으로는 득이지만, 상변 전투의 힘에 있어서는 A가 낫다]
+(;B[pg];W[oi];B[qj];W[kd];B[ld]
+(;W[id])
+(;W[ic]))
+(;B[pi];W[kd];B[ld]
+(;W[id])
+(;W[ic]))))
+(;W[nf]
+(;B[ph];W[qb];B[rb];W[qc];B[rc])
+(;B[pb]C[변칙수]
+(;W[pg]C[축이 유리해야 가능한 수법];B[og];W[of];B[pf]
+(;W[oh]C[축])
+(;W[ph]C[흑 충분]))
+(;W[og]C[백이 축이 불리할 때 사용하는 수법];B[qg];W[lg];B[id];W[ph];B[qh];W[pj]
+C[백 근소하게 유리])))
+(;W[qb];B[ne]
+(;W[rc])
+(;W[];B[rc];W[md];B[ld];W[rb];B[me];W[];B[mb];W[nb];B[od];W[sb];B[nc];W[ob])))
+(;B[pb];W[of];B[le];W[mf];B[pg];W[lf];B[ke];W[kf];B[jf];W[je]))
+(;W[oe];B[of];W[ne]
+(;B[pc]CR[pf]C[필수
+
+단점을 효율적으로 정비하는 수]
+(;W[pb];B[qb];W[nb];B[pi]CR[lc]C[흑 근소하게 유리
+
+흑 한 점이 멀리 있기 때문에 흑이 근소하게 좋다])
+(;W[ob]C[변칙수];B[le]CR[pc][ob][pf]C[흑 약간 유리
+
+이 교환으로 단점을 선수로 정비하여 흑이 약간 좋다]
+;W[pf];B[pg];W[qf];B[qg]
+(;W[re];B[rg]TR[pf][qf][re]C[죽음, 흑 유리])
+(;W[qe];B[pd];W[rg];B[og];W[rd];B[rc];W[rh];B[re];W[rf];B[sd]C[흑 유리])))
+(;B[le]C[실수];W[pf];B[pg];W[qf];B[qg];W[re];B[rg];W[rd];B[qc];W[qe];B[pd];W[rc]
+;B[rb];W[qb];B[pb];W[qa];B[pa];W[pc];B[ra];W[qb]C[백 만족]))
+(;W[qb]C[실수];B[nc]
+(;W[nb];B[nd];W[mb];B[pc])
+(;W[od];B[ob];W[pb];B[nb]))
+(;W[]C[A와 B는 두터움을 중시하는 수법, C는 제압을 중시하는 수법]
+(;B[le]
+(;W[qb]C[우변의 흑이 두터워지면 B로 잡으러 올 수 있기 때문에 살아두는 것이 꽤 급하다]
+(;B[rb];W[qc];B[rc]
+(;W[mb];B[lb];W[oe]
+(;B[of];W[pd];B[qe];W[ne];B[nf];W[mc]C[호각])
+(;B[od]C[반발];W[nd];B[pd];W[nf];B[og];W[ng];B[oh];W[lg]))
+(;W[oe];B[of];W[ne];B[nf];W[mb];B[pc];W[pb];B[pd];W[lb];B[nc];W[kc];B[od];W[hc]
+C[흑 충분]))
+(;B[mb]C[백을 잡으러 가는 수법]
+(;W[nb]C[B는 잡으러 가겠다는 의도, A는 잡으러 가지는 않지만 안에서 살려주지 않고 행마를 공격하겠다는 의도]
+(;B[rb];W[qc];B[rc])
+(;B[pb];W[pc];B[rb];W[qc];B[rc]
+(;W[md];B[mc])
+(;W[oe];B[nd])))
+(;W[rc]C[실수];B[ob])
+(;W[nc];B[ne]C[지키는 자세가 안성맞춤이다];W[rc];B[oa];W[mf];B[me];W[of];B[oe];W[ra]
+C[흑 근소하게 유리])))
+(;W[qc];B[rc];W[rb]
+(;B[pc];W[qb]
+(;B[pb];W[rd];B[re];W[sc]C[호각])
+(;B[rd];W[pb];B[nb];W[nc];B[mb];W[md];B[ld];W[mf];B[og]))
+(;B[qb];W[pc];B[sb];W[oe];B[re];W[og])))
+(;B[me]
+(;W[qc];B[rc];W[rb];B[pc];W[qb]
+(;B[re];W[pb];B[nb];W[sc];B[rd];W[nc];B[mb];W[md];B[le];W[ne];B[nf];W[oe];B[pd]
+;W[ob];B[of];W[ld];B[kd];W[mc];B[kc];W[od]C[호각])
+(;B[pb];W[rd];B[re];W[sc]CR[me]C[백 근소하게 유리
+
+흑이 한 칸 좁기 때문에 백이 근소하게 좋다]))
+(;W[qb]CR[me]C[흑이 한 칸 좁기 때문에 날일자로는 백이 안에서 살기 더 어렵다]
+(;B[mb]
+(;W[nc];B[rc];W[ne];B[mf])
+(;W[nb]C[실수];B[pb];W[pc];B[rb];W[qc];B[rc]
+(;W[oe];B[of];W[pf];B[qf];W[nf];B[pg];W[ne]C[흑 충분])
+(;W[ne];B[nf];W[md];B[nd];W[mc]
+(;B[kb];W[ld];B[oe];W[nc];B[jc];W[kd]C[흑 충분])
+(;B[ld]C[무리수
+
+막는 것은 괜한 손찌검];W[nc]
+(;B[lb];W[oe];B[of];W[od];B[qa];W[ra];B[sa];W[pf]C[흑 어려운 전투])
+(;B[kb];W[oe];B[of];W[od]
+(;B[ph];W[ra]C[흑이 괜찮은 결과지만, 이렇게 둘 생각이라면 빵때림이 더 낫다])
+(;B[qa];W[ra];B[sa];W[re];B[rd];W[ma];B[lb];W[mf];B[le];W[pf]C[전투
+
+흑백 서로 어려운 전투])))))
+(;W[rc]C[실수];B[ob]))
+(;B[rc])))
+(;B[nd];W[qc];B[rc];W[rb]
+(;B[qb];W[pc]
+(;B[sb]
+(;W[oe]C[축이 불리해도 가능하다.]
+(;B[od];W[md];B[mc];W[pd];B[qe];W[of]
+(;B[me];W[rd];B[ra];W[re];B[qf];W[qg];B[rf];W[rg];B[sd]C[백 충분])
+(;B[qg]C[실수];W[nc];B[ne]
+(;W[me]C[축])
+(;W[mf];B[me];W[le];B[ld];W[nf];B[md];W[ke];B[jc];W[pg];B[qf]C[백 만족]
+(;W[pi]C[백 만족])
+(;W[qh];B[rh];W[qi];B[ri];W[qj]C[백 만족]))))
+(;B[re];W[od]CR[oe][re][od]SQ[jc]C[흑 근소하게 유리
+
+당장 살려나가는 것은 무겁기 때문에 흑이 근소하게 좋지만, 탈출하는 수단이 있기 때문에 이 교환을 하지 않고 상변에서 다가서서 탈출을 엿보면 백이 충분하다
+]))
+(;W[jc]CR[oe]C[탈출을 엿보는 수법
+
+백이 바로 탈출하는 것은 약간 무겁지만 백이 다가서서 탈출을 엿볼 수 있다])
+(;W[ra]C[변칙수];B[re]C[흑 충분]))
+(;B[ra]C[실수];W[sb];B[sc];W[rd];B[sa];W[re]C[백 만족]))
+(;B[pc];W[qb];B[re]
+(;W[od]
+(;B[ob];W[oe];B[pd]
+(;W[nc];B[nb];W[mc];B[mb];W[ld];B[kc];W[of];B[kd];W[sc];B[rd];W[ph]LB[rg:A][pb:B]
+C[백은 차후에 A, B 순으로 조이기한다.];B[];W[rg];B[];W[pb];B[];W[sb];B[ra];W[pf]
+;B[qa];W[oa];B[sd])
+(;W[of];B[nc];W[sc];B[rd];W[ph];B[rg]))
+(;B[oe]C[실수
+
+흑도 이 수를 받아주게되면-];W[nc];B[pd];W[pb];B[mc];W[sc];B[mb]
+;W[oa];B[na];W[ob];B[rd];W[sb]CR[ne][md]C[백 만족
+
+안에서 살아버려 백집이 4집이여도, 흑 외세에 약점도 남아있고, 흑이 3수나 투자한 곳에서 살아버렸기 때문에 흑의 불만이다.]))
+(;W[pb]C[무리수];B[nb])))))
+(;B[nd]C[협공 당해도 충분하면 A, 당하기 싫다면 B]
+(;W[mc]C[흑이 손 빼는 것도 가능]
+(;B[le];W[kd])
+(;B[kc];W[md])
+(;B[nc];W[nb];B[od]CR[oc]C[백이 손 빼는 것이 정수, 백 충분
+
+이 수로 호구 치거나 잇는 것은 자세가 좋지 않기 때문에 귀는 보통 죽은 형태로 처리한다]
+(;W[pc]C[보통의 처리 방법];B[ob];W[lb];B[na];W[mb];B[pb];W[qc];B[qb];W[rc];B[rb]
+;W[md]C[죽음, 백 충분])
+(;W[pb];B[pc];W[ob];B[qb])
+(;W[ob]))
+(;B[];W[md];B[];W[mf])
+(;B[ld]C[과거의 수법];W[lc];B[kd];W[kc];B[jd];W[jc];B[id]LB[ic:A]C[백이 손뺌, 백 충분
+
+A의 막음은 선수가 아니다]
+;W[];B[ic];W[];B[pb];W[ob];B[pc];W[ib];B[hb];W[ja]C[백 충분]))
+(;W[nc];B[md]C[협공 당해도 충분하면 A, 당하기 싫다면 B]
+(;W[lc]C[호각
+
+A의 자리가 상당히 큰 대세점
+]
+(;B[ke]C[백이 손 빼는 것이 보통
+
+이후 진행은 정석 이후])
+(;B[mc];W[mb];B[nb]C[축이 유리해야 가능한 수법]
+(;W[ob];B[lb];W[na]
+(;B[kc]C[흑 만족])
+(;B[kb]C[백 충분]))
+(;W[lb];B[ob];W[pc];B[pb];W[qc];B[qb];W[rc];B[rb];W[ld];B[mf];W[lf];B[lg];W[kf]
+;B[mg]
+(;W[fc]C[백 충분])
+(;W[qi];B[qg];W[ql]C[백 충분]))
+(;W[kb];B[ob];W[pc];B[pb];W[qc];B[qb];W[rc];B[ma];W[lb];B[rb]
+(;W[ld];B[mf]
+(;W[qi];B[qg];W[lg];B[lf];W[kf]
+(;B[mg];W[kg];B[mi]C[백 만족])
+(;B[kg];W[jf]C[백 유리]))
+(;W[lf];B[lg];W[kf];B[mg];W[qi];B[qg];W[ql]C[백 약간 유리]))
+(;W[fc]C[백 만족])))
+(;B[];W[ld]C[모양의 대세점이면서 동시에 단점을 지키는 급소]))
+(;W[mc]C[협공을 의식한 수법]
+(;B[ld];W[kc]C[호각])
+(;B[lc];W[lb];B[kc];W[kb];B[jc]LB[jb:A][qb:B]C[호각, 백이 손 빼는 것이 보통
+
+A, B를 맞보기로 보고 있다
+
+흑이 상변을 막는 것이 크다면 A를 한 번 더 미는 것도 가능])
+(;B[kc]
+(;W[qb];B[ld];W[rc]C[호각])
+(;W[lc];B[ld];W[kb];B[jc];W[jb];B[ic]LB[ib:A][qb:B]C[호각, 백이 손 빼는 것이 보통
+
+A, B를 맞보기로 보고 있다
+
+흑이 상변을 막는 것이 크다면 A를 한 번 더 미는 것도 가능]))))
+(;W[qc]C[상황적인 수법];B[rc];W[rb]
+(;B[pc];W[qb];B[od];W[rd];B[re];W[sc]C[흑 두터움, 흑 약간 유리])
+(;B[qb];W[pc];B[sb];W[mc]C[중앙을 안 밀어주고 선수로 단점을 정비해 백이 근소하게 좋은 결과]))
+(;W[];B[nc]C[손 빼는 것도 가능
+
+상변에 흑 돌이 있는 경우 백이 살기 힘들다.
+
+A는 패 부담이 있고, B는 그냥 사는 수법]
+(;W[nb];B[mb];W[pb]
+(;B[na];W[oa]C[패])
+(;B[lc];W[od];B[oe];W[qc];B[na];W[ob])
+(;B[qc]C[잡으러 가는 수법];W[lb];B[lc];W[ma];B[mc];W[kb]))
+(;W[lc];B[];W[nb];B[mb];W[pb];B[na];W[ob];B[mc];W[od];B[oe];W[qc];B[ld])
+(;W[];B[kc])))
+(;B[mc]C[백이 손 빼는 것도 가능];W[oe];B[of];W[ne];B[pc];W[pb];B[qb];W[ld]
+(;B[jc];W[lc]C[호각])
+(;B[jd];W[lc]C[호각]))))
+(;B[pf]C[손뺌도 수록]TE[2]
+(;W[kd]C[손뺌도 수록];B[];W[qh]C[손뺌도 수록.]
+(;B[pc];W[od];B[rg])
+(;B[]
+(;W[qc];B[rc];W[qb];B[nd];W[nc];B[md];W[lb];B[oh])
+(;W[rf]C[변칙수];B[od];W[nd];B[pc];W[oe];B[pd];W[nc];B[ne];W[of];B[me]C[흑 충분]
+(;W[og];B[lc])
+(;W[nf];B[lf];W[md];B[pg])
+(;W[lf]
+(;B[og];W[nf];B[mf];W[ng];B[mg];W[nh];B[lc])
+(;B[pg])))))
+(;W[qc]C[상황적인 수법];B[rc]
+(;W[pd]C[상황적인 수법]
+(;B[qb];W[qe];B[pc];W[rd];B[qc];W[pe]C[자체로는 흑이 약간 유리하지만 상황에 따라 사용하는 상용수법이다.])
+(;B[qe]LB[qb:A][rb:B]C[호각
+
+백은 보통 A로 뻗지만, 상황에 따라 B로 패를 하자고 할 수도 있어 흑은 백돌을 포위하는 것보다 귀를 모붙임으로 제압하는 것이 보통이다]))
+(;W[rd]C[백의 상황적인 수법
+
+흑을 중복으로 만드는 수법]
+(;B[re];W[pd];B[sd]CR[pd]C[백의 상황적인 수법, 흑 약간 유리
+
+우변의 흑이 두터울 때, 흑은 빵때려도 약간 중복이고, 백은 한 점을 희생타로 호구를 선수했다는 뜻이다.]
+;W[qe]CR[qc][pd]C[백의 호구는 패를 하겠다는 의도가 아니다.];B[qf];W[rd];B[]LB[rf:A]
+[qd:B]C[백이 A로 쳐서 해소하는 것은 천지패기 때문에 불가능하고-]
+(;W[rf];B[qd];W[];B[pe]C[흑 만족])
+(;W[qd];B[rg]C[이어서 해소하는 것은 백돌이 뭉쳐 흑의 만족이다]))
+(;B[rb]C[호각
+
+집으로 가장 버티는 수긴 하지만 뒷맛이 고약해 보통 백도 불만이 없다.])
+(;B[pc]C[흑의 변주];W[qb];B[pd];W[re];B[pb];W[rb]
+(;B[kd]C[백 근소하게 유리])
+(;B[kc]C[백 근소하게 유리]))))
+(;W[of]C[상변의 전투에 힘을 줄 때 사용하는 수법]
+(;B[oe]C[백의 의도];W[qc];B[rc];W[pd])
+(;B[og];W[oe];B[pg];W[mf]LB[lc:A][ng:B]C[8로 뛰어서 A 부근의 돌을 압박하는 수와 B의 호구를 맞보기로 보면 충분하다])
+(;B[pg];W[qc];B[rc];W[pd];B[qe]C[흑 만족]))
+(;W[];B[kc]C[손뺌도 수록];W[];B[pc]C[손뺌도 수록]
+(;W[pb]
+(;B[qb])
+(;B[od]
+(;W[nd];B[ob];W[nc];B[qb]
+(;W[oe];AB[cp][ep][dq]AW[eq][fp][dr]LB[fo:A][fq:B][er:C]C[좌하의 백의 함정수에서 흑이 A나 B로 두어야하는데 C로 둔 격이기 때문에 백이 충분하다])
+(;W[ng]C[백 충분
+
+이후는 정석 이후의 진행이다];B[ne];W[me];B[nf];W[mf];B[mg]))
+(;W[qc];B[pd];W[rb];B[rc];W[qb];B[nc];W[rd];B[re];W[sc]C[흑 유리])))
+(;W[];B[ke];W[pb]
+(;B[qb])
+(;B[od]
+(;W[nd];B[ob];W[nc];B[qb]
+(;W[ng])
+(;W[oe]))
+(;W[qc];B[pd];W[rb];B[rc];W[qb];B[nc];W[rd];B[re];W[sc]TR[ke]C[흑돌 한 개가 중복의 위치기 때문에 백이 충분하다])))))
+(;B[pc]TE[2];W[od]C[C 이하는 변칙수]
+(;B[qf];W[kd]C[손뺌도 수록
+
+이 정석은 소목 한칸 걸침에서 나오는 붙여끌기 정석보다 흑이 2집 가량 적으므로 정석이지만 보통 백이 약간이나마 편한 정도로 본다. 하지만 배석에 따라 충분히 쓸 수 있는 훌륭한 정석이다.]
+;B[];W[qh]C[완착 혹은 함정수, 흑 약간 유리
+
+이후 진행은 함정수];B[];W[og];B[]
+;W[re]
+(;B[qe];W[rf]
+(;B[rd];W[qg];B[ob];W[nb];B[pb]C[백 충분])
+(;B[of]
+(;W[nf];B[ph]C[흑 유리])
+(;W[qg];B[nf]C[흑 약간 유리])))
+(;B[rf]
+(;W[pd];B[qe];W[qc];B[rc];W[pb];B[rb]C[흑 근소하게 유리])
+(;W[pb];B[pg];W[ph];B[qb]C[흑 약간 유리])))
+(;B[pf];W[kd];B[]
+(;W[qe]
+(;B[pe];W[pd];B[qc];W[qf];B[pg];W[rh];B[qh];W[qi];B[ri]
+(;W[rg];B[rj];W[rd];B[rc];W[re];B[ob];W[nb];B[pb];W[ph];B[ne];W[qg];B[mc]C[백 약간 유리])
+(;W[rj];B[rg];W[si];B[qg]C[흑 유리]))
+(;B[qf]C[정수];W[pe];B[re];W[rf];B[rd];W[of];B[og]
+(;W[nf])
+(;W[pg];B[qg];W[ph];B[nf];W[oe];B[rh];W[ni]C[A, B 맞보기]
+(;B[ng];W[pj])
+(;B[qj];W[ng]))))
+(;W[qh];B[rg]C[호각]))
+(;B[kc]C[함정수];W[pd];B[qc];W[qf];B[qe];W[pf];B[pe];W[oe];B[of]C[A나 B가 선수성이기 때문에 싸워가면 백이 유리한 전투]
+;W[rf]
+(;B[re];W[ob];B[pb]C[백이 유리한 전투])
+(;B[ob];W[nb];B[pb]C[백이 유리한 전투]))
+(;B[lc]C[함정수
+
+A가 보통]
+(;W[qf];B[pe];W[pd];B[qe];W[qc];B[rc];W[pb];B[rb]C[백 유리])
+(;W[pd];B[qc];W[qf];B[qe];W[pf];B[pe];W[oe];B[of];W[rf];B[ne]C[백 불리]))
+(;B[md]C[함정수
+
+A가 정수]
+(;W[pf];B[rf];W[qg]C[백 약간 유리])
+(;W[qf];B[pe];W[pd];B[qe];W[qc];B[oe];W[pb];B[ne]C[백 약간 미흡])
+(;W[pd];B[qc];W[qf];B[qe];W[pf];B[pe];W[oe];B[of];W[rf];B[ne]))
+(;B[mc]C[함정수
+
+A가 정수]
+(;W[pd];B[qc]
+(;W[pf]
+(;B[rf]
+(;W[oh]LB[rg:A][jc:B]C[백 약간 유리
+
+A, B 맞보기]
+(;B[qg];W[jc])
+(;B[jc];W[rg]))
+(;W[qg];B[rg];W[qi];B[jc]C[백 약간 유리]))
+(;B[ob];W[nb];B[pb];W[nc]CR[pd][qc]C[백 유라
+
+이 교환은 백의 대득이다]))
+(;W[qf];B[qe];W[pf];B[pe];W[oe];B[of];W[rf];B[ob]C[백 불리]))
+(;W[qf];B[ob];W[nb];B[pb];W[nc];B[pe]C[백 미흡])
+(;W[pf];B[ob];W[nb];B[pb];W[nc];B[pe];W[oe];B[qf]C[백 미흡])))
+(;B[mc]TE[2]
+(;W[pe]
+(;B[pd];W[od];B[oe];W[ne];B[of];W[md]C[A ~ C가 보통, D는 구정석, E는 상황적인 수법 F와 G는 변칙수
+
+다만 D는 우변이 흑이 두터우면 백이 곤란할 수 있다.]
+(;B[pg]C[호각]
+(;W[kd]C[이후 진행은 정석 이후]
+(;B[]
+(;W[nf])
+(;W[qh]))
+(;B[nf]))
+(;W[kc]C[이후 진행은 정석 이후]
+(;B[nf])
+(;B[]
+(;W[nf])
+(;W[qh])))
+(;W[lc]))
+(;B[qf];W[nf];B[og];W[ng];B[oh];W[jc]C[호각])
+(;B[qg]C[구정석]
+(;W[oh]C[신수]
+(;B[pf]C[정수]
+(;W[kd]C[백 근소하게 유리])
+(;W[kc]C[백 근소하게 유리])
+(;W[lc]C[백 근소하게 유리]))
+(;B[nf]C[반발];W[mf];B[mg];W[lf];B[nh];W[lg]
+(;B[ni];W[qh]
+(;B[rg]C[정수]
+(;W[ic]C[흑 근소하게 유리
+
+이후 진행은 정석 이후];B[jd];AB[dd];W[id];B[je];W[ie]
+;B[jf];W[if];B[jg];W[lc];B[lb];W[mb];B[kc];W[ld];B[fc];W[nj]C[선수]
+(;B[oi];W[hh]C[환원])
+(;B[lh];W[kh];B[li];W[jc]C[백 만족]))
+(;W[jc]C[흑 근소하게 유리
+
+맛이 나쁘다면 눈목자도 괜찮다. 다만 발전성은 약간 떨어지므로 일장일단이 있다.])
+(;W[nj]CR[oh][qh]LB[pk:A]C[코붙임은 생각하기 힘든 인공지능의 수법이다.
+
+일단 백이 그냥 우변 A 정도로 행마하는 것은 두 점이 폐석이기 때문에 꼭 두고 싶다고 생각이 되는 자리는 아니다. 따라서 백 두 점의 활용을 최대한 하기 위해 공배를 채우는 수를 두는 것이다.]
+(;B[oi]CR[nj]SQ[oi][ni]C[일단 흑이 꼬부리면 백이 악수 교환 같지만-];W[ic]CR[nj]
+LB[lj:A][mi:B][mh:C][oj:D]C[백이 A로 뛰는 수나 B, C, D로 공배를 채워가며 활용하는 수가 남기 때문에 코붙임은 백의 유력한 수단이다.]
+;B[jd];AB[dd]CR[nj]C[이 교환은 상변 맛에도 도움을 준다.];W[id];B[je];W[ie];B[jf]
+;W[if];B[jg];W[lc];B[lb];W[mb];B[kc];W[ld];B[fc];W[hh];B[jb];W[gb];B[fb];W[ff];B[ib]
+;W[gc];B[gd];W[hc];B[df];W[ji];B[kh];W[mi]CR[nj][oi]C[이 교환을 이용해 흑을 엮어냈다.])
+(;B[lh]C[반발한다면-];W[kh];B[li];W[qm]C[우변을 두어-]
+(;B[kc]C[살려나가는 것은-];W[ic];B[jd];W[id];B[je];W[jg];B[ie];W[gd]CR[jg]C[백 약간 유리
+
+효과적으로 백이 정비해 백이 좋은 전투다.])
+(;B[ki]C[꼬부리는 수 역시-];W[lc]CR[lc][qm]C[백 약간 유리
+
+백이 한 점을 두텁게 제압해 양쪽을 둔 백의 실속이 좋다.])))
+(;W[qe]C[변칙수];B[re];W[rd];B[qc]C[흑 약간 유리]))
+(;B[pg]C[변칙수];W[qe];B[re];W[rd];B[rc];W[qc];B[sd];W[pc];B[rd];W[ic]C[백 근소하게 유리]))
+(;B[lh];W[kh];B[li];W[ki];B[lj]C[백 약간 유리])))
+(;W[jd]LB[nf:A]C[호각
+
+A가 준선수이므로 백도 두칸까지 벌릴 수 있다.]))
+(;B[oh];W[nf];B[og];W[jd]C[호각])
+(;B[pf]CR[rf]C[구정석
+
+백이 나중에 다가오면 흑의 안형이 사라지기 때문에 현대에서는 잘 두지 않는다])
+(;B[ld];W[le];B[kd];W[ke]
+(;B[jd];W[je];B[id];W[qf]C[A는 흑 망함, B는 함정수, C는 우변이 흑이 두터울 때 사용하는 상황적인 정석]
+(;B[ph];W[og]C[흑 망함]
+(;B[pg];W[pf];B[nf];W[ng];B[mf];W[mg];B[lf];W[kg]C[장문])
+(;B[pf];W[qe]))
+(;B[pi]C[함정수])
+(;B[pg]C[상황적인 정석
+
+우변의 흑이 두텁다면 사용한다.];W[qg];B[qh]))
+(;B[je]CR[dd]C[상황적인 수법
+
+좌상귀가 백돌일 때 가능한 정석, 좌상귀가 흑이라면 백 만족]
+;W[jd];B[jc];W[id];B[mf];W[me];B[ic]
+(;W[hd])
+(;W[jf])))
+(;B[lc];W[qf];B[ph];W[rf];B[rh];W[rd];B[rc];W[qc];B[pc];W[pb];B[qb];W[qe];B[qc]
+;W[ob];B[sd]
+(;W[nf];B[pf]C[백 유리])
+(;W[re];B[sb];W[ra];B[qa]C[백 약간 유리]))
+(;B[kc];W[kd];B[jd];W[lc];B[lb];W[ld]
+(;B[jc];W[mb]C[백 약간 유리])
+(;B[jb];W[je];B[id];W[qf]
+(;B[ph];W[re];B[rd];W[qh];B[qi];W[og];B[nf];W[pg];B[rh];W[qg]C[백 만족
+
+백이 유리한 전투])
+(;B[pg];W[qg];B[pi];W[ri];B[pb];W[ob];B[re];W[qh];B[nj];W[qk]C[백 약간 유리]))))
+(;B[qe];W[pf]C[A가 보통]
+(;B[rg];W[me])
+(;B[qg]C[실리 손실이 싫다면 B도 가능, 다만 흑에게 변화의 여지가 많음]
+(;W[pg];B[qh];W[ph]
+(;B[qi];W[pi]
+(;B[qj];W[kc]C[백 충분])
+(;B[pj]C[실수];W[qf];B[rf];W[rg];B[rh];W[re];B[sg];W[qc];B[rd];W[kc]TR[qi]C[백 충분
+
+흑의 형태가 빈삼각의 형태이므로 백이 충분한 결과다]))
+(;B[pi];W[oi];B[oj]
+(;W[ni];B[pj];W[qf];B[rf];W[re];B[rd];W[nj];B[ol];W[kc]C[백 충분])
+(;W[qf];B[rf];W[re];B[rg];W[qc];B[rd];W[ni];B[jc]CR[pj]C[호각
+
+먼저 끊는 교환을 하면 잇지 않고 상변을 흑이 먼저 가게 된다])))
+(;W[kc]C[실리 손실이 싫다면 B도 가능, 다만 흑에게 변화의 여지가 많음];B[pg];W[nf]
+LB[og:A][ke:B]C[A, B 맞보기]
+(;B[og];W[ke])
+(;B[me];W[og]))
+(;W[qc]C[상황적인 수법];B[pd];W[od];B[pc];W[qf];B[ob];W[rg]C[흑 충분
+
+어떤 간격이든 흑이 약간 좋지만 항상 사용할 수 있는 수법이므로 숙지하고 있으면 좋다])))
+(;B[qg]C[함정수
+
+B로 두는 것이 보통]
+(;W[qe]C[실수];B[re];W[rf];B[rd];W[qf];B[pd];W[od];B[oe]
+(;W[of];B[ne];W[qb];B[rg];W[sf];B[pg];W[pf];B[pc]C[B로 빠지는 것이 조금 더 낫지만, 이미 흑의 함정수에 걸려서 좋지 않은 결과다]
+(;W[pb];B[ob];W[nb];B[nc];W[oa];B[nd];W[ob];B[ng];W[rc];B[og];W[sd];B[nf];W[qc]
+CR[pc][pd][qd][rd][re]TR[sd][rc][qc][qb][pb][oa][qe]C[백 망함
+
+흑의 돌을 잡아내어 얼핏 좋다고 생각할 수 있지만, 돌의 효율을 계산해봐도 흑돌 이상으로 백의 돌 7개가 폐석이므로 백이 좋지 않다는 것을 알 수 있다])
+(;W[ob]))
+(;W[pg];B[nd]C[흑 충분]))
+(;W[md]C[정수]
+(;B[ld];W[qe]C[백 유리];B[re];W[rf];B[rd];W[qf]
+(;B[pd];W[od];B[oe];W[me];B[of];W[pg]C[백 유리])
+(;B[rg];W[pd];B[sf]C[백 약간 유리]))
+(;B[qe];W[lc]C[백 충분]))
+(;W[pg]C[정수]
+(;B[qe];W[qh];B[rg];W[oh]C[백 충분])
+(;B[qf];W[ph]C[백 충분])
+(;B[pc];W[nc];B[rf];W[md]C[백 충분]))))
+(;W[oe];B[pf];W[ld])
+(;W[md]C[상황적인 정석];B[ld];W[me];B[nc];W[pe])
+(;W[]C[A가 정수]
+(;B[nd]
+(;W[qc];B[rc];W[rb]C[A가 가장 일반적인 응수.]
+(;B[pc];W[qb];B[pd];W[rd];B[re];W[sc])
+(;B[rd];W[od];B[oe];W[ne];B[pe];W[pb];B[nb];W[ob];B[me];W[nf];B[mf];W[ng];B[qh])
+(;B[re];W[sc];B[rd];W[pc];B[oe]LB[qa:A]C[흑이 A로 치중가게 되면 자체로 죽어있다. 흑과 백이 서로 이 부분을 간접적으로 지키면 복잡한 싸움이 된다.]))
+(;W[pd]
+(;B[qc])
+(;B[pe];W[qc];B[qe];W[rc];B[od];W[pc]TR[re]C[흑돌이 이어져 있으므로 서로 충분한 결과다.])))
+(;B[od]C[백이 약간 좋다.];W[pd];B[pe];W[pc]
+(;B[nd];W[qc];B[re];W[rc]TR[re]C[흑이 이어져 잇는 것이 아니라 호구 쳐져 있으므로 약간 미흡하다.])
+(;B[oe];W[qc];B[re];W[nc];B[md];W[rc];B[lg]))))
+(;B[md]C[B는 호각이지만 백이 어려운 전투, A가 보통]TE[2]
+(;W[oe];B[pf]C[백이 손 빼는 것도 가능
+
+흑의 다음 수가 강력하지 않기 때문에 손 빼는 것도 유력한 수법이다.]
+(;W[kd];B[mf];W[mc]LB[ic:A][nd:B]C[A,B의 선택권이 있어서 흑 약간 만족, 만약 흑의 상변 발전성이 컸다면 호각의 진행]
+;B[nd];W[nc];B[od];W[pd]
+(;B[pe];W[pc]C[흑 근소하게 유리])
+(;B[pc]C[무리수];W[pe]
+(;B[qc];W[ld];B[nf];W[qe]C[백 유리])
+(;B[qe];W[of]C[백 유리])))
+(;W[jd]
+(;B[mf];W[of];B[pg];W[og];B[ph];W[oh];B[pi];W[le];B[me];W[lc];B[mc];W[mb]C[흑이 손 빼는 것도 가능]
+(;B[ld];W[lb]C[호각])
+(;B[nb];W[lb]
+(;B[nc];W[ob]
+(;B[oa];W[pa];B[na];W[qc];B[rc];W[pd];B[qb];W[qe];B[pc];W[pb];B[pe];W[qc];B[rd]
+;W[oi];B[lg]C[백 충분, 백 유리한 전투])
+(;B[mh];W[lg];B[mg];W[na]C[백 충분]))
+(;B[od];W[pd];B[pc];W[nd];B[ob];W[qc];B[pb];W[qe];B[rd];W[pe];B[re];W[qf];B[rf]
+;W[oi]
+(;B[qg]CR[nc]C[끊는 수가 있어서 A나 B 정도면 백 충분]
+(;W[gc])
+(;W[nk]))
+(;B[rg]C[실수];W[pj];B[oj];W[pk];B[nj];W[qg];B[qi]C[흑 불리])))
+(;B[];W[kb]))
+(;B[lf];W[ld]))
+(;W[ph];B[of];W[ne]
+(;B[ng])
+(;B[pc];W[ob];B[ng];W[lc]))
+(;W[]
+(;B[pc];W[kc]CR[mc]TR[md]C[흑이 차단한다면 발이 느리고, 차단하지 않으면 3은 악수다.])
+(;B[jd]CR[qc][of]C[백은 여전히 귀의 수습책과 바깥으로의 탈출이 있으므로 충분하다.])))
+(;W[pe];B[pd];W[od];B[oe];W[qe];B[re];W[rf];B[rd];W[ne];B[of];W[pg]C[A가 정수, B는 실수]
+(;B[og]C[연구 미완];W[ph];B[oh];W[pi];B[oi];W[pj];B[oj];W[pk];B[mc];W[qb];B[rb]
+;W[ra];B[pb];W[ob];B[pc];W[pa];B[sf];W[rc];B[sb];W[sc];B[qf];W[pf];B[rg];W[nd];B[me]
+;W[nf];B[mg];W[mb];B[lb];W[mf];B[lf];W[ma];B[lh];W[nc];B[sd];W[sa];B[qg]C[흑 약간 유리])
+(;B[nd]C[백 만족];W[ob]LB[lc:A][qb:B]C[A, B 맞보기]))
+(;W[ne])
+(;W[mc];B[lc];W[ld])
+(;W[nd]C[변칙수];B[mc];W[pf]))
+(;B[lc]C[A가 보통, B는 흑의 원군이 주위에 있을 때 주로 사용한다.]TE[2]
+(;W[pe]
+(;B[pd];W[od];B[oe];W[pf]
+(;B[ne];W[qb];B[rf]C[A는 무난한 한 수지만 이렇게 두어서는 흑의 약점인 A를 가를 수 없기에 흑의 협공을 응징할 수 없음]
+(;W[qg];B[rb];W[pb];B[md]
+(;W[rg]
+(;B[rc]C[정석];W[re];B[rd];W[qe];B[nb];W[ra]C[흑이 손 빼는 것도 가능, 호각
+
+이후 진행은 정석 이후
+
+A는 빅 혹은 백이 유리한 한 수 늘어진 패, B는 빅
+
+A가 보통]
+(;B[se]LB[ri:C]C[백이 손 빼는 것도 가능
+
+A는 빅, B는 한 수 늘어진 패
+
+C의 뒷맛이 나쁘다]
+(;W[ob];B[nc]C[빅])
+(;W[sb];B[sc]C[백이 유리한 한 수 늘어진 패])
+(;W[ng]))
+(;B[sb];W[sd];B[ob];W[pc];B[nc]C[빅
+
+백 충분]))
+(;B[rd]C[변칙수];W[ra];B[sb];W[mb];B[lb];W[mc];B[le];W[nb];B[nd];W[oa]C[백 충분
+
+귀의 흑은 두 수를 가일수해야 살아있는 형태기 때문에 흑이 변화를 구해야 한다]))
+(;W[rc]C[실수];B[rd];W[ra];B[qi]
+(;W[rg];B[ph]C[흑이 사석작전을 하면 백이 다음 행마가 없다];W[qf];B[og]C[백이 손 빼는 것이 보통, 흑 두터움, 흑 충분
+
+흑이 사석작전하는 맛이 남아 있다]
+;W[];B[re];W[ri];B[rj];W[rh];B[of];W[qj];B[rk];W[sg];B[si];W[qc];B[qh];W[pc];B[pg]
+;W[sd]C[흑 두터움, 흑 충분])
+(;W[qh];B[ri];W[pi];B[pj];W[oi];B[rh];W[ng]C[흑 충분
+
+흑이 살아가서는 흑 충분])))
+(;W[md]
+(;B[nd];W[nc];B[mc];W[ld]
+(;B[og];W[kd]
+(;B[jc];W[rd]CR[kc]MA[mb]C[코붙이는 수는 흑이 B로 젖히면 상변을 뚫었을 때 꼬부려서 버티는 수가 불가능해진다는 의미의 응수타진이다. A가 정수]
+(;B[qe];W[pg]
+(;B[ng]C[연구 미완];W[qh]C[백 약간 유리한 전투])
+(;B[oh];W[ph];B[oi];W[pi];B[oj]CR[qc]C[지금 귀에 가일수하게 되면, 머리를 흑이 두들기고 백이 젖혀 늘 때 치중 당하기 때문에, 한 번 더 밀어서 버텨야 한다.]
+(;W[pj];B[ok]CR[rc][pb]C[일견 늘어서 잡는 것이 정수 같지만, 건너 붙이는 수가 강력하기 때문에 치받아서 잡는 것이 정수]
+;W[qc];B[pk];W[qk];B[ql];W[rk]LB[rc:A][rh:B][pb:C][ri:D][rl:E]C[백 유리];B[rl];W[mf]
+;B[ng];W[ri];B[mb];W[nb];B[jd])
+(;W[qc];B[pj];W[qj];B[qk];W[rj];B[rh]C[백 망함])))
+(;B[rc];W[kc];B[kb];W[jb];B[ib];W[lb];B[ja];W[mb]))
+(;B[jb]C[연구 미완];W[pg]C[쌍립이 정수]
+(;B[ng]CR[ma]C[연구 미완
+
+A가 정수
+
+B는 상변에는 손해라도 우상의 사활에 득이라는 의도지만, 지금은 백이 귀를 후수로 가일수하기 때문에 상변에서 손해를 보면서 사활을 신경 쓸 이유가 없다. 따라서 백은 A, B 선수 교환 이후에 귀를 가일수한다.]
+(;W[kc];B[kb];W[nb];B[ma]CR[rc][rb]C[두칸 낮은 협공의 다른 변화도에서 느는 수도 존재하는데, 이 정석에서는 마늘모만이 정수다. 
+
+사는 수만 고려한다면, 뻗는 수도 정수지만, 지금은 흑이 우변의 석점 머리를 젖힌 이후에 백이 우변에서 다시 준동하는 맛을 위해 우변에 최대한 영향을 끼쳐야 하기 때문이다.]
+;W[rc];B[ph];W[ic]
+(;B[ib];W[hc];B[hb];W[rg];B[qh];W[re]C[백 유리])
+(;B[rd];W[la]C[백 충분]))
+(;W[nb];B[kc];W[qe]CR[rb]C[선수로 붙이는 수를 방비하는 수];B[re];W[qh];B[ri];W[rc]
+;B[ph];W[qg];B[qi];W[rd];B[jd]C[흑 충분]))
+(;B[oh]LB[ph:A]C[A까지만 민다
+
+A까지만 미는 이유는 밀수록 백이 득이지만 백이 중앙을 나와 끊는 것이 여기까지만 강제성이 있기 때문]
+;W[ph]
+(;B[oi]LB[nb:A][kc:B]C[연구 미완
+
+A가 정수, B도 백이 나쁜 것은 아니지만 흑이 받지 않을 가능성이 있어 이후 난해한 진행이 된다. A로 두어도 백이 충분한 진행이다.]
+(;W[nb];B[kc]LB[jc:A]C[흑이 A 자리에 없기 때문에 백이 자체로 득이다];W[qe]CR[rb]
+C[붙임을 선수로 방비하는 맥점];B[re];W[pi]LB[jc:A]C[C가 부분적인 맥점이지만, A의 위치가 낮게 때문에 백이 석점을 준동할 수 있어 득이다.]
+(;B[rh];W[ri];B[qj];W[oj];B[qi];W[of];B[nf];W[ng])
+(;B[oj];W[pj];B[ok];W[ql]C[우변의 흑은 죽어있다.])
+(;B[qj];W[pj];B[rh];W[jd]))
+(;W[kc]C[실수
+
+백은 귀를 가일수할 틈이 없기 때문에 흑의 한칸 뜀은 백의 사활을 위협하게 된다.]
+(;B[kb];W[nb];B[ma];W[qe];B[re];W[pi];B[rc];W[rb];B[rh];W[ri];B[pc];W[pb];B[na])
+(;B[pb])))
+(;B[rb]C[연구 미완];W[pb]
+(;B[rd];W[jc];B[kb];W[ib];B[nb];W[ob];B[mb];W[of];B[nf];W[ng];B[mf]CR[kc]C[이 자리가 선수로 듣는다면 흑의 수가 늘어나기 때문에 가만히 잇는다.]
+;W[ic];B[mg];W[la])
+(;B[mg]
+(;W[jc];B[pi];W[ib];B[qi])
+(;W[ic];B[ib];W[kc];B[kb];W[nb];B[ma];W[mb];B[lb];W[rc];B[rd];W[sc];B[pi];W[hc]
+;B[gb];W[qh];B[qi];W[ri];B[rj];W[rg];B[si];W[rh];B[oj];W[ni];B[oi];W[qk];B[qj];W[qf])))))
+(;B[mb];W[pc];B[rb];W[qc];B[rc];W[kb];B[nb];W[rd];B[qe];W[ra];B[sd];W[ob];B[pa]
+;W[qa];B[kc];W[mf];B[jd];W[of];B[ic]C[백 약간 유리])
+(;B[pg];W[kc]C[백 약간 유리]))
+(;B[mf]C[입구자는 B로 늘면 상변에서 빈삼각을 두겠다는 뜻, 빈삼각 외에는 한 칸을 뛴 수보다 손해인 변화들이다.]
+(;W[kc];B[kb];W[jc];B[jb];W[nb];B[mb];W[ma];B[lb];W[rc];B[rd];W[pc]C[흑이 상변을 제압할 때 우변을 제압하면 백 약간 우세]
+(;B[kd];W[qg])
+(;B[ic];W[qg]))
+(;W[kd]
+(;B[mb]C[흑이 축이 유리해야 가능한 수법];W[pc];B[rb]C[마늘모가 어떤 부분에서 흑이 강점이 있는지 보여주는 변화도]
+;W[qc];B[rc]C[축이 불리하더라도 백이 약간 유리하다
+
+B가 A의 한칸의 약점을 지키는 호수이자 정수. 축이 불리하더라도 가능하다
+축이 불리하면 A도 선택 가능한 수다.]
+(;W[kb];B[kc]CR[mf]C[마늘모로 두었기 때문에 선수가 아니라서 봉쇄가 불가능하다])
+(;W[lf]
+(;B[lg];W[kb]C[백 만족])
+(;B[nb]
+(;W[nf];B[of];W[og];B[ng];W[me];B[nf];W[nh];B[mg];W[lh];B[pg];W[mh];B[oh];W[lg]
+;B[og];W[kb];B[ob];W[oi];B[pi];W[qg];B[ph];W[pj];B[qi];W[qj];B[ri];W[rj];B[oj];W[ni]
+;B[sj];W[sk];B[si];W[rl]C[백 약간 유리])
+(;W[qg];B[of];W[pg];B[rg];W[mg];B[og];W[oh];B[ob];W[ng];B[qa];W[qi]C[백이 약간 유리하다고 하지만 후수로 두터움을 가져가는 정석이라 납득하기 어려움]))))
+(;B[jb]C[연구 미완];W[kc];B[kb];W[nb];B[ma]CR[rb][rc]C[두칸 낮은 협공의 다른 변화도에서는 마늘모로 두는 수가 있었는데,
+
+지금 변화에서도 충분히 가능하지만 백이 마늘모로 두어서 우변 흑 세 점에 영향을 주어야할 이유가 크지 않고 맛이 나쁘기 때문에 그냥 뻗는 수가 간명하다.]
+;W[rb];B[og];W[ic];B[jc];W[jd];B[ib];W[hc];B[hb];W[pg];B[ph];W[qh];B[pi];W[rg];B[qi]
+;W[ri];B[rj];W[re];B[gc]C[백 약간 유리])
+(;B[jc];W[qe]CR[kc]MA[mb]C[찌르는 교환을 통해 상변의 빈삼각 반발을 무력화시키겠다는 의도
+
+A가 보통]
+(;B[re];W[kc];B[kb];W[jb]
+(;B[ib];W[lb];B[ja];W[mb];B[pg]C[백 만족])
+(;B[mb];W[rd];B[rc];W[qc];B[sd];W[ib]C[백 유리]))
+(;B[rd];W[re];B[se];W[kc];B[kb];W[jb]
+(;B[mb];W[pc]
+(;B[ib];W[qg]
+(;B[qi];W[rg];B[jd]C[백 만족])
+(;B[jd];W[qi]C[백 유리]))
+(;B[jd];W[ka];B[lb];W[kf];B[ib];W[qg]C[백 만족]))
+(;B[ib];W[lb];B[ja];W[mb];B[og]C[백 유리])))))
+(;B[mb]C[연구 미완];W[pc];B[og];W[kd]
+(;B[jc];W[pg]
+(;B[rd]C[정수])
+(;B[rc]C[실수];W[rb];B[rg];W[rh]CR[mg]C[장문을 이용한 봉쇄의 맥]
+(;B[oh]C[정수];W[qh];B[nb];W[sb]C[백 유리])
+(;B[qh];W[of]C[수순의 묘];B[nf];W[ph]LB[mg:A][qi:B]C[흑 망함
+
+A, B 맞보기])))
+(;B[rb]C[환원])))
+(;B[og]C[연구 미완];W[qg]
+(;B[rb];W[rg]
+(;B[pb];W[ob];B[qa];W[ld]
+(;B[kd];W[of];B[nf];W[ng]
+(;B[le];W[kc];B[jd];W[kb]
+(;B[jc];W[jb];B[ib];W[lb];B[lg];W[nh]C[백 만족])
+(;B[lg];W[nh];B[ic]C[백 만족]))
+(;B[lf];W[kc];B[mg];W[nh];B[jc];W[kb];B[jd];W[jb];B[ib];W[lb]C[백 만족]))
+(;B[kc];W[lf];B[mg];W[qj]C[백 충분])
+(;B[mc];W[nd];B[kd];W[ke];B[jd];W[of];B[nf];W[ng];B[mf];W[nh];B[mg];W[je];B[mh]
+;W[id]C[이후 검토 필요];B[ib];W[lf];B[ni];W[oh]))
+(;B[nd];W[pb]LB[mc:A][rc:B]C[맥점
+
+중앙 탈출과 귀를 제압하는 수를 맞보기로 보는 수.]
+(;B[nc];W[nb];B[mc];W[rc];B[rd];W[sc]
+(;B[qi];W[ph];B[pi];W[oh];B[pg];W[qf];B[qh];W[re];B[ng]C[백 충분])
+(;B[qj];W[pi];B[pj];W[qi];B[oi];W[rj];B[rk];W[ri];B[oj]C[백 만족]))
+(;B[mc]CR[nc]LB[of:A]C[흑이 꽉 이어져 있지 않기 때문에 A의 약점이 더 약하다];W[rc]
+;B[rd]
+(;W[sc];B[qi];W[ri];B[rj];W[qj];B[rh];W[pi];B[qh];W[ph];B[si];W[sg];B[pg];W[sh]
+;B[qf];W[ri];B[ra]C[단수 치지 않고 빠졌기 때문에 손해다])
+(;W[ra];B[qi];W[ri];B[rj];W[qj];B[rh];W[pi]
+(;B[si];W[qh];B[ri];W[pj];B[sg];W[of];B[nf];W[ng];B[oh];W[ph];B[qk];W[mg]
+(;B[lf];W[mf];B[nc];W[ni])
+(;B[nc];W[ni]C[백 충분]))
+(;B[qh];W[ph];B[si];W[sg];B[pj];W[qk];B[rk];W[pg];B[ql];W[pk];B[oj];W[pl];B[qm]
+;W[ni];B[om];W[jc]C[백은 귀를 제압했고, 선수로 탈출도 했기 때문에 백이 충분하다])))))
+(;B[nd]))))
+(;B[of];W[re]
+(;B[rd];W[pg];B[og];W[ph]CR[oh]C[넉점부터는 미는 것이 선수가 되지 않는다.]
+(;B[pc];W[md];B[ld];W[me];B[mc];W[nc];B[oh];W[le];B[pi];W[qi];B[qj];W[rj]C[이단젖힘이 있어 이 정석에서 넉점머리는 선수가 되지 않는다.]
+;B[pj];W[rh]C[백 충분]
+(;B[ke]C[A가 정수]
+(;W[kf];B[jf];W[lg];B[kg];W[lf];B[jd]C[A가 보통, B는 느슨하지만 무난한 수]
+(;W[mj]LB[oi:A]C[A의 단점을 노려갈 수 있어 이쪽이 조금 더 좋은 형태
+
+백 충분])
+(;W[ql]C[중앙이 봉쇄가 안 되므로 흑은-];B[pl]C[붙여서 상변을 압박하는 것이 최선이다.]
+;W[li]CR[ql][pl]C[백 만족
+
+그 후 백의 한 칸 뜀이 수순이다. 이 교환은 우변을 파고들었기 때문에 백의 이득이다.]))
+(;W[lg];B[kf];W[mh]C[호각]))
+(;B[rk];W[sd];B[sc];W[se];B[rb];W[jd]C[백 충분]))
+(;B[nd];W[nc];B[mc];W[ne];B[md];W[oh];B[mf];W[qb];B[rb];W[ob];B[qc];W[pa]C[B, C 맞보기로 백 충분
+
+이단패를 만들고 귀를 가볍게 보면 백이 유리한 정석이 된다]
+(;B[pc];W[pb]
+(;B[ra];W[mb];B[na];W[lb]
+(;B[nb];W[ma];B[kb];W[oa]C[흑 망함
+
+수상전 백 승])
+(;B[kb];W[kc];B[kd];W[jc];B[nb];W[me];B[ld]C[백은 손 빼는 것도 가능
+
+백 만족]
+;W[jb]C[백 만족])
+(;B[kc];W[sd]C[수상전 백승]))
+(;B[mb];W[ra];B[sc];W[se];B[sd];W[sb]C[백이 수수가 많은 이단패이므로 이후 패는 가볍게 보면 백 유리]))
+(;B[ra];W[mb]
+(;B[lb];W[na]C[백 유리])
+(;B[na];W[lb];B[kc]
+(;W[jb];B[kb];W[ka];B[jc];W[ib]C[백 유리
+
+탈출하면 백이 유리하다.])
+(;W[kb]C[상황적인 수법
+
+한칸 뜀이 가능하지 않을 때 사용하는 수법]
+(;B[jb]C[연구 미완])
+(;B[jc];W[jb];B[ib];W[ja]C[흑 망함]))))
+(;B[mb];W[ra]
+(;B[sc]C[흑백의 권리가 동등한 이단패이므로 패는 가볍게 보면 백 유리])
+(;B[rf];W[qe];B[se];W[sb];B[sc]C[백이 수수가 많은 이단패이므로 이후 패는 가볍게 보면 백 유리])
+(;B[sb];W[sd];B[qe];W[rf];B[qf];W[rg];B[na]C[귀는 백이 가일수하면 후수 빅을 낼 수 있지만, 귀를 가볍게 보면 백 유리])))
+(;B[oh]C[변칙수];W[qb];B[rb];W[qc];B[rc];W[md];B[ld];W[me];B[mc];W[nd];B[lf];W[mf]
+;B[mg];W[lg];B[pi];W[qi];B[qj];W[ri];B[le];W[mh];B[ng];W[ra];B[rg];W[rf]
+(;B[oj];W[pc];B[kg];W[lh];B[kh]C[백 만족])
+(;B[rj];W[pc];B[oj];W[kg]C[백 만족])))
+(;B[pb]C[연구 미완];W[md]
+(;B[pg];W[qg]C[연구 미완]
+(;B[og])
+(;B[mf]))
+(;B[og]C[변칙수];W[pc];B[qc];W[ob];B[qb];W[rd];B[le];W[ld];B[kd];W[me];B[mf];W[kc]
+;B[mc];W[nd];B[ke];W[kb];B[lb];W[ma]C[백 만족]))))
+(;B[qe];W[pf]C[A가 보통]
+(;B[rg];W[me])
+(;B[qg]C[실리 손실이 싫다면 B도 가능, 다만 흑에게 변화의 여지가 많음]
+(;W[pg];B[qh];W[ph]
+(;B[qi];W[pi]
+(;B[qj];W[jc]C[백 충분])
+(;B[pj];W[qf];B[rf];W[rg];B[rh];W[re];B[sg];W[qc];B[rd];W[jc]TR[qi]C[백 충분
+
+흑의 형태가 빈삼각의 형태이므로 백이 충분한 결과다]))
+(;B[pi];W[oi];B[oj]
+(;W[ni];B[pj];W[qf];B[rf];W[re];B[rd];W[nj];B[ol];W[jc]C[백 충분])
+(;W[qf];B[rf];W[re];B[rg];W[qc];B[rd];W[ni];B[ic]CR[pj]C[호각
+
+먼저 끊는 교환을 하면 잇지 않고 상변을 흑이 먼저 가게 된다])))
+(;W[jc]
+(;B[pg];W[nf]LB[og:A][ke:B]C[A, B 맞보기]
+(;B[og];W[ke])
+(;B[le];W[og]))
+(;B[le]))
+(;W[qc]C[상황적인 수법];B[pd];W[od];B[pc]
+(;W[qf];B[ob];W[rg]C[흑 충분
+
+어떤 간격이든 흑이 약간 좋지만 항상 사용할 수 있는 수법이므로 숙지하고 있으면 좋다])
+(;W[pb]C[실수];B[qb];W[qf];B[ob];W[rg]C[흑 만족])))))
+(;W[of]C[B와 C도 좋은 수지만, 수습의 리듬을 주므로 A가 보통이다.
+
+백은 보통 두칸의 가벼운 특성을 살려서 두어간다.]
+(;B[qf]LB[pe:A][qc:B]C[백은 A나 B의 수단이 없는 것은 아니지만 무겁고 약간 아쉬운 결과가 된다. 두칸의 가벼운 특성을 살려 경쾌하게 두는 것이 보통이다.])
+(;B[pc];W[od];B[qf];W[qg];B[rg];W[pf])
+(;B[qg];W[ph];B[pg];W[og];B[oh];W[qh];B[rh];W[pj]C[A가 보통]
+(;B[nh];W[ri];B[rg];W[mf])
+(;B[oi];W[qj]))))
+(;B[ld]C[A가 보통, B는 흑의 원군이 주위에 있을 때 주로 사용한다.]TE[2]
+(;W[pe]
+(;B[pd];W[od];B[oe];W[qe]
+(;B[re];W[rf];B[rd];W[ne];B[of];W[pg]LB[nd:D][og:E]
+(;B[mf]CR[nf]C[한칸의 약점을 뚫으면 우변이 다치는 것을 이용해 중앙을 봉쇄하겠다는 의도.
+
+A와 B가 보통, A가 간명하다]
+(;W[mc]
+(;B[pb];W[lc];B[jd];W[pc];B[qc];W[ob]LB[nf:A][qi:B][jb:C][qb:D]C[백 충분
+
+우변은 A와 B, 상변은 C와 D를 맞보기로 해서 백이 충분하다])
+(;B[lc];W[pb];B[qb];W[lb]
+(;B[kb];W[me];B[le];W[nf]C[백 유리])
+(;B[md];W[nb];B[nd];W[jc]C[백 충분])
+(;B[nd]C[무리수]
+(;W[md];B[me];W[nb];B[kb];W[kc];B[la];W[mb];B[jb];W[qg]LB[rb:A][le:B]C[A, B 맞보기]
+;B[pc];W[pa];B[rb];W[le];B[kd];W[lf];B[mg];W[jc];B[ic];W[jd];B[ke];W[id];B[hc]
+(;W[kf]C[축])
+(;W[jf]C[축이 불리할 때 사용하는 수법];B[kf];W[lg];B[kg];W[lh]CR[jh][mh]C[맞보기]
+(;B[kh];W[mh];B[nh];W[ni];B[oh];W[ng]C[흑 망함])
+(;B[mh];W[li])
+(;B[nh];W[mi]LB[jh:A][ni:B]C[A, B 맞보기];B[kh];W[ni]C[흑 망함];B[oh];W[ki];B[ji]
+;W[oi];B[ph];W[qi];B[kj];W[li]
+(;B[ih];W[pi]C[흑 망함])
+(;B[og];W[pi];B[nf]C[흑 망함
+
+귀는 빅이지만, 백이 말이 안되게 두터워 흑이 망한 결과. 흑의 약점도 많다.]))
+(;B[oh];W[mh];B[og];W[jh];B[qi];W[ri];B[rj];W[rh];B[pf];W[qj];B[qf];W[qk]C[흑 망함])))
+(;W[nb]
+(;B[md]C[정수
+
+환원])
+(;B[kb];W[md];B[me];W[kc];B[la];W[mb];B[jb])))))
+(;W[pb];B[qb];W[mc]
+(;B[md];W[rb]
+(;B[pc];W[ob];B[ra];W[rc];B[qc];W[lc];B[kc];W[me];B[kd];W[nd];B[lf])
+(;B[qa];W[nd];B[nf];W[qg];B[lc];W[pa];B[rc];W[sb];B[mb];W[pc];B[qc];W[se]))
+(;B[lc];W[lb]))
+(;W[qb]C[날일자가 실수인 것은 아니지만, 약간 미흡한 결과가 된다];B[rb];W[qc];B[rc]
+;W[mc];B[lc];W[lb];B[md]C[흑이 밀었을 때, A로 반발하고 싶으나 B로 참아둘 수밖에 없고,
+이후 흑이 완전히 봉쇄할 수 있기 때문에 호각 이상의 결과는 나오지 않는다.]
+(;W[nb];B[nd];W[jc];B[nc];W[mb];B[ob])
+(;W[mb];B[nd];W[ob];B[kb])))
+(;B[pb];W[ph]CR[le]C[B로 마늘모하면 붙여 나갔을 때 봉쇄가 되지 않는다는 절묘한 수법]
+(;B[og]CR[og][ph]C[악수 교환으로 환원];W[ob];B[pc];W[lc];B[kc];W[kd]C[백 약간 유리])
+(;B[ng];W[le]C[맥점]
+(;B[md];W[nd]C[봉쇄가 되지 않는다])
+(;B[nd];W[md];B[nc];W[kd];B[nb];W[nh];B[lg];W[mh];B[mg]
+(;W[gc]C[백 약간 유리])
+(;W[qn]C[백 약간 유리]))
+(;B[ni]
+(;W[pk];B[nd];W[md];B[nc];W[mc]CR[pk][ni]C[이 교환으로 인해 붙이는 활용이 사라졌기 때문에 단수가 정수]
+;B[nb];W[mb];B[ob];W[ic]CR[ni][pk]C[백 만족
+
+이 교환은 집으로 이득이다])
+(;W[qk]C[눈목자도 가능])))
+(;B[nf];W[me]C[백 탈출])
+(;B[nd];W[nf];B[og];W[nh];B[ng];W[mg];B[mf];W[me];B[mh];W[lf]
+(;B[oh];W[oi];B[ni];W[pf];B[nh];W[md];B[pi];W[qi];B[oj];W[qj]C[백 만족])
+(;B[lg];W[oh];B[mf];W[le];B[mg];W[md]C[백 유리])))
+(;B[pc];W[ob]
+(;B[pb];W[le];B[nd];W[me]LB[og:A][md:B]C[A, B 맞보기]
+(;B[og]C[기];W[md]
+(;B[ph];W[qi];B[qh];W[rh]C[백 만족])
+(;B[pi];W[ph];B[oh];W[qi]CR[rg]C[붙이는 게 정수.];B[qj];W[pj];B[oi];W[rj];B[qk]
+;W[rh]C[흑 망함.]))
+(;B[nc];W[og];B[nf];W[mg];B[nb]C[백이 손 빼는 것이 보통
+
+백 만족];W[ng]C[백 충분]))
+(;B[me];W[qb];B[nf]
+(;W[qg];B[pb];W[pa];B[rb];W[ra];B[qc];W[qa];B[sc];W[se];B[nd];W[sf];B[sd];W[oa]
+;B[pf];W[qf];B[nb];W[sb];B[sa]C[한 수 늘어진 패이기 때문에 패를 져도 백 충분])
+(;W[sf];B[pb];W[pa];B[rb];W[ra]
+(;B[sc];W[se];B[sd];W[qh];B[nb];W[nc];B[mb];W[mc];B[lc];W[qc];B[nd];W[oa];B[md]
+;W[qa]C[흑은 손 빼는 것이 보통
+
+귀는 흑이 두면 두 수 늘어진 패, 백이 두면 죽음으로 백 충분])
+(;B[qc]C[실수];W[qa];B[sc];W[se];B[sd];W[qh];B[pf];W[qf];B[nd];W[sb];B[sa];W[oa]
+;B[nb];W[sb]C[초반무패로 이 패는 백이 이겨 백 충분
+
+부분적으로는 한 수에 10.5집의 가치지만 두터움을 감안하면 반상 최대의 자리다]))))
+(;B[nd]C[실수];W[nc];B[md];W[qb];B[rb];W[qc];B[rc];W[lb]C[백 만족])
+(;B[og]C[속수];W[ph];B[oh];W[pi];B[oi];W[pj];B[pb];W[ob];B[pc];W[lc];B[kc]C[A가 정수, B는 실수]
+(;W[kd]C[정수, 백 충분
+
+A, B, C가 보통, D는 실수]
+(;B[le];W[mc]
+(;B[jc]C[정수];W[mf]C[백 충분]
+(;B[kg];W[mh]C[백 만족])
+(;B[oj];W[pk];B[ok]C[미는 것이 최선의 진행인데-];W[lg]C[입구자로 행마하면 백 충분]))
+(;B[jd];W[kb];B[ke];W[jb]C[백 만족]))
+(;B[jd];W[ke];B[le];W[lf];B[mc];W[lb];B[mf];W[mb];B[kf];W[je];B[lg];W[ie]C[백 만족])
+(;B[mc];W[lb];B[le];W[mb];B[jd];W[md];B[ke]C[백 만족])
+(;B[jc]C[실수];W[le];B[md];W[mc];B[ke];W[jd];B[me];W[mf];B[lf];W[nd];B[le];W[ic]
+;B[ib];W[id];B[hb];W[lb];B[jb];W[mg]C[흑 망함]))
+(;W[mc]C[실수];B[kd];W[mf];B[oj];W[pk];B[lg];W[mg];B[mh];W[lf];B[kf];W[lh];B[kg]
+;W[mi];B[nh];W[kb];B[jb];W[ka];B[me]
+(;W[md];B[le];W[jc];B[nf];W[ib]TR[lf][mf][mg]C[호각이지만, 석 점이 죽어서는 백 약간 미흡])
+(;W[nf];B[nd];W[md];B[le];W[nc];B[ja];W[lb];B[ic];W[ma]C[흑 만족]))))
+(;B[rd]C[A는 간명책, B는 기세]
+(;W[qb];B[of];W[re];B[qg];W[rg];B[rh];W[rf]
+(;B[qh];W[pc]C[호각])
+(;B[pi]C[백이 손 빼는 것이 보통
+
+날일자는 백이 받아주면 이어져 있는 수보다 득이라는 의미
+
+받지 않는 것이 기세]
+;W[];B[sg];W[qh]C[잡으면 흑 석 점이 죽는다는 의도
+
+B가 기세]
+(;B[qi];W[rc];B[sd];W[pc]C[흑 넉 점이 죽었다
+
+백 충분])
+(;B[ri];W[og]C[A가 정수, B, C는 흑 불만]
+(;B[pg];W[me]C[백이 근소하게 유리])
+(;B[ng];W[pg];B[oh];W[qf]C[흑 석 점을 제압해서 백 만족])
+(;B[pf];W[pg]C[축]))))
+(;W[pg]C[A가 정수]
+(;B[ne]C[연구 미완];W[qb];B[rb];W[qc];B[rc];W[mc];B[nd]C[찌르는 교환을 안하면 백이 우상귀와 수상전을 벌였을 때 불리함]
+;W[nc];B[lc];W[lb];B[kb];W[mb];B[re]C[A가 일반적이지만, 흑의 상변 발전성이 좋으면 B로 나와서 오른쪽 한점을 끊는다.]
+(;W[qg]
+(;B[le];W[jb];B[ka];W[ra];B[rg];W[rh];B[rf];W[qi];B[pc];W[pb];B[qa];W[la];B[jc]
+;W[pa];B[na];W[ob];B[sg];W[sb];B[sc];W[se]C[호각이지만, 흑이 근소하게 유리])
+(;B[jc];W[ra];B[rf];W[rg];B[pc];W[pb];B[qa];W[pa];B[na];W[ob];B[la];W[ma];B[ka]
+;W[md];B[me];W[le];B[ng];W[jd];B[id];W[ke];B[je];W[kd];B[kc];W[jf];B[hd]LB[ie:A]
+[sf:B]C[B로 귀를 젖히면 후수 빅인데, A로 따내면 귀는 백이 나중에 두면 한 수 늘어진 패로 4/9의 기댓값을 가져갈 수 있기 때문에 그냥 A로 따내는 것이 낫다]
+;W[ie];B[ni];W[pj];B[sb]C[호각]))
+(;W[md];B[me];W[kc];B[jc];W[kd];B[le];W[jb]))
+(;B[of];W[qh]CR[me]C[B로 한칸 뛰는 수는 날일자로 갈라가면 두점이 장문으로 죽거나,
+관통되기 때문에 A가 정수]
+(;B[pc];W[ob]C[3만 하고 돌아가는 것은 득이 없음];B[pb];W[md]
+(;B[me];W[lc]C[A는 무리수]
+(;B[kc]C[무리수];W[le];B[kd];W[ne];B[mf];W[nf];B[ng];W[nd];B[og];W[mg];B[lf];W[ni]
+C[흑 망함
+백은 중앙 방향 축은 상관 없다, 흑은 이 이후의 진행은 손해다.];B[mh];W[lg]
+;B[kf];W[lh];B[li];W[kh];B[ki];W[jh]C[흑 망함])
+(;B[kd];W[kc];B[jd];W[nd];B[mg];W[jc];B[id];W[ne];B[nf];W[le];B[mf];W[ic];B[qj]
+;W[oi]))
+(;B[le];W[me];B[mf];W[lc];B[kc];W[lb]
+(;B[lg];W[jc];B[kb];W[jb])
+(;B[lf]C[축이 유리할 때 두는 정석, 호구보다 두터움이 덜하기 때문에 밀어두어서 백이 선수를 뽑기 때문에 정석은 백이 유리하게 끝난다.]
+;W[kb];B[jc];W[jb];B[ic])))
+(;B[pb];W[me];B[nd];W[md];B[nc];W[mc];B[ob];W[id]C[백 유리])))))
+(;B[qe];W[pf]C[A가 보통]
+(;B[rg]
+(;W[jc];B[ne];W[lb]CR[ld]C[흑의 돌이 높게 있는 만큼 백은 건너갈 수 있다];B[pd];W[od]
+;B[oe];W[ph]C[호각])
+(;W[oi]C[두터움을 중시하는 정석];B[ne];W[pd];B[qc];W[qh]C[A, B 맞보기로 백 충분]
+(;B[id];W[rh])
+(;B[rh];W[jc])))
+(;B[qg]C[실리 손실이 싫다면 B도 가능, 다만 흑에게 변화의 여지가 많음]
+(;W[pg];B[qh];W[ph]
+(;B[qi];W[pi]
+(;B[qj];W[jc]C[백 충분])
+(;B[pj]C[실수];W[qf];B[rf];W[rg];B[rh];W[re];B[sg];W[qc];B[rd];W[jc]TR[qi]))
+(;B[pi];W[oi];B[oj]
+(;W[ni];B[pj];W[qf];B[rf];W[re];B[rd];W[nj];B[ol];W[jc]C[백 충분])
+(;W[qf];B[rf];W[re];B[rg];W[qc];B[rd];W[ni]CR[pj]C[호각
+
+먼저 끊는 교환을 하면 잇지 않고 상변을 흑이 먼저 가게 된다])))
+(;W[jc];B[pg];W[nf]LB[og:A][lf:B]C[A, B 맞보기]
+(;B[og];W[lf];B[ke];W[lb])
+(;B[lf];W[og]))
+(;W[qc]C[상황적인 수법];B[pd];W[od];B[pc];W[qf];B[ob];W[rg]C[흑 충분
+
+어떤 간격이든 흑이 약간 좋지만 항상 사용할 수 있는 수법이므로 숙지하고 있으면 좋다]))))
+(;W[of]C[B와 C도 좋은 수지만, 수습의 리듬을 주므로 A가 보통이다.
+
+백은 보통 두칸의 가벼운 특성을 살려서 두어간다.]
+(;B[qf]LB[pe:A][qc:B]C[백은 A나 B의 수단이 없는 것은 아니지만 무겁고 약간 아쉬운 결과가 된다. 두칸의 가벼운 특성을 살려 경쾌하게 두는 것이 보통이다.]
+(;W[pe];B[qc];W[oh]C[흑 근소하게 유리])
+(;W[qc];B[rc];W[pd];B[qb];W[qe];B[pc];W[rd];B[qc];W[pe];B[ob];W[rf]C[흑 근소하게 유리]))
+(;B[pc];W[od];B[qf];W[qg];B[rg];W[pf])
+(;B[qg];W[ph];B[pg];W[og];B[oh];W[qh];B[rh];W[pj]C[A가 보통]
+(;B[nh];W[ri];B[rg];W[mf])
+(;B[oi];W[qj]))))
+(;B[kc]C[세칸 협공
+
+한칸 협공과 다르게 백을 멀리서 압박하며 이득을 취하려는 의도.
+협공의 최대 간격이기도 하다. 네칸부터는 두칸 벌림을 허용하기 때문에 협공이 아니다.]
+TE[2]
+(;W[pe];B[qe];W[pf]
+(;B[rg];W[le])
+(;B[qg];W[pg];B[qh];W[ph]
+(;B[qi];W[pi];B[qj]C[백 충분
+
+백의 외세가 두터워 백 충분])
+(;B[pi];W[oi];B[oj];W[qf];B[rf];W[re];B[rg];W[qc];B[rd];W[ni];B[hc]CR[kc]C[흑 한 점이 멀리 있어 되협공의 가치가 낮기 때문에 이 수순이 좋다])))
+(;W[pf];B[od]
+(;W[nd]C[축이 유리해야 가능한 수];B[oe];W[pc]
+(;B[of]
+(;W[lc];B[kd];W[ld];B[ke];W[qc];B[re];W[qf];B[qe];W[mf];B[rc];W[pi]C[이론상 흑이 근소하게 유리하지만, 복잡한 전투가 예상된다]
+(;B[nb];W[nc];B[lb])
+(;B[qb];W[pb];B[rb]))
+(;W[qc];B[re];W[rc];B[ph]C[흑 근소하게 유리]))
+(;B[qe];W[qc];B[mb];W[nb];B[mc];W[nc];B[pi])
+(;B[re];W[rc])
+(;B[qc]
+(;W[pd];B[pe];W[qe]
+(;B[qf];W[re];B[rf];W[of]C[축])
+(;B[re];W[qf]
+(;B[me]
+(;W[ld];B[rf];W[lc];B[qh];W[ne];B[of];W[nf];B[og];W[ng];B[oh];W[fc]C[백 만족])
+(;W[lc];B[ld];W[rf];B[nc];W[nb];B[mc];W[lb];B[md];W[qb];B[rb];W[mb];B[pb];W[ob]
+;B[qa];W[jc]
+(;B[kd];W[of];B[ne];W[kb]C[백 만족])
+(;B[kb];W[kd];B[jb];W[ke];B[ic];W[mf];B[nf];W[le];B[ne];W[ng];B[mg];W[lf];B[og]
+;W[nh];B[of];W[oh];B[pg];W[qh]C[흑 망함])))
+(;B[of];W[og];B[me];W[md];B[ng];W[rf];B[le];W[qb];B[rb];W[pb];B[oh];W[pg];B[nh]
+;W[rd];B[mb];W[nb];B[mc];W[nc];B[ld]C[백 만족])))
+(;W[lc]C[백이 축이 불리할 때 사용하는 수법
+
+흑 근소하게 유리한 전투]
+(;B[kd];W[ld];B[ke]
+(;W[qb];B[rb];W[pd];B[pe];W[qe];B[re];W[qf];B[of];W[og];B[nf]C[흑 약간 유리한 전투, 흑 충분])
+(;W[le];B[qf]C[흑 충분]))
+(;B[qf];W[qg];B[rf];W[kd]C[호각
+
+흑 약간 미흡]))))
+(;W[pd];B[pe];W[pc];B[qe];W[oe];B[nd];W[qc];B[rc];W[rb];B[nc]CR[ne]C[대사정석이였다면 밀어가는 것이 정수지만, 지금은 흑 돌을 제압할 수밖에 없다.
+
+마늘모가 흑의 의도에 반발하는 수]
+(;W[qg];B[rg];W[rh];B[re])
+(;W[qf];B[rf];W[rg];B[of];W[ne];B[me];W[nf];B[og];W[re];B[rd];W[sf];B[mg];W[sc]
+;B[mf];W[sd]CR[kc]C[흑 한점의 위치가 너무나 안성맞춤이다. 흑 약간 만족]))))
+(;B[kd]TE[1]
+(;W[pe];B[qe];W[pf]
+(;B[rg]
+(;W[ic];B[ne]
+(;W[mc])
+(;W[me];B[nd];W[pd];B[qc];W[lc]
+(;B[kc];W[kb];B[jb];W[mb];B[ka];W[lb];B[jc];W[mf]C[백 충분
+
+두 점을 제압해서 백 충분])
+(;B[mf];W[mb]C[백 충분
+
+상변을 건너가서 백 충분])
+(;B[nc]C[무리수];W[nb];B[mb];W[pb];B[na];W[ob];B[mc];W[ld];B[mf];W[lf];B[ng];W[ph]
+;B[lg];W[kf];B[kg];W[jf]CR[kd]C[백이 유리한 전투
+
+백이 흑 한 점을 제압하고 시작하는 전투기 때문에 백 만족])))
+(;W[oi]C[두터움을 중시하는 정석];B[mc]
+(;W[qh];B[ne];W[pd];B[qc];W[rh];B[og];W[pg]C[백 충분])
+(;W[me])))
+(;B[qg];W[pg];B[qh];W[ph]
+(;B[qi];W[pi];B[qj]C[백 충분
+
+백의 외세가 두터워 백 충분])
+(;B[pi];W[oi];B[oj];W[qf];B[rf];W[re];B[rg];W[qc];B[rd];W[ni];B[hd]CR[kd]C[흑 한 점이 멀리 있어 되협공의 가치가 낮기 때문에 이 수순이 좋다])))
+(;W[pf];B[od]
+(;W[pd];B[pe];W[pc];B[qe];W[oe];B[nd];W[qc];B[qf];W[of];B[qh];W[mb];B[mf]C[호각])
+(;W[nd];B[oe];W[pc];B[qe]
+(;W[le]C[호각
+
+이론상 호각이지만 백이 중앙에 떠있기 때문에 썩 기분 좋지 않은 정석])
+(;W[ne];B[of];W[qc]CR[ne][of]C[한 점이 다쳐서는 흑 근소하게 유리])
+(;W[qc];B[ne];W[md];B[me]C[흑 두터움, 흑 약간 유리]))))
+(;B[od]C[구정석]TE[1];W[nd];B[oe]
+(;W[pc];B[qc];W[ne]
+(;B[nf];W[mf]
+(;B[ng];W[mg];B[nh];W[mh];B[ni]LB[fc:A][qn:B]C[백 근소하게 유리
+
+우상귀만 놓고 봐서는 불확실한 상황이므로 아직 누가 좋다고 말할 수는 없으나, 일단 흑이 이단젖히지 못하고 물러나 백이 영역을 크게 가지고 시작하므로 보통 백이 약간 편하다. 이후 A와 B가 거의 맞보기다.])
+(;B[mg];W[pd];B[pe];W[qe];B[og];W[re];B[nc];W[nb];B[mc];W[qb];B[me]C[백 약간 유리
+
+자체로도 백이 약간 유리하고, 애초에 흑이 붙여뻗는 정석을 선택하는 이유가 우변을 키우기 위한 의도임을 고려하면 대부분의 경우 백이 좋다.]))
+(;B[og];W[nf];B[qg];W[jc]C[백 약간 유리])
+(;B[of]
+(;W[nf]C[백 약간 유리
+
+기세])
+(;W[lc]C[백 약간 유리
+
+타협]))
+(;B[qg]
+(;W[of];B[pf];W[og]C[백 약간 유리
+
+기세])
+(;W[kc]C[백 근소하게 유리
+
+타협])))
+(;W[qc]C[실수];B[pc];W[pb];B[pd];W[nb]C[흑 충분];B[qb]))
+(;B[qg]C[구정석]TE[1];W[pf]
+(;B[qf];W[qc];B[rc];W[pd]
+(;B[qe]C[백 약간 유리, 이후 진행은 정석 이후
+
+백이 정말 탄력이 많은 형태라 발 느리게 받을 필요가 없다.]
+(;W[kd])
+(;W[qb]))
+(;B[qb];W[qe];B[pc];W[rd];B[qc];W[rf];B[od];W[pe];B[nc];W[qi]C[백 약간 유리]))
+(;B[pc]C[반발, 정수.];W[od];B[qf]C[호각])
+(;B[od]C[또다른 반발];W[nd];B[oe];W[pc];B[qc];W[qf]C[백 약간 유리
+
+흑을 가르는 형태가 좋기 때문에 백이 약간 유리한 전투가 된다.]
+(;B[pd];W[mc];B[pg]C[최강수]
+(;W[kd];B[ne]C[백 근소하게 유리])
+(;W[of]C[살려나오는 것이 일감이자, 최강인데-];B[ne]CR[of][pf]SQ[ne][oe]C[물론 백이 관통한 형태라 석 점을 살려 전투한다면 백의 실속이 약간 좋은 것은 사실이지만, 흑도 관통한 형태라 싸워나가겠다는 뜻이다.]
+;W[me];B[nf];W[og];B[rf]C[젖혔을 때 여기서 차단하지 못한다면 반발의 의미가 없어진다.]
+;W[re];B[rg];W[qe]
+(;B[ld]C[비수];W[md];B[mf])
+(;B[mf];W[oi];B[le];W[qj];B[kc])))
+(;B[qe];W[rg]))
+(;B[pg]C[또다른 반발];W[pd];B[qe];W[qc];B[rc];W[rb];B[qb];W[pc];B[sb];W[rd];B[ra]
+;W[qf]C[백 근소하게 유리
+
+이 반발은 관통되는 흐름이라 흑이 만회하는 결과는 나오지 않는다.]
+(;B[ng];W[re]C[백 근소하게 유리
+
+어차피 관통되는 형태기 때문에 이렇게 버리는 것이 더 낫다.])
+(;B[re];W[rf];B[sd];W[pe];B[ng]
+(;W[ld]C[백 약간 유리])
+(;W[kd]C[백 약간 유리])
+(;W[mf]C[백 약간 유리]))))
+(;B[pg]C[변칙수];W[oe]
+(;B[pe];W[of]
+(;B[pc]
+(;W[ob]
+(;B[pf];W[kd]C[백 충분])
+(;B[kc];W[pf];B[qf];W[qg];B[qh];W[rg];B[pi];W[rh];B[ri];W[qj];B[qi];W[og];B[ph]
+;W[rf];B[qe];W[qb]
+(;B[rc];W[ni];B[pj];W[ic];B[ke]C[백 충분
+
+이후 진행은 참고도다];W[rb];B[gc];W[qc]
+;B[re];W[sc];B[sf]C[백 충분
+
+귀는 안형이 보장되는 형태기 때문에 백이 충분하다])
+(;B[ni];W[rj];B[sh];W[rc];B[re]C[백 충분])))
+(;W[pb]C[간명책];B[qb];W[pf];B[qf];W[od];B[qg];W[pd];B[qc];W[jc]C[흑 근소하게 유리]))
+(;B[kc]C[실수];W[pf];B[qf];W[qg];B[qh];W[rg];B[pi];W[rh];B[ri];W[qj];B[qi];W[og]
+;B[ph];W[qc];B[rf];W[rd]C[백 유리]))
+(;B[qf];W[qc];B[rc];W[pd];B[re]C[백이 손 빼는 것이 보통, 백 충분])
+(;B[pf];W[qb]TR[pg]C[백 충분])
+(;B[nd];W[od];B[qf];W[re];B[qe];W[qc];B[rc];W[qb];B[rb];W[lc];B[jc];W[le]C[백 충분]))
+(;B[pi]CR[pe]C[변칙수
+
+백이 날일자 씌워올 때 나와끊겠다는 의도의 함정수.];W[pe]
+;B[pd];W[od];B[oe];W[pf];B[of];W[re];B[rd];W[og];B[ng];W[pg];B[nh];W[pc])
+(;B[]C[일반적으로 B보단 A가 약간 더 낫다.
+
+우변을 키우거나 부수고 싶다면 C, 흑돌을 공격하고 싶다면 D]
+(;W[pf]
+(;B[od]
+(;W[pd];B[pe];W[pc]
+(;B[qe];W[oe]
+(;B[nd];W[qc]C[A가 보통]
+(;B[qf]C[대사정석의 핵심적인 변화.
+
+대사정석은 흑13까지의 이 수순으로 가장 많이 진행된다. 이후 A, B, C 모두 유력한 갈림이다.
+
+A는 기본형]
+(;W[of];B[qh];W[mb]C[흑이 손 빼는 것도 가능
+
+흑 근소하게 유리]
+(;B[ld]
+(;W[oh];B[pj];W[lg];B[jd]C[호각
+
+대사정석의 기본형])
+(;W[mf];B[kf];W[ni];B[pj]C[호각]))
+(;B[];W[me]C[흑 근소하게 유리]))
+(;W[ne]
+(;B[nc];W[me];B[ob];W[pb];B[mb];W[oa];B[nb];W[rd];B[re];W[rc];B[pg];W[lc];B[kb]
+;W[lb];B[la];W[kc];B[jb];W[ka];B[ja];W[id];B[hc];W[ma];B[na];W[pa]C[먹여치고 잇는 것이 효율적으로 우상귀를 살아두는 수순이다.])
+(;B[md]C[흑이 축이 유리해야 가능한 수법];W[me];B[ld];W[le];B[kd];W[pg];B[rh]C[B는 참고도, C는 축]
+(;W[qh];B[ri];W[rg];B[qg];W[rf];B[ph];W[qi];B[of];W[og];B[qj]C[축])
+(;W[ke]
+(;B[jd];W[qg];B[rg];W[rd];B[re];W[se];B[rf];W[rb];B[qj])
+(;B[rc];W[rb];B[rd];W[nb];B[jd];W[lb];B[je];W[pj]))
+(;W[qg];B[rg];W[rd];B[re];W[se];B[rf];W[rb];B[qj]LB[ke:A][jd:B][hc:C]C[백이 바로 협공하는 것은 흑의 자세가 좋기 때문에, A, B 교환 후에 C로 협공하는 것이 이상적인데-]
+;W[ke]C[흑 충분
+
+교환 후에 밀면 흑은 A나 B로 효율적이게 행마한다.]
+(;B[ic])
+(;B[hc]))))
+(;W[pg];B[ne];W[of];B[qg];W[ph];B[qh];W[pi]
+(;B[qi];W[mb];B[pj];W[oj];B[pk];W[lg]C[흑이 손 빼는 것도 가능
+
+이후 흑 A가 상당히 큰 대세점이다.
+
+이후 진행은 정석 이후]
+(;B[kf];W[lf];B[kd];W[le]C[백이 정말 단순하게 들여다본다면-];B[gc]C[흑 근소하게 유리
+
+31로 가볍게 행마해서 흑이 약간 활발하다])
+(;B[]C[좌상귀가 백이라면 A, 흑이라면 B, C, D가 보통]
+(;W[if];AW[dd]CR[dc]C[화점 혹은 D17의 소목])
+(;W[ec];AB[cd])
+(;W[fc];AB[dd])
+(;W[dd];AB[dc];B[ec];W[cd];B[cc];W[gc];B[ed];W[hf])))
+(;B[nc];W[qi];B[rc];W[rb];B[rd];W[nb];B[mb];W[ob]
+(;B[lc];W[sb];B[ri];W[rj];B[rh])
+(;B[sb];W[lb];B[mc];W[ma]))))
+(;B[nc])
+(;B[rc]C[구정석];W[rb];B[qg]
+(;W[of];B[rd];W[mb])
+(;W[ne])))
+(;B[of]C[구정석];W[nd];B[ne]
+(;W[me];B[od];W[qc];B[oe];W[md]
+(;B[pi]C[백 약간 유리])
+(;B[pj]C[백 약간 유리]))
+(;W[qc];B[od];W[md];B[pg]C[백 충분])))
+(;B[oe]C[구정석];W[qe];B[qf];W[re];B[pg];W[rf];B[of];W[rg]CR[rd]C[백 약간 유리, 흑은 손을 빼는 것이 보통
+
+14, 16이 2선을 기어 발이 느린 것처럼 보이지만, 제압해야할 돌 한 개를 절약하고 있다. 또, 흑 한 점이 상당히 깔끔하게 죽어있다는 것도 백의 기분 좋은 부분.]))
+(;W[nd];B[oe];W[pc]
+(;B[qe];W[qc];B[pi]C[흑 근소하게 유리])
+(;B[of]
+(;W[qc];B[re];W[qf];B[qe];W[ld];B[pj]C[흑 근소하게 유리
+
+이후 진행은 참고도];W[og]
+;B[ng];W[oh];B[qh];W[nh];B[lg]C[흑 근소하게 유리])
+(;W[lc];B[qc]
+(;W[qe]
+(;B[pd];W[ph]C[호각])
+(;B[pg];W[qg];B[qh]))
+(;W[ph];B[qf]C[흑 근소하게 유리])))))
+(;B[pe];W[oe];B[qf];W[pg];B[qg];W[ph];B[od];W[nd];B[pd]
+(;W[md]C[양쪽을 수비하는 맥점
+
+다만, 백이 형태가 약간 나쁘기 때문에 이 교환은 흑의 이득이다.]
+(;B[ri]C[백 근소하게 유리])
+(;B[qh];W[pi];B[qj]C[백 근소하게 유리]))
+(;W[ne]C[구정석];B[nc];W[mc];B[nb];W[ld];B[ob]C[호각])))
+(;W[pe]
+(;B[qe];W[pf]
+(;B[qg]C[호각, 백이 손 빼는 것이 보통];W[pg];B[qh];W[ph]
+(;B[pi];W[qi]CR[pp]C[백돌이 우하귀에 있다면 끊어갈 수 있다.
+
+끊어갈 수 없다면, 날일자 대신 눈목자로 씌우는 것이 보통이다])
+(;B[qi];W[pi];B[qj]))
+(;B[qf];W[pg]
+(;B[qh]CR[qf][pg][qc]C[호각
+
+붙임 등의 귀의 수단을 완전히 제거하겠다는 의도, 대신 한 번 더 밀어준 교환으로 백이 약간 더 두터워진다.
+
+이 정석과 밀지 않는 정석은 취향 차이지만, 밀지 않는 정석이 보통이다.])
+(;B[qg]C[상황적인 수법];W[ph]LB[qh:A][pb:B]C[백 근소하게 유리, 백 두터움
+
+백 A엔 흑 B로 받는다
+
+이후 진행은 참고도]
+;AB[pq][co][ep][fp][oq]AW[dq][eq][gq][qo][op][np]C[가령 이러한 배석처럼 하변의 발전성이 낮은 경우, 흑이 후수로 한 칸 뛸 수도 있지만,]
+;B[nq];W[mp];B[mq]C[이런 식으로 밀어간다면 백이 뻗는 것은 하변의 발전성이 작기 때문에 흑이 충분하다는 의도로 종종 두어진다.
+
+백도 손을 빼는 것이 보통이다. 쌍방 호각])))
+(;B[pc];W[pb];B[od];W[pd];B[qc];W[nb];B[nc];W[ob];B[qe];W[pf];B[qg];W[nd]))
+(;W[qg]
+(;B[pf];W[pg];B[of]C[밀어올리는 것은 우변을 키울 때 사용하는 수법.]
+(;W[qk]C[우변을 부수는 수법])
+(;W[og];B[pc];W[od];B[qf];W[nf])
+(;W[re]))
+(;B[pe]))
+(;W[qf]
+(;B[qe]C[치받는 수가 강력하기 때문에, 4는 흑을 공격할 때만 사용한다.])
+(;B[pe]))))
+(;W[od]TE[2]
+(;B[oc]TE[2]
+(;W[nc]
+(;B[pc]C[과거에는 여기서 손을 빼는 포석도 있었지만, 현대에는 두지 않는다]TE[2]
+(;W[nd]
+(;B[qf]C[통념과는 달리, A의 높은 벌림보다 B의 낮은 벌림이 다가섰을 때 더 통렬하다
+
+따라서 백은 발전성도 낮고 맛도 나쁜 세 칸 낮은 벌림을 둘 이유가 없다]
+(;W[jd]C[기본 정석, 이후 진행은 정석 이후
+
+흑아 소목 모붙임 정석보다 2집 많기 때문에(대신 백도 더 두텁다) 정석이지만 백이 약간이나마 편하다고 본다. 하지만 충분히 훌륭한 정석이다.
+
+현대의 바둑에서는 갈 수록 백의 연구가 심화되고 있어, 백이 소목 날일자 걸침에서 협공 당하더라도 충분히 유리한 갈림을 가질 수 있기 때문에 한칸 높은 걸침보다 집에 짠 날일자 걸침으로 보통 둔다.
+
+흑은 A로 다가서는 것이 더 강력한 수단을 가지고 있다]
+(;B[hd]
+(;W[hc];B[gc];W[ic]C[소목 한 칸 굳힘이나 두 칸 굳힘이라면, 손 빼는 것도 가능하다.]
+;B[];W[gd];AB[dc][df];B[ge];W[fd];B[fc];W[fe];B[ff])
+(;W[];B[ld];W[lc]C[흑의 의도];B[kc];W[kd];B[lb];W[mc];B[jc];W[le];B[id]C[흑 만족]))
+(;B[hc];W[]LB[ie:A][kc:B][kd:C][ld:D]C[흑에 강력한 수법은 없고, A로 두는 것이 일반적이나,
+B~D 등의 수단도 존재한다
+
+9로 낮게 다가섰을 때, 높게 다가서는 것에 비해 흑의 강력한 수단이 없
+다]
+(;B[ie]CR[dd]C[백은 지키기 전에 먼저 좌상귀에서 활용하는 것이 수순이다
+
+손뺌도 가능]
+(;W[ic];B[hb];W[je];B[if];W[jf];B[ig])
+(;W[];B[je];W[kd];B[ke]))
+(;B[kc];W[kd];B[jc];W[id];B[ic];W[lc])
+(;B[kd];W[kc];B[lc];W[lb];B[kb];W[jc];B[mb];W[ld];B[mc];W[ke];B[nb])))
+(;W[jc];B[hc]C[현대에는 A로 받는 것은 느슨해서 잘 두어지지 않는다]
+(;W[je];B[lc]C[함정수
+
+A가 정수, B는 실패]
+(;W[le]MA[jb]C[건너가는 수는 작동하지 않는다
+
+이후의 진행은 참고도다];B[jb];W[ib]
+;B[ic];W[kb];B[jd];W[kc];B[kd];W[ld])
+(;W[kd]C[흑의 의도];B[me]
+(;W[ld]C[정수
+
+흑 근소하게 유리
+
+흑이 차후에 2선 젖혀서 건너가자고 하는 수가 있다]
+(;B[mc];W[md];B[nb]C[백 두터움])
+(;B[nb];W[mb];B[mc];W[lb];B[md];W[ob];B[na];W[oa];B[oe];W[ma];B[nb];W[];B[id];W[kc]
+;B[ib]))
+(;W[md]CR[le][kf][lf]C[백 불리
+
+중앙에서 듣는 자리가 많기 때문에 중앙 전투에서 불리하면서도, 2선의 끝내기도 나중에 선수라 백이 불만이다.])))
+(;W[];B[lc]C[A는 좋지 않다. B가 정수]
+(;W[ld];B[kd];W[kc];B[le];W[md];B[jd];W[lb];B[ic]CR[mb]C[흑이 젖혀가는 맛이 있어 상변의 백은 아직 미생이다.])
+(;W[kd]C[정수];B[ld];W[le]
+(;B[lb];W[kf]LB[ob:A]C[백이 A를 젖힌다면 선수로 집 이득을 보게 되기도 하고,
+어차피 흑이 2선을 건너갔을 때 백의 형태가 엷어 가일수해야 하기 때문에 건너가는 수까지 교환을 하는 것이 낫다.]
+;B[nb];W[pg];B[pf];W[ng];B[og];W[oh];B[of];W[nj])
+(;B[me]C[B가 기존에 알려진 응징법이지만, A가 더 낫다.]
+(;W[lf]
+(;B[lb];W[pe];B[qe];W[ng])
+(;B[md];W[pe];B[qe];W[mf];B[ne];W[nf];B[oe];W[of];B[pf];W[lb];B[mb];W[kc];B[pd]
+C[백 약간 편함]))
+(;W[md];B[lb];W[ke];B[nb];W[mf]TR[md]C[백이 한 점을 제압하긴 했지만 빈삼각이기 때문에 흑 약간 좋다]))))))
+(;B[jd]
+(;W[qg]C[C는 실수]
+(;B[pe];W[of])
+(;B[rf];W[og])
+(;B[pf];W[qe]))
+(;W[pf];B[rf]))
+(;B[pf];W[jd];B[]
+(;W[qh];B[rg]C[호각])
+(;W[qe]
+(;B[qf]C[정수]
+(;W[pe];B[re];W[rd];B[rc];W[rf];B[sd];W[of];B[og];W[pg];B[qg];W[ph];B[nf];W[oe]
+;B[rh]C[흑 약간 유리])
+(;W[pd]C[우변에 백의 응원군이 있을 때 가능한 수법];B[qc];W[re];B[pe];W[rf];B[rg]
+;W[rh]))
+(;B[pe]C[약간 실수];W[pd];B[qc];W[qf];B[pg];W[qg]
+(;B[qh]C[흑이 축이 유리해야 가능한 수법];W[rh];B[ri];W[ph];B[qi];W[og];B[oh];W[pi]
+;B[of];W[ng];B[nf];W[mf];B[nh]C[축];W[qj];B[rg];W[rj];B[sh];W[mg];B[pj];W[oi];B[re]
+C[백 두터움, 백 만족])
+(;B[ph];W[ri]C[백 만족]))))
+(;B[qg]CR[pg]C[흑이 두 칸으로 넓게 벌리면,
+
+백은 1의 돌 위에 붙이는 맛을 이용해 국면을 조금 더 호방하게 운영한다. 아니라면 B도 가능하다.]
+(;W[pg])
+(;W[pd];AB[dc][ce]AW[dp][pp]CR[pg]C[가령 이런 경우는 위로 붙이는 맛을 이용해서 호방하게 운영할 수 없기 때문에-]
+;B[qc];W[qf]
+(;B[pf];W[qe];B[pe];W[rg]C[백 약간 유리])
+(;B[rf];W[pf];B[rh]LB[jd:A][pg:B]C[이 교환을 통해 A, B를 맞보기로 보고 큰 자리를 차지할 수 있다.]
+;W[cn];B[jd];W[pg];B[ph];W[oh];B[pi];W[df]C[백 충분]))))
+(;W[md]C[흑은 손 빼는 것이 보통
+
+호구치는 수로 인해 귀의 흑에 대한 강제성이 부족하다.
+이후 흑이 손빼면 흑 약간 만족.]
+(;B[]
+(;W[pf];B[oe];W[pe];B[pd];W[nd];B[rf])
+(;W[qe];B[re]C[A의 수순은 백이 호구치지 않고 이어두었다면 강력한 수단이였지만,
+호구이기 때문에 흑이 나오는 자세가 좋다]
+(;W[rf];B[pe];W[qf];B[oe]C[흑 충분])
+(;W[pd];B[rc];W[qf];B[rf];W[qg]C[흑 충분])))
+(;B[ne]
+(;W[nd];B[pf]
+(;W[jd]C[이후 진행은 정석 이후];B[];W[qh];B[qg]
+(;W[pd];B[qe])
+(;W[ph]))
+(;W[qh];B[qg];W[pd];B[qe];W[jd])
+(;W[qe]C[무리수]))
+(;W[me]C[흑은 손 빼는 것이 보통]
+(;B[nb];W[mb];B[nd];W[mc];B[nf];W[mg];B[ng];W[nh];B[mf];W[lf];B[oh];W[mh];B[oi]
+;W[og];B[oe]C[호각])
+(;B[nf];W[nd];B[pf]CR[me][nf]C[백은 상변이 두터워졌고, 흑은 폐석을 움직인 꼴이므로 이 교환은 백의 이득]
+;W[id]))
+(;W[oe]C[변칙수];B[nb];W[nf];B[lc]C[흑 만족])))
+(;W[nf]C[상황적인 정석])
+(;W[];AB[dd]AW[cf]C[과거에는 우상에서 손을 빼고 좌상에 먼저 걸쳐서 응수를 물어보는 수법이 자주 나왔었는데-]
+(;B[fc];W[md];B[qf]C[(구정석)];W[ic]CR[fc][lc]C[좌상이 눈목자에 있는 것이 아닌, 날일자의 위치에 있기 때문에 상변의 침투를 노리기에 약간 적절하지 않은 위치라는 의도로 자주 두어지던 포석이였다.])
+(;B[nd]C[하지만 현대에는 끊는 수가 흑이 좋가 때문에];W[fc]C[이러한 식으로 전개되어도 이 포석은 흑이 약간 좋다고 본다. 결국 우상은 급한 자리이므로 백이 가일수하지 않고 손을 빼는 수은 현대에는 거의 나오지 않는다고 봐도 무방하다.])))
+(;B[ob]C[구정석]TE[1];W[nb];B[pd];W[oe]
+(;B[pf];W[ng];B[gc];W[ph];B[kc];W[qb]LB[pe:A][qf:B][rg:C]C[A, B, C가 일반적인 수법이다.]
+(;B[pc];W[rg];B[rf];W[qh];B[qg];W[pg];B[qf];W[of]C[백 약간 만족])
+(;B[pb]))
+(;B[qg];W[jd])
+(;B[qf];W[pg])
+(;B[pg];W[kd])))
+(;W[pd];B[pc];W[qe]C[A, B가 가장 일반적이지만, 모두 둘 수 있다.]
+(;B[nd]C[작은 눈사태 정석];W[qc];B[rd];W[qb];B[re]C[축이 유리하면 A, 축이 불리하면 B가 정수]
+(;W[qf]C[축이 유리해야 가능한 수법]
+(;B[rf]
+(;W[nc];B[oe];W[pe];B[qg];W[pf];B[of]C[축])
+(;W[qg]C[실수];B[mc]C[백 망함];W[qi];B[rc]C[귀가 공짜로 죽어버려서는 백이 곤란하다.]))
+(;B[pb];W[nc];B[nb];W[mc];B[ne];W[of];B[mb];W[lc];B[rb]C[A가 보통]
+(;W[nf]
+(;B[le];W[mf];B[ld];W[jc]C[호각, 전투])
+(;B[];W[le]C[백 약간 유리]))
+(;W[mf];B[nf];W[ng];B[mg];W[oe];B[me];W[lf];B[le];W[ke];B[og];W[nh];B[kf];W[lg]
+;B[kd];W[je];B[ld];W[jd];B[kc];W[pg]C[흑 약간 유리])))
+(;W[pf]C[A가 기본형]
+(;B[ne];W[of];B[pb];W[nc];B[nb];W[mc];B[mb];W[lc];B[rb]CR[qf]TR[pf]C[뻗어져 있어야됐을 백 한 점이 호구의 위치에 있기 때문에 실리로는 흑의 이득이다.]
+(;W[mg]CR[pf]C[다만 백도 한 발 더 나아갈 수 있다는 것이 자랑이다. 보통 호구 쳐져있는 진행이 흑이 약간 더 낫다.]
+;B[le];W[jd];B[kf]C[호각, 전투])
+(;W[le];B[nf];W[oh])
+(;W[mf];B[ld]
+(;W[kc]
+(;B[le];W[je];B[jf];W[ie];B[oe];W[pe];B[nf];W[ng];B[og]CR[kf]C[끊음을 통해 단점을 효율적으로 정비할 수 있다는 의도]
+;W[pg];B[oh]
+(;W[ph];B[mg];W[nh];B[oi]CR[kf]C[흑 만족
+
+흑이 단점을 효율적으로 정비했고, 백이 수습하기 어렵다.])
+(;W[lf]C[정수, 기세];B[mg];W[nh];B[ni];W[mh];B[kf]
+(;W[ph];B[oi];W[pi];B[lg];W[lh];B[kg];W[mj];B[ok]
+(;W[qk]
+(;B[nk];W[kj]C[흑 약간 유리])
+(;B[gc];AB[dd]AW[dp][pp]C[흑 약간 유리]))
+(;W[pl]C[무리수];B[pk];W[qk];B[nk];W[ql];B[kj]CR[lh][mh][nh][ng]C[흑 유리
+
+백이 어떻게 두어도 백 넉 점을 살릴 수 없다.]))
+(;W[lg]C[무리수];B[ke]CR[je][ie]C[백 만족
+
+흑이 단점을 정비하면서 상변 백 두 점까지 다치게 된다. 백은 차라리 따내지 않고 두 점을 버리는 것이 낫다.])))
+(;B[lf];W[lg];B[kf]
+(;W[kd];B[me];W[nf];B[kg];W[lh];B[kh]C[흑 약간 유리, 전투])
+(;W[hc]C[흑 약간 유리])))
+(;W[md]C[구정석];B[me];W[le];B[lf];W[kd];B[nf];W[kf];B[mg];W[oh];B[kg];W[jf]C[흑 만족])))
+(;B[of];W[pg];B[ne];W[pe];B[pb];W[nc];B[nb];W[mc]
+(;B[mb]
+(;W[pa]C[정수];B[ob];W[rc];B[rf];W[lc];B[lb]C[A가 보통, B는 변칙수]
+(;W[kc];B[qh];W[kb];B[ra];W[mf]C[흑이 근소하게 유리])
+(;W[rg];B[kc];W[sf]CR[ra]C[얼핏 백의 실리가 커 보이지만, 흑은 귀에 치중하는 끝내기가 있어 흑이 약간 유리하다.]))
+(;W[lc]C[실수];B[rb]C[흑 만족]))
+(;B[rb];W[mb];B[qa]C[호각]
+(;W[jc])
+(;W[kd])))))
+(;B[rd];W[nd];B[nc];W[md];B[mc];W[ld]C[흑 근소하게 유리])
+(;B[nc]
+(;W[rd];B[qc]C[백이 손 빼는 것도 유력]
+(;W[pf])
+(;W[pj]CR[qf]C[백으로 호구 치지 않고 벌리는 것은 발은 빠르지만 엷은 형태가 된다. 차후에 백은 붙이는 수가 맥점으로-]
+;B[qf];W[pe];B[rf];W[re];B[qh];W[me];B[kc]C[쉽게 백진이 무너진다. 따라서 백은 호구로 지켜두는 것이 보통이다]))
+(;W[nd]C[구정석]
+(;B[md]C[큰 눈사태 정석, 대붕설형];W[qc];B[rd];W[qb]
+(;B[re];W[mc]
+(;B[ne]C[현대의 정석]
+(;W[of];B[qf];W[pf];B[mb]C[흑 충분한 전투])
+(;W[pe];B[qf];W[pf];B[pg];W[qg];B[rf];W[of];B[og];W[nf];B[mb];W[lc];B[lb]C[흑 충분]))
+(;B[me]C[구 정석
+
+B도 가능하지만, 흑백 모두 만만치 않은 변화기 때문에 A로 둬도 충분한 흑이 타협하는 것이 보통]
+(;W[pb]
+(;B[lc];W[mb];B[pe];W[nb];B[qf]C[백 근소하게 유리])
+(;B[mb];W[lc];B[nb]
+(;W[pf];B[qf];W[pe];B[pg]C[환원])
+(;W[qf]C[축이 유리해야 가능한 수법];B[pe];W[oe];B[pf];W[nf]
+(;B[pg];W[qg]C[필수];B[qh]CR[qg][qh]C[이 교환으로 장문을 예방하고 있다];W[lb];B[mh]
+;W[mg];B[lg];W[nh];B[ni];W[lh];B[mi];W[lf];B[kg];W[mf];B[kf];W[ke];B[je];W[le]C[백 약간 유리])
+(;B[of]C[축]))))
+(;W[pf]C[전투];B[qf];W[pe]
+(;B[pg];W[pb]
+(;B[lc]
+(;W[mb];B[qg]C[백 근소하게 유리])
+(;W[qg];B[rf];W[mb];B[qh]C[백 근소하게 유리
+
+대동소이하다]))
+(;B[mb];W[lc];B[nb]C[전투];W[nf]
+(;B[kc];W[lb];B[kb];W[ld];B[la]
+(;W[qg];B[rf];W[rg]C[백 약간 유리]
+(;B[qi];W[ph];B[og];W[ri]C[백 약간 유리])
+(;B[ph];W[qi]C[백 약간 유리])
+(;B[le];W[ph];B[og];W[mg]C[백 약간 유리]))
+(;W[ma]C[백이 축이 유리해야 가능한 수법]
+(;B[le]C[축])
+(;B[ka];W[oa];B[na];W[qg];B[rf];W[qh];B[ph];W[qi]C[백 약간 유리])))
+(;B[lb];W[qg];B[rf];W[rg];B[qi];W[ph];B[og];W[ri]C[백 약간 유리])))
+(;B[mb];W[lc]
+(;B[pg];W[pb];B[nb];W[nf]C[환원])
+(;B[lb];W[qg];B[rf];W[ph]
+(;B[kc];W[rc]C[백 근소하게 유리])
+(;B[pb])))))
+(;B[mb];W[lc];B[ne]C[현대의 수법
+
+C는 참고도]
+(;W[of])
+(;W[pe])
+(;AB[dp][ep][fp][co][cq][cr][gq][hq]AW[cp][dq][eq][fq][gp][bp][bo][gr];W[hr]CR[qe]
+C[백이 젖히지 않고 그냥 밀면-];B[cn]CR[qe]C[흑이 먼저 뻗는 타이밍이 나오므로, 이 젖힘의 교환을 통해]
+(;W[of]C[백이 뛰던-];B[qf])
+(;W[pe]C[잇던-];B[qf]CR[ne]C[이 젖힘을 희생타로 우변에서 젖힘으로 약간의 이득을 취하겠다는 의도다. 발상도, 판단도 어렵지만 실전적인 수법이다.]))))
+(;B[rc];W[mc];B[lc];W[rb];B[re];W[mb];B[nb];W[lb];B[pb]C[연구 미완];W[qf];B[ld]
+(;W[rf];B[kb];W[sc])
+(;W[kc];B[kd];W[jc];B[rf];W[qg];B[of];W[pe];B[rg];W[oa];B[pa];W[na];B[ra];W[qi]))
+(;B[rb])
+(;B[pe]))
+(;B[rd]C[환원])))
+(;B[qc];W[nd]
+(;B[re];W[qf];B[rf];W[qh]C[호각])
+(;B[mc]
+(;W[pf]C[호각])
+(;W[rf]C[호각])))))
+(;B[lc]C[현대의 수법
+
+현대에 한 칸 높은 걸침에 협공하는 수는 거의 두 칸 낮은 협공을 사용한다
+
+A는 두칸 낮은 협공으로 환원
+B는 흑이 젖혀서 끊는 수법을 사용하면 호각.]
+TE[2]
+(;W[pf]
+(;B[oe];W[pe];B[pd]
+(;W[oc])
+(;W[nd];B[of];W[re];B[me];W[rd];B[pb];W[ob];B[rb])
+(;W[ne];B[oc];W[of];B[nc]TR[pf]C[흑 만족
+
+백 한 점이 쓸모없는 위치에 있으므로 흑 만족]))
+(;B[qf]C[흑이 축이 유리해야 가능한 수법]
+(;W[qg];B[pg]
+(;W[of];B[qh];W[rg];B[rf];W[rh];B[qi];W[ph];B[og];W[pi]C[축, 백 충분];B[nf];W[qj]
+(;B[ne]C[A와 B 둘 다 가능하다]
+(;W[oh];B[ng];W[qc])
+(;W[mc]
+(;B[oe])
+(;B[ld];W[oh];B[ng];W[qc]CR[mc][ld]C[뻗으면 살려나갈 때 이 교환이 이득이라는 의도])
+(;B[md];W[lb])))
+(;B[me]
+(;W[md];B[ld];W[mc])
+(;W[mc])))
+(;W[qe];B[rf];W[of]LB[re:A][ph:B]C[구 정석
+
+A, B 맞보기];B[re];W[ph]C[흑 근소하게 유리
+
+백도 축으로 잡은 자세는 좋지만, 흑도 악수를 받아냈기 때문에 부분적으로는 호각이다.
+
+다만 흑이 축머리를 위력적으로 쓸 수 있어 전국적으로는 흑이 근소하게 유리하기도 하고, 전투를 피하고 싶다면 이 구 정석 대신 뻗는 정석을 사용하면 되기 때문에 최근엔 잘 두지 않는다]))
+(;W[pg];B[qg];W[ph]
+(;B[qh];W[pi]
+(;B[id])
+(;B[ic]))
+(;B[oc]
+(;W[nc];B[pc];W[qe]
+(;B[re];W[pe]C[흑이 손 빼는 것도 가능]
+(;B[nb];W[rd];B[rc];W[rf];B[sd]CR[rg]C[호각
+
+다만 흑 두 점을 잡는 것은 발이 느리다])
+(;B[rg];W[ob]CR[qc]C[선수
+
+찝는 수를 노리고 있다];B[pb];W[md]C[호각])
+(;B[]
+(;W[nb];B[rg];W[jc]C[호각])
+(;W[rf];B[rd];W[rg]C[호각])))
+(;B[pe]C[변칙수];W[re];B[oe];W[qh];B[rd];W[ne];B[rf];W[of];B[pd];W[rg];B[se]C[백 근소하게 유리]))
+(;W[qe]C[백이 축이 유리해야 가능한 수법]
+(;B[re];W[pe];B[pc];W[rd];B[rc];W[rf];B[sd]CR[rg]C[호각
+
+다만 흑 두 점을 잡는 것은 발이 느리다])
+(;B[pe]C[흑이 축이 유리해야 가능한 수법];W[re]
+(;B[rd];W[pd]C[축])
+(;B[pd]C[변칙수];W[rd];B[qh];W[qi];B[ri];W[oe];B[rc];W[nc]
+(;B[ob];W[qc];B[pc];W[qb];B[rb];W[nb];B[qa];W[rj];B[sh];W[sj];B[rf]CR[sj][rf]SQ[qj]
+C[백 충분
+
+이 교환으로 인해 흑이 끊으면 먹여치고 단수 치는 수가 있기 때문에 선수로 방비했다]
+(;W[nf]C[백 충분])
+(;W[md]C[백 충분]))
+(;B[pc];W[rj];B[sh];W[ob];B[pb];W[nb]CR[rb]C[선수
+
+귀에서 패가 나는 것은 말이 되지 않는다]
+;B[rf];W[pj]C[백 충분]))))))))
+(;W[qc]
+(;B[rc];W[pc];B[re]
+(;W[md];B[ld];W[le];B[ke];W[mc];B[kf]C[A는 기본형]
+(;W[kd];B[lb]C[백이 끊으면 빠지는 수가 정수인데
+A로 뻗어서 반발한다면-]
+(;W[jd];B[ic]C[두 칸으로 벌려서 백의 다음 행마가 없고-])
+(;W[kc];B[jb]C[가만히 제압한다면 한 칸으로 뛰어서
+A로 반발도 가능하지만 흑도 둘 만하고, B로 둔다면 싸발라서 호각의 정석이다]
+(;W[ic];B[jc];W[jd];B[id];W[je];B[kb];W[hd];B[ie];W[jf];B[hc])
+(;W[kb];B[lf];W[me];B[jd];W[mb];B[jc];W[la])))
+(;W[lf];B[lb]))
+(;W[qf];B[pe]
+(;W[md];B[ld];W[le];B[ke];W[mc]
+(;B[kf]C[A가 기본형]
+(;W[kd];B[lb]C[백이 끊으면 빠지는 수가 정수인데
+A로 뻗어서 반발한다면-]
+(;W[jd];B[ic]C[두 칸으로 벌려서 백의 다음 행마가 없고-])
+(;W[kc];B[jb]C[가만히 제압한다면 한 칸으로 뛰어서
+B로 반발도 가능하지만 흑도 싸울만하고, A로 두는 것이 보통으로 호각의 정석이다
+
+A로 타협하는 것이 보통]
+(;W[kb];B[lf];W[me];B[jd];W[mb];B[jc];W[la];B[qh]C[호각])
+(;W[ic];B[jc];W[jd];B[id];W[je];B[kb];W[hd];B[ie];W[jf]
+(;B[hc];W[kg];B[lf];W[me]
+(;B[qh];W[lg]C[장문]
+(;B[he];W[og];B[pf]C[흑 근소하게 유리])
+(;B[mf];W[og]))
+(;B[lg];W[lh];B[mg];W[mh];B[ng];W[pf]C[백 충분]))
+(;B[me];W[lf];B[kg];W[lg]))))
+(;W[lf]
+(;B[lb])
+(;B[kg]C[흑이 축이 유리해야 가능한 수법];W[kd];B[lb];W[kc];B[jb];W[kb]
+(;B[jd];W[mb];B[jc];W[la];B[qh]CR[kg][lf]C[백 만족
+
+이 교환은 백의 이득이기 때문에 백 만족])
+(;B[ka]
+(;W[mb];B[la];W[ic];B[jc];W[jd];B[id]C[축])
+(;W[jd];B[id];W[je];B[ic])))))
+(;B[lf]C[실수];W[me];B[kf];W[pf]C[백 만족]))))
+(;B[pc]C[신수];W[pd];B[qb];W[rc];B[qe]CR[qf]C[A는 일감, B는 타협, C는 최강수.
+
+B나 D로 처리하는 것이 보통]
+(;W[pb];B[oc]
+(;W[ob];B[nc];W[rb]C[흑이 엷다면 A, 두텁다면 B가 보통]
+(;B[ne]C[흑 근소하게 유리])
+(;B[pg]C[흑 근소하게 유리]))
+(;W[rb];B[ob];W[qa];B[nd];W[pf];B[pg]C[맥점];W[of];B[qf]C[흑 충분]))
+(;W[pf]C[A가 정수, B는 흑이 축이 유리해야 가능한 수법]
+(;B[rb];W[qf];B[rd];W[mf]C[쌍방 호각이지만, 실리가 없는 것이 약간 아쉬움.])
+(;B[qf];W[qg];B[rg];W[rh];B[pe];W[nd]LB[pb:A][of:B]C[A와 B가 맞보기];B[ob];W[of]
+(;B[rd];W[rf]C[백 만족])
+(;B[qh];W[pg];B[rf]
+(;W[qi]C[축])
+(;W[ri];B[rb]C[흑 근소하게 유리]))))
+(;W[oc];B[pb]
+(;W[rb]C[최강수
+
+서로 어려운 전투가 이어지지만, 끝은 흑이 약간 유리하다.];B[ob]
+;W[nb];B[mb];W[nc];B[na];W[ld]C[절묘한 교환.];B[kd];W[pg]C[B로 붙이고 호구 치는 것은 단수를 맞기 때문에 약간 손해
+C는 모붙여서 실수]
+(;B[pf];W[og]CR[ld][kd]C[이 교환으로 흑의 나와끊음은 싸울 수 있다는 의도
+
+A와 B 둘 다 가능하다]
+(;B[qg];W[qh];B[rg];W[of];B[rh];W[kc];B[kb];W[jc];B[md];W[le];B[mc];W[pe];B[qf]
+;W[me];B[jb];W[ic];B[ib];W[hc];B[hb];W[qi];B[ri];W[qj];B[rj]LB[qk:A][gc:B]C[석점머리와 넉점머리가 맞보기라 흑 근소하게 유리])
+(;B[of];W[md]C[A가 정수, B는 실수]
+(;B[qg];W[kc];B[kb];W[jc];B[jb];W[mc];B[lb];W[ic];B[ib];W[hc]C[이 전투 역시 두기 어렵다])
+(;B[jc]C[실수];W[qf])))
+(;B[qg];W[qh];B[pf];W[rg])
+(;B[rg];W[qf];B[pe];W[oe]))
+(;W[pf];B[rb];W[qf]CR[rd][mf]C[흑 근소하게 유리
+
+이 교환이 없어 약간 아쉬운 결과]))
+(;W[nb];B[pb];W[pf];B[rd];W[qf]C[호각])))
+(;W[pg];B[oc];W[nc];B[pc];W[nd];B[qf]
+(;W[mg]C[호각])
+(;W[qg];B[pf];W[og];B[of];W[nf];B[ng];W[mf];B[nh]
+(;W[qj]C[호각])
+(;W[pj]C[호각]))))
+(;B[mc]TE[1];W[qc]
+(;B[pc];W[pd];B[oc];W[nc]C[B는 축이 유리해야 가능한 수법]
+(;B[nb]C[백은 A가 정수
+
+B로 그냥 이으면 백은 축이 불리하면 불리한 정석이 되고, 백이 축이 유리하더라도 단수 치는 정석으로 환원되기 때문에 B로 이어줄 이유가 없다]
+(;W[qe]
+(;B[nd];W[rd]C[백 만족
+
+그냥 빵때림하는 것은 서로 빵때림이지만 백은 귀를 차지해서 만족이다])
+(;B[rd];W[nd];B[pb];W[pf];B[rc]C[백 근소하게 유리]))
+(;W[nd]
+(;B[qe];W[mb];B[ob];W[lc])
+(;B[pb];W[qe]C[환원];B[rd];W[pf])))
+(;B[nd];W[nb];B[qb];W[rc];B[ob]C[A는 축이 유리해야 가능한 수법, B는 타협]
+(;W[mb]C[백이 축이 유리해야 가능한 수법
+
+A는 축이 유리해야 가능한 수법]
+(;B[md]C[흑이 축이 유리해야 가능한 수법];W[oa];B[pb];W[rb];B[pe]C[축])
+(;B[qe];W[pf];B[rb];W[oa];B[pb];W[lc]C[백 약간 유리]))
+(;W[qe]C[두 점의 준동이 남아있어 흑은 상변을 제압해야 한다.];B[mb];W[ne];B[md]C[백 근소하게 유리]))
+(;B[qb]C[흑이 축이 유리해야 가능한 수법
+
+B는 백이 축이 불리할 때 사용하는 수법]
+(;W[rc];B[nb]C[미리 단수를 쳤기 때문에 A로 단수 치면 흑이 유리하다는 의도]
+(;W[nd]C[A는 흑이 축이 유리할 때 사용하는 수법, B는 축이 불리할 때 사용하는 수법]
+(;B[qe]C[흑이 축이 유리해야 가능한 수법]
+(;W[mb]C[백이 축이 유리해야 가능한 수법];B[ob];W[lc];B[rb];W[md]C[백 유리])
+(;W[pf]
+(;B[qf];W[mb];B[ob];W[lb];B[rb]C[호각]
+(;W[ld])
+(;W[fc])
+(;W[ic]))
+(;B[lb];W[qf];B[rb]C[흑 근소하게 유리])))
+(;B[rd]C[A는 백이 축이 유리할 때 사용하는 수법, B는 백이 축이 불리할 때 사용하는 수법]
+(;W[mb];B[ob];W[lc]LB[qe:A][rd:B]C[백 충분
+
+부분적으로 A가 아닌 B의 위치에 있기 때문에 귀의 패 맛은 사라졌지만, 봉쇄하는 맛이 남아 여전히 백이 좋다.]
+;B[cn];W[md]C[흑이 받는 것이 정수]
+(;B[qf])
+(;B[];W[qe];B[re];W[qf];B[rf];W[rg];B[qg];W[rh];B[pg];W[of]LB[qi:A][rb:B]C[흑이 A로 씌우고 싶지만, 결국 백이 밀면 귀 때문에 더 못 받고 다시 되돌아가서 B로 가일수해야하기 때문에-]
+;B[rb]C[백 만족
+
+흑은 그냥 받는 것이 정수고, 백이 A나 B로 두게되어 백이 좋다]
+(;W[qj])
+(;W[pi])))
+(;W[md]
+(;B[lc];W[qf];B[rb];W[mb];B[ob];W[kd]C[백 충분])
+(;B[mb];W[rb];B[qg];W[pb];B[ob];W[qa]C[백 충분])
+(;B[qf];W[mb];B[ob];W[lc]C[백 충분]))))
+(;W[qe]C[흑의 의도];B[nd]CR[qb][rc]C[흑 만족
+
+이 교환이 없다면 백이 빵때림을 해서 충분한 정석인데, 교환이 있기 때문에 백이 손해라는 의도]))
+(;W[nb];B[rc];W[md]C[호각])))
+(;B[rc];W[pc]
+(;B[re]C[B가 신수이자 최선]
+(;W[ne]LB[ld:A][qf:B]C[A와 B를 맞보기로 보고 있다
+
+A가 정석, B는 실수]
+(;B[pg];W[ld];B[kc];W[lc];B[lb];W[mb];B[nb];W[kb];B[ma]
+(;W[jb]C[호각])
+(;W[jc]C[신수
+
+이후 백이 어려운 진행이 되므로 축으로 모는 것보다 뻗는 것이 낫다.]
+;B[md];W[le];B[me];W[mf]C[A는 백의 의도 B는 기세]
+(;B[nf];W[lf];B[ng];W[of]CR[oe][pd]C[단수 치고 조이는 수를 막는 수];B[og];W[ob]
+C[백 충분])
+(;B[lf];W[kf];B[kd];W[ke];B[nf];W[lg];B[ng]C[이 정석이 유리한지 불리한지에 따라서 축으로 모는 수의 선악이 결정된다]
+;W[pe];B[ob];W[qf];B[qg];W[rf];B[rb];W[rh];B[rg];W[sg];B[qi];W[ri];B[qj];W[rj];B[qk]
+;W[rk];B[ql];W[rl])))
+(;B[kd];W[qf];B[qg];W[pg];B[rf];W[qh];B[rg];W[ph]C[백 유리]))
+(;W[qf];B[pe]
+(;W[ne]
+(;B[qh];W[kd]CR[qf][pe]C[백이 이 교환을 해둔 것은 백이 눈목자로 씌웠을 때 득이라는 이야기다.]
+;B[me]C[이 교환이 없이 그냥 눈목자로 씌우면 백이 끊기지만 절묘한 교환이 있어 백은 흑을 제압하고 실리로 안정할 수 있다.]
+;W[pf];B[rf];W[le])
+(;B[pf]C[미는 것은 반발];W[ld]C[발];B[kc];W[lc];B[lb];W[md]LB[qh:A][ic:B]C[백은 A와 B를 맞보기로 봐서 충분하다]))
+(;W[ld])))
+(;B[qg]TR[ne]C[붙이는 수와 날일자가 최선.
+마늘모는 이점을 살리지 못하는 수]
+(;W[md];B[ld];W[me];B[nc];W[re]CR[md][me]TR[rd]C[백 두 점으로 인해 흑은 잇지 못한다.]
+;B[nd];W[rd];B[ne]C[백 충분])
+(;W[me]C[A로 받는 것은 백이 마늘모 정석에 비해 큰 이득을 본다.]
+(;B[kd];W[re];B[rd];W[qe];B[pe];W[pd];B[se];W[pf];B[rf];W[oe];B[qj]CR[me]TR[ne]
+C[흑 불만
+
+다른 정석에서, 백의 돌이 세모의 자리에 있는 것도 백이 약간 좋았는데 지금은 더 나은 위치에 있으므로 흑의 불만이다.])
+(;B[re];W[kd]C[백 충분])))
+(;B[pf]C[변칙수]
+(;W[qe];B[pe];W[rd];B[pd];W[rb]
+(;B[re];W[sc]LB[ne:A][jc:B]C[백 약간 유리
+
+흑이 A 등으로 지키는 것은 약간 발이 느리고, 흑A 백B로 선수 교환되는 것이 보통이다.])
+(;B[oc];W[ob];B[nc];W[re]C[백 만족]))
+(;W[ne]
+(;B[re]
+(;W[og];B[jc]
+(;W[pg];B[qg];W[qh];B[rg];W[lg]C[백 충분])
+(;W[qh]C[백 충분]))
+(;W[jc];AW[dd]C[백 약간 유리한 전투]))
+(;B[jc]
+(;W[qe]C[환원])
+(;W[qh];B[re];W[og]C[환원])))))
+(;B[qg];W[pd]
+(;B[qe];W[pb])
+(;B[rd];W[nc]
+(;B[md];W[rc]C[백 충분])
+(;B[rc];W[md]C[백 충분])))
+(;B[pf];W[pd];B[qe];W[pb];B[pi])
+(;B[pd]C[실수];W[pc];B[oc];W[rd]
+(;B[oe];W[nd]C[A가 정수]
+(;B[ob];W[re];B[qf];W[qg]
+(;B[pf];W[qe];B[pe];W[rf];B[rc];W[rb];B[qb];W[sc];B[pb];W[rc];B[pg];W[qh];B[mf]
+C[백 유리])
+(;B[pg];W[rf]
+(;B[pf];W[qe];B[pe];W[qh]C[환원])
+(;B[qh];W[pe];B[rg];W[qe];B[md];W[ne]C[백 유리]))
+(;B[pe];W[rf];B[me]LB[kd:A][ng:B]C[백 유리
+
+A나 B의 활용이 있어 백 유리]))
+(;B[nc];W[re];B[ne];W[cn];B[md]C[흑 망함]))
+(;B[re];W[nc];B[ob];W[nb]C[흑 망함])))
+(;B[md]TR[md]C[과거 흑이 높은 협공했을 때, 귀에 붙여끄는 수순은 협공의 자리에 돌이 와있기 때문에 안정이 되지 않고 오히려 귀에 대한 악수라는 평이였다.
+
+그러나 현대에는 2선으로 달리는 것이 일견 굴복처럼 보이나 붙여끌어서 귀의 흑의 실리가 줄어들었고, 백은 2선을 두긴 했지만 흑에게 두터움을 주는 악수는 두지 않았기 때문에 백이 충분한 정석이라고 평가한다.]
+TE[1]
+(;W[qc];B[rc];W[pc];B[re];W[mb]TR[nc]LB[kc:A]C[흑이 갈라가는 것은 백이 좋은 전투
+나중에 벡은 A로 가일수하는 것이 두텁다.]
+;B[nc];W[nb];B[oc];W[pd];B[ob])
+(;W[pg]
+(;B[oe];W[ne];B[nd];W[pe];B[pd];W[of];B[oc]CR[pg]TR[pf]LB[rf:A][rg:B]C[백 근소하게 유리
+
+백돌이 세모의 위치에 있는 경우, 백은 A로 달릴 때 건너붙이는 희생타를 넣지 않으면 봉쇄할 수 없다.
+지금은 백 한 점이 한 줄 뒤에 있기 때문에, A로 달릴 때 B로 자연스럽게 막는 형태가 되므로 이 차이가 있기 때문에 백이 충분히 둘 수 있다.])
+(;B[qf];W[pf];B[qg];W[ph]
+(;B[qh];W[pi];B[jd])
+(;B[jd];W[qh])))
+(;W[pf]C[변칙수];B[oe];W[pe];B[pd]
+(;W[oc];B[ne]CR[md]C[흑 약간 유리
+
+뻗자니, 흑의 돌이 정말 튼튼한 불리한 배석에서 전투가 시작된다.])
+(;W[ne];B[oc];W[of]
+(;B[nd]CR[pf]C[흑 만족
+
+백 한 점이 중복이기 때문에 이 결과는 흑이 좋다.
+
+])
+(;B[nc]CR[nd]C[흑 약간 유리
+
+이 결과도 흑이 약간 유리하긴 하지만, 어차피 백은 단점을 끊을 수는 없기 때문에 약간 느슨하다.]))))
+(;B[ld]TE[1]
+(;W[pg]C[A나 B가 보통, C는 폐기된 정석, D는 함정수]
+(;B[qf]
+(;W[pf];B[qg];W[ph]
+(;B[qh];W[pi]
+(;B[id])
+(;B[hc]))
+(;B[oc];W[nc];B[pc]
+(;W[md];B[lc];W[nb];B[qh];W[pi])
+(;W[qe];B[re];W[pe];B[mc];W[rf];B[rd]CR[rg]C[정석
+
+다만 두 점을 잡는 것은 발이 느리다])))
+(;W[qg]
+(;B[pf];W[of];B[og];W[nf];B[oh];W[rg];B[pj]C[기본적으로는 호각의 정석이지만, 배석마다 결과가 달라지고 백의 난이도가 어려워 이 진행으로는 들어가지 않는 것이 좋다])
+(;B[oe];W[pe];B[pd];W[ne];B[of];W[pf];B[oc];W[nd];B[nc]
+(;W[nf]C[백 만족]
+(;B[jd]C[백 약간 유리])
+(;B[fq];W[mi];B[];W[mc];B[md];W[lc])
+(;B[];W[mc];B[md];W[pc];B[pb];W[ob];B[nb];W[qc];B[qb];W[rc];B[jc];W[rb]C[백 만족
+
+축머리가 더 이상 듣지 않는다]))
+(;W[mf]C[백이 축이 불리할 때 사용하는 수법, 흑이 손 빼는 것도 가능
+백 충분]
+(;B[md];W[og]C[백 충분])
+(;B[ng];W[mg];B[nh];W[li];B[nj];W[pj]CR[mc]C[백 충분
+
+흑은 상변의 끊음이 부담이 되는 전투가 되므로 백이 충분하다])))))
+(;B[oc];W[nc];B[pc];W[mb])
+(;B[oe]C[요도 정석, 폐기된 정석
+
+과거에 난해하기로 유명한 정석이였으나, 현대에 재평가되면서 사장되었다.]
+;W[ne];B[of];W[pd]
+(;B[qf]C[B도 손해는 없으나 백의 맛이 나쁜 변화가 있고 파생형의 선택권이 흑에게 있어 불편하다]
+(;W[qc];B[qe];W[rc];B[nd];W[nc];B[md])
+(;W[pe];B[pf];W[qe]
+(;B[nd];W[nc];B[md];W[rf]
+(;B[qg];W[rg];B[qh])
+(;B[rg];W[rd];B[sf];W[re];B[qg]))
+(;B[re];W[rd];B[rg];W[se];B[rf];W[qc];B[nd];W[nc];B[md])))
+(;B[qe];W[qc]
+(;B[qf];W[rc]C[환원])
+(;B[rc]C[A로 두면 응징이 가능하나 복잡한 것이 싫다면 B도 가능하다
+다만 11의 무리수를 응징하지는 못했다]
+(;W[pe];B[pf];W[qf])
+(;W[rb];B[qf];W[pb])))
+(;B[pe]C[변칙수];W[qc];B[rc];W[qe];B[rd];W[qf]
+(;B[qb];W[md]
+(;B[og];W[pc]LB[pi:A]C[흑의 형태가 좋지 않아 고압적으로 씌워올 수 없다.];B[le];W[pb]
+;B[qa];W[lc];B[kc];W[lb];B[mg];W[qj];B[kb];W[nb]C[백 유리])
+(;B[nf];W[le];B[nc];W[nd];B[mc];W[ke];B[nh];W[pj];B[lc];W[pc];B[pb];W[rb];B[ra]
+;W[re];B[sb];W[kg]C[백 유리]))
+(;B[pc];W[qb];B[pb];W[ob])
+(;B[nd];W[nc];B[md];W[qb];B[rb];W[ob];B[qa];W[pb];B[mb];W[nb];B[mc];W[pa]C[백 유리])))
+(;B[pd]C[함정수];W[oe];B[oc];W[nc];B[nd];W[md]
+(;B[mc]C[A가 간명한 응징]
+(;W[nb];B[me];W[pc]C[백 만족])
+(;W[ne];B[nb]))
+(;B[ne]C[실수];W[me];B[nf];W[ob];B[pc];W[mc]
+(;B[of];W[qf]C[백 유리]
+(;B[pf];W[mf];B[nh];W[fc]C[백 유리])
+(;B[qe];W[mf];B[nh];W[fc]C[백 유리])
+(;B[pe];W[qj]C[백 유리]))
+(;B[pf];W[ng];B[of];W[mf];B[og];W[fc]C[백 유리])
+(;B[oh];W[pb];B[of];W[rc];B[rd];W[qj]C[백 유리]))))
+(;W[qc];B[rc];W[pc];B[re];W[lb]C[백 충분];B[mc]
+(;W[mb];B[nc];W[nb];B[oc];W[pd];B[ob]TR[lb]C[백의 돌이 하나 더 2선으로 가 있기 때문에 백이 불리한 전투])
+(;W[qf];B[pe];W[mb]CR[qf][pe]C[절묘한 교환];B[nc];W[nb];B[oc];W[pd];B[ob];W[qe]
+C[흑 붕괴]))
+(;W[pf];B[oe];W[pe];B[pd];W[oc];B[ne]C[백도 충분히 둘 수 있는 형태지만 두칸 높은 협공에서 흑이 약점이 없는 약간 나쁜 형태로 들어가기 때문에 날일자를 잘 두지 않는다]))
+(;B[oe]TE[1]
+(;W[qc]
+(;B[pd];W[pc];B[ne];W[nc]C[A는 타협, B는 전투]
+(;B[rc];W[rb];B[re];W[sc];B[nd];W[oc]C[정석])
+(;B[ld];W[pe]
+(;B[rd];W[qe];B[rf]C[A는 백의 의도, B는 반발]
+(;W[re];B[nd];W[oc];B[pf];W[rc];B[qf];W[sd]C[흑 충분])
+(;W[qg];B[qf];W[pf];B[pg];W[of];B[re];W[ph];B[og];W[nf];B[nd];W[oc];B[qh];W[le]
+;B[md];W[kd];B[kc];W[jc];B[ke];W[jd];B[lf];W[ng];B[oh];W[nh];B[oi];W[kb];B[ni];W[lh]
+;B[kh]
+(;W[mj]C[백이 충분한 전투])
+(;W[mi]C[호각])))
+(;B[pf]C[구정석];W[qe];B[rd];W[rf];B[qh];W[re]C[백 만족
+
+과거에는 이렇게 두어야한다고 했다. 물러서는 수 중에서는 최선이긴 하지만, 흑이 충분히 싸울 수 있는 전투를 쉽게 물러서서 백에게 이점을 내놓았기 때문에 백이 좋다.])))
+(;B[pe];W[rc]MA[pc]C[흑이 끊는 수는 무리수]
+(;B[ne];W[ob]C[정석])
+(;B[nd];W[oc];B[nc];W[nb];B[mb];W[ob];B[le]C[정석
+
+이후는 참고도다];W[mc];B[lc]
+;W[md];B[ne])))
+(;W[ne]
+(;B[pe]
+(;W[md]C[정석, 호각, 백이 손 빼는 것도 가능
+
+흑은 A의 자리는 상당히 큰 대세점이다]
+(;B[oc];W[nc];B[ob])
+(;B[]C[백은 A가 좋지 않다면, B 정도로 교환되는 자리다]
+(;W[qc]
+(;B[pc];W[pd];B[oc];W[nd]
+(;B[rc];W[qb];B[rb];W[qe];B[rd]C[백 근소하게 유리, 백이 손 빼는 것이 유력
+
+백은 상변과 두 점을 맞보기로 볼 수 있다]
+(;W[pf]C[호각
+
+축도 가능하지만 다만 초반에 축머리가 강력하기도 하고, 약간 발이 느리기 때문에 조금 더 발 빠르게 두는 것이 보통이다]
+;AW[dp];B[eq])
+(;W[of];B[pf];W[og];B[qf]C[호각
+
+우변을 키우려고 했던 흑의 윗붙임이 퇴색된다])
+(;W[]
+(;B[og];W[nb]C[흑이 손 빼는 것이 보통];B[pb]
+(;W[ic]C[백 근소하게 유리])
+(;W[jd]C[백 근소하게 유리]))
+(;B[nb]
+(;W[pf])
+(;W[of];B[pf];W[og];B[qf]))))
+(;B[qb];W[rc]
+(;B[rb];W[qe];B[rd];W[re];B[sc];W[of])
+(;B[qe];W[rb];B[pb];W[of];B[qg];W[nb];B[ra])))
+(;B[rc];W[pc]C[흑 불만]))
+(;W[pc];B[qc])))
+(;W[nf]C[구정석];B[nd];W[md];B[nc];W[mc];B[ob];W[nb];B[oc]C[흑 근소하게 유리
+
+흑의 실속이 크다]))
+(;B[of]C[구정석];W[pd];B[qe]
+(;W[kd];B[qc]C[백 근소하게 유리])
+(;W[qc]))))
+(;B[pf]TE[1];W[qc];B[rc];W[pc]C[A가 보통이다]
+(;B[re]
+(;W[lc]C[백 근소하게 유리])
+(;W[ld]C[백 근소하게 유리]))
+(;B[rb];W[lc]LB[rb:A][qh:B]C[백 근소하게 유리
+
+흑이 A로 빠져있는 것이 상변만 보면 약간 이득이지만, 어차피 큰 수는 나지 않고, 백이 B로 다가서는 맛이 있기 때문에 뻗는 수는 잘 두지 않는다.]))
+(;B[qf]TE[1]
+(;W[qc];B[rc];W[pc];B[rb]
+(;W[kc]CR[qf]LB[ne:A]C[백 근소하게 유리
+
+흑이 날일자에 있을 때와 달리, A로 활용하더라도 백이 가만히 받아두면 중앙이 완벽하게 연결된 형태는 아니기 때문에 큰 눈목자가 약간 더 보통이다.])
+(;W[lc]C[백 근소하게 유리
+
+물론 눈목자도 충분히 훌륭한 한 수다.])
+(;W[ld]C[백 근소하게 유리]))
+(;W[pe];B[qe];W[pc];B[qc]))
+(;B[qg]TE[1];W[qc];B[rc];W[pc]C[흑이 손 빼는 것이 보통
+
+정석])
+(;B[pc]C[백이 손 빼는 것도 유력
+
+백이 손 빼더라도 응징 방법이 없기 때문에, 보통 주변에 흑의 원군이 있을 때 백에게 리듬을 주지 않으려고 두는 수다.
+
+백은 A가 엷다면 B, B가 엷다면 C로 두는 것이 보통이다.
+
+A보다 B가, B보다 C가 집으로만 본다면 약간 느슨하지만 가벼운 장점이 있다. 흑의 배석이 두터울 때 사용하는 상용수법이기 때문에 B, C 모두 기억해두는 것이 좋다..]
+TE[1]
+(;W[oc];B[qf];W[kd])
+(;W[pf]
+(;B[oc];W[pi])
+(;B[pe];W[oe];B[of]C[전투]))
+(;W[og]
+(;B[oc])
+(;B[qf])
+(;B[of];W[pe];B[pf];W[qe]CR[pe][qe]SQ[of][pf]C[흑도 관통했지만, 일단 백도 관통하는 자세기 때문에 괜찮다.
+
+백에게 관통당하면서 우상귀 흑 두 점이 약간 다쳐 백은 수습할 시간을 벌 수 있고, 백이 날일자로 씌웠을 때 끊어지는 전투보다 더 괜찮은 전투가 된다]))
+(;W[]C[손 빼는 것도 유력하다
+
+흑이 백을 응징할 방법이 없다])))
+(;W[nc]C[손뺌도 수록
+
+A가 보통]TE[1]
+(;B[pc]C[견실한 수])
+(;B[od]
+(;W[pb];B[nd];W[mc];B[md]
+(;W[lc])
+(;W[qc];B[rc];W[lc]))
+(;W[nd];B[oc];W[ne]))
+(;B[lc]
+(;W[pd]
+(;B[qc];W[pf];B[qe];W[mf];B[qg])
+(;B[pe]
+(;W[qe]C[끊음도 상당히 유력하다])
+(;W[qc];B[rc];W[pc];B[re];W[oe];B[pf])))
+(;W[qc];B[pc];W[pd]C[A가 정교한 수순]
+(;B[qb];W[rc];B[od];W[pe];B[oc];W[rb];B[of]
+(;W[qe];B[oe]CR[nc][kc]C[흑 약간 유리
+
+단점은 사라졌지만, 백 한 점이 덜 다쳤기 때문에 붙여서 활용할 수 있어 일장일단이다])
+(;W[oe]C[리];B[ne];W[qe];B[nd]CR[nf]TR[nc]C[흑 약간 유리
+
+백 한 점이 다쳤지만, 대신 단점이 생겼기 때문에 일장일단이다]))
+(;B[od];W[pe];B[qb]C[수순이 반대로 하면 A가 보통이지만, 백이 B로 변화할 여지가 있다]
+(;W[rc];B[oc]C[환원])
+(;W[oc];B[rc];W[pb];B[qc];W[ne]C[흑 약간 유리];B[qf]))))
+(;B[];W[qc];B[pc];W[pd];B[qb];W[rc];B[od];W[pe];B[oc];W[rb];B[nd]
+(;W[pg];B[kc])
+(;W[kc];B[of];W[pf];B[pg];W[qg];B[og];W[qh];B[ic]TR[oe]C[백이 중앙 나와 끊는 수가 없기 때문에 흑이 약간 두텁다.])))
+(;W[nd]C[날일자로 받는 것이 정수.
+
+손뺌도 수록.]TE[1]
+(;B[pf]CR[qc]C[백이 밑붙이는 수는 불가능하다])
+(;B[];W[qc];B[pc];W[pd];B[rc];W[qb];B[rb];W[pb];B[oc];W[od];B[nb];W[mb];B[ob];W[qe]
+;B[rd];W[nc];B[qa]))
+(;W[pd]C[상황적인 수법
+
+중국식, 미니중국식 등의 포석에서 흑을 한쪽으로 편중시키려는 의도]
+TE[2];AB[kc]
+(;B[pc]
+(;W[qe]
+(;B[pe]C[반발, 정수];W[od]
+(;B[qf];W[re];B[qc]
+(;W[rf];B[oe];W[oc];B[nd];W[ob];B[nc];W[qg]
+(;B[nf]CR[ob][nc][jc]C[호각
+
+이 교환은 백의 공배가 비어있어 활용할 때 득이라는 의도
+
+빵때림의 가치는 줄어들었지만 대신 사석을 이용해 상당히 활용할 수 있다. 흑이 한가하게 후수로 가일수할 수는 없고 때문에 백은 선수 활용이므로 상황에 따라 유동적으로 결정하는 것이 보통이다.
+
+이후 수순은 우상귀만을 고려한 참고도]
+(;W[nb];B[mb];W[me]
+(;B[ne];W[pb];B[qb];W[rb];B[na];W[rd];B[ra];W[rc];B[qa]C[흑 근소하게 유리
+
+백이 우상귀를 정리하면 흑이 근소하게 유리한 결과지만, 상변에 약간의 뒷맛이 있었기 때문에 서로 호각의 정석이였다])
+(;B[pb]CR[ne]C[흑 근소하게 유리
+
+우상귀의 활용 대신 끊는 맛이 생겨 일장일단이다]))
+(;W[pf];B[];W[ng];B[mg];W[mh]))
+(;B[nb]CR[rb]C[호각, 백이 손 빼는 것도 가능
+
+백의 사석이 공배가 하나 비어있다.
+따라서 백이 따낸 이후 중앙에서 활용할 여지도 있고, 2의 2로 끝내기하는 수법이 있어 호각의 진행이다]
+(;W[pf]C[호각])
+(;W[]C[호각])))
+(;W[pf];B[oe];W[qg];B[of];W[rf];B[nd];W[og]C[호각])
+(;W[qg];B[oe]
+(;W[rf];B[nd]TR[od][pd]C[백 두 점을 제압해 흑 충분])
+(;W[pf]C[환원])))
+(;B[qc]C[흑이 축이 유리해야 가능한 수법]
+(;W[pf]C[축])
+(;W[qf]CR[pe]LB[oe:A][pf:B][ne:C][pg:D]C[다른 형태와 달리 이 형태는 흑이 한 점까지 살려나와야하는 형태라 역시 백이 충분히 둘 수 있다.
+
+흑은 이후 A~D로 준동해 나가는데 모두 유력하다.])))
+(;B[od];W[pe];B[qc];W[oe];B[nd]
+(;W[qi]TR[kc]C[흑이 크게 나쁘지는 않지만, 흑 한 점이 약간 느슨한 위치에 있다는 의도])
+(;W[ne]
+(;B[ld]C[뻗는 수보다 효율적인 받음];W[pi]TR[kc])
+(;B[me];W[mf];B[lf]))))
+(;W[kd]C[중국식, 미니중국식 포석에서 종종 두어지는 수법
+
+이론상 호각이지만, 흑의 선택권이 많고 백은 난해하기 때문에 자주 두어지지는 않는다]))
+(;B[qe];W[pc];B[qc];W[qb];B[rb];W[ob];B[qa]))
+(;W[]
+(;B[oc]
+(;W[nd]
+(;B[od];W[nf]LB[qe:A][of:B]C[백은 A로 붙이는 맛이 있고, A에 흑은 B로 반발하는 수단을 가지고 있다.])
+(;B[nc]
+(;W[qe]C[A가 정수]
+(;B[pd])
+(;B[pe]C[수];W[pf]))
+(;W[ld])))
+(;W[qe]
+(;B[pd];W[qi])
+(;B[pe];W[qf]
+(;B[rd];W[pj]C[호각])
+(;B[pd];W[qi]C[백 충분]))
+(;B[rd];W[nd]CR[qe][rd]C[흑이 어떻게 받아도 이 교환은 백의 이득])
+(;B[re];W[pd];B[qc];W[rf]
+(;B[pe];W[qf];B[oe]C[백 만족])
+(;B[qf];W[pe];B[rg];W[pc];B[qb];W[pb];B[mc];W[pf];B[qg];W[pg];B[jc];W[pi]C[백 만족]))
+(;B[qg];W[rd];B[qc];W[oe]C[환원]))
+(;W[rd]C[유력한 응수타진.
+
+D는 실수]
+(;B[re]C[일반적으로 최선이다.];W[qe]C[A가 일반적이지만, B도 둘 수는 있다.]
+(;B[rf];W[pd];B[qc];W[pc];B[qb]C[상변에 흑돌이 있다면, A로 뚫는건 무리기 때문에 B 정도로 가볍게 처리한다.]
+(;W[pb];B[pe];W[od])
+(;W[ne]C[상변에 흑 돌이 있다면 뚫는 수는 무겁기 때문에, 가볍게 날일자 정도로 둔다.]))
+(;B[pe];W[qf];B[rf]
+(;W[qg];B[rg];W[qh];B[qc]C[호각])
+(;W[pf];B[qg];W[pd];B[qc];W[oe];B[pc]C[흑 충분])))
+(;B[qe]LB[re:A][qc:B]C[백이 손 빼는 것도 가능
+
+백은 귀에 사는 맛이 생겼으므로,
+손을 돌린 후에 나중에 A나 B 등으로 나중에 준동한다.])
+(;B[qc];W[qe];B[qg];W[oe]C[백 충분])
+(;B[rc];W[pd];B[qc];W[pf]C[호각])
+(;B[pd];W[re];B[rc];W[qh];B[qf]))
+(;W[nc]C[A, B가 보통]
+(;B[od]C[백이 흐름을 타게 해주지 않겠다는 의도];W[jc])
+(;B[nd];W[mc]
+(;B[od];W[jc])
+(;B[ob];W[md];B[ne];W[ic]))
+(;B[nb]LB[nd:C][od:D]C[백이 손 빼는 것도 가능
+
+백이 손을 뺀다면 흑이 상변에 돌이 온 때 A나 B가 아니라 C나 D로 둘 수 있어 상변의 가치가 떨어졌다는 이야기다
+
+A가 보통]
+(;W[mb]C[B가 보통]
+(;B[mc];W[nd];B[lb];W[ob];B[ma];W[pc];B[od];W[pd];B[oe];W[pe];B[of];W[qg];B[pb]
+;W[qb];B[oa];W[qc]C[백 충분])
+(;B[ob]C[백 충분]))
+(;W[ob]
+(;B[nd]C[정수];W[mc];B[mb];W[lc];B[lb];W[kc];B[pc]C[호각])
+(;B[pb];W[od]
+(;B[oa]C[정수, 백 충분
+
+패는 버텨낸다])
+(;B[pc]C[흑 약간 당함];W[mb];B[nd];W[mc]C[백 만족])))))
+(;W[pc]C[상황적인 수법
+
+우변의 흑이 두터울 때, 상변에서 이득을 위해 사용하는 수법]
+;B[pd];W[ob]
+(;B[pb]C[백은 어차피 A는 절대 선수고 전투를 위해 나중에 B로 둘 수도 있기 때문에 보류한다]
+;W[nc];B[od]C[흑 두터움, 흑 충분])
+(;B[nc];W[nb];B[qc];W[mc]C[호각])
+(;B[nd]C[환원])))
+(;B[od]
+(;W[nd]C[A와 B가 기세.
+C와 D도 충분히 둘 수는 있지만, 백의 의도다.]
+(;B[nc];W[mc]
+(;B[md];W[ne];B[me];W[oc];B[nb]
+(;W[nf];B[ob]
+(;W[pc];B[pd];W[mb];B[pb]
+(;W[mf]
+(;B[ke];W[jc];B[lf]C[전투])
+(;B[lc]C[실수];W[lb];B[kc];W[ke];B[ld];W[jc]C[백 만족]))
+(;W[ke];B[mf];W[mg]
+(;B[lf]C[기세];W[nh]
+(;B[lc]
+(;W[ic];B[lb]C[호각])
+(;W[kh];B[og];W[ng];B[jg];W[kg];B[kf];W[jf];B[if];W[je];B[lb]C[흑 근소하게 유리, 전투
+
+이 전투는 배석이 없다면, 흑이 근소하게 좋다.]))
+(;B[lg]
+(;W[kc];B[mi];W[ni];B[mj]C[A가 일반적이다.]
+(;W[nj];B[mk];W[ol]C[호각, 전투])
+(;W[ok]C[호각, 전투];B[qh];W[pi]))
+(;W[lh];B[kh];W[li];B[ki];W[lj];B[kc];W[ic];B[kj];W[lk];B[jc]C[흑 근소하게 유리])))
+(;B[ng];W[nh];B[og];W[lg]C[호각
+
+호각이기는 하지만, 백의 의도라는 인상을 지울 수 없다.])))
+(;W[mf];B[lc]))
+(;W[ob]))
+(;B[oc]C[백 충분, 백 근소하게 유리]))
+(;B[ne];W[oc]
+(;B[oe];W[pc];B[md]
+(;W[pd];B[pe];W[qc];B[nc];W[qe];B[qf];W[rd]C[손 빼는 것도 가능]
+(;B[re])
+(;B[rf]))
+(;W[nc];B[qc];W[mc];B[ld]CR[pd]C[B는 나와끊는 수를 노리는 수법]
+(;W[kc])
+(;W[lc];B[kd];W[jc];B[qj])))
+(;B[nc];W[md]
+(;B[ob];W[pc];B[pd];W[mc];B[nb];W[mb];B[pb]
+(;W[me])
+(;W[ic]))
+(;B[mc]C[흑이 축이 유리해야 가능한 수법
+
+A는 축 관계, B가 보통, C는 난전]
+(;W[ob]LB[lc:A][pd:B]C[백이 축이 유리할 때 사용하는 수법
+
+A, B 맞보기];B[ld]C[축])
+(;W[lc]C[백이 축이 불리할 때 사용하는 수법];B[ob];W[pc];B[pd]
+(;W[me]C[백이 축이 유리해야 가능한 수법];B[lb];W[kb];B[kc];W[ld];B[mb];W[jc])
+(;W[ld];B[lb];W[kb];B[mb]C[백이 손 빼는 것도 가능];W[jc])
+(;W[lb];B[qc];W[hc]))
+(;W[pd];B[oe]
+(;W[ob];B[ld];W[pe];B[rc];W[qc];B[qe];W[pf];B[qb];W[pc];B[re];W[pj];B[me];W[qg]
+C[호각])
+(;W[lc];B[lb]
+(;W[ld];B[ob];W[pc];B[pe];W[pb];B[kb];W[nb];B[mb];W[oa];B[qh]
+(;W[jd];B[ic];W[rd];B[qe];W[rc]C[흑 충분])
+(;W[qe];B[qf];W[re];B[rd];W[rf];B[rg];W[pf];B[of]
+(;W[qg];B[pg];W[rc];B[jd]C[흑 충분])
+(;W[pg];B[og];W[ph];B[qg]C[흑 만족])))
+(;W[ob]C[변칙수];B[ld]
+(;W[me]
+(;B[kc];W[pe];B[mf];W[qe]C[호각])
+(;B[mf];W[le];B[ke];W[lf];B[kc]LB[lg:A][pc:B]C[흑 망함
+
+A, B 맞보기]))
+(;W[pe];B[me];W[qe];B[qg];W[re]C[흑 충분]))))))
+(;B[md];W[nc];B[mc]))
+(;B[oc]C[환원
+
+])
+(;B[oe];W[nc];B[oc];W[jd]C[백 근소하게 유리])
+(;B[md]C[변칙수
+
+호각에 가까운 결과를 낼 수 있지만, 백을 압박할 수 없기 때문에 거의 두지 않는다.]
+(;W[nc];B[ne];W[oc];B[oe];W[qc];B[pc];W[pb];B[pd]
+(;W[rb];B[rc];W[qb];B[mb];W[rd];B[re];W[sc];B[mc]C[호각])
+(;W[rc];B[qb];W[rb];B[ob];W[qa];B[nb]C[호각]))
+(;W[ne];B[nc];W[oe];B[oc];W[qe];B[re]
+(;W[rf];B[pe];W[qf];B[pf];W[rd];B[rc];W[se];B[pd];W[qi]C[흑 근소하게 유리])
+(;W[pe];B[rf]C[흑 충분]))))
+(;W[mc]C[흑이 손 빼는 것도 가능]
+(;B[nc];W[md]C[손뺌 수록];B[];W[pc];B[ob])
+(;B[]
+(;W[pc];B[oc];W[ob];B[pd];W[qb])
+(;W[ob]C[흑이 손 빼는 것이 보통];B[pc])
+(;W[qe]C[신수];B[pe];W[qf]
+(;B[pc])
+(;B[rd];W[pf];B[of];W[og];B[nf];W[pc];B[pd];W[oc]C[백 충분]))))
+(;W[qe]LB[qg:A]C[백이 우변에 배석이 있을 때 사용하는 수법
+
+그냥 A 등으로 벌리는 것은 우상의 한 칸 굳힘이 튼튼하기 때문에 귀에 영향력을 별로 행사하지 못하므로 붙여서 우변에서 이득을 보고 상변을 선착해 견제하겠다는 의도]
+;AW[pj];B[pe];W[qf];B[rd];W[pf];B[of];W[og];B[nf];W[ng]
+(;B[mf]
+(;W[lc]LB[pc:A]C[A의 치중을 노리고 있다, 흑이 두 번 둔 곳이라는 점을 고려하면 백이 나쁘지 않은 진행이다]
+(;B[mb])
+(;B[jc];W[pc];B[pd];W[oc];B[mb];W[mc];B[lb];W[nb];B[kc];W[rb];B[mg];W[rc]))
+(;W[jc]))
+(;B[mg]C[유력한 반발];W[mf];B[lg];W[me];B[nd];W[md];B[mb];W[lb];B[nb]
+(;W[lc]C[백 충분])
+(;W[kf]C[백 충분한 전투])))
+(;W[pc]CR[pf][mc]C[상황적인 수법
+
+응수타진
+
+A로 받으면 귀의 패 맛은 없지만 상변이나 우변에서 활용당할 여지가 있고, B로 받으면 패 맛은 있지만 상변에서만 활용당할 여지가 있으며, 마찬가지로 C도 패 맛은 있지만 우변에서만 활용당할 여지가 있다.]
+;AB[lc]CR[pf][nc]C[상황적인 수법
+
+응수타진
+
+이런 상황일 때 자주 둔다.
+
+A로 받으면 귀의 패 맛은 없지만 상변이나 우변에서 활용당할 여지가 있고, B로 받으면 패 맛은 있지만 상변에서만 활용당할 여지가 있으며, 마찬가지로 C도 패 맛은 있지만 우변에서만 활용당할 여지가 있다.이런 상황일 때 자주 둔다.]
+(;B[qc]
+(;W[oc])
+(;W[mc];B[oc])
+(;W[pf]C[맛이 나쁘긴 하지만, 바로 수가 나진 않는 형태기 때문에 모종의 반발을 해야한다.]
+;B[pd]LB[oc:A][qc:B]C[A가 아니라 B에 있는 만큼, 흑도 이으면 약간 당했다.]))
+(;B[pd]C[C는 비상수단]
+(;W[oc])
+(;W[mc])
+(;W[qc]C[비상수단];B[oc];W[rd];B[re];W[rb]C[패]))
+(;B[oc]C[B는 비상수단]
+(;W[pf];B[pd])
+(;W[pd];B[pe];W[qc];B[rd];W[ob];B[nb]C[A가 보통, B는 최후의 수단]
+(;W[qe]
+(;B[qf];W[rc];B[re];W[oa]C[패])
+(;B[re];W[qf]C[약점이 많다.]))
+(;W[na]C[최후의 수단]
+(;B[ma];W[pa]C[한 수 늘어진 패가 된다.])
+(;B[mb]C[모두 잡겠다는 뜻];W[rc];B[sc];W[sb];B[qb];W[pb];B[ra]C[흑이 상당히 엷다.])))))
+(;W[qc]C[상황적인 수법, 응수타진
+
+A가 보통]
+(;B[pc]C[A가 보통]
+(;W[qe];B[rd];W[pe];B[pd];W[pi])
+(;W[rd]C[젖히는 수는 B로 끊으면 붙이는 수와 대동소이하지만, A로 느는 반발이 있다.]
+(;B[qe])
+(;B[rc];W[qe];B[qb])))
+(;B[re]C[A기 보통]
+(;W[pc];B[oc];W[pd];B[pe];W[ob];B[nb];W[oe]
+(;B[pf];W[pb];B[mc];W[rd];B[qe];W[rc];B[me]C[호각])
+(;B[pb]C[변칙수];W[pf];B[qe];W[ne]LB[nc:A][qh:B]C[백 충분
+
+A, B 맞보기])
+(;B[rc]C[변칙수];W[pf];B[qe];W[ne]LB[md:A][qh:B]C[백 충분
+
+A, B 맞보기]))
+(;W[oc];B[nc];W[ob];B[nb];W[rc];B[ne]CR[oa]C[호각, 백이 손을 빼는 것이 보통
+
+이 형태도 유력하지만, 상변의 흑이 두텁다면 잡으러 올 수 있다는 것을 염두에 두어야한다.
+
+이후 진행은 참고도]
+;W[];AB[kc];B[oa];W[pa];B[pc];W[pb];B[pd];W[rb];B[qa];W[na];B[ra];W[rd];B[se];W[sd]
+;B[sb]C[귀곡사])
+(;W[rb]C[실수];B[pb]C[흑 약간 유리]))))
+(;B[nc]
+(;W[pd]C[백이 축이 유리해야 가능한 수법
+
+백은 기본적으로 두 가지의 축이 유리해야 가능한 수법이다]
+(;B[pe];W[qc];B[pc];W[od];B[oc];W[qe];B[rd];W[pf];B[oe];W[nd]C[백은 A의 반발에서 둘 중 하나의 축이 유리해야 하고, B의 정석에서 축이 유리해야 한다.]
+(;B[qf];W[mc]
+(;B[mb]
+(;W[ne]
+(;B[re];W[lb];B[lc];W[md];B[nb];W[kc]CR[of][dd]C[백이 축이 유리해야 가능한 수법
+
+두 번째로 이 축이 유리해야 가능하다
+
+좌상귀가 흑이라면 호각, 백이라면 백 충분
+
+두 점을 단수 치는 수는 정석 이후의 상당히 큰 곳])
+(;B[of];W[nf]
+(;B[re];W[lb];B[lc];W[md];B[nb];W[kc]CR[of][nf]C[이 교환의 손득은 서로 같다
+
+좌상귀가 흑이라면 호각, 백이라면 백 충분])
+(;B[og]C[실수];W[lb];B[lc];W[md];B[nb];W[kc]CR[rc]C[백이 빠지면 수가 나기 때문에 후수로 받아야 하는데-]
+;B[re]C[백 만족
+
+백이 선수를 뽑았기 때문에 백의 만족이다])))
+(;W[lb]
+(;B[md];W[ne];B[lc];W[re];B[rf];W[of];B[se];W[pe]CR[kb]C[B는 맛이 나쁜 수
+
+귀를 패 없이 제압하려고 하면 상변 동그라미의 자리가 선수가 되어 맛이 나쁘기 때문에 A가 정수다.]
+(;B[rc])
+(;B[qh];W[rc];B[sd];W[pi];B[qi];W[pj];B[rk];W[qg];B[rg];W[sf];B[sg];W[pg];B[ri]
+;W[pb];B[rb];W[sc];B[sf];W[qb];B[qa];W[ob];B[nb];W[ra];B[sa];W[sb];B[ra];W[pa];B[ra]
+;W[kb]C[흑 망함]))
+(;B[re];W[ne];B[lc];W[md];B[nb];W[kc])))
+(;B[qb]C[우하귀가 백이라면 A, 좌상귀가 백이라면 B가 보통]
+(;W[ne];B[of];W[nf];B[og]C[B는 실수]
+(;W[rc]
+(;B[rb];W[mh]LB[oi:A][qi:B]C[정석, 호각
+
+이후 진행은 정석 이후
+
+백은 A, B의 연타를 노리고 있다.]
+;B[];W[oi];B[];W[qi];B[re])
+(;B[re];W[mb];B[nb]LB[ng:A][fc:B][ic:C]C[백 충분
+
+이후 백은 A, B 정도가 보통, C는 상황적인 수법]
+;N[]
+(;W[ng];AW[dd])
+(;W[fc];AB[dd])
+(;W[ic];AB[ec]AW[cd]C[흑이 소목 날일자 걸침, 혹은 화점 날일자 걸침일 때 세칸이 보통이다.])))
+(;W[mh]C[실수];B[ng];W[mg];B[mb]C[흑 약간 유리]
+(;W[lc];B[lb];W[kc]C[흑 약간 유리])
+(;W[re]C[뒤늦은 활용];B[rf]C[흑 만족])
+(;W[rc]C[뒤늦은 활용];B[re]C[흑 유리])))
+(;W[md])))
+(;B[mc]C[축관계
+
+백은 두 가지의 축 중 하나가 유리해야 한다.
+첫 번째는 A의 백의 축이고, 두 번째는 B 이후 흑의 축이다.
+
+흑이 축이 유리하다면 흑이, 백이 축이 유리하다면 백이 유리한 결과가 된다.]
+(;W[ne]C[백은 이 축이 유리하거나-])
+(;W[qf]
+(;B[ne]C[백 불리
+
+또는 이 축이 유리해야 한다.])
+(;B[rc]
+(;W[pj]C[백 만족])
+(;W[qj]C[백 만족]))
+(;B[nf];W[md];B[ld];W[me];B[rc];W[le]C[백 약간 유리
+
+백이 약간 유리한 전투])))
+(;B[md]C[흑이 축이 유리해야 가능한 수법];W[ne];B[of];W[mc];B[mb]C[A는 백이 축이 유리해야 가능한 수법, B는 백이 축이 불리할 때 사용하는 수법]
+(;W[qf];B[rc];W[me]
+(;B[og];W[ld];B[lb];W[ph]C[백 약간 유리])
+(;B[lc];W[og]C[축]))
+(;W[lc];B[lb];W[kc];B[rc];W[me];B[og];W[mg]C[흑 근소하게 유리])))
+(;B[pc]
+(;W[qe]
+(;B[od];W[pe];B[rd]C[A로 끊는 수와 B로 미는 수의 선택은 A로 끊고 백이 반발했을 때 누가 좋으냐에  달려 있다.]
+(;W[qc]
+(;B[re];W[qg]
+(;B[qb];W[qj])
+(;B[rf]C[함정수];W[og];B[];W[pb];B[oc];W[rc];B[rb];W[qb];B[sc];W[sb];B[sa];W[sd]
+;B[se];W[ra];B[qa];W[pa]))
+(;B[rc];W[oe];B[ne];W[nf];B[me];W[mf];B[le];W[lf]CR[qc][rc]C[귀의 교환으로 인해 이 자리까지 선수가 된다.]
+(;B[ke])
+(;B[kf]C[흑의 무리수]
+(;W[qb];B[rb];W[ke]C[흑은 기세대로라면 단수쳐서 잡아야하는데, 흑이 붕괴해버린다.]
+;B[je];W[kd];B[jd];W[pb];B[oc];W[mc])
+(;W[ke]
+(;B[jf];W[qb];B[rb];W[kd]
+(;B[id];W[pb];B[oc];W[mc])
+(;B[lc];W[kc];B[lb];W[hd]C[백 만족]))
+(;B[je];W[qb];B[rb];W[kd];B[jd];W[pb];B[oc];W[mc];B[mb];W[ld];B[nd];W[lb])))))
+(;W[oe];B[ne];W[nf];B[me];W[mf]
+(;B[le];W[qc];B[re];W[pg];B[qb])
+(;B[lf];W[le];B[kf];W[qc]CR[re]C[흑이 밀어가는 자리는 선수가 아니다.])))
+(;B[pe]C[실수];W[od];B[oc]
+(;W[rd];B[qc];W[pf];B[oe]
+(;W[rf]C[백 만족])
+(;W[of];B[nd]C[백이 손 빼는 것이 보통, 백 만족];W[qh]C[백 만족]))
+(;W[qc]C[실수];B[rd];W[pf]C[정석 환원])))
+(;W[qc]
+(;B[od];W[pe];B[rc];W[qb];B[qe];W[pf];B[qf];W[pg];B[rh]C[정석];W[lc];B[ne])
+(;B[pe];W[od];B[oc]C[정석 환원])
+(;B[qe]C[변칙수];W[oc];B[pb];W[ob];B[od];W[pe];B[nb];W[qf];B[rc]C[백이 손 빼는 것도 가능]
+;W[pf];B[oa];W[rd];B[re];W[rf];B[sd];W[qj]TR[pb][oa][rc][sd]C[빵때림이 두터워 보이지만, 백의 돌 4개가 죽은 만큼 흑의 돌도 거의 4개가 폐석이기 때문에 백이 약간 좋다]))))
+(;W[od]C[상황적인 수법];B[oc];W[pd];B[pc];W[qe];B[rd]C[흑 근소하게 유리])
+(;W[nd]C[상황적인 수법
+
+백이 패가 유리해야 가능한 수법
+
+흑은 패가 유리하면 A, 패가 불리하면 B가 보통]
+(;B[md]C[최강수, 흑이 패가 유리해야 가능한 수법];W[oc];B[od];W[ne];B[pc];W[mc];B[ob]
+;W[nb]C[패]
+(;B[lc];W[oc];B[nc];W[mb]CR[mb][lc]C[손뺌 수록
+
+이 굴복은 상당한 득이다.
+
+흑은 이어서 계속해서 굴복시켜야한다.]
+(;B[ld];W[oc]LB[oe:C]C[흑 만족
+
+백이 차후에 C로 패를 걸어올 수 있으므로, 급한 곳이 없다면 A로 빠르게 모양을 결정시킨다.]
+(;B[ic]C[손뺌 수록
+
+패가 상당히 큰 절대패다. 백은 A가 보통]
+(;W[nc];B[pb]C[흑 유리])
+(;W[oe];B[qb];W[pd];B[pf]C[호각
+
+백이 상당한 악수팻감을 써준다면 이 진행으로 충분하다.])
+(;W[nq];AB[pp]AW[dp][dd]C[참고도];B[nc];W[qn];B[oc];W[oo]C[백 망함])
+(;W[];B[nc];W[];B[oc]CR[nc][oc]C[백 망함
+
+이 연타가 초반에는 반상 최대의 자리이므로, 백이 이어서 굴복한 결과보다 흑이 더 이득이다.]))
+(;B[fq]))
+(;B[];W[ld]C[호각, 흑 미흡]))
+(;B[nq];AB[pp]AW[dp][dd]C[참고도];W[oc];B[fq];W[nc]C[백 약간 유리
+
+이 정도 팻감으로는 백이 약간 유리하다.])
+(;B[ep];AB[pp]AW[dp][dd]C[참고도, 흑 약간 유리
+
+최선의 수순.  팻감 공작의 의도다.]))
+(;B[od]C[환원])
+(;B[oc]C[환원]))
+(;W[oe]))
+(;B[nd]C[손뺌도 수록]
+(;W[lc]C[손뺌도 수록]
+(;B[jc]C[A가 보통]
+(;W[le]CR[pd]C[붙임을 노리고 있다.]
+(;B[je];W[pd]C[A가 정수]
+(;B[qc];W[pf];B[pc];W[nf]C[호각])
+(;B[pc]C[실수];W[oc];B[od];W[pe];B[qc];W[nc];B[md];W[mc]C[백 약간 유리]))
+(;B[mc];W[mb];B[nb];W[pe]C[C로 받았을 때, 틀어막겠다는 것이 백의 의도.
+
+A와 B가 보통]
+(;B[mf];W[oc]C[A로 한 점을 제압하면 백도 귀를 제압하고, B로 이으면 차단하여 싸워나간다.]
+(;B[lb];W[qe]CR[ob][nc]C[막음과 찝음이 선수가 되기 때문에 당장 수가 나지 않는다.]
+;B[];W[qc]LB[kb:A][nc:B][ob:C]C[당장 수가 나지 않지만, 맛이 나쁜 것은 사실이기 때문에 백은 바로 지켜둔다. 백은 지켜둠으로써 B와 C의 단수는 필요없어졌기 때문에 A로 준동하는 것을 엿볼 수 있다.]
+;B[ld]C[호각
+
+흑도 바로 지켜둬서 호각의 진행이다.])
+(;B[nc];W[ob];B[qe];W[pf]
+(;B[qf])
+(;B[rg];W[qc];B[rc];W[lb];B[na])))
+(;B[qe];W[ne];B[me];W[mf];B[md];W[lf]
+(;B[ld];W[pf]
+(;B[qg];W[kd];B[kc];W[pd];B[qc];W[jd]
+(;B[lb]C[백 근소하게 유리])
+(;B[ic]C[변칙수];W[pc];B[pb];W[ob]
+(;B[lb]CR[ic][ob]C[흑 약간 유리
+
+이후 백이 손을 돌려 충분하다. 흑돌과 백돌의 효율을 비교했을 때 백이 더 낫다.])
+(;B[oa]C[무리수];W[qf]C[흑 망함])))
+(;B[rg];W[kd];B[kc];W[pd];B[qc];W[jd];B[ic]CR[rg]C[흑돌이 한 칸 낮게 있는 만큼 뻗더라도 괜찮은 결과다.]
+;W[pc]C[A가 정수]
+(;B[lb];W[qh]
+(;B[qg];W[pg]CR[qg][pg]C[호각
+
+찌름은 보통은 악수지만, 지금은 건너붙임을 선수로 방비하는 수다. 이후 흑이 손을 돌려 호각이다.])
+(;B[];W[rf];B[qf];W[qg];B[rh];W[re];B[rd];W[ri];B[se];W[sh];B[sf];W[pj];B[];W[pb]
+;B[qb]C[백 약간 유리, 백 두터움]))
+(;B[pb];W[ob];B[oa];W[qh]LB[qg:A]C[백 근소하게 유리
+
+귀의 맛이 나빠 A로 흑이 나와끊거나 옆구리 붙이는 등의 수를 둘 수 없다.])))
+(;B[pg])
+(;B[pf]))
+(;B[pd];W[md];B[nc];W[ne]C[백 근소하게 유리])
+(;B[lb];W[md]
+(;B[nc]
+(;W[ne];B[mf];W[me];B[kc];W[qe];B[qg]C[백 근소하게 유리])
+(;W[qe];B[me];W[qc]C[흑이 받는 것이 보통, 손뺌 수록]
+(;B[ld]C[백 근소하게 유리])
+(;B[];W[ld];B[kb];W[mf];B[ne]C[백이 손 빼는 것이 보통
+
+백 근소하게 유리])))
+(;B[ma];W[ne];B[od]
+(;W[oe];B[mf];W[me];B[rc];W[qg]C[백 근소하게 유리])
+(;W[pd];B[oe];W[oc];B[nc];W[qc]C[백 약간 유리])))))
+(;W[pd]))
+(;B[mb]C[백은 손 빼는 것이 보통])
+(;B[mc];W[ld];B[ic];W[mf]LB[of:A][ie:B]C[A, B 맞보기]
+(;B[of];W[ie])
+(;B[ie];W[of]C[흑은 받는 것이 보통, 흑이 손 빼는 것도 가능]
+(;B[qf]C[백은 손 빼는 것이 보통])
+(;B[];W[qf])))
+(;B[];W[pd]C[A는 백의 돌을 양분시켜 싸우겠다는 의도, B는 두텁게 처리하겠다는 의도, C는 백이 두터울 때 사용하는 수법]
+(;B[pc];W[oc];B[od];W[pe];B[qc]C[A는 최강수]
+(;W[ob];B[rf];W[pg];B[nf])
+(;W[nc];B[md]
+(;W[mc];B[pf];W[oe];B[qe];W[of];B[og];W[nf];B[pg];W[lf])
+(;W[ld];B[nf]LB[mc:A]C[백은 A의 약점이 있기 때문에 우변을 준동할 수 없다.];W[lf]
+C[호각
+
+흑은 받는 것이 보통];B[pf]C[백의 우상귀 정석은 좌상귀에 백이 있기 때문에 선택한 것인데,]
+;AW[dd]CR[fc]LB[jc:A][kb:B][lb:C]C[우상귀를 제압하지 않으면 A, B, C가 전부 선수이므로 상변에 침투하는 것이 힘들기 때문에, 우상귀를 먼저 제압하고 상변 침투를 노리는 것이 보통이다.]
+;W[fc]C[백도 지키는 것이 보통])))
+(;B[pe]C[A로 두는 것이 보통, B는 축이 유리해야 가능한 수법]
+(;W[pc];B[qc];W[qb]C[A는 기세, B는 타협]
+(;B[rb];W[ob];B[qa]C[백은 여기서 보통 손을 돌린다];W[pb];B[pf]CR[pb]C[흑이 그냥 호구치는 정석보다 근소하게 이득이기 때문에 백은 잇지 않고 패를 하거나 손을 돌리는 것이 일반적이다])
+(;B[qf];W[ob]C[호각]))
+(;W[qc]C[축이 유리할 때 가능한 수법, 난해한 전투
+
+A로 두면 보통 흑이 근소하게 좋다, B는 난해한 전투로 유도하려는 수법]
+(;B[re];W[pc];B[rc];W[rb];B[sb];W[oe];B[od];W[pf];B[qe];W[nb];B[me]
+(;W[pb];B[of]C[흑 근소하게 유리])
+(;W[of];B[mb]
+(;W[pb];B[nc])
+(;W[qf];B[rf];W[rg];B[ob];W[sd];B[rd];W[qh];B[oc]C[흑 충분])))
+(;B[qe]C[A로 그냥 건너가는 것은 흑이 만족이기 때문에 백은 B로 버티는 것이 최선]
+(;W[od];B[oe];W[nc];B[md];W[mc];B[rc];W[pb];B[qb];W[pc]C[흑 만족])
+(;W[pc]
+(;B[nb]
+(;W[oe];B[od];W[of];B[rc];W[rb];B[rd]LB[me:A][qg:B][ob:C]C[손뺌도 수록
+
+바로 살거나 봉쇄하는 것은 별로 좋지 않기 때문에 백도 당장 결행하지는 않고 손을 돌려 A, B, C 등 뒷맛을 노려가는 것이 일반적이고, 흑도 C로 사는 수가 부담이기 때문에 보통 바로 가일수하게 된다.]
+(;W[];B[me];W[qg];B[pb]C[호각])
+(;W[me];B[pb])
+(;W[qg];B[pb])
+(;W[ob];B[me];W[sb]))
+(;W[ob];B[oe];W[mb]C[흑 충분]))
+(;B[mc]C[난해한 전투
+
+차후 연구 필요];W[oe])))
+(;B[pc];W[od];B[oc];W[oe];B[qe];W[ne];B[md];W[nc]C[A로 치는 것이 일감이지만, 미는 수가 선수가 되지 않기 때문에 B로 먼저 치는 것이 수순의 묘]
+(;B[nb];W[mc];B[qb];W[le]C[백 근소하게 유리])
+(;B[qb]
+(;W[rc];B[nb];W[mc];B[ld];W[kc];B[mf];W[ng];B[rb]C[흑 만족])
+(;W[nb];B[rc];W[lf]C[호각])))))
+(;B[qc]C[B로 두면 환원할 수 있지만, A가 백이 약간 더 좋은 정석이기 때문에 A로 두는 것이 보통이다]
+(;W[pf];B[pc]CR[me]C[호각
+
+백은 차후에 씌우는 수가 있다])
+(;W[pc]C[환원])))
+(;B[qj]C[신수
+
+신진서 변상일 / 2022-08-22];W[pd];B[pc];W[oc];B[od];W[pe];B[qc]
+(;W[nc];B[md]
+(;W[mc];B[pf]CR[qj]C[흑 한 점이 화점이 아니라, 화점의 밑에 위치하면 흑은 두 가지 득이 있다]
+(;W[oe]CR[qj]C[첫째는 평소처럼 B로 두는 것이 아니라, 흑 한 점을 활용해 A로 씌워서 싸울 수 있고]
+(;B[nf];W[qe];B[re];W[qf];B[rf];W[qg];B[oh]C[이후 전투는 흑이 유리하다
+
+백은 차라리 이 정석을 회피하는 것이 좋다])
+(;B[qe];W[of];B[og];W[nf];B[pg];W[lf]))
+(;W[qe]C[둘째는 백이 밑으로 두었을 때 기본적으로는 B로 받아야 하지만, 지금은 흑의 한 점이 있어 A로 받을 수 있다]
+(;B[oe];W[qf];B[qg];W[rg];B[qh];W[of];B[pg];W[ld];B[nf]C[흑 만족])
+(;B[qf])))
+(;W[ld];B[nf]TR[pd][pe]LB[mc:A]C[A의 약점 때문에 백 두 점은 거의 죽어있다고 봐도 무방하다]))
+(;W[ob]C[기본적인 정석은 B지만 느슨하다. 지금은 흑 한 점을 활용해서 A로 두는 것이 정수]
+(;B[pf]
+(;W[oe];B[qe];W[of];B[ld]C[축 관계가 있는 수법
+
+백은 축이 유리하다면 A, 불리하다면 B의 수법이 정수]
+(;W[kd]C[흑은 축이 유리하다면 A, 불리하다면 B의 수법이 정수]
+(;B[og];W[me];B[md];W[le];B[ne];W[nf];B[mf];W[ng];B[lf])
+(;B[mc];W[le];B[md]C[이후 쌍방 어려운 전투]
+(;W[kc];B[nf];W[og];B[mb];W[qf];B[pg];W[ph];B[qg];W[qh];B[rf];W[rg];B[qf])
+(;W[pg];B[kc];W[qf];B[re])))
+(;W[pg];B[mc];W[qf]C[호각]))
+(;W[qe];B[oe];W[qf];B[qg];W[rg];B[qh]C[흑 충분]))
+(;B[rf]))))
+(;W[pc]C[상황적인 수법]
+(;B[pd];W[ob]C[A는 귀를 지키는 선택, B는 변을 지키는 선택.]
+(;B[oc];W[nc];B[od];W[mb];B[pb];W[md]LB[rf:A]C[차후 A의 활용이 있음])
+(;B[mc];W[qc]))
+(;B[qc];W[pd];B[pe];W[qb];B[rb];W[ob];B[qa];W[pa]))
+(;W[oc]C[상황적인 수법];B[od];W[qc]
+(;B[pc]C[정수];W[pb];B[pd];W[rb];B[rc];W[qb])
+(;B[rc]C[상황적인 수법
+
+상변에 흑의 응원군이 있을 경우 가능한 수법
+
+거의 두어지지 않는다]
+;W[pc];B[re];W[mc]))
+(;W[];B[pj]C[B와 C는 축이 유리해야 가능한 수법]
+(;W[lc];B[ld];W[kd];B[le]
+(;W[mb];B[nb];W[nc];B[oc];W[mc]
+(;B[od]C[호각])
+(;B[ob];W[qe]C[이후 진행은 어렵지만 호각]))
+(;W[qh]CR[rd]TR[ld][le]MA[pd]C[백은 흑 두 점이 있어서 축이 불리하기 때문에, C나 D로 반발했을 때, 귀는 화점이 아니라 밑붙여서 끌어가는 정도로 활용하게 된다.]
+(;B[qf];W[mb];B[nb];W[nc];B[oc];W[mc];B[ob]CR[qh][qf]C[이 교환은 백의 이득이기 때문에 백 만족])
+(;B[mc]C[호구를 쳐서 반발하게 되면, 귀를 활용하며 쉽게 살아가게 된다.];W[re]
+(;B[ri];W[rh];B[qi];W[rd];B[qc];W[ph]C[호각])
+(;B[rd];W[rj]C[백 만족]))
+(;B[qi];W[oi]C[우변을 먼저 응수타진하고 그 후에 귀를 어떻게 활용할지 결정한다];B[oj]
+;W[mc]
+(;B[nc];W[ni];B[mk];W[kh]C[호각])
+(;B[ni];W[pd];B[pc];W[oc];B[pe];W[od];B[oe];W[nc];B[qc];W[md];B[nf]C[호각]))
+(;B[rj]C[연구 중];W[oi]
+(;B[oj];W[ni];B[mk];W[mc];B[nc];W[li]C[호각])
+(;B[pi];W[rd]
+(;B[rc];W[re];B[pc];W[ph];B[oh];W[og];B[nh];W[qe]C[백 타개 성공])
+(;B[qc];W[qe];B[rc];W[ph];B[oh];W[og];B[nh];W[re]C[백 타개 성공])
+(;B[qe];W[re];B[rc])
+(;B[re];W[qe];B[rc];W[pd];B[qc];W[rf];B[sd];W[mc])))))
+(;W[qh]C[흑이 손 빼는 것도 가능
+
+우변을 깨는 것에 집중하는 수법]
+(;B[qf];W[pc]
+(;B[pd])
+(;B[qc]))
+(;B[qi]C[귀의 축이 유리하다면 A, 변의 축이 유리하다면 B]
+(;W[ph];B[nj];W[pd]
+(;B[pc];W[qc]
+(;B[oc];W[rd];B[qe];W[re];B[qf];W[rf];B[rc];W[qb];B[rb];W[pf];B[pe];W[oe];B[od]
+;W[qg];B[pd]C[백 만족])
+(;B[od];W[pe];B[qe];W[of];B[rc];W[qb];B[rb];W[qf]CR[pb][oc]C[백 근소하게 유리
+
+백이 탄력이 있는 형태고, 상변에서 자체로 수가 나진 않지만 맛이 나쁜 형태라 충분하다]))
+(;B[pe];W[qc];B[qe];W[pc];B[oe];W[nb];B[mh];W[mc]C[호각])
+(;B[qc];W[pf];B[pc];W[mg]C[백 충분]))
+(;W[oi]
+(;B[oj];W[ni];B[mk]
+(;W[li])
+(;W[kh]))
+(;B[ph];W[pi]
+(;B[qj]C[백 근소하게 유리한 전투]
+(;W[pd])
+(;W[ne])
+(;W[od]))
+(;B[qg];W[rh];B[qj];W[pg];B[oh];W[qf]
+(;B[ni]C[축];W[re];B[rd];W[rg]C[흑 충분])
+(;B[og];W[rg];B[of];W[re])
+(;B[nh];W[pd]
+(;B[pc];W[rd];B[qc];W[qe]C[흑이 약간 유리하지만 축이 불리하므로 감내해야 한다.])
+(;B[pe];W[qe];B[pc];W[rd];B[od];W[rc]C[흑이 약간 유리하지만 축이 불리하므로 감내해야 한다.]))))
+(;B[pi]
+(;W[pd]C[백이 축이 유리해야 가능한 수법])
+(;W[rd]C[백이 축이 불리할 때 사용하는 수법]
+(;B[qc];W[ph];B[oh];W[qe];B[rc];W[ne]C[백 약간 유리])
+(;B[rc];W[qc];B[pc];W[qb];B[rb];W[pd];B[qe];W[pb];B[oc];W[re];B[qf];W[rf];B[qg]
+;W[rg];B[ph];W[ob];B[nb];W[ra]C[백 약간 유리])
+(;B[qe];W[qc];B[pc];W[pb]
+(;B[qb];W[rc];B[ob];W[qf];B[pd];W[re];B[ph]
+(;W[rb]C[백 약간 유리])
+(;W[pf]C[백 약간 유리]))
+(;B[rc];W[qb]
+(;B[re];W[oc]C[백 약간 유리
+
+이후 진행은 참고도];B[mc];W[od];B[oe];W[nb]C[백 약간 유리])
+(;B[rb];W[oc];B[od];W[pd];B[pe];W[mc]C[백 약간 유리])))
+(;B[re];W[qe]
+(;B[rc];W[pd];B[qc];W[rf];B[pe];W[se];B[pf];W[qf]
+(;B[ph];W[rh]C[백 약간 유리])
+(;B[rh];W[pg];B[nf];W[ng];B[mf];W[rg]C[백 약간 유리]))
+(;B[rf];W[od];B[qc];W[ne]C[백 약간 유리]))))))
+(;B[rj]C[연구 중];W[pd]
+(;B[qc];W[pf];B[pc])
+(;B[pc];W[qc];B[oc];W[rd];B[qe];W[re];B[qf];W[rf]
+(;B[qg];W[qb];B[rg]C[선수로 귀를 깨서 백 충분])
+(;B[rc];W[qb];B[rb];W[qg];B[oe];W[of];B[pe];W[oh]))
+(;B[pe];W[qc]))
+(;B[]C[축이 유리하다면 A, 불리하다면 B와 C가 보통]
+(;W[pd])
+(;W[rj])
+(;W[qf])))
+(;W[qf]C[흑이 손 빼는 것도 가능
+
+우변을 깨는 걸 엿보면서 귀를 깨겠다는 수법]
+(;B[qh];W[qc];B[pc]C[A와 B는 축이 유리해야 가능한 수법, C는 축이 불리할 때 사용하는 수법.
+
+A와 C가 일반적이다.]
+(;W[pd];B[rc];W[qb];B[pe];W[od];B[oe];W[oc]
+(;B[qe];W[nc])
+(;B[nc];W[ob];B[qe];W[rb]))
+(;W[rc];B[rd];W[pd];B[oc];W[sd]
+(;B[re];W[rf];B[pe];W[se];B[od];W[rh];B[ri];W[qg];B[ph];W[og];B[pg];W[pf];B[of]
+;W[nf];B[oe];W[pb];B[sh];W[ob];B[nb];W[mc];B[nc])
+(;B[pe];W[re];B[od]))
+(;W[rd];B[rc];W[qb];B[re];W[pd];B[qe];W[oc];B[pe];W[od];B[oe];W[nc]TR[rd][re]C[흑 충분
+
+이 교환은 악수 교환이다]))
+(;B[];W[qh];B[qi];W[ph];B[nj]C[B는 상변 배석에 따라 전투 양상이 달라진다. A가 보통]
+(;W[mg]
+(;B[oe])
+(;B[kd]LB[od:A][qc:B]C[보통 A나 B로 바로 흑의 엷은 곳을 노려간다.]))
+(;W[od]C[B는 보통 상변에 흑돌이 있을 때 사용하는 수법]
+(;B[oe];W[pe];B[pd];W[oc]
+(;B[ne];W[qb];B[rb];W[pb];B[rf];W[pf]
+(;B[nc];W[nb];B[mb];W[rc];B[rd];W[ra];B[rh];W[rg];B[sg];W[qg];B[rj];W[re];B[na]
+;W[ob];B[se]C[패])
+(;B[rc];W[lc];B[rg];W[mh]C[배석이 없다면 흑의 무리지만, 상변에 응원군이 있다면 난전의 형태로 충분히 둘 수 있다.]))
+(;B[nc];W[pb];B[nb];W[qb]
+(;B[rc];W[rb];B[rf];W[qe];B[re];W[rg];B[sb];W[oi]CR[ne]C[끊는 수를 노리고 있다]
+(;B[oj];W[ne];B[of];W[nf];B[og];W[ng];B[ob];W[pc];B[ra];W[oh];B[pa];W[pg];B[qa]
+;W[pf]C[흑 망함])
+(;B[nf];W[ra];B[sd];W[qc];B[sf];W[oj];B[ok];W[pk];B[pl];W[qk];B[ql];W[rk];B[rl]
+;W[ri];B[pa]C[백 만족]))
+(;B[rg];W[of];B[ne];W[rc];B[rh];W[rf]C[백 만족])))
+(;B[oc];W[pc];B[pd];W[oe]C[A는 축이 유리할 때 가능한 수법]
+(;B[pb];W[nc];B[ob];W[me])
+(;B[ob];W[nc]
+(;B[mc];W[pb];B[nb];W[rc]
+(;B[rd];W[rb]C[흑은 나중에 귀에서 패를 낼 수 있지만, 백도 패를 하면서 조이기를 할 수 있기 때문에 충분하다
+
+이후의 진행은 정석 이후]
+;B[pa]
+(;W[re])
+(;W[qa];B[qc];W[qb];B[sc];W[sb];B[sd];W[oa];B[na];W[pe];B[sa]))
+(;B[qc];W[qb];B[rb];W[ra];B[sb];W[sc];B[pa];W[sa];B[rd];W[re];B[oa];W[sd];B[rb]
+;W[sb];B[qa];W[mg]))
+(;B[nb]
+(;W[mc];B[ne]C[전투])
+(;W[ne];B[mc];W[rc];B[qc];W[rd]))))))))
+(;W[pd]C[상황적인 수법, 축이 유리해야 가능한 수법];B[pc];W[qc]))))
+(;B[pd]C[A나 B가 보통]TE[2]
+(;W[qc]TE[2];B[qd];W[pc]
+(;B[od]TE[2]
+(;W[nb]C[정석, 이후 진행은 정석 이후, 흑이 손 빼는 것도 가능]TE[2]
+(;B[mc]C[백이 손 빼는 것도 가능];W[rd];B[re];W[rc])
+(;B[nc];W[mb]
+(;B[rc];W[rb];B[ob]CR[nc][mb]C[상황적인 수법
+
+이 교환이 있기 때문에 백이 끊는 반발을 할 수 없으나, 약간 악수 교환이다]
+;W[rd]
+(;B[re];W[sc];B[oc]
+(;W[ld]C[백 약간 유리])
+(;W[jc]C[백 약간 유리]))
+(;B[oc]
+(;W[ld];B[re];W[sc];B[jc]C[백 약간 유리])
+(;W[re];B[kc]CR[mb][nc]C[백 약간 유리
+
+이 교환이 흑의 악수 교환이기 때문에 백이 약간 유리하다])
+(;W[jc])))
+(;B[ld];W[rc])
+(;B[]
+(;W[ld])
+(;W[rc])))
+(;B[rc]C[백이 손 빼는 것도 가능]
+(;W[rb];B[ob]C[A가 보통]
+(;W[rd];B[oc]C[A가 보통이지만, B도 가능]
+(;W[re];B[kc]C[정석])
+(;W[jc];B[re];W[sc]))
+(;W[oc];B[nc]C[환원]))
+(;W[lc]C[상황적인 수법
+
+상변의 가치가 크고, 흑의 두터움의 가치가 작을 때 사용하는 상황적인 수법]
+;B[oc];W[ob];B[rb];W[ic]C[흑 약간 유리])
+(;W[]
+(;B[oc]C[흑 근소하게 유리, 백이 손 빼는 것이 보통];W[rb]
+(;B[qb];W[pb];B[ob];W[qa];B[rd];W[oa];B[mc]C[백이 손 빼는 것도 가능, 흑 약간 유리])
+(;B[ob];W[rd];B[re];W[sc];B[pb];W[qb];B[kd]CR[re][sc]C[흑 약간 유리
+
+백이 단수를 맞은 약간 안 좋은 정석으로 환원된다.]))
+(;B[rb]
+(;W[kc]C[흑 근소하게 유리])
+(;W[];B[kc]C[흑 약간 유리]))))
+(;B[]C['A, B' 그리고 'C, D'의 간격에서는 F의 수단이  수 있고 없고의 미묘한 차이가 있다]
+(;W[qh]C[B는 참고도]
+(;B[qj];W[oh]
+(;B[qm])
+(;B[le]))
+(;B[rc];W[rb];B[ob];W[oc];B[nc];W[rd];B[qb];W[sc];B[pb];W[rc];B[mb];W[nd];B[mc]
+;W[ne]CR[qh]C[백 근소하게 유리
+
+이 돌의 위치가 절묘하게 백의 탈출을 막고 있다]
+(;B[pf];W[og])
+(;B[pg];W[qe])
+(;B[ph];W[pf])))
+(;W[ph]C[B는 참고도]
+(;B[qj])
+(;B[rc];W[rb];B[ob];W[oc];B[nc];W[pb];B[mb];W[nd];B[mc];W[ne]
+(;B[of]
+(;W[oa]C[정수
+
+A가 보통]
+(;B[re];W[jd]C[흑의 두칸 벌림을 막으면서, 엷게나마 중앙 돌파도 동시에 지키는 한 수.]
+(;B[jc])
+(;B[le];W[mf];B[kc];W[oe]
+(;B[pe];W[pf];B[qf];W[pg]
+(;B[rg];W[sc];B[rd]C[백 충분])
+(;B[sb]C[변칙수];W[sd]
+(;B[sc];W[rg]
+(;B[ra];W[qa];B[qb];W[dp];B[rb]CR[sd][sc]C[백 충분
+
+이 교환은 백의 이득])
+(;B[rf]C[백 만족
+
+우상귀를 당장 살리는 것은 발이 느리고, 차후에 살려서 백이 충분하다]))
+(;B[rd];W[rg];B[ra];W[qb];B[ma];W[na];B[qa];W[sc];B[se];W[sc];B[rf];W[sg]C[백 만족])))
+(;B[pf];W[rg]C[백 충분])
+(;B[qg];W[qh]C[백 충분])
+(;B[qf];W[mh]C[백 충분]))
+(;B[ld]
+(;W[le];B[ke];W[kd];B[me];W[md];B[lf];W[lc];B[le];W[lb];B[nf];W[ma]C[백 약간 유리])
+(;W[nf]
+(;B[lf];W[og])
+(;B[og];W[le];B[ke];W[kd];B[lf];W[me];B[je]
+(;W[id]C[축이 유리해야 가능한 수법];B[ng];W[kf];B[jf];W[kg];B[lh];W[lg];B[mg];W[mf])
+(;W[lc]C[백 충분]
+(;B[id];W[md];B[he])
+(;B[ng];W[ie]C[백 충분]))))))
+(;B[qg];W[ld];B[jc];W[qh];B[ng];W[lg];B[ni];W[pk]C[백 충분]))
+(;W[oe]C[변칙수];B[re];W[sc];B[pf];W[nf]
+(;B[ng];W[og];B[mg];W[le];B[qh];W[qi];B[rg]C[흑 충분])
+(;B[og]C[백 충분
+
+백의 의도])))
+(;B[re];W[oa]
+(;B[of]C[환원])
+(;B[og];W[le];B[jc];W[pf];B[pg];W[qg];B[qf];W[rf];B[qe]C[백 충분]))
+(;B[og]C[실수];W[le];B[jc];W[pf]C[백 충분])))
+(;W[qi]C[호각
+
+이후 진행은 참고도다];B[rc];W[rb];B[ob];W[oc];B[nc];W[pb];B[mb]
+;W[nd];B[mc];W[ne];B[ph]C[호각])
+(;W[qj]C[호각
+
+이후 진행은 참고도다];B[rc];W[rb];B[ob];W[oc];B[nc];W[pb];B[mb]
+;W[nd];B[mc];W[ne];B[qh];W[rd];B[re];W[sc];B[pf];W[ng];B[oi];W[jd]C[호각])
+(;W[mc]
+(;B[ph])
+(;B[pi])
+(;B[md];W[ld]
+(;B[nc]
+(;W[lb];B[le];W[kd])
+(;W[lc];B[ob];W[oc];B[nd];W[pb];B[le];W[ke];B[lf]))
+(;B[le];W[ke];B[nc];W[me];B[ob];W[nd];B[oc])))
+(;W[rc]C[A가 보통, 종반으로 갈 수록 B로 받게 된다]
+(;B[ph])
+(;B[qh])
+(;B[md])
+(;B[rd];W[md]))
+(;W[md])
+(;W[nd]CR[mc]C[상황적인 수법, 흑이 손 빼는 것도 가능
+
+입구자하는 수가 좋지 않을 때 사용하는 수법]
+(;B[ph])
+(;B[ne])
+(;B[oc];W[ob];B[nc];W[mc];B[md])
+(;AB[pp][nq][cq][dq][fr]AW[cp][dp][ep]C[가령 이런 배석이라면-];B[gq];W[gp];B[hp]
+;W[fq];B[hr];W[ho];B[ip]TR[nq]C[백의 활용으로 인해 흑 세모가 약간의 중복의 느낌이기 때문에 이런 상황엔 붙이는 수를 종종 사용한다]))))
+(;W[nc]C[축이 유리해야 가능한 수법, 흑이 손 빼는 것도 가능
+
+]TE[2]
+(;B[oc];W[ob]
+(;B[pb]C[축이 유리해야 가능한 수법];W[qb];B[nb];W[pa];B[mc])
+(;B[nb];W[mb];B[pb];W[na];B[qb]C[환원]))
+(;B[rc];W[nd])
+(;B[nd];W[mc];B[oc];W[ob];B[nb];W[pb];B[lc];W[mb];B[md];W[lb]
+(;B[pj]C[호각
+
+우변 벌림은 급한 곳이다. 이후 진행은 정석 이후]
+(;W[kc])
+(;W[ld]C[실수];B[le];W[kc]C[흑 충분
+
+백이 빵때림은 했지만, 머리를 두들겨 맞았기 때문에 흑이 좋은 결과])
+(;W[];B[kc]))
+(;B[po];AB[pq]C[포석 단계에서 소목이 이런 배석일 경우,  굳힘이 보통 일감이나 이감이겠지만, 정수가 아니다.]
+;W[qj]CR[po]LB[qk:A][pj:B]C[백이 갈라치면 우상이 벽이긴 하지만, 안형이 없어 약간 엷고, 반대로 백의 갈라침은 두텁다.
+따라서 소목 굳힘으로는 A나 B의 우변 벌림이 정수다. 이와 같이 백이 다가와도 괜찮아 마음껏 공격할 수 있는 두터움과 다가오면 엷은 두터움을 구분할 수 있어야한다. 우상의 세력은 후자로써, 벌려두는 것이 두터웠다.
+
+이런 특성을 이용해서 소목 굳힘을 견제하는 포석이 자주 나온다.]))
+(;B[]
+(;W[mb];AB[cp][dp][ep]AW[cq][dq][fr][gq]CR[gp]C[붙임의 활용이 없는 만큼 우상의 형태가 좌하의 형태보다 약간 좋다는 의도])
+(;W[nd])
+(;W[rc])))
+(;W[oc]C[흑의 약점을 만들려는 의도]TE[2]
+(;B[nc];W[nb]CR[nd]C[손뺌 수록
+
+흑의 약점을 노리고 있다.];B[];W[nd];B[mc];W[mb]
+;B[lc];W[ne];B[le]
+(;W[lf]C[A로 두는 것은 우변의 전투가 백이 좋아서 불만이고, B로 두는 것은 빈삼각으로 끊어서 다음 행마가 없다]
+(;B[kf];W[mf]C[백 충분])
+(;B[mf];W[me]C[A, B로는 불만이기 때문에 C의 교환을 해야하는데 타이밍이 늦는다]
+(;B[ke];W[mg]C[백 만족])
+(;B[mg];W[ld];B[ke];W[kc]C[백 만족])
+(;B[rc];W[rb];B[re];W[ld];B[ke];W[kc]C[백 만족]))
+(;B[rc];W[rb];B[re];W[sc];B[mf]C[빈삼각으로 끊는 수가 불가능하다는 의도
+
+B는 축이 유리해야 가능한 수법]
+(;W[me];B[nf];W[oe];B[pf];W[ld];B[ke];W[kc];B[of];W[kd];B[je]C[흑 유리])
+(;W[nf]
+(;B[kf];W[lg];B[mg]C[백은 축이 유리해야 가능한 수법]
+(;W[me];B[ng];W[ld];B[ke];W[kc];B[og];W[lh];B[jh];W[kd];B[if]C[호각])
+(;W[ld];B[kg];W[lh];B[md];W[me];B[kd];W[mh];B[qh];W[og];B[qj]C[흑 충분]))
+(;B[mg];W[ld];B[kd];W[me]
+(;B[ke];W[ng]
+(;B[mh];W[nh];B[qh];W[mi];B[kg];W[kc];B[jc];W[kb];B[qj]LB[lb:A][ok:B]C[정석
+
+A와 B는 맞보기로 보고 백은 손을 돌린다])
+(;B[qh];W[mh];B[lg];W[kc];B[jc];W[kb];B[lh];W[kf]C[전투
+
+백 충분]))
+(;B[md];W[ke];B[ld];W[og];B[qh];W[ph];B[qi];W[kf];B[jd];W[lh]C[백 충분]))
+(;B[lg])
+(;B[me]))
+(;W[ld])))
+(;W[kd];B[me];W[nf])
+(;W[pf];B[re];W[rc];B[qg]C[흑 충분]))
+(;B[mc]
+(;W[mb];B[lb];W[nc];B[md];W[nd];B[ne])
+(;W[nc];B[nd];W[mb];B[lc];W[lb]))
+(;B[nd]
+(;W[nc];B[mc]C[백이 손 빼는 것도 유력]
+(;W[mb]CR[lc]C[흑이 여기에서 손을 뺀다면 단수가 선수기 때문에, 하나 더 늘어두고 손을 뺀다.]
+;B[lc];W[lb]C[정석
+
+흑은 손을 돌린다.])
+(;W[]C[백이 손을 빼도 귀의 사활은 문제가 없다.]))
+(;W[mb]CR[ld]C[흑은 중앙의 약점이 사라졌고, 백도 귀의 약점이 사라져 날일자까지 올 수 있기 때문에 일장일단이 있다.]))))
+(;B[nc]TE[2]
+(;W[nb]C[축이 유리해야 가능한 수법, 최강수, 백은 받는 것이 보통
+
+A와 B가 보통]
+(;B[mb]
+(;W[oc]C[축이 유리해야 가능한 수법];B[nd];W[od];B[oe]
+(;W[pe]C[축이 유리해야 가능한 수법
+
+A가 보통]
+(;B[re];W[pf]
+(;B[of];W[og]C[이후 변화가 난해하고, 최선의 수순을 단정지을 수 없기 때문에 이해가 용이하도록 프로바둑에서 유행한 순서로 서술했다(ABC 순으로 보면 편함).
+
+A는 축관계, B, C, D가 보통]
+(;B[pg]C[백이 축이 불리하다면 붕괴한다];W[ne];B[nf];W[me];B[ld];W[ng])
+(;B[me];W[rc];B[pg];W[qf];B[qg];W[rf];B[rg];W[sf];B[qj];AB[pp]AW[dd][dp]CR[pp]C[우하귀에 흑돌이 있다면 흑이 소극적이기 때문에 백이 충분하다.
+우하귀에 백돌이 있는 경우에는-]
+;AB[dd]AW[pp]CR[pp]LB[qm:A][fc:B]C[일견 A와 B의 자리가 맞보기로 보이지만, A에 손뺀다면 백도 아주 강력한 수단이 있다.]
+;W[qm]
+(;B[fc]LB[oh:A][ng:B][mf:C]C[이 때 백이 A나 B 어느 한쪽으로 느는 것이 아니라, C로 붙이는 것이 강렬한 수법인데-]
+;W[mf]C[흑도 단수치고 나가는 것은 필연인데-];B[ng];W[oh]
+(;B[nf];W[ni]LB[mg:A][pk:B]C[이 마늘모가 통렬한 맥점이 되어 A와 B가 맞보기가 된다. 흑은 A로 받을 수밖에 없는데-]
+(;B[mg];W[pk]C[이 수로 완벽하게 봉쇄되어 백이 약간 유리하다. 흑은 중간에 다른 수를 둘 수 있는데-])
+(;B[pl]C[실수];W[mg]C[백 유리]))
+(;B[lf]C[잇지 않고 젖히는 수다];W[mg];B[nh];W[oi];B[nf];W[nj];B[mh];W[ql]C[하지만 백이 가만히 차렷하는 묘수를 두면 봉쇄와 사활 추궁을 동시에 할 수 있어 백이 유리하다]
+(;B[rk]C[정수];W[ri];B[sg];W[rd];B[qi]C[A는 간명한 수, B는 조금 더 추궁하는 수]
+(;W[nl];B[si];W[rl];B[sk]C[백 약간 유리])
+(;W[ph];B[qh];W[ok]C[이 수가 흑이 더 괴롭다.]
+(;B[rl];W[rm];B[rj];W[sj];B[sh];W[sm];B[si];W[kq]C[그냥 살면 백이 더 좋은 결과로, 백의 만족이다.])
+(;B[nq];W[qq];B[om]LB[sj:A]C[이런 식으로 백의 약점을 추궁해나가야 그나마 안 좋은 흐름을 버틸 수 있는데-]
+;W[sj];B[oo];W[po]C[귀를 깔끔하게 접수해서 백이 조금 더 좋은 약간 유리한 결과다.])))
+(;B[ok]C[변칙수];W[pk];B[rk]C[ ];W[qh]
+(;B[rh];W[qi];B[ri];W[qk]C[이후 흑이 안에서는 살 수 없어 백의 만족이다.])
+(;B[cn];W[pj]C[백 만족]))
+(;B[pk]C[실수];W[ol];B[rk];W[ri];B[sg];W[rd];B[qi];W[rl];B[sk];W[ph];B[qh];W[si]
+C[흑 망함];B[ok];W[nk];B[nl];W[ml];B[nm];W[om];B[mm];W[lk];B[ll];W[mk];B[kl];W[kk]
+;B[jl];W[jk];B[il];W[hj]C[흑 붕괴])))
+(;B[oj];W[fc];B[ec];W[fd];B[df];W[id]LB[qm:A][oj:B][ng:C]C[이 결과는 A와 B의 교환이 백이 집으로 상당히 득이고, 상변도 쉽게 깨졌으며,
+C로 준동하는 맛이 남아 있기 때문에, 프로바둑에서 호구 대신 잇는 수가 대신 사용되게 된다.]))
+(;B[ne]
+(;W[rc];B[pg]
+(;W[qf];B[qg];W[rf];B[rg];W[sf];B[oh];W[ng];B[nh];W[mg];B[li]C[B가 보통]
+(;W[kh];B[jd];W[ki];B[lg];W[lh];B[mh];W[lj]CR[me]C[호구 이후에는, 이 정석도 자주 등장했지만 흑이 석점을 잡아 두텁고, 백은 단수를 치긴 했지만 후수에 집이 없기 때문에, 
+프로기사 중 흑이 편하다는 의견이 많아서 정석이 바뀌게 되는데-])
+(;W[kg];B[jd]CR[pp]C[서로 뛴 이후에 난전에 돌입하는 정석이 주류가 된다.
+
+이 정석은 우하귀의 주인이 흑이라면 흑이, 백이라면 백이 편한 정석이다.]))
+(;W[rd]C[타협];B[qg];W[qe];B[pi]C[정석]))
+(;W[rb]
+(;B[qg]C[기세];W[pg];B[qh])
+(;B[pg];W[rd];B[qg];W[qe];B[pi]CR[rb]TR[rc]C[백 충분
+
+백의 의도. 백은 한 점이 세모의 위치 있는 것보다 이득이다.
+
+이후 진행은 참고도]
+;W[];AB[fq][fp][gr][eo][bo][en][fo][cm][dm][dk]AW[em][dn][do][ep][eq][dq][cq][fr]
+[bq][bp][co]C[중후반의 단계에서-];B[er]C[흑이 단수쳤을 때]
+(;W[dr]CR[hr]C[백이 바로 받아주는 것은 우변 쪽 활용이 사라졌기 때문에 백이 당했고, 따라서 이 결과는 흑이 약간 유리하다. 그러므로-])
+(;W[]C[백은 손을 빼는 것이 보통이고];B[bn]CR[dr]SQ[fs]LB[er:A][bn:B]C[흑이 A와 B의 끝내기를 모두 한 경우, 미는 끝내기가 선수가 되기 때문에 이는 우상에서 A와 B를 한 것에 비해 선수 1집 약하게 이득이다.
+
+따라서 우상의 진행은 집으로 계산하면 좌하의 정석에 비해 흑이 0.25집 약하게 손해를 본 결과고, 그러므로 백이 근소하게 유리하다는 것을 알 수 있다.
+
+인공지능은 좌하의 정석과 우상의 형태의 차가 0.25집보다 큰 0.5집 차이라고 보는데 아마 우상에 비해 좌하의 정석은 빵따냄도 선수이기 때문에 두터움의 차이도 있다고 보는 것 같다.]))))
+(;B[ng];W[qg];B[rc];W[ob];B[oh];W[pg]C[A는 간명하고, B는 매우 난해한 흐름으로 이어진다.]
+(;B[lc];W[rb];B[sb];W[qb];B[rg]C[B도 있긴하나 흑이 약간 좋아 거의 두어지지 않음. A가 정수.]
+(;W[rh];B[rf]C[연구 미완]
+(;W[qi]
+(;B[pa];W[ra];B[na];W[oa];B[ma];W[sg];B[sf]
+(;W[sd];B[sc];W[rd];B[se];W[rd];B[qe];W[sh];B[sd];W[qf];B[qa];W[nh];B[mg];W[mh]
+;B[lg];W[oi]C[호각])
+(;W[sh];B[sc];W[rd];B[qe];W[sd];B[se];W[rd]C[대동소이]))
+(;B[ni]))
+(;W[nh];B[ri];W[sh];B[pa];W[nf];B[ne];W[mg];B[na]C[귀는 흑이 모두 가져가고, 백은 두터움과 선수를 얻었다.
+쌍방 호각]))
+(;W[rf]))
+(;B[qi]C[미씨비도, 삼삼백변]
+(;W[nh]
+(;B[nf]
+(;W[mc]C[가장 먼저 나온 유행정석
+
+백이 이해하기 쉽고, 가장 간명하다.];B[oi]
+(;W[rf];B[qb];W[me];B[mh];W[qe];B[rd];W[rb];B[sb];W[ra];B[qa];W[se];B[sf];W[sg]
+;B[rh];W[rg];B[md];W[lc];B[ld];W[lb];B[kd];W[ni]C[백은 귀를 모두 잡았고, 흑은 두터움을 쌓아 쌍방 호각이다.])
+(;W[mh]C[축이 불리할 때 사용하는 수법];B[me];W[md];B[rh];W[kd]))
+(;W[rb]C[최신이자, 세번째로 나온 유행정석
+
+연구 미완];B[sb];W[qb];B[rf];W[pi]
+;B[rg];W[mc]C[C는 우하기 흑돌일 때에만 호각인 수법.]
+(;B[me];W[md];B[ni];W[mh]
+(;B[oi];W[ke]C[B는 착각]
+(;B[le])
+(;B[kf];W[lf];B[le];W[mf]C[흑 망함]))
+(;B[ph]))
+(;B[pj];W[oi];B[mh]C[A는 단수의 이득도 주지 않겠다는 반발]
+(;W[qj];B[qk];W[rj];B[ri]C[B는 우하귀에 백돌이 있고 좌상귀에 흑돌이 있을 때 종종 사용하는 수법]
+(;W[pk]
+(;B[oj];W[ni];B[ok]C[무난한 수라면 A나 B, 우하귀가 흑돌이라면 C도 가능하다]
+(;W[md];B[lg];W[lj])
+(;W[mg])
+(;W[mi];AW[pp]CR[pp]C[우하귀에 백돌이 있을 때 사용하는 수법];B[lh];W[li];B[kh];W[ki]
+;B[jh]
+(;W[ji];B[ih];W[md]CR[rk]C[백이 움직이는 수가 있어 가일수해야 한다.];B[qn]C[백 근소하게 유리])
+(;W[md]LB[ji:A][ih:B]C[흑 근소하게 유리
+
+다만 A, B 교환이 있는 쪽이 백이 더 좋다.])))
+(;B[ni];W[oj];B[lb];W[md];B[ne];W[pa];B[kd];W[qh];B[rh];W[si];B[rk];W[sj]))
+(;W[ni];AB[pp]AW[dd];B[pk];W[mg];B[mf];W[lg];B[lc];W[md];B[ld];W[ne];B[le]
+(;W[li]
+(;B[hc]C[정석])
+(;B[kg];W[kf];B[lf];W[lh];B[hc]C[백 약간 유리]))
+(;W[id];B[li]C[백이 사방이 엷어 어렵다.])))
+(;W[ni];B[qh];W[ph];B[lg];W[md];B[lj]C[호각]))
+(;B[ph];W[qh];B[oi];W[pj];B[oj];W[ri];B[qj];W[pk];B[rj];W[rh];B[sh];W[ok];B[mh]
+;W[rk];B[si];W[qk];B[sj];W[md];AB[pp];B[qo]C[호각
+
+우하가 백돌이라면, 백 유리])))
+(;B[ne]C[변칙수];W[rb];B[sb];W[qb]
+(;B[rf];W[mc]
+(;B[lc];W[md]C[축으로 잡을 것인지 물어보는 수 ];B[me];W[rg];B[rh];W[sg]CR[mg]C[단수를 선수로 만들기 위한 필연의 교환이다.]
+;B[ph];W[mg];B[nf];W[ld];B[le];W[kd];B[ni];W[mh];B[ke];W[jd];B[kg]C[백 충분])
+(;B[rg];W[lc];B[mg]C[백 충분]))
+(;B[rg];W[rf];B[rh];W[sf])))
+(;W[mc];B[nf]
+(;W[rh]C[두번째로 나온 유행정석
+
+연구 미완];B[rf]
+(;W[pi])
+(;W[rj]))
+(;W[nh]CR[mc][nh]C[환원
+
+이 수순보다, 중앙을 끊고 상변을 끊는 쪽이 변화의 여지가 적어 선호된다.]))))
+(;B[ob]C[변칙수
+
+A가 보통
+B는 A 진행의 축이 불리하지만, B의 축이 유리할 때 선택한다.]
+(;W[rc];B[pg]
+(;W[qg];B[ph];W[qf]
+(;B[ng];W[ri];B[oh]CR[rh]C[백 약간 유리
+
+차후에 건너붙여 봉쇄하는 맛이 있다.]
+(;W[qj])
+(;W[];B[rh]C[정석 이후];W[qh];B[qi];W[qj];B[pi];W[rg];B[rj];W[sh];B[qk]))
+(;B[qh];W[ne];B[nf];W[me]
+(;B[ng]
+(;W[rf]C[백이 축이 유리해야 가능한 수법];B[ld]
+(;W[oh]C[백 맍족])
+(;W[fq]C[호각]))
+(;W[rh];B[ri];W[rf];B[ld];W[qi];B[sh];W[rg];B[oh];W[qj]C[백 약간 유리]))
+(;B[mf];W[mc]
+(;B[na]C[정수];W[lf];B[nh];W[md]
+(;B[rg];W[nb]
+(;B[kb]C[백 만족
+
+흑은 오직 이 한칸 뜀이다. 다른 행마는 전부 끊어진다. 귀를 살려감으로써 우상귀 백의 안형을 압박할 수 있다.
+
+백은 씌우거나 협공해서 기분 좋은 진행이다.]
+(;W[jc])
+(;W[ib];B[jc];W[lb])
+(;W[lb]CR[la]C[이 진행도 둘 수는 있지만, 패 맛이 신경쓰인다.];B[gc]))
+(;B[jc]C[눈목자 등 한칸이 아닌 다른 행마로 나간다면,];W[kb]C[깔끔하게 취해서 백이 더 좋은 결과가 된다.]))
+(;B[nb];W[lb]C[백이 좋은 전투]))
+(;B[lf]C[착각];W[rf]C[백 유리])))
+(;B[mf];W[ri];B[pi];W[rj]C[백 충분];B[pb];W[qb];B[rd];W[sc])
+(;B[ne];W[ri];B[pi];W[rj]C[백 충분];B[pb];W[qb];B[rd];W[sc]))
+(;W[qf]C[변칙수]
+(;B[ng]C[정수];W[oh];B[rf];W[qg];B[rg];W[qh];B[rh]C[백 약간 유리한 전투])
+(;B[qg];W[rf];B[rg];W[sf];B[mf]C[백 근소하게 유리])))
+(;W[ne]C[백이 축이 유리해야 가능한 수법
+
+];B[nf];W[me]
+(;B[pg]C[흑이 축이 유리해야 가능한 수법]
+(;W[ng]C[축])
+(;W[mc];B[na];W[md];B[nb];W[rc];B[rd];W[pb];B[lc];W[qg];B[ph];W[qf];B[mf];W[qh]
+;B[rb];W[sb];B[qa];W[pa];B[le];W[pi]CR[sa]C[흑 약간 유리
+
+귀에 패 맛이 남아있다.]))
+(;B[ng];W[mc];B[na];W[md];B[nb];W[rc];B[pg];W[qf]
+(;B[lc]C[정수];W[rf];B[oh]
+(;W[ke];B[jd];W[lg]C[호각])
+(;W[lf];B[jc]C[호각])
+(;W[id]C[버리겠다는 의도];AW[dd]C[좌상이 백돌일 때 주로 사용한다.];B[lf];W[fc]C[호각]))
+(;B[kc]C[변칙수]))
+(;B[mf]C[변칙수];W[mc];B[na];W[lf]C[차후 연구 필요]
+(;B[nh];W[md];B[nb])
+(;B[mg])
+(;B[md];W[le];B[nh]))))
+(;B[lc]))
+(;B[og]C[함정수
+
+연구 미완]
+(;W[rc];B[of];W[pg];B[ph];W[rg]
+(;B[qi];W[rf])
+(;B[pi];W[rj])
+(;B[rh];W[oh];B[pi];W[rf]))
+(;W[of];B[ne];W[rc];B[nf];W[pg];B[oh];W[qh];B[qi];W[ri];B[rj];W[rh])))
+(;B[rd]C[반대쪽 귀의 축머리를 노리는 수법];W[pf]C[B가 축이 유리할 때 사용하는 정석]
+(;B[ne];W[rc];B[rf];N[]
+(;W[qh]
+(;B[pg]C[반대쪽 귀의 축머리를 노리는 수
+
+소목 날일자 받음, 화점 날일자 받음 모두 선수 축머리다.
+
+신진서 퉁멍청 / 2021-06-21]
+(;W[re]C[필연];AB[eq]AW[cp][dn];B[do];W[co];B[se];N[])
+(;W[]))
+(;B[];W[qf]))
+(;W[qf];B[rg];W[re];B[og]C[축이 불리할 때 사용하는 수법.
+백이 완전히 봉쇄되어 흑 약간 만족]))
+(;B[of];W[rc];B[rf]
+(;W[qf];B[og];W[ph];B[ob];W[re])
+(;W[pg];B[qh]))))
+(;W[ne]TR[mb][nb]C[축이 유리해야 가능한 수법
+
+이 교환이 악수가 되어 백이 아쉽다]
+;B[of];W[rd];B[re];W[rc]C[B는 기세, C는 타협
+
+C로 타협하는 것이 보통]
+(;B[me]C[백은 이 축이 유리해야 한다])
+(;B[qf]C[는];W[ld];B[lc];W[me];B[ob];W[pe];B[qe];W[mc];B[na];W[md];B[nb];W[lb];B[pb]
+;W[qb];B[kc];W[kb];B[jb];W[jc];B[kd];W[ib];B[ke];W[og])
+(;B[le];W[qe];B[nf]LB[pe:A][qg:B][qh:C][qi:D]C[호각
+
+흑은 차후에 A로 싸우거나, B, C, D 등으로 활용할 수 있다])))
+(;W[ob]C[축이 불리할 때 사용하는 정석];B[md];W[od];B[oc];W[rd];B[re];W[rc];B[qf]
+C[흑 약간 유리
+
+이후 진행은 정석 이후]
+(;W[oe]C[연구 미완];B[pf];W[of]
+(;B[ph])
+(;B[og]))
+(;W[];B[oe]C[두터운 수
+
+단수 치는 수가 굳힘에 버금갈 정도로 큰 곳이다])))
+(;B[mc]
+(;W[mb];B[lc]CR[oc]C[백이 당장 치받지 않더라도 결국 우상귀는 사실상 백이 치받아야하는 형태다. 흑은 오히려 상황에 따라 역으로 치받을 수도 있다.
+
+이후 진행은 참고도]
+;AB[cp][dp][fq][gq][hq][dd]AW[cq][dq][fr][gr];W[ci]LB[cg:A][ck:B]C[가령 좌변이 이런 포석일 때 사실상 좌하귀는 백이 치받은 형태이므로, 흑은 A가 보통이지만 B로 다가올 생각이라면-]
+(;B[eq];W[er];B[ck]CR[eq][er]SQ[eo]C[치받고 협공하는 것이 좌하귀에서의 정교한 수순이다.
+평소에 좌하의 정석을 두지 않는 것은-]
+;AB[pp][qp][nq][mq][lq]AW[mr][nr][pq][qq]
+(;W[pl];B[oq];W[or];B[qj];W[oo];B[op]CR[pl][oo][op]C[백이 4선에 있을 때 들여다봄에 일방적으로 굴복해야 하기 때문이다.])
+(;W[oq];B[op]C[이 정석이라면-];W[pl];B[qj];W[no];B[on]CR[no][pl]C[흑이 한칸 높게 위치해 있기 때문에, 백이 들여다보더라도 충분히 반발할 수 있어 두터움으로 더 낫다는 것이 이 정석에서의 흑의 의도다.]))
+(;B[ck]CR[ck]C[따라서 이젠 흑이 좌변을 두어 좌하귀를 치받더라도 들여다봄을 걱정할 필요가 없기 때문에, 먼저 치받고 협공하는 것이 정수였다.]
+;W[eq];B[ep]C[흑이 교환하지 않아 이젠 백이 바로 역으로 치받는 교환을 한다.]))
+(;W[qf]C[신수, 변칙수
+
+박정환 당이페이 / 2023-02-12]
+(;B[oc];W[rd];B[re];W[rc]
+(;B[rf]C[정수];W[qg];B[qe];W[ob];B[qi];W[oe];B[og];W[qh];B[pf];W[pi];B[qj];W[oh]
+;B[ng]C[흑 근소하게 유리])
+(;B[qe]C[백의 의도];W[ob];B[pf]CR[pg]C[호각이지만, 인간의 입장에서는 되젖히는 활용이 있기 때문에 편하다.]))
+(;B[rd];W[oc];B[od];W[mb];B[lc];W[lb];B[kc];W[qi]C[백 충분
+
+이후 진행은 참고도]
+(;B[kb]C[막더라도 백은 선수로 살아있다.];W[];B[rb];W[rc];B[sc];W[qb];B[la];W[qa]
+C[삶])
+(;B[rb];W[kb];B[jc];W[rc];B[sc];W[qb]C[삶]))))
+(;B[od];W[mb]CR[nc]C[호각, 백 근소하게 유리
+
+난해한 전투로 흘러가는 것도, 후수를 잡는 것도 피한 정석이다. 다만, 흑이 모붙이는 수는 언제든지 나중에 둬도 되는데 다른 방향으로 활용할 수 있었던 자리를 미리 교환하여, 호각에 가깝지만 근소하게나마 백이 낫다.
+
+이렇게 진행할 생각이였다면 흑 5로 그냥 뻗는 것이 낫다.])
+(;B[]C[만약 흑이 두터워 A의 응징이 불가능하더라도, B로 선수로 환원할 수 있기 때문에 백이 충분하다]
+(;W[od];B[oc];W[ob];B[mc];W[oe];B[rd]
+(;W[lc]C[백의 붙임이 준엄하다];B[mb];W[rc]
+(;B[na]C[좋은 응수타진
+
+A가 정수]
+(;W[pb];B[qg];W[md]CR[dd]C[상황적인 수법
+
+좌상귀에 백돌이 있을 때 가능한 수법]
+;B[lb];W[kc];B[kb];W[jc];B[jb];W[ic];B[ib];W[hb]CR[dd][dc][cc][cd]C[백 유리
+
+좌상귀에 백돌이 있다면 백이 유리하다]
+;B[hc];W[gb];B[nd];W[ne];B[me];W[ld];B[mf];W[og];B[hd];W[jf];B[fc];W[fb];B[he];W[kf]
+;B[eb]CR[jf]C[상황적인 수법, 백 유리
+
+배석이 없다면 뻗음이 선수이기 때문에, 흑이 석점을 잡자고 하는 노림이 있지만, 좌상에 백의 배석이 있다면 가능하지 않아 백이 유리하다.
+
+만약 좌상귀에 없다면, 백이 망한 결과])
+(;W[pa]C[백은 호구도 가능하지만 흑이 수습할 기회를 줘서 잇는 것에 비해 약간 미흡하다.]
+;B[rb]C[좋은 응수타진]
+(;W[sb];B[me];W[qf];B[qb]C[응수타진]
+(;W[pb];B[rf]CR[sd]C[뻗음이 선수가 되기 때문에, 흑이 살려나가자고 할 수 있다.];W[rg]
+;B[qg];W[pg];B[qh];W[re];B[pf];W[sf];B[qe];W[rf];B[of];W[pe];B[ne];W[sd];B[ng])
+(;W[ra];B[se];W[sc];B[qh]LB[rf:A][ng:B]C[백 미흡
+
+A와 B의 사석작전이 맞보기다.]
+(;W[rg];B[ng];W[of];B[ld])
+(;W[og];B[rf])))
+(;W[qb];B[qg]CR[rb][qb]C[백 미흡
+
+이 교환은 흑의 이득])))
+(;B[qg]C[좌상귀가 백이라면 A, 우하귀가 백이라면 B]
+(;W[md];B[na]C[B도 가능]
+(;W[pb]C[환원])
+(;W[pa];B[lb];W[kc];B[kb];W[jc];B[jb];W[ic];B[ib];W[hc];B[hb];W[gb]CR[dc][cd][cc]
+[dd][ec][ed]C[백 유리
+
+좌상귀에 백돌이 있다면 백이 유리하다];B[gc];W[fb];B[gd]
+;W[ec];B[nd];W[ne];B[me];W[ld];B[mf];W[og];B[ie];W[jf];B[je];W[hd];B[he];W[ge]CR[cd]
+[dd]C[좌상귀에 백의 배석이 있다는 가정 하의 참고도다];B[fe];W[gf];B[fd];W[kf];B[mh]
+;W[ph];B[ke];W[le];B[lf];W[ff];B[de];W[if]C[백 유리]))
+(;W[ld]C[축이 유리해야 가능한 수법
+
+연구 미완];B[lb];W[kb]
+(;B[md];W[pe];B[qe];W[pg];B[qh];W[me];B[kc];W[jb];B[le];W[kd];B[ke];W[jd];B[ne]
+;W[mf];B[nf];W[ng];B[mg];W[lf];B[lg];W[kf];B[kg];W[jf];B[og];W[nd];B[nh];W[ma]C[우하귀가 백돌이라면 백 약간 유리, 우하귀가 흑돌이라면 흑 유리])
+(;B[kc];W[jc]C[축]))
+(;W[pg];B[na];W[pa];B[qh];W[ld];B[lb];W[pf])))
+(;W[rc];B[qg];W[lc]C[받은 후에 붙이면 흑에게 A의 선택지가 주어진다]
+(;B[me])
+(;B[mb])))
+(;W[oc];B[od])
+(;W[mc];B[nd];W[lb])))
+(;W[oc]
+(;B[od]
+(;W[nb]CR[oc][od]C[이 교환은 미묘한 관계가 있는데, 초반에는 나중에 흑이 A나 B로 귀를 정리하는 자세가 더 낫기 때문에 흑이 근소하게 득이라고 본다. 하지만 백이 단점을 노려갈 땐 백이 약간 득이므로 백이 먼저 이 정석을 택하는 경우도 있다.]
+(;B[mc];W[mb];B[lc]C[정석]
+(;W[lb];B[kc]C[흑이 상변을 막는 수의 가치가 클 경우 하는 교환])
+(;W[ne]C[A가 보통]
+(;B[ph]C[반발, 전투])
+(;B[rc];W[rb];B[qb]
+(;W[pb];B[ra];W[qa];B[sb];W[sa]C[패];AW[dp];B[dq];W[rd];B[cp]CR[ne][od][pd][qd]
+C[이어주는 수는 무겁고, 반발하는 것은 좋지 않을 때 다른 곳에서 연타로 이득을 보고 석 점은 가볍게 버리겠다는 의도])
+(;W[qa]C[패를 피하는 수];B[sb];W[ra];B[re]CR[lb]C[막히는 것이 선수];W[lb])
+(;W[rd]C[바꿔치기];B[ob];W[sc];B[pb];W[rc];B[lb]
+(;W[qf])
+(;W[pf])))
+(;B[nd]))
+(;W[];B[lb]
+(;W[rd];B[re];W[rc])
+(;W[];B[rc];W[rb];B[rd];W[sb])))
+(;B[rc]
+(;W[rb]
+(;B[ob]
+(;W[pb];B[mb]
+(;W[nd]
+(;B[mc];W[ne];B[le];W[ng];B[ph];W[jc]
+(;B[kd]C[호각])
+(;B[of]
+(;W[nf];B[jd]C[호각])
+(;W[oe];B[re];W[oa];B[nf];W[pe];B[pg];W[qf];B[rf];W[qg];B[qh];W[rg];B[rh];W[sf]
+;B[me];W[rd];B[sd];W[qe];B[rd];W[sb]C[흑 유리])))
+(;B[na]))
+(;W[oa];B[mc]))
+(;W[rd]C[축이 유리해야 가능한 수법];B[qb];W[sc];B[pb];W[rc]C[B는 함정수]
+(;B[mb];W[nd];B[mc]C[B는 축이 불리할 때 사용하는 수법]
+(;W[qf]
+(;B[ne]C[백 불리])
+(;B[nf]C[손 빼는 것도 가능
+
+우하에 백돌이 있으면 손을 돌려도 괜찮지만 흑돌이 있다면 받는 것이 보통이다]
+(;W[ph]C[호각])
+(;W[]
+(;B[qh]C[백은 받는 것이 정수인데 우변의 흑을 굳혀주는 느낌이 든다
+
+손뺌도 수록]
+(;W[ph])
+(;W[pg])
+(;W[]C[A는 축 관계가 필요한 수법]
+(;B[rh]
+(;W[oe];B[ne];W[md];B[ld];W[me];B[lf];W[pe];B[mf];W[qe]C[백 유리])
+(;W[pg];B[ph];W[og];B[ne];W[rf];B[ni]C[흑 충분]))
+(;B[ne]C[B는 무리수, A가 정수]
+(;W[rf];B[ri]C[흑 충분])
+(;W[ph];B[rh];W[pg];B[pi]))))
+(;B[ph]CR[nd]C[손뺌도 수록, 흑이 축이 유리해야 가능한 수법
+
+백은 이 축이 유리해야 버틸 수 있다]
+(;W[og]C[백이 축이 유리해야 가능한 수법]
+(;B[pg];W[pf];B[of];W[oe]
+(;B[ne]C[축];W[md];B[ld])
+(;B[md]C[축이 불리할 때 사용하는 수법];W[ne];B[me];W[pe]C[백 충분]))
+(;B[ne];W[oh];B[pg];W[pf];B[pi];W[rh];B[of]C[백 근소하게 유리]))
+(;W[pg]C[백이 축이 불리할 때 사용하는 수법])
+(;W[qh];B[qi];W[pi])
+(;W[]
+(;B[qg]
+(;W[oe];B[ne];W[md];B[ld];W[me];B[lf];W[pe];B[mf];W[qe]C[백 충분])
+(;W[rf];B[pf]C[흑 유리]))
+(;B[rh]
+(;W[oe];B[ne];W[md];B[ld];W[me];B[lf];W[pe];B[mf];W[qe]C[백 충분])
+(;W[qe];B[ne];W[rg]C[흑 충분])))))))
+(;W[oe]C[축이 불리할 때 사용하는 수법];B[ne];W[md];B[of];W[qf];B[pf];W[qh]C[흑 근소하게 유리]))
+(;B[mc]C[함정수];W[qf];B[ne]CR[qa]C[백 충분
+
+1선 젖힘이 선수이기 때문에 백이 받지 않아 충분]))
+(;W[nd];B[mc];W[pb]
+(;B[ne])
+(;B[mb];W[ne])))
+(;B[mb]))
+(;W[mc]C[상황적인 수법];B[nd];W[lb];B[qb];W[pb];B[pa];W[ob]C[흑 근소하게 유리
+
+보통은 귀가 잠식당한 것이 더 크지만, 상변의 가치가 클 때 상황적으로 쓸 수 있다.]))
+(;B[mb]C[상황적인 수법];W[mc];B[nd];W[lb]C[상황적인 수법
+
+부분적으로는 흑이 좋지 않지만, 우변 전투에서 머리가 하나라도 나와있는 쪽이 도움되는 경우, 혹은 상변 흑 한 점이 끊기는 것은 신경쓰이지만 백의 상변 발전성이 별로 없을 때 종종 사용된다])
+(;B[md]C[상황적인 수법
+
+의도는 이단젖힘과 비슷하다];W[mb])
+(;B[]
+(;W[nd];B[mc];W[mb];B[lc];W[ne])
+(;W[mc];B[nd]
+(;W[rc])
+(;W[lb]C[호구 치는 수도 간혹 있으나 거의 두지 않는다.]))))
+(;W[nd]C[상황적인 수법
+
+백의 응원군이 주위에 있어 싸움이 유리할 때 사용하는 수법
+A와 B 이후의 전투가 백이 유리해야 가능한 수법이다]
+(;B[nb];W[rd];B[re];W[rc];B[qf])
+(;B[mc];W[rd];B[re];W[rc];B[qf])))
+(;B[nd]C[함정수];W[od];B[oe];W[ne];B[of];W[rd];B[re];W[rc]
+(;B[me];W[qe]
+(;B[nf]C[흑 충분])
+(;B[lh]C[흑 충분]))
+(;B[qf];W[me];B[lc];W[ld];B[mb];W[kc];B[kb];W[nb];B[mc];W[jc]C[백 충분];B[jb];W[ic]
+;B[ob];W[pb];B[na]C[백 충분
+
+귀는 가일수하지 않고 큰 곳을 선착하면 백이 충분하다])
+(;B[ld];W[qe];B[qh];W[pe]C[백 충분]))))
+(;B[oc]TE[2];W[ob]
+(;B[nb]TE[2]
+(;W[nc];B[od];W[mb]
+(;B[pb];W[na];B[qb]C[정석, 백이 손 빼는 것도 가능
+
+이후 진행은 정석 이후
+
+백은 A로 밀거나, 우변을 타개할 때 B로 활용한다.]
+(;W[nd]LB[oe:A][rf:B]C[백이 미는 수는 상변을 키우겠다는 수로 A로 젖힘이 언제든지 선수인 것이 전제이므로, B의 들여다보는 활용은 사실상 사라졌다.])
+(;W[rf]CR[nd]C[상황적인 수법
+
+2선 들여다봄은 사용에 주의가 필요하다.
+
+백 두 점의 맛이 사라져 백이 차후에 밀었을 때 젖히는 수도 선수가 되지 않고, 흑이 이단 젖히는  수가 살아나는 등 여러 맛이 사라진다.
+따라서 어차피 무조건 선수기 때문에 백은 '목적'을 가지고 사용하며 최후의 최후까지 결정을 보류하는 것이 보통이다.]
+(;B[re])
+(;B[rc]C[우변에는 손해지만, 끝내기로 이득이다.]))
+(;W[];B[me]C[백이 손 빼는 것도 가능]
+(;W[kd]CR[me][kd]C[호각
+
+기본적으로 흑백 서로 동등한 가치의 교환
+
+백이 초반에 바로 받아두어도 괜찮고, 이 교환은 백의 손해가 아니다 오히려 우변이 견제되어 있다면 흑이 집으로 손해가 된다
+
+다만, 우변의 흑 모양을 견제해야해서 받지 않아야될 경우가 자주 생긴다.])
+(;W[];B[lc]C[백이 손 빼는 것도 가능]
+(;W[];B[jc])
+(;W[lb];B[kc];W[ne];B[nd];W[mc];B[jf];W[md];B[le];W[ld];B[kd];W[kb])))
+(;W[rc];B[rb]C[이 교환을 미리 해놓는 경우도 있다. 다만 팻감이므로 보류하는 것이 보통]))
+(;B[nd]C[폐기된 수법];W[na];B[mc]
+(;W[nb]C[폐기된 수법
+
+흑 약간 유리
+
+];AB[cp][dp][ep]AW[cq][dq][fq];B[fp];W[gr]
+;B[eq];W[er];B[gq];W[fr]CR[na]C[좌하의 형태는 사실상 호각이라고 봐도 문제가 없는 형탠데-우상은 백이 한 집을 자기가 메워 흑이 약간 유리하다.])
+(;W[lc]C[단수 치는 것이 이 형태, 그리고 이와 비슷한 패들에서 인공지능이 제시하는 기본 해법이다.
+
+패를 할 때 직관적으로 계산하는 좋은 방법은 빵때림하면서 해소하는 패는 크고, 이어서 해소하는 패는 작다는 것이다. 인공지능은 이러한 점을 철저하게 이용한 해법을 제시한다.
+
+이 패는 흑이 사실상 이어서 해소해야하고, 백은 빵때림하면서 해소하는 패기 때문에 이 패는 백이 유리하다.]
+;B[nb]C[흑은 따야 하는데-];W[]LB[lb:A]C[흑이 A로 치는 것은 천지대패가 되므로 백이 아무것도 받지 않고 해소해 불가능하다. 또한 이 경우는 백이 패를 해소하는 자세가 빵때림하는 자세라 흑이 팻감 공작을 할 시간도 충분하지 않다.
+
+결국 흑은 A로 걸어 패를 해소할 수 없다면, B로 이어서 해소하거나 백에게 굴복을 당해야한다.]
+(;B[lb];W[nc];AB[do][dq][dp][eq][er][hq]AW[fq][cp][cq][cr][dr][cn];B[co];W[md];B[bo]
+CR[lb]C[흑 망함
+
+좌하 정석을 뚫는 팻감 정도를 쓰더라도, 흑은 패를 건 한 점까지 폐석이 된 꼴이라 견딜 수가 없다.])
+(;B[nc];W[kb]C[이런 패에서는 항상 흑이 이으면 백은 호구 치겠다는 뜻이다.];B[pb]
+C[백 유리
+
+흑이 이어서 패를 해소하면 호구친 백의 형태가 좋다. 흑의 돌은 패를 걸었지만 뭉친 형태고, 백은 활발하다.])
+(;B[];W[nc];B[md];W[kb]C[백 유리
+
+흑이 패를 굴복하면 이 결과는 흑이 한 점을 희생타로 내주고 얻은 것이 없어 이어서 해소한 것보다 흑이 더 나쁘다.])
+(;B[dq];AW[dp];W[nc];B[cp];W[md]C[흑 망함
+
+백이 빵때림하면서 패를 해소하기 때문에, 흑이 무언가 팻감 공작 같은 다른 수단을 강구할 시간이 없다.]))))
+(;W[rd]C[상황적인 수법];B[re];W[qe];B[od];W[rf];B[rc];W[se]C[상황적인 수법, 백 망함
+
+상황에 따라 두는 수법이지만 초반에는 백이 망한 수준의 결과이므로, 확실하게 검증해보아야 한다
+
+A가 보통, B는 중앙으로 맛이 나쁘다]
+(;B[qb]C[백 망함])
+(;B[rb]C[흑 유리])))
+(;B[nc]C[구정석]TE[1];W[nb];B[mc]
+(;W[mb]
+(;B[lc]C[정석, 백 근소하게 유리, 손뺌 수록
+
+이후 진행은 정석 이후]
+(;W[oe]C[상황적인 수법, 응수타진
+
+
+
+];AB[pj][qp][pp][nq][op][mq][lq]AW[mr][nr]
+[oq][pq][qq]C[주로 흑의 돌이 우변에 포진해 있을 때 사용하는 삭감 방법이다
+
+A로 두면 중복이므로 백의 이득, B로 두면 흑의 돌을 우변에 편중시켜서 역시 백의 이득, C로 두면 한 점을 가볍게 버려서 좋은 자세가 된다]
+(;B[od]C[백 약간 유리])
+(;B[pf]CR[oe]LB[oh:A][me:B]C[흑을 우변에 편중시켰고, 흑의 돌에 약점이 있으므로 백은 차후 A나 B로 은근하게 흑을 위협하며 삭감할 수 있다.
+
+백 한 점을 언제나 가볍게 보고 버리는 것이 핵심이다.]
+(;W[oh]
+(;B[of];W[qh]C[백 약간 유리])
+(;B[ph];W[og];B[pg];W[oi]C[백 약간 유리]))
+(;W[me];B[jd];W[nh];B[ph]C[호각]))
+(;B[nf];W[ph]C[백 한 점을 가볍게 보는 것이 핵심이다]
+(;B[of];W[pf];B[rd];W[rc];B[ne];W[qj];B[qk];W[pk]C[백 약간 유리])
+(;B[ni];W[of];B[ng];W[qj];B[qk];W[qi];B[rk];W[od]C[백 유리한 전투,])
+(;B[qf]
+(;W[mh]C[호각])
+(;W[nh]C[호각]))))
+(;W[]C[이 진행은 사활 관계에 대해 설명을 위한 참고도다
+
+A는 사활 관계상 선수기 때문에 종종 두어지고, B는 사활 관계상 후수기 때문에 거의 안 두어진다]
+(;B[rd];W[rc]C[백 근소하게 유리];B[sc];W[sb];B[sd]C[후수 끝내기
+
+백 만족];W[]
+;B[rb];W[qb];B[sa];W[lb]
+(;B[jc];W[qa]C[백 만족])
+(;B[qa];W[kc];B[pb]C[흑 망함];W[ic]))
+(;B[rc];W[rb]
+(;B[rd];W[lb]C[넉점 머리가 아프기 때문에 거의 받아야 하는데-];B[kc];W[];B[sb];W[qb]
+C[백은 선수로 살아있어, 흑이 후수 끝내기를 한 꼴이기 때문에 백이 유리하다])
+(;B[re]C[우변에서 전투할 때 사용하는 상용수법];W[sc]CR[sb]C[흑이 역으로 젖히면 우상의 안형이 사라지고, 흑은 안형이 생겨 탄력이 좋기 때문에 흑 15는 선수다.]))))
+(;B[pj]C[변칙수];W[lc]
+(;B[ld];W[kc]CR[ne]C[이단 젖히면 치중을 노리기 어렵게 되므로 느는 것이 정수])
+(;B[me];W[ne]C[백 충분]))
+(;B[kc]C[변칙수];W[lc];B[ld];W[lb];B[ke]LB[ne:A]C[흑이 두터워보이지만, 일단 백도 A의 치중이 있기 때문에 약점을 이용할 수 있어서 불만 없다.
+
+백도 바로 추궁하는 것이 일반적이지만, 바로 두지 않더라도 A를 이용해서 타개를 적극적으로 해나갈 수 있다.]
+(;W[ph]LB[ne:A]C[A를 노리고 있다.];B[pj];W[ne];B[od];W[nh];B[me]
+(;W[nj])
+(;W[mj]))
+(;W[pi]LB[ne:A]C[A를 노리고 있다.];B[pk];W[ni]
+(;B[nf])
+(;B[nk];W[ne];B[od];W[qg]
+(;B[me])
+(;B[];W[me];B[md])))
+(;W[nq];AB[pp]C[조금 더 세련된 응징];B[pj];W[qq];B[qp];W[pq];B[op];W[mr];B[mo];W[qh]
+;B[oh];W[qf]
+(;B[oe];W[rj];B[qk];W[rk];B[rl];W[og];B[ng];W[ph];B[oi];W[of];B[nf])
+(;B[rj];W[rd];B[re];W[od];B[oe];W[qe];B[nd];W[pe];B[od];W[rf])
+(;B[rc];W[rb];B[re];W[rj]CR[lb][re]C[원래는 선수인 호구도 백돌이 하나 늘어져 있어서 위력이 반감돼 받지 않을 수 있다.]))))
+(;W[rd]C[폐기된 정석];B[re];W[rc];B[qf]C[구정석, 상황적인 수법, 흑 두터움, 흑 충분
+
+보통은 두지 않지만, 백이 우변에 침투할 여지가 없을 때에 한해 종종 두는 수법. 만약 침투나 삭감 등에 악영향을 준다면 젖혀잇는 수로는 2선을 미는 수가 차라리 낫다.])))
+(;B[ob]C[상황적인 수법
+
+백을 잡으러 가겠다는 의도, 맛이 상당히 나쁘고 탈출되기 때문에 흑이 상당히 두텁지 않다면 무리수다]))
+(;W[nc]C[손뺌도 수록]TE[2]
+(;B[qf]C[손뺌도 수록.]TE[2]
+(;W[pc];B[qc];W[qb]C[붙이고 젖히는 수는 기본적으로 뚫는 전투를 견딜 수 있어야 한다.]
+(;B[oc];W[pb]
+(;B[od]
+(;W[ob]
+(;B[nd];W[mc]C[손뺌도 수록]
+(;B[md]C[손 빼는 것도 가능]
+(;W[ld];B[lc]
+(;W[lb];B[kc];W[kd];B[kb];W[jc];B[jb];W[ic];B[ib];W[hc]C[A가 기본형이지만, B의 교환 이후 A로 먹더라도 백은 귀를 후수로 살아야하기 때문에 보통 교환하는 것이 조금 더 좋다.]
+(;B[mb];W[nb];B[la];W[qd]C[손 빼는 것도 가능];B[kf]C[정석])
+(;B[fc];W[hb]C[좌상의 돌이 백돌일 때만 가능한 수법];B[mb];W[nb];B[la];W[qd];B[kf]
+;W[je];B[mf]))
+(;W[kc]CR[fc]MA[ec]C[백이 화점 날일자의 위치에 있다면 가능하고, 소목 날일자의 위치라면 불가능하다]
+;B[lb];W[mb];B[kb];W[jc]
+(;B[jb])
+(;B[le];AW[fc];W[kd];B[ke]
+(;W[ic]C[백이 날일자 걸침이라면 호각, 백이 날일자 굳힘이라면 중복이므로 흑 충분])
+(;W[je]C[실수];B[jf];W[ie];B[if]
+(;W[he];B[rc]
+(;W[];B[ma];W[nb];B[jb];W[ic];B[ib];W[hb];B[hc];W[gc];B[ha];W[gb];B[rb];W[na]C[흑 만족])
+(;W[rb]C[흑 만족]))
+(;W[hf]C[A가 보통]
+(;B[ic];W[jb];B[he]C[흑 충분])
+(;B[he];W[ic];B[ge]))))))
+(;W[];B[lc];W[lb];B[kb];W[qd]C[정석
+
+이후의 진행은 정석 이후]
+(;B[kc]C[손뺌도 수록
+
+받는 것이 보통]
+(;W[qe];B[pe]
+(;W[rf];B[rg];W[qg];B[pf];W[re];B[qh]C[흑이 축이 유리하다면 호각, 축이 불리하다면 백 약간 유리]
+;W[pg];B[ri])
+(;W[rc]C[상황적인 수법
+
+보통은 두지 않지만, 배석이 불리하다면 두는 수법]))
+(;W[];B[rc];W[rd];B[rb];W[ra];B[qa];W[pa]LB[nb:A]C[먹여치는 수로 인해 A로 쳤을 때 양자충에 걸린다
+
+백 불만]))
+(;B[rc];W[rd];B[rb];W[kc];B[ld];W[jb];B[mb];W[ka];B[nb];W[ra]C[그냥 꼬부리면 백이 변신한 후에 제압해서 충분하다])))
+(;B[];W[md]))
+(;B[rc]
+(;W[nd];B[mb]
+(;W[nb])
+(;W[lc];B[lb]
+(;W[jc]C[백이 축이 유리해야 가능한 수법];B[mc]C[A로 두는 것이 보통
+
+B는 신수]
+(;W[qd];B[rd];W[pe];B[oe];W[ld]C[흑백 호각])
+(;W[nb];B[kc];W[jb];B[le];W[je];B[jf];W[ie];B[nf];W[oe]C[B는 무리수]
+(;B[qd];W[mf];B[me];W[ne];B[ng])
+(;B[pe];W[of];B[ne];W[md];B[ld];W[me];B[mf];W[lf]C[흑 망함])))
+(;W[qd];B[rd];W[jc];B[mc];W[pe];B[oe];W[ld]C[호각])
+(;W[kc];B[kb];W[jc];B[nb]C[흑 만족])))
+(;W[lc])))
+(;W[qd];B[rc];W[rd]C[손 빼는 것도 가능하다.];B[rb];W[ra];B[ob];W[sc]))
+(;B[nd]
+(;W[ob];B[od];W[mc])
+(;W[qd];B[qe];W[ob];B[od];W[rc];B[mc];W[nb];B[le]))
+(;B[ob]
+(;W[od];B[nb];W[qd];B[pe]
+(;W[rd];B[mc];W[nd]C[백은 A의 정석이 불리하면 붙이고 젖히는 정석은 좋지 않다.
+
+A가 기본형, B가 신형]
+(;B[md];W[of]C[A가 가장 기본적인 정석]
+(;B[mf];W[nf];B[mg];W[ph];B[qh];W[qi];B[pg];W[oh]C[A로 쳤을 때 백의 돌이 뭉쳤지만 백도 흑돌을 뚫는 자세가 좋아 보통 백이 약간 유리한데, 흑이 두터워서 백이 A가 불리하다면 처음의 붙이고 젖히는 정석보단 2선 날일자의 정석 선택을 하는 것이 올바르다.]
+(;B[ne];W[oe];B[og];W[me];B[ng];W[le];B[pf];W[ne];B[kd];W[ke];B[jd];W[kg]C[백 약간 유리
+
+이 결과가 흑이 유리하다면, 흑의 뚫는 수법은 좋은 진행이다])
+(;B[ri]C[흑이 단수치면 중앙이 뚫리기 때문에 단수 치지 않는 것이 정수
+];W[qj];B[ne]
+C[27과 28의 교환이 악수 교환으로 만들기 위해서
+백은 여기서 응수하지 않는 것이 정수
+
+백 약간 유리]
+(;W[oe];B[og];W[me];B[ng];W[le];B[pf];W[ne];B[kd];W[ke];B[jd];W[kg];B[rg]C[호각])
+(;W[rh]))
+(;B[qj]C[백이 단수 치는 것이 악수인 것을 노리는 수법
+이후 진행은 난해하다]))
+(;B[qh]))
+(;B[ld]C[흑의 입구자가 이전에 없던 신수인데-];W[nf];B[of]C[백은 석 점을 살리려면-]
+;W[md]C[이 악수를 두지 않고서는 살아갈 수 없기 때문에-];B[lc]CR[md][lc]C[밀어올리는 정석은 어차피 공격이 잘 되지 않고, 입구자가 오히려 공격의 의미는 적지만 상변에서 악수를 받아내어 다소 더 두텁기 때문에(물론 상변은 여전히 공격 대상이지만) 오늘날에는 이 정석이 더 일반적이다.]
+(;W[le];B[ke];W[lf];B[kf];W[lg]
+(;B[pi]
+(;W[ic];B[jd])
+(;W[kg]))
+(;B[oh];W[kg];B[pj]))
+(;W[ng];B[pi];W[lf];B[id]))
+(;B[of];W[md];B[lc];W[mf];B[jd];W[pj]))
+(;W[nd];B[mc];W[rd]C[14 15의 교환을 강제하는 수순]))
+(;W[qd]C[변칙수];B[od];W[qe];B[pf]C[흑 충분])))
+(;B[rc];W[od];B[pb]
+(;W[oc];B[rb];W[jd])
+(;W[ob]C[패
+
+화점 날일자 굳힘 관통하는 팻감이 근소하게 더 크다, 흑은 패의 부담이 적다]
+;B[oc]C[이후의 참고도는 팻감의 가치를 논하는 것이지 배석을 논하는 것이 아님];AB[cp]
+[eq][nq][pp]
+(;W[op];B[pc];W[oq]C[백 근소하게 유리])
+(;W[dp];B[pc];W[dq]C[백 약간 유리])))
+(;B[rb]C[흑이 손 빼는 것도 가능]
+(;W[pb];B[qd];W[kc]C[정석])
+(;W[ob];B[qa];W[od];B[pb];W[pe]
+(;B[qd];W[jd])
+(;B[oc]C[어차피 패를 해소하는 형태가 무겁기 때문에 결국 흑이 잇는 형이 된다.]))
+(;W[]
+(;B[pb];W[oc]C[A가 보통]
+(;B[pe];W[kc]C[정석])
+(;B[qa]))
+(;B[oc]C[변칙수];W[pb];B[ob];W[qd];B[pa];W[rc];B[qa]
+(;W[pe];B[od];W[qe];B[qc]C[A가 보통]
+(;W[ph]C[백 근소하게 유리])
+(;W[qg]C[백 근소하게 유리
+
+붙이는 건 흑이 당장 준동하는 맛은 없지만 간격이 좁다.])
+(;W[qh]C[두칸은 백 석 점이 제압당해 보통 사용되지 않는다.];B[qg];W[ph];B[og];W[pg]
+;B[pf];W[of];B[oe];W[nf];B[rf];W[re];B[se];W[rg];B[rd]))
+(;W[od]
+(;B[pe];W[qc];B[nb])
+(;B[qc];W[pe]CR[od]C[백 만족
+
+따내면 단수 치면서 연결하겠다는 것이 백의 의도다.])))))
+(;B[rd]CR[od]C[호구치는 것이 재미있는 수.
+
+백이 호구치고 흑이 늘 때 이어져 있는 것보다 호구가 득이다.]
+;W[ob];B[od]TR[qd]C[이어져 있는 것보다 더 낫다.])
+(;B[qd]C[구정석];W[ob])
+(;B[pb];W[oc];B[rb];W[qd];B[rc];W[pe]C[흑이 손 빼는 것도 가능
+
+백 약간 유리]
+(;B[pf];W[ne]C[백 약간 유리])
+(;B[od]C[무리수]
+(;W[nd]C[축])
+(;W[mf]C[백 유리
+
+이후 진행은 참고도];B[oe];W[of];B[pf];W[ne];B[qe];W[nd]C[흑 망함]))))
+(;W[pb]C[구정석, 흑이 손 빼는 것도 가능
+
+붙이고 젖히는 정석에서 흑이 뚫는 변화가 백이 별로 좋지 않을 때 두는 수법]
+(;B[qc]
+(;W[kc]C[기본 정석, 흑 근소하게 유리
+
+이후 진행은 정석 이후
+
+A나 B가 보통]
+(;B[ld];W[lc];B[nd];W[oc])
+(;B[jc])
+(;B[ic]C[백이 손 빼는 것이 보통];W[];B[mc]C[상황적인 수법
+
+A나 B가 보통, C는 상황적인 수법]
+(;W[md];B[lc];W[ld];B[kb];W[kd];B[lb];W[od]CR[ic]C[이 결과는 백이 충분하지만, 흑 한 점이 있으면 흑이 건너갈 수 있다는 것은 유념해두어야 한다])
+(;W[mb];B[nb]
+(;W[md];B[oc];W[lc];B[ob]TR[ic]C[백 만족
+
+초반이라면 흑 한 점이 이상한 위치에 있기 때문에 백이 만족이다])
+(;W[ob];B[lb];W[na];B[lc];W[ne];B[le]CR[kc]C[호각
+
+백 한 점을 제압하여 쌍방 호각]))
+(;W[lc]C[상황적인 수법
+
+이 수로 양쪽을 연결할 수는 있으나-];B[oc];W[ob];B[nd]
+;W[nb];B[md];W[mb]C[흑 만족
+
+초반이라면 백이 바짝 눌려 불만이다. 다만, 무조건 연결해야만 하는 상황이라면 알아두면 좋은 맥이다])))
+(;W[kd])
+(;W[ld])
+(;W[od];B[];W[pe];B[qe];W[pc];B[qd])
+(;W[ne]))
+(;B[lc]
+(;W[qc]C[B는 축이 불리할 때 두는 수법.]
+(;B[nd]C[현대엔 이 수가 더 보편적이다.
+
+흑은 축이 유리할 필요도 없고, B로 진행됐을 때-
+기 때문이다.]
+(;W[oc]C[흑이 손 빼는 것도 유력]
+(;B[md])
+(;B[]))
+(;W[mc];B[md];W[lb]C[흑이 손 빼는 것이 유력, 흑 약간 유리
+
+이후 진행은 정석 이후
+
+이 형태는 B의 교환이 없는 만큼 흑이 좋다. 흑이 손을 빼더라도 백은 응징할 수단이 없다.]
+(;B[kb];W[kc];B[ld];W[jb];B[mb];W[ka];B[oc];W[nb];B[ob];W[ma];B[oa];W[re];B[rf]
+;W[qe];B[pe];W[rb];B[pj])
+(;B[oc];W[ob];B[kb]))
+(;W[md];B[mc];W[ne];B[od];W[nb]
+(;B[ke])
+(;B[qd])))
+(;B[oc]C[흑이 축이 유리해야 가능한 수법
+
+B는 변칙수]
+(;W[ob];B[nd]
+(;W[mc];B[md];W[lb]C[흑이 손을 빼는 것이 보통, 호각
+
+이후 진행은 정석 이후];B[kb])
+(;W[md]C[백이 축이 유리해야 가능한 수법];B[mc];W[nb]
+(;B[me]C[축, 흑 약간 유리])
+(;B[ne]C[백 근소하게 유리])))
+(;W[od]
+(;B[nd];W[oe]
+(;B[nb]C[A가 조금 더 낫다]
+(;W[qe];B[pe];W[pc];B[of];W[ob];B[ne];W[oc];B[ng]C[흑 충분])
+(;W[pc];B[mc];W[qe];B[pf];W[pe];B[re];W[rd];B[nf]C[흑 만족]))
+(;B[pc];W[ob];B[qd]
+(;W[mc];B[of];W[md];B[ne];W[me];B[nf];W[rc]C[백 근소하게 유리])
+(;W[md];B[nb];W[ne];B[mc];W[rc];B[oa];W[qa];B[rd]C[호각])))
+(;B[pc]C[백의 의도];W[ob];B[qd];W[rc]CR[od][pc]C[이 교환은 백의 이득이다.];B[nd]
+C[봉쇄하려 해도-];W[md];B[oe];W[mc]C[돌파가 가능하다.]))))
+(;W[ne];B[qc]C[정석, 이후 진행은 정석 이후];W[jc];B[le];W[ng]C[B는 당장 두진 않지만, 기억해두면 좋은 맥점]
+(;B[jf])
+(;B[nb]
+(;W[oc]C[정수])
+(;W[ob];B[od];W[nd];B[mb];W[oc]C[흑 충분])
+(;W[od];B[ob];W[oc];B[pc];W[mb];B[qb];W[na];B[pa];W[mc]C[흑 충분]))))
+(;B[md];W[nd];B[mc]
+(;W[mb];B[lb];W[nb];B[me]
+(;W[ne]
+(;B[kc];W[qc];B[qi])
+(;B[mf];W[kc];B[lc];W[qc]
+(;B[pi])
+(;B[qi]))
+(;B[qc]C[A가 정수.]
+(;W[kb];B[kc];W[la];B[lc];W[jb]
+(;B[mf];W[pg];B[rh];W[id])
+(;B[id];W[hc]))
+(;W[lc];B[kb];W[kd];B[mf]C[흑이 유리하다고 하지만, 어려운 전투.])))
+(;W[qc]
+(;B[ne])
+(;B[pi])))
+(;W[nb];B[qc]
+(;W[me];B[kd])
+(;W[kc];B[me]
+(;W[mb])
+(;W[ne];B[mb])))
+(;W[me];B[nb];W[ob];B[lb]C[흑 충분])
+(;W[ne];B[qc];W[nb];B[kc]C[흑 충분]))
+(;B[mc]C[구정석];W[md];B[lc];W[nb])
+(;B[];W[qc];B[qi]C[호각]))
+(;W[jd]C[이후 진행은 정석 이후
+
+A나 B가 보통]
+(;B[lc];W[ld]C[흑이 A로 두겠다는 의도이며, 축이 불리하다면 이 수법은 잘 두지 않는다.]
+(;B[kd]C[축이 유리해야 가능한 수법.]
+(;W[ke];B[kc];W[md];B[jc];W[id];B[hc]C[정석])
+(;W[kc];B[ke]
+(;W[jc];B[md])
+(;W[lb];B[jc];W[mc];B[kb];W[lc];B[id])))
+(;B[kc]C[백 두터움];W[kd]))
+(;B[kd]C[축이 유리할 때 가능한 수법
+
+B로 젖혀서 싸우는 것이 기세, A는 축 관계 혹은 연결하겠다는 의도]
+(;W[kc];B[lc]C[A는 축 관계, B는 두텁게 연결하는 수법, C는 실리를 챙기면서 연결하는 수법
+
+다만, C는 초반이면 조금 당했다]
+(;W[ld];B[ke]
+(;W[jc];B[md]C[축 관계가 유리해야 가능한 수법])
+(;W[lb];B[jc];W[mc];B[kb]
+(;W[lc];B[id]C[축 관계가 유리해야 가능한 수법])
+(;W[qc];B[pc]
+(;W[pb];B[ob];W[ic];B[lc];W[qb]
+(;B[id]C[타협];W[oc]C[호각])
+(;B[oc]C[전투];W[kc];B[jb]))
+(;W[ic];B[lc];W[qd]C[전투]))))
+(;W[lb];B[kb];W[jc];B[mb];W[ld];B[mc];W[md];B[nd];W[ke];B[nb];W[ne];B[od]C[정석])
+(;W[kb]C[2의 돌과 안전하게 연결하는 수법];B[je];W[id];B[ke];W[lb]))
+(;W[ke];B[ld];W[jc]C[흑돌과 싸우는 수법]))
+(;B[ob]C[백이 손 빼는 것도 가능
+
+A가 보통]
+(;W[nb];B[oc];W[ne])
+(;W[qd]C[흑의 결과가 약간 좋아 잘 두어지지는 않으나, 이 형태에서 기억하면 좋은 맥점이다
+
+흑은 A나 B가 보통]
+(;B[pe];W[qb];B[oc];W[re];B[rf];W[rc]C[삶
+
+흑 충분])
+(;B[pc];W[qe]C[백이 축이 유리해야 가능한 수법];B[pf];W[rf];B[rg];W[pe];B[oe];W[re]
+;B[rc];W[qg];B[rh];W[qh];B[qi];W[of];B[pg];W[od];B[ne];W[ph];B[og];W[pi];B[qj];W[nf]
+(;B[me];W[ng]C[축])
+(;B[ng]C[흑이 축이 불리할 때 사용하는 수법];W[mf];B[me];W[le];B[md];W[mg];B[nh]
+;W[lc];B[oc];W[mc];B[nd];W[ld];B[od];W[li];B[nj]C[호각]))
+(;B[qc]C[백은 당장 결행하지 않고, 차후에 A나 B를 노리면서 두어간다]
+(;W[pc];B[oc];W[pe];B[od];W[qe];B[rc])
+(;W[qe];B[pe];W[rf])
+(;W[pe];B[qe];W[od];B[pc]))
+(;B[qe];W[pc];B[oc];W[od];B[pe];W[nb];B[pb];W[ne];B[md];W[nd];B[qc]C[백 충분])))
+(;B[pb]))
+(;W[qc]C[상황적인 수법];B[pc];W[pb];B[ob];W[qb];B[oc]
+(;W[re]
+(;B[rf];W[qe];B[pe]
+(;W[qd];B[og]C[흑 유리])
+(;W[pf]C[이 전투가 백이 유리해야 삼삼 침투의 수법이 가능하다
+
+불리하다면 실수]))
+(;B[nf]C[끊는 수가 통렬할 때 사용하는 수법.
+
+C로 막는 수보다 흑이 더 탄력적이다.])
+(;B[qe]C[끊는 수가 통렬할 때 사용하는 수법.];W[rf]
+(;B[nd];W[qg];B[pg];W[qh])
+(;B[qg])))
+(;W[nb]C[변칙수];B[qd];W[oa]C[흑 만족]))
+(;W[pe]C[변칙수]
+(;B[qe];W[pc];B[od]
+(;W[qc];B[nd];W[oc];B[md]C[호각])
+(;W[oc];B[qc]
+(;W[nd];B[qd]LB[oe:A][qb:B]C[A로 단수치면 B로 젖히는 것이 아프고, B로 뻗으면 A로 단수치는 수가 아프기 때문에 11로 가만히 잇는 것이 정수다])
+(;W[qb];B[nd];W[rc];B[qd];W[mc]C[호각])))
+(;B[oe];W[pc];B[oc];W[ob];B[od];W[qc];B[pb];W[qb];B[nb];W[pa];B[mc];W[nd];B[me]))
+(;W[pg]C[변칙수]
+(;B[oc];W[nd];B[pf];W[ng]C[흑이 손 빼는 것도 가능]
+(;B[og];W[oh];B[of];W[nf];B[nh];W[oi];B[mh];W[qi]C[흑이 약간 유리한 전투])
+(;B[nf];W[mf];B[of])
+(;B[]C[간명한 수법
+
+손을 빼는 것이 가장 간명하다];W[of];B[qg];W[ph];B[qh];W[pi]
+C[흑이 손 빼는 것이 보통
+
+흑 충분]))
+(;B[qg]C[백의 의도];W[pi]C[호각, 흑 미흡
+
+호각이지만 흑이 미흡하다]))
+(;W[]
+(;B[oc];W[nd];B[jc]C[환원])
+(;B[kc]
+(;W[pc];B[qc];W[qb]
+(;B[rc];W[od];B[pb]
+(;W[oc];B[rb];W[og]CR[pe]C[이후 단수치는 것이 백의 두터운 자리. 백이 나중에 단수치지 않으면 흑은 차후에 흑은 두칸 사이를 나와 끊을 수 있다.
+
+이후의 진행은 정석 이후]
+;B[oe];W[ne];B[of];W[nf];B[ng])
+(;W[ob]C[패
+
+화점 날일자 굳힘을 관통하는 팻감과 동일한 가치, 흑도 패의 부담이 크다]
+;B[oc]C[이후의 참고도는 팻감의 가치를 논하는 것이지 배석을 논하는 것이 아님];AB[pp]
+[nq][cp][eq]
+(;W[op];B[pc];W[oq]C[호각])
+(;W[dp];B[pc];W[dq]C[백 만족])))
+(;B[rb];W[qd];B[rc];W[od];B[pe]C[백이 손 빼는 것도 가능];W[ob]LB[ne:A][qa:B]C[호각]
+(;B[ne];W[ra];B[rd]C[백이 손 빼는 것이 보통])
+(;B[qa];W[oe];B[of];W[nf]
+(;B[og];W[ng])
+(;B[ng];W[og];B[pf];W[mf]))))
+(;W[pe]
+(;B[oe];W[pc];B[qc];W[qd];B[od];W[rc];B[qb];W[qe];B[pf];W[rb]
+(;B[oc];W[pb];B[ob];W[qa];B[ng])
+(;B[re];W[rd];B[oc]C[백은 손을 돌린다.
+
+17, 18 교환은 흑이 약간 이득이지만, 대신 백은 두 점을 잡지 않고 선수를 뽑아서 호각이다.
+
+다만 이 변화도의 경우, 흑은 전투를 각오해야 하는데-]
+;W[of]CR[nc]C[A는 백이 한 점을 살려왔을 때 2선의 연결이 보장되고, B는 집으로 약간 이득이기 때문에 일장일단이 있다.
+
+A가 약간 더 일반적이다.]
+(;B[ob];W[rf];B[rg];W[se];B[ph]C[이 전투가 흑이 유리해야 한다.])
+(;B[pb])))
+(;B[qd]C[난해한 전투
+
+서로 호각이지만 백이 어렵다]
+(;W[od]C[난해한 전투
+
+서로 호각이지만 백이 어렵다];B[oe];W[pf];B[qe];W[pg];B[ne]
+;W[ld]
+(;B[og]C[A가 정수]
+(;W[kd];B[ph];W[jc])
+(;W[pi];B[lc]
+(;W[md];B[nd];W[mc];B[oc]C[흑 약간 유리])
+(;W[nd];B[md]CR[og][pi]C[이 교환이 대득이라는 것이 흑의 의도]))
+(;W[ph];B[mc];W[md];B[nd];W[oc];B[pc];W[lc];B[mb]LB[mg:A][lb:B]C[흑 약간 유리
+
+백은 A로도, B로도 활용할 수 있기 때문에 보류하는 것이 보통]
+(;W[mg];B[ng];W[mh];B[lb];W[nf];B[of];W[mf])
+(;W[lb];B[ob])))
+(;B[kd];W[le]
+(;B[lc];W[nf];B[of];W[og];B[mf];W[me];B[ng];W[nd];B[nf];W[nh];B[mh];W[lf];B[mg]
+;W[qg];B[ni];W[rf];B[re];W[rh]LB[qb:A][qk:B]C[A, B 맞보기];B[qb];W[qk]C[백 근소하게 유리])
+(;B[og]))
+(;B[lc]C[실수];W[nd]
+(;B[ph];W[qg];B[og];W[of];B[nf];W[ng];B[md];W[me];B[mf];W[mc]C[백 유리한 전투]
+(;B[oh];W[lf];B[mg];W[qh])
+(;B[qh];W[oh];B[rg];W[og];B[mg];W[oi];B[mh];W[kd]))
+(;B[og];W[ph]C[백 유리])))
+(;W[ne]C[백이 물러났기 때문에 흑이 약간 좋다]))))
+(;B[lc]
+(;W[pc];B[qc];W[qb]
+(;B[rc])
+(;B[rb])
+(;B[od]
+(;W[oc];B[nd];W[mc];B[md];W[lb];B[rb]
+(;W[rc];B[qd];W[ra]
+(;B[mb];W[sb];B[kb]C[정석])
+(;B[kb];W[kc];B[ld];W[jb]C[의외로 잘 정리되지 않는다]
+(;B[pb];W[sb];B[mb]LB[ka:A][ob:B]C[백 약간 유리, 백이 손을 빼는 것이 보통
+
+백이 손을 빼면 차후에 A나 B로 언제든지 활용할 수 있고, 흑이 먼저 두기엔 약간 발이 느리다.]
+(;W[ka];B[nb]C[호각])
+(;W[ob];B[la]C[흑 근소하게 유리]))
+(;B[mb];W[ka];B[pb]C[A로 처리해도 백이 약간 두텁고, 보류해서 차후에 B로 처리할 수도 있다.]
+(;W[nb];B[qa]C[백 충분])
+(;W[sb];B[nb]C[호각]))))
+(;W[kc];B[ld]C[백이 손 빼는 것도 유력];W[jb];B[pb]))
+(;W[rc];B[qd];W[oc];B[nd];W[];B[mc];W[ob]C[정석]))
+(;B[oc];W[pb];B[od];W[qd]
+(;B[ob];W[qe];B[pf]C[백 근소하게 유리])
+(;B[rc];W[rd];B[rb];W[ra];B[ob];W[sb]C[백 근소하게 유리
+
+흑이 선수를 뽑았지만, 약점이 생겨 일장일단이 있다])))
+(;W[ne]))
+(;B[jc];W[pc];B[qc];W[qb];B[rc];W[lc]))
+(;W[qb]C[함정수]
+(;B[qc]C[부분적인 정수];W[pc]C[정석 환원])
+(;B[pb]C[백의 의도, 흑 걸려듦];W[pc]
+(;B[qc];W[oc]C[환원];B[rb];W[qd];B[rc];W[pe]C[백 약간 유리])
+(;B[oc];W[qc];B[od];W[ob];B[nb];W[pa]
+(;B[mc]C[흑 근소하게 유리
+
+흑이 약간 두텁지만, 백도 실리를 차지해서 둘 수 있는 갈림])
+(;B[mb]C[백 약간 유리])))
+(;B[]C[함정수 타파 성공
+
+흑이 부분적으로 건드리려고 한다면 붙히고 젖히는 정석으로 환원되는 것이 최선이기 때문에 응징할 수 없으나, 흑이 손을 뺀다면 백이 흑에 돌에 강한 영향을 줄 수 없어 보류하는 것이 응징 방법이다]
+;W[pc]C[흑 충분]))
+(;W[qh]C[변칙수];B[pb]CR[qh][pb]C[정수, 흑 근소하게 유리, 이후 진행은 정석 이후
+
+상변 2선 한칸 뜀과 우변 다가온 돌의 교환은 특수한 경우가 아닌 이상, 2선 한칸 뜀이 더 크다.]
+(;W[pe];B[qe];W[od];B[pc])
+(;W[rf]C[활용]
+(;B[re]LB[rg:A][pf:B]C[백은 보류한 후 차후에 A로 뻗음이나 B로 붙임 중 하나를 결행하게 된다.]
+(;W[rg])
+(;W[pf]
+(;B[qg];W[pg];B[rg]C[당장은 끊어먹혀 백의 손해다.])
+(;B[qe]CR[pf]C[굴복한다면 백의 이득.])))
+(;B[rg]C[무리수];W[qg]
+(;B[rh]LB[re:A][qe:B]C[최강수];W[qe];B[pf];W[rd];B[qi];W[pe]C[지금은 관통되어 흑의 무리수다.])
+(;B[re]C[실수];W[pf]
+(;B[qe];W[rh]C[당연히 흑이 당한 결과.])
+(;B[sf];W[qe]C[역시 흑이 약간 좋지 않은 결과다.])))
+(;B[qe]C[뻗는 것은 가능하긴 한 응수이나, 약간 느슨하다.]))))
+(;B[pf]C[백은 받는 것이 보통, 백이 손 빼는 것도 가능
+
+A는 축이 유리해야 가능한 수법. 축이 불리하다면 B로 붙인다.]
+TE[2]
+(;W[oe]C[백이 축이 유리해야 가능한 수법
+
+흑은 축이 유리하다면 B, 축이 불리하다면 A가 보통]
+(;B[pe];W[pb]CR[oe][pe]C[이 교환은 백의 득이지만, 대신 삼삼의 가치가 작아져서 안 받는 것이 보통이다.
+
+받는다면 A가 보통, B도 원래 큰 자리기 때문에 가능하다]
+(;B[pi])
+(;B[qc];W[kc]C[호각])
+(;B[lb]CR[oe][pe]C[정석
+
+이 교환으로 인해 한칸 협공을 해도 흑이 봉쇄할 수 없으므로 변칙수가 아니다.]
+(;W[mc]LB[qc:A][jc:B]C[A, B 맞보기])
+(;W[md]LB[qc:A][kc:B]C[A, B 맞보기])
+(;W[qc];B[ob]))
+(;B[me];W[ld]))
+(;B[oc]C[축이 유리할 때의 반발.
+
+백은 축이 불리하다면 백 약간 불리];W[pe];B[qe]
+;W[qf]C[A로 이었을 때 백이 축으로 잡을 수 없다면 백 불리, 축이 유리해서 흑이 B로 단수쳐야 한다면 호각이다]
+(;B[qd];W[pg])
+(;B[qg];W[rf];B[qd];W[od]))
+(;B[qc]
+(;W[kc]C[정석])
+(;W[kd]C[정석])
+(;W[jd]C[정석]))
+(;B[pc]
+(;W[pe]C[백이 축이 유리해야 가능한 수법];B[qe];W[qf];B[qg];W[rf];B[re];W[rg];B[qh]
+;W[rc]
+(;B[qd];W[pg];B[of];W[ph];B[ne];W[qi]CR[rc][qd]SQ[ob]C[백 만족
+
+이 교환으로 인해 입구자가 선수가 되므로 이득이라는 의도다.])
+(;B[rh];W[of];B[pg];W[qd];B[sg]
+(;W[od]C[백 약간 유리])
+(;W[ob]C[백 약간 유리])))
+(;W[kc]CR[pe]C[백 근소하게 유리
+
+단점의 맛이 나쁘므로 백은 보류해도 충분하다])
+(;W[kd]C[백 근소하게 유리])))
+(;W[pc]C[백이 축이 불리할 때 사용하는 수
+
+흑이 약간 이득인 정석이다.];B[qc];W[qb]
+(;B[rc];W[od];B[pb];W[oc];B[rb];W[pe];B[of];W[kd]C[흑 근소하게 유리])
+(;B[rd];W[ob]C[흑 근소하게 유리]))
+(;W[qc]
+(;B[pc];W[pb]C[A가 보통]
+(;B[ob]
+(;W[qb]C[B가 일반적으로 정수]
+(;B[oc]C[우변을 중시하는 수법];W[re];B[rf];W[qe];B[qf]CR[pe]C[귀는 이 위치의 공배가 비어 있으면 패, 차있으면 죽는다])
+(;B[nb];W[re];B[mc]C[백이 받는 것이 보통, 백이 손 빼는 것도 가능];W[qf]))
+(;W[rb]C[변칙수];B[pa];W[qb];B[oc];W[rf]CR[nc]LB[rg:A]C[백의 의도는 호구를 바탕으로 날일자가 아닌, 눈목자로 한 발 더 나가겠다는 뜻이다.
+
+발상 자체는 괜찮지만, 흑이 차후에 A로 붙이면 어차피 다시 봉쇄되는 형태고, 단수로 인해 한 점의 맛이 사라져 백이 약간 손해다.]))
+(;B[qd];W[rb];B[rc];W[qb]))
+(;B[ob];W[qd];B[pc];W[qe];B[pe]C[A와 B가 맞보기다];W[qf];B[ph]LB[qb:A][jd:B]C[A와 B가 맞보기다]
+;W[qb];B[jd]C[흑 충분]))
+(;W[pb]C[구 정석];B[qc];W[kc]CR[qe]MA[oe]C[흑 충분
+
+과거에는 백이 위로 들여다보는 것보다 아래로 들여다보는 쪽이 좋다고 생각해서 들여다보는 교환을 아꼈지만, 현대에는 거의 무조건 아래로 들여다보는 쪽보다 위로 들여다보는 교환이 득이라고 본다. 당장 들여다보는 교환이 흑을 무겁게 만들기 때문이다.이 결과는 백이 들여다보지 않아 흑이 더 탄력적인 형태다.])
+(;W[qh];B[oc];W[nd];B[jd]C[호각])
+(;W[];B[oc]C[B와 C는 부분적으로는 좋은 응수타진이지만, A로 버티지 못했기 때문에 흑이 약간 두터운 결말이다]
+(;W[nd];B[jc]CR[pf]C[뻗는 것은 백이 무겁고, 날일자와 달리 흑의 돌이 4선에 있어 상변에서 활용할 여지가 없으므로 흑이 약간 유리하다])
+(;W[qe]
+(;B[nd];W[ne]LB[md:A][pe:B]C[맥점
+
+A의 단수와 B의 관통을 맞보기로 보고 있다];B[od]
+LB[qg:A][md:B]C[맥점, 백이 손 빼는 것도 가능
+
+백은 손을 뺄 수도, A나 B로 준동할 수도 있다]
+(;W[qg])
+(;W[md])
+(;W[]))
+(;B[pe]CR[nc]C[백 한 점이 약간 가볍다]))
+(;W[qc]C[흑이 약간 두터운 갈림, 다만 삼연성 포석에서 유력한 진행이다]
+(;B[nb];W[rf]C[흑이 손 빼는 것도 가능
+
+흑 충분]
+(;B[rg]C[축이 유리해야 가능한 수법];W[qg];B[qf]
+(;W[re]
+(;B[qh]C[축])
+(;B[rh];W[pb];B[ob];W[qd]C[호각]))
+(;W[rh];B[re];W[sg]C[흑 약간 유리, 흑이 손 빼는 것도 가능]
+(;B[oh])
+(;B[];W[pg];B[of])))
+(;B[qf];W[re];B[qh];W[pb];B[ob];W[rg]C[흑 약간 유리])
+(;B[rd]C[백이 손 빼는 것도 가능]
+(;W[ob]
+(;B[pb];W[qd];B[qe]C[축이 불리하다면 A]
+(;W[pc];B[od]C[축이 불리하다면 A]
+(;W[re];B[qb];W[rc];B[rb];W[sd]C[흑 근소하게 유리])
+(;W[qb]
+(;B[oa];W[re]C[흑 근소하게 유리])
+(;B[re];W[pa]
+(;B[mc]C[흑 약간 유리])
+(;B[mb]C[호각]))))
+(;W[qb];B[re];W[pc];B[od];W[pa]
+(;B[mc]C[흑 약간 유리])
+(;B[mb]C[호각])))
+(;B[nd];W[qd];B[mc];W[qe]C[호각]))
+(;W[])))
+(;B[ob]C[백이 손 빼는 것도 가능];W[qe];B[qf];W[rf];B[pe]
+(;W[rd]
+(;B[rg]C[백이 손 빼는 것도 가능]
+(;W[rb]C[흑 약간 유리])
+(;W[];B[qd]LB[re:A][rb:B]C[흑 약간 유리
+
+A로 이어서 우변 뒷맛을 노리거나, B의 삶이 있기 때문에 손 빼는 것도 가능하다]))
+(;B[qh]C[백이 손 빼는 것도 가능
+
+]
+(;W[rg];B[qd];W[re];B[qb];W[rb];B[pc];W[rc];B[jd]C[흑 약간 유리])
+(;W[];B[qd];W[re]LB[qb:A][rb:B]C[흑 약간 유리
+
+흑은 귀를 보류하고 차후에 A나 B 중 유리한 쪽으로 결정한다])))
+(;W[re];B[qh];W[rb]C[흑 약간 유리])))
+(;W[oe]C[축이 유리해야 가능한 수법];B[nd];W[od]
+(;B[pe];W[ob];B[pc];W[md]
+(;B[ne];W[mb]C[흑 근소하게 유리])
+(;B[nb];W[mc]C[흑 약간 유리]))
+(;B[pc]C[흑이 축이 유리해야 가능한 수법]
+(;W[md]C[백 만족])
+(;W[mc]C[흑 만족];B[nf];W[le];B[mf];W[jc]C[흑 약간 유리])))))
+(;B[qg]TE[2]
+(;W[qc];B[pc]
+(;W[qd]
+(;B[pe];W[pb];B[ob];W[qb];B[oc]
+(;W[rf]C[A가 보통]
+(;B[oh])
+(;B[qf];W[rg];B[rh];W[qe];B[sg];W[re];B[pi]))
+(;W[qe]
+(;B[nd])
+(;B[qf])))
+(;B[qb];W[rb];B[pb];W[qf];B[pf];W[pe];B[oe];W[qe];B[pg];W[od];B[ne];W[oc]LB[rf:A]
+[mc:B]C[A가 선수고, B로 봉쇄하는 맛을 가지고 있기 때문에 호각이다.]))
+(;W[pb]C[변칙수];B[qd];W[rb];B[rc];W[qb]CR[qg]C[흑 한 점이 한 발 더 멀리있기 때문에 흑이 충분하다.]))
+(;W[pb]C[변칙수];B[qc];W[kc]CR[qg]C[흑 충분
+
+흑 한 점이 정석보다 한 발 더 멀리있는 만큼 흑이 충분하다.]))
+(;B[pg]TE[1];W[qc];B[pc];W[qd];B[pe];W[pb];B[ob];W[qb];B[nb];W[mc];B[oc];W[qf];B[kc]
+;W[qg]C[백 충분])
+(;B[oc]TE[2]
+(;W[nd]
+(;B[pf]
+(;W[jd]C[손뺌 수록, 이후 진행은 정석 이후
+
+과거에는 모붙임이 악수라 여겨져 특수한 상황에서 사용됐으나, 현대에는 목적 없이 사용해도 크게 이상하지 않다고 여겨진다.
+
+보통은 백이 귀를 파고들면 쉽게 안정할 수 있기 때문에 그것을 방해하려는 목적으로 자주 사용된다.]
+(;B[lb]C[A는 싸우겠다는 의도, B는 두텁게 처리하겠다는 의도]
+(;W[nb]C[반발];B[ld];W[le];B[ic])
+(;W[lc];B[kc]
+(;W[qc]C[B와 C가 정수]
+(;B[ld];W[ob];B[qd];W[pc]C[백 약간 만족])
+(;B[ob];W[kd]CR[qc][ob]C[흑이 건너가게 된다면 이 교환은 백이 득이기 때문에, 서로 반발해서 타협하게 된다.]
+(;B[re];W[jc]LB[oe:A][of:B]C[날일자는 변으로는 활용이 없지만, A, B 등 중앙 활용의 여지가 있다.])
+(;B[qe]LB[re:A][rf:B]C[호구는 중앙쪽 활용은 없지만, A나 B 등의 맛이 있다.];W[jc]))
+(;B[qd];W[ob];B[pc];W[ld];B[mb];W[nb];B[jc];W[qb];B[pb];W[pa];B[pi]
+(;W[kd])
+(;W[hb];B[kd];W[ke];B[hc];W[gc];B[je];W[ic];B[mc];W[md];B[kf];W[le];B[id];W[hd]
+(;B[he];W[jb];B[kb];W[ge];B[hf])
+(;B[if];W[jb];B[kb];W[mg]))))
+(;W[kd];B[mc];W[ld];B[nb];W[md];B[mb]CR[qc]C[흑 근소하게 유리
+
+가장 먼저 생각할 수순이겠지만, 흑이 하변을 깨고 삼삼의 맛까지 완화되어 흑이 약간 좋다.]))
+(;W[mb];B[ld];W[ob];B[pb];W[le];B[oa];W[nb];B[ic]))
+(;B[pi])
+(;B[qj])
+(;B[qi])
+(;B[nb];W[mb];B[ob]C[상변 침투 등 적극적으로 두는 것이 보통이긴 하지만, 백이 두터워 침투가 어렵거나 우상귀가 깨지는 것이 싫을 때 두는 수법이다.
+
+2선 젖혀 잇기 전엔 귀에서 항상 사는 수가 남아있기 때문에 변으로 지키는 수에 버금가는 자리다.])
+(;B[]C[B는 삼삼의 맛에 대한 설명을 위한 참고도.]
+(;W[qh]C[흑이 손 빼는 것도 가능
+
+귀가 엷기 때문에 협공보단 A와 B 정도로 지키는 것이 보통]
+(;B[rg]C[백은 손을 빼는 것이 보통
+
+삼삼의 맛은 아직 남아있다.];W[qc];B[ob];W[re]
+C[흑이 두터우면 B로 잡으러 가는 수도 가능하다.]
+(;B[qg];W[rb];B[ph])
+(;B[rf];W[qe];B[pe];W[qf];B[qg];W[pg]C[전투]))
+(;B[ph];W[pi];B[oh]C[A는 호각, B는 축과 관계 없이 백이 약간 불리하다.]
+(;W[rg];B[rf];W[qf];B[qe];W[qg];B[of]C[호각])
+(;W[qf];B[qi];W[qg]
+(;B[pj]C[흑 유리])
+(;B[ri]
+(;W[qe];B[pe];W[rc];B[nf];W[pj];B[qk])
+(;W[rd];B[of];W[qc];B[nb];W[pb];B[ob];W[pj];B[qk]))))
+(;B[qj]
+(;W[qc]C[B, C, D가 보통]
+(;B[ob];W[qe];B[pe];W[rf];B[qf];W[re];B[ph];W[qg];B[pg];W[ri])
+(;B[pc];W[oh]LB[ob:A][qe:B]C[빈삼각은, A로 빠지게 되면 B로 들여다보는 자세가 좋기 때문에 그것을 방지하는 의도의 수다.])
+(;B[qd];W[ob];B[pb];W[pc];B[od];W[qb];B[nb];W[pa];B[ne];W[me];B[nf];W[mf];B[mg]
+;W[ld];B[nh])
+(;B[nb]
+(;W[mb]C[축이 유리해야 가능한 수법];B[pb];W[na]C[A가 보통]
+(;B[ob];W[qe]
+(;B[mc]C[축])
+(;B[pe];W[rf];B[qf];W[re];B[ph];W[qg];B[pg];W[rj];B[ri];W[qi];B[pi];W[rh];B[rk]
+;W[si];B[qk]))
+(;B[qd];W[ob]C[이후 흑이 손을 돌린다.])
+(;B[qe];W[ob];B[pc]))
+(;W[qe];B[pe];W[rf];B[ph];W[qg];B[pg];W[mb];B[pb]LB[rj:A][qb:B]C[백은 손을 빼는 것이 보통
+
+A, B 맞보기])))
+(;W[re];B[ph];W[qg];B[pg];W[qc];B[qf];W[rf];B[qd];W[rd];B[qb]
+(;W[rc];B[ob];W[ri];B[rj])
+(;W[rb];B[pc];W[rc]))
+(;W[oh]C[흑이 손 빼는 것도 가능
+
+손 빼거나, 받는다면 A가 보통]
+(;B[qg];W[rg];B[rf]LB[pg:A]C[차후에 A로 봉쇄할 수 있어 호각])
+(;B[nf];W[qc]CR[oh][nf]C[이 교환은 백의 이득])))
+(;B[]
+(;W[re])
+(;W[og]C[신수, 변칙수];B[qg];W[rh];B[of];W[ng];B[me];W[ld];B[ob]C[흑 근소하게 유리])))
+(;W[qc]C[보통 초반에는 삼삼을 그냥 들어가지는 않지만 귀에서 살 수 있기 때문에 상용수법이다.
+
+흑의 응수는 A, B, C가 있다.
+
+A는 살려주고 두터움을 쌓겠다는 뜻이고, B는 젖힘을 선수하여 잡으러 가겠다는 수, C는 비상수단이다.]
+(;B[ob];W[re]
+(;B[qg];W[qd];B[pe]C[백이 손 빼는 것도 가능]
+(;W[rg];B[rh];W[rf]
+(;B[pi]C[호각])
+(;B[qj]C[호각]))
+(;W[]C[A가 보통]
+(;B[qj]LB[ra:A]C[비마를 노리고 있다.];W[rg];B[rh];W[rf]C[호각])
+(;B[rf];W[rb]C[호각])))
+(;B[qe];W[rd];B[rf];W[qg];B[qf];W[rg];B[sf];W[rb];B[qj]))
+(;B[nb]CR[pb][nb]SQ[qg][qh][qi][ph][pi][pj][qj]C[젖힘을 선수한 후에 입구자로 두어 백의 사활을 공격하겠다는 의도다. 백은 받지 않는 것은 변의 타격이 크기 때문에 거의 받아야한다.
+
+백은 A가 보통, 귀는 부분적으로 B가 보통
+
+이 참고도를 포함하여 이후 설명은 모두 흑이 우변에 응원군이 있다고 상정하고 서술하였다. (네모의 위치]
+(;W[mb];B[pb];W[na];B[ob];W[re];B[qd];W[rd];B[rb]LB[qg:A][qh:B][qi:C]C[지금 당장은 우변이 비어있기 때문에 백이 탈출해 흑이 좋지 않은 결과지만, A, B, C의 위치에 응원군이 있다면 유력한 수법이다.])
+(;W[rf];B[pb]LB[qd:A][rd:B][lc:C][mc:D]C[A(혹은 B), C(혹은 D) 맞보기]
+(;W[qd];B[mc])
+(;W[qe];B[pe];W[qh];B[lc])
+(;W[lc]
+(;B[qd];W[rd];B[qf]LB[qh:A][qi:B]C[흑이 A, B와 같이 백이 변을 진출하는 것을 차단할 수 있는 위치에 응원군이 있을 때 사용하는 수법])
+(;B[rd]LB[qj:A][ph:B][pi:C][pj:D]C[흑이 배석이 없거나, A~D와 같이 백에게 영향을 주기 어려운 위치에 있을 경우 사용하는 수법])))
+(;W[re]C[실수];B[qd];W[rd];B[qb];W[rb];B[pb]C[흑 만족]))
+(;B[qd]C[비상수단
+
+자체로는 흑이 약간 당한 형태다.];W[ob]CR[qd]C[B도 있긴 하지만, 뒤로 받는 수 자체가 이미 당한 형태라 흑이 사활에 문제가 있을 때만 사용하는 비상수단이므로 A가 보통이다.]
+(;B[pb];W[pc];B[qb];W[od];B[rc]C[백 약간 유리])
+(;B[pc]LB[pb:A][mb:B]C[백이 상변이 엷어 B로 호구를 선수할 수도 있다면 보류하는 것이 보통이나, 지금은 상변에 백돌이 있어 A로 미는 교환을 해도 좋다.]
+;W[pb];B[qb]C[백 근소하게 유리
+
+부분적으로는 덜 당한 형태지만, 사활도 결함이 있고, 집으로도 약간 당한 형태라 거의 두지 않는다.])))))
+(;W[qh]CR[jd]C[조금 덜 일반적이지만, 이곳도 상변에 버금가는 큰 곳이다.])
+(;W[jc]))
+(;B[qf]C[손뺌도 수록.]
+(;W[jd]C[흑이 손 빼는 것이 보통]
+(;B[qi]C[초반에는 작아서 잘 두지 않지만, 귀의 맛을 완화시키기 때문에 중반에 상당히 큰 자리])
+(;B[ph]C[초반에는 작아서 잘 두지 않지만, 귀의 맛을 완화시키기 때문에 중반에 상당히 큰 자리])
+(;B[]
+(;W[pe]C[축이 유리해야만 가능한 수법];B[qe];W[qc]
+(;B[od];W[ob];B[pb];W[nb];B[qb];W[oe];B[qd]C[백은 삼삼의 맛을 무리하게 노리지 않고, 본도의 수순대로 끝내기를 하는 것이 일반적이다.])
+(;B[oe]C[백의 배석이 주위에 있을 때 사용하는 수법];AW[qi]C[빈삼각이라면 끊겨서 흑이 불리한 전투가 되기 때문에 단수가 정수]
+;W[qd];B[og]
+(;W[ob];B[od];W[pb])
+(;W[pc];B[od];W[ob];B[ne]))
+(;B[nb]C[축이 유리해야만 가능한 수법];W[qd];B[oe]
+(;W[pf]C[축];B[pg])
+(;W[od]C[축이 불리할 때 사용하는 수법];B[pc];W[pf];B[qb]
+(;W[pg];B[rc]C[흑 만족])
+(;W[rb];B[pb];W[pg];B[re];W[lc];B[qh]C[흑 만족]))))
+(;W[qh]C[상황적인 수법
+
+귀의 엷음을 노리는 수법, 초반에는 잘 두지 않지만 중반에 자주 두는 수법]
+(;B[nb];W[mb];B[ob]LB[rd:A]C[젖혀 이어 보강함으로써 이후 백의 A 치중은 수가 나지 않는다])
+(;B[ob]C[귀를 지켰다고 생각한다면 착각];W[nb];B[];W[rd];B[re]
+(;W[qd];B[pe];W[qb]
+(;B[of]C[호구는 예시일 뿐 다른 행마도 가능하다];W[pb]C[이 수를 선수로 산다]
+(;B[oa];W[rg]
+(;B[rf];W[sb]CR[pb]C[이 수의 선수를 전제로 살기 때문에, 2선 젖혀져 있는 형태에서는 안에서 살 수 없다, 호각])
+(;B[rc];W[sb];B[sd];W[sc];B[qc];W[se];B[qe];W[sd];B[rb];W[pc];B[ra];W[sf];B[qa]
+;W[oh]C[흑 미생, 호각])
+(;B[rb];W[ra];B[sb];W[pc];B[od];W[rc]C[삶, 호각]))
+(;B[pa];W[rb];B[pc];W[rg];B[qc];W[rc];B[rf];W[qa];B[oa];W[sa]))
+(;B[pb];W[qe];B[rf];W[ra]
+(;B[sb]C[흑 무리];W[pf]C[백 유리])
+(;B[of];W[sb]C[삶])))
+(;W[pe]C[봉쇄의 맥];B[qe];W[qd];B[qc];W[pf];B[od];W[qg];B[rc];W[ne]C[봉쇄, 호각]))
+(;B[]C[A가 보통, B는 참고도]
+(;W[pe]C[정수];B[qe];W[qc])
+(;W[rd];B[re];W[qd];B[pe];W[pb];B[ob];W[pc];B[od];W[rb]C[부분적으로 수가 나는 형태])))
+(;W[qc]C[상황적인 수법];B[ob];W[re];B[rf];W[qe];B[pe]C[A가 정수]
+(;W[pf];B[qb];W[rb];B[pc];W[rc];B[qh];W[of];B[nb];W[qa];B[lc]CR[jd]C[흑 약간 유리
+
+이 세칸의 넓은 간격을 이용해 각생하여 흑이 약간 좋다. 만약 백이 세칸이 아니라 두칸 같이 좁은 간격으로 인해 흑이 변에서 살 수 없어 귀로 되돌아가야한다면 백이 좋은 결과다.])
+(;W[rb]C[실수];B[og];W[sf];B[rh]C[흑 유리]))))
+(;W[pe];B[qe];W[qc]
+(;B[od];W[ne]C[D는 당한 결과이기 때문에 흑은 반발이 필요하다.
+
+A, B는 타협, C는 최강수]
+(;B[nb];W[mb];B[ob];W[lc];B[oe]C[흑은 실리를, 백은 세력을 가져가 서로 어울렸다.])
+(;B[oe];W[ob];B[pb];W[mb];B[oa];W[nb];B[qb]C[흑 백이 서로 어울린 결과이지만,
+
+백이 2선 젖혀잇는 역끝내기를 했기 때문에 C의 참고도보다 실리로는 손해를, 두터움으로는 약간 이득이다.])
+(;B[ob]C[최강의 반발, 이후 흑백 모두 난해한 전투가 된다.];W[qd];B[oe];W[pf];B[of]
+;W[pg];B[rh];W[qh];B[rg]C[난해한 전투, 백 근소하게 유리
+
+배석이 없다면 백이 약간 편한 전투가 된다.]
+(;W[qj])
+(;W[mg])
+(;W[nh]))
+(;B[qd];W[ob];B[pb];W[nb];B[qb]TR[oe]C[돌이 5의 위치에 있음으로 백의 단점이 사라졌기 때문에
+
+백이 좋은 결과이다.]))
+(;B[pc]C[축이 유리해야 가능한 수법]))
+(;W[];B[jc]C[과거에는 흑이 다가오는 자세가 좋아 통렬하다고 했지만, 인공지능 이후로는 백이 둘 수 있는 전투라고 본다. 그 근거는-]
+(;W[ng];B[pg];W[ke]C[흑 근소하게 유리]))
+(;W[fc]
+(;B[jc]C[과거에는 흑이 다가오는 자세가 좋아 통렬하다고 했지만, 인공지능 이후로는 백이 둘 수 있는 전투라고 본다. 그 근거는-]
+(;W[ng]CR[qf]C[백의 중앙으로 행마하는 것이 귀에 압박을 줄 수 있기 때문에, 백의 이후 전투가 나쁘지 않기 때문이다.
+
+우상귀는 날일자에 있는 것이 귀의 맛이 덜하지만, 상변 전투에 있어서는 백의 중앙 행마가 귀에 압박이 되기 때문에 한칸보다 아쉬운 위치다.
+A가 보통]
+(;B[pg])
+(;B[ph];W[of]
+(;B[lc];W[qg];B[pg];W[qe];B[re];W[pf];B[rf];W[rg]
+(;B[pe];W[qi];B[pi];W[qj];B[ni];W[qc];B[qd];W[ob];B[rc])
+(;B[qd];W[qi];B[pi];W[qj];B[ni];W[ob];B[pb]))
+(;B[pf];W[oi]C[백이 먼저 머리를 내밀었고, 흑이 손 뺐을 때 틀어막는 자세도 좋기 때문에 약간 백이 편하다.]))
+(;B[je]C[A가 보통]
+(;W[pg];B[qg];W[ph])
+(;W[pe];B[qe];W[qc]
+(;B[qd];W[ob];B[pc]CR[pb][mb]C[백 충분
+
+백은 밀 수도, 호구로 선수할 수도 있는 자리이므로 보류한다])
+(;B[od];W[qd];B[oe];W[pf]C[백 충분])
+(;B[pc]C[변칙수];W[qd];B[qb];W[rb];B[pb];W[mb];B[re];W[rc];B[ra];W[pf]C[백 만족])))
+(;B[lc];W[pg];B[qg];W[ph];B[ri]C[호각])))))
+(;B[qe]C[C는 우변 백이 정말 두텁다면 사용하는 수법.
+흑이 날일자로 지켰을 때, 백이 붙이고 삼삼을 들어가서 끊어지는 전투를 흑이 견디기 어렵다면 마늘모로 지킨다.
+
+예시로-]
+;AB[eq][dp][cn]AW[fq][fp][ck];W[do];B[co];W[cq];B[ep];W[cp];B[eo];W[dn]C[이런 진행이면 흑이 견디기 어렵기 때문에 마늘모로 지키는 것이 정수였다.])
+(;B[jc]C[함정수];W[pe];B[qe]
+(;W[qf]C[B가 정수]
+(;B[oe];W[pf];B[od];W[qd];B[qc];W[re]C[백 유리
+
+A가 정수]
+(;B[rd]C[백 유리])
+(;B[rc];W[ob];B[pb];W[nf]C[백 유리])
+(;B[ne];W[rc]C[백 유리]))
+(;B[rd];W[pf];B[od];W[ne]C[백 충분]))
+(;W[pf];B[qf]
+(;W[qd];B[qc];W[rd];B[rc];W[od];B[pc];W[qg];B[re];W[rf];B[sd];W[ph])
+(;W[qg]
+(;B[qc];W[ph])
+(;B[pg]C[축이 유리해야 가능한 수법];W[qd];B[rg]
+(;W[qh];B[ph]LB[oe:A][qi:B]C[A, B 맞보기];W[rh];B[oe])
+(;W[qc]C[타협];B[qh];W[nf]))))))
+(;W[fq];AB[dp][mr][nq][or][ns][np][pq][qq]AW[op][pp][qp][oq][pr][qr]C[이 정석의 타이밍으로 알아두면 좋은 예시로, 우하귀가 두터운 경우 백은 A 정도가 일감이지만-]
+(;B[cn]C[날일자로 받을 경우-];W[dr]CR[np][nq][mr][ns][or]C[귀로 파고들어서 흑이 안형을 확보하여 쉽게 안정할 수 있기 때문에 우하귀의 두터움이 경감된다.])
+(;B[eq];W[fp];B[dn]C[따라서 흑의 두터움을 최대한으로 활용하기 위해, 흑은 백이 벌릴 공간이 있음에도 불구하고 모붙이는 것이 보통이다.])))
+(;B[ob]C[정석이지만, 상황적인 수법
+
+흑이 이 정석을 사용해도 불리하진 않지만, 보통 특정한 상황이 아니면 약간 백이 좋다
+
+백이 이 정석이 불리하다면 백은 처음에 날일자 걸침 대신 삼삼을 파는 것이 좋다]
+TE[2]
+(;W[qf]C[처진 날일자 정석은 보통 응원군을 바탕으로 A로 싸우겠다는 의도
+응원군이 없다면 B가 일반적]
+(;B[qe];W[pf];B[ne]C[전투])
+(;B[oe];W[qc];B[qd];W[rb]
+(;B[rd];W[pc];B[nb];W[oc];B[mc];W[md];B[lc];W[ne];B[pg])
+(;B[pc];W[pb];B[rc];W[qb];B[oc];W[rd];B[re];W[sc]))
+(;B[re]C[백 충분]))
+(;W[jc])
+(;W[nb];B[oc];W[ne];B[qf];W[jd]MA[qc]LB[rd:A]C[삼삼의 맛이 사라져 백이 약간 당한 결과
+
+다만, A의 뒷맛은 노려갈 수 있다])
+(;W[oc]C[속수];B[pc];W[nb];B[qf];W[jc]C[흑 만족]))
+(;B[nd]C[보통의 경우 우변을 키우려는 의도의 수법]TE[2]
+(;W[md]
+(;B[ne]C[마늘모가 보통]
+(;W[ob];B[qc];W[me];B[mf];W[pc]C[8이 정교한 수.
+이으면 백이 이득을 봤기 때문에 젖히고 이어서 불만 없음.
+흑이 2선으로 늘면 백이 젖혔을 때 흑은 촉촉수 위협 때문에 가만히 늘어야함.]
+(;B[qd];W[lf];B[lg];W[kf])
+(;B[qb];W[lf];B[mg];W[lg];B[mh];W[lh];B[mi]))
+(;W[oc];B[pc]C[A가 보통]
+(;W[me];B[pg])
+(;W[lc];B[pg])
+(;W[kc]
+(;B[me]C[미는 수가 인공지능의 재치있는 신수];W[ld];B[qh]CR[qh]LB[me:A][ld:B]C[A-B 교환은 상변만 보면 흑이 B로 붙이는 맛을 없애 약간 악수지만, 흑이 한 발 더 안전하게 나갈 수 있기 때문에 실전적인 교환이라는 뜻이다.
+
+B, C는 참고도]
+(;W[le]C[흑이 손 빼는 것도 유력]
+(;B[mg])
+(;B[]C[A가 정수]
+(;W[pb];B[qb];W[od];B[oe];W[pe];B[ng]CR[pe]C[뛰는 수가 정수
+
+다른 수는 변수가 있다.
+
+의도 자체는 명확한데, 맛 좋게 석점의 급소인 중앙을 지키면 백 한 점이 탈출도 안 되고, 흑 석 점과 수상전도 흑이 이길 수 있다는 뜻이다.]
+(;W[qe];B[rd]
+(;W[re];B[qd];W[ob];B[rb])
+(;W[rb];B[qd];W[qa];B[re]))
+(;W[pf];B[pg]C[봉쇄]))
+(;W[od];B[oe];W[pe];B[pf];W[qe];B[qf];W[pb];B[re];W[qb]C[흑 약간 유리
+
+백이 뻗는 수엔 받지 않는다.])))
+(;W[od];B[oe];W[pe]
+(;B[pb]
+(;W[qe];B[mc];W[mb];B[nb];W[lc];B[ob];W[mc];B[og];W[rc];B[rb]CR[nb][ob]C[흑 유리
+
+이 활용이 흑의 넓은 간격을 수비하는 데 큰 도움이 된다.])
+(;W[pf];B[og];W[re];B[mc];W[mb];B[nb];W[lc];B[ob];W[mc];B[rd]CR[nb][ob]C[백 망함
+
+역시 상변의 활용이 수비에 큰 도움이 된다.]))
+(;B[pf];W[qe];B[qf];W[pb];B[re]CR[qb]C[흑 약간 유리
+
+뻗음에는 받지 않는다.]))
+(;W[pb];B[qb];W[od];B[oe];W[pe];B[ob];W[nb];B[pf];W[qe];B[pa]C[흑 유리])
+(;W[];B[kf]))
+(;B[pg]))
+(;W[jc];B[qi]))
+(;W[pc]
+(;B[qc]
+(;W[oc];B[qd]C[A나 B가 보통]
+(;W[me];B[mf]
+(;W[lf];B[lg];W[kf];B[mg])
+(;W[nf]))
+(;W[lc]))
+(;W[ob]
+(;B[qb];W[me];B[nf])
+(;B[pb];W[oc];B[qd]CR[ob][pb]C[백 충분
+
+이 교환은 흑의 악수교환이기 때문에 백이 충분하다])
+(;B[qd]CR[pc][qd]C[백 충분
+
+이 교환은 백의 이득])))
+(;B[oc]C[폐기된 정석
+
+끼우는 수는 현대에선 완전히 사장되었다.];W[ob];B[od];W[mb]
+;B[qc];W[pb];B[me];W[ld]CR[ne][me][nd]TR[qd]C[백 만족
+
+백은 정말 탄력적인 형태고, 흑은 빈삼각에 끊어먹히는 약점까지 남아 이 정석, 그리고 이 정석의 아종은 현대에는 사실상 두어지지 않는다]))
+(;W[qc]C[상황적인 수법];B[oc]
+(;W[rf]
+(;B[mc]C[백이 손 빼는 것이 보통, 흑 약간 유리]
+(;W[qd])
+(;W[];B[rd];W[nb]))
+(;B[rd]C[변칙수];W[qd];B[qe];W[re];B[rc];W[pe]
+(;B[qb];W[qf];B[mc];W[qj]C[호각])
+(;B[qf];W[pc];B[ob];W[od];B[pf];W[rb];B[oe]C[백 약간 유리])))
+(;W[re];N[]
+(;B[qd];W[rd];B[qb];W[rb];B[pc];W[rc];B[rg]C[흑 약간 유리])
+(;B[mc]C[흑 약간 유리])
+(;B[rg]C[상황적인 수법
+
+우변에 흑의 응원군이 있을 때 사용하는 수법0];AB[pj]))))
+(;B[oc]C[구정석]
+(;W[ne];B[od]C[A가 정수.
+
+다만 백이 두터워서 B의 전투가 백이 좋다면 있다면 B가 정수.]
+(;W[nb];B[me];W[ld]
+(;B[le];W[ke];B[nf];W[jd]C[백 약간 유리])
+(;B[mf];W[ob]
+(;B[qc];W[ic]C[백 약간 유리])
+(;B[pb]C[실수];W[qc]C[실수]
+(;B[qd]C[부분적으로 최선의 수습이지만-];W[qb];B[pc];W[pa]C[백 만족
+
+우상귀 흑의 실리를 도려내며 효율적으로 안형을 확보해 백이 좋은 결과를 피할 수 없다.]
+(;B[ic]C[눈목자가 정수인데-];W[kc]C[백 만족
+
+쉽게 안정해 우상귀가 붕 떠버린 흑의 불만이다.])
+(;B[jc]C[흑은 원래대로라면 바짝 다가서서 흑을 압박해야겠으나-]
+(;W[jd]C[붙이는 수가 너무 좋은 수기 때문에 흐름이 좋지 않아진다.];B[id];W[je];B[kc]
+;W[lb]CR[me][mf][kd]LB[fc:A][rc:B]C[흑 두 점과 엮어 단점을 효율적으로 지켜 뚫는 수를 둘 수 없는 흑이 불만이다.
+
+이후 백은 A와 B가 맞보기가 된다.]
+(;B[fc]C[쉽게 둔다면 A, 최강이라면 B]
+(;W[rc]C[이 결과는 모붙인 것보다 백이 더 득본 결과다.])
+(;W[nf]C[이 수가 더 타이트한 응징이다.]))
+(;B[rc];W[rb];B[rd]C[급소의 자리를 차지해도 역으로 좌상을 협공해 백이 좋다.]
+(;W[fc];AW[dd])
+(;W[gd];AB[dd])))
+(;W[kc]C[백은 무난하게 타협한다면, 모붙이고-];B[jd];W[rc]C[백 만족
+
+뻗어서 백이 좋고(빈삼각이 안 떠오를 수도 있으나, 흑에게 역으로 젖혀이음 당하면 우상귀가 미생이 됨과 동시에 우하귀에 탄력이 생긴다)])))
+(;B[pc]C[당연히 흑은 잇는 수를 생각하고 둔 것일텐데-];W[ic]LB[qd:A]C[백 만족
+
+A로 움직이는 등 우상귀의 맛이 너무 고약해 가일수까지 생각해야되는 자리기 때문에 백이 좋다.]))))
+(;W[mc]C[상황적인 수법
+
+귀도 수비하고 중앙 쪽도 선수로 끊기지 않겠다는 의도.
+
+백이 원군이 없다면 흑이 A로 끊는 싸움이 좋기 때문에 흑이 약간 유리한 결과지만, 백이 원군이 있어 끊는 싸움이 좋다면 이어서 버티는 것이 정수다.]
+(;B[me])
+(;B[pf]C[백 약간 유리]))
+(;W[me]C[구정석]
+(;B[mc];W[lc];B[nb]
+(;W[mb]
+(;B[pg]C[흑 근소하게 유리])
+(;B[pf]C[흑 근소하게 유리]))
+(;W[pf];B[lb]C[흑 근소하게 유리]))
+(;B[mb]C[구정석];W[lb];B[nb];W[lc]C[백 약간 유리
+
+])))
+(;W[ob]C[함정수]
+(;B[pb];W[ne];B[od];W[nb]C[6, 7의 교환은 백이 이득이다];B[me];W[ld];B[le]C[A의 수순은 흑이 머리를 두들겨서 이후 결과가 좋지 않다]
+(;W[qc];B[kd];W[pc];B[mc];W[lc];B[lb];W[mb];B[kc];W[mc]C[A의 수순이 최선처럼 보이나 7을 준동하는 맛을 없애서 약간 손해다]
+(;B[qd];W[rc];B[nf])
+(;B[nf];W[qd];B[qe];W[re];B[qf];W[rf];B[qg];W[kb];B[jb];W[la];B[ie]))
+(;W[ke];B[nf];W[jd]C[백 만족]))
+(;B[nb];W[mc];B[pb];W[ne]
+(;B[pf]C[호각])
+(;B[od]C[백 만족];W[mb];B[oa];W[lg]))
+(;B[me];W[nb];B[ld];W[mc];B[qc];W[ne];B[od];W[le];B[mf];W[ke]C[흑 약간 유리])))
+(;B[mc]C[흑이 축이 유리해야 가능한 수법, 상황적인 수법, 혹은 변칙수
+
+상변의 백이 두터울 때, 중복으로 만들겠다는 의도.
+특수한 상황이 아니라면 변칙수다.]
+(;W[ob]C[변칙수일 때 응징방법.
+
+가장 기본적인 수로 중앙 관통과 한 점을 잡는 수를 맞보기로 보고 있다.]
+(;B[ne]
+(;W[lc];B[mb];W[lb]
+(;B[lf];W[me];B[mf];W[ke])
+(;B[kf];W[le];B[lf]))
+(;W[qc]C[백 충분, 백이 축이 유리해야 가능한 수법
+
+중복을 피하겠다는 의도];B[qd]
+;W[rc]C[흑이 축이 불리하다면 백 충분, 흑이 축이 유리하다면 흑 성공
+
+백은 당연히 배석이 유리한만큼 B나 C는 버틸 수 있어야한다]
+(;B[ld]C[축]
+(;W[cn];B[me]
+(;W[rd]C[흑 성공])
+(;W[fq];B[rd];W[mb];B[lb];W[kc];B[ma];W[nb];B[lc];W[sd];B[se];W[sc]C[흑 성공]))
+(;W[rd];B[me]C[흑 근소하게 유리]))
+(;B[mb];W[ld])
+(;B[lc]
+(;W[me])
+(;W[mf]))))
+(;B[oc];W[nb];B[pb];W[qc];B[pc];W[ne];B[od];W[lc];B[me]C[백이 두텁다면 B도 가능]
+(;W[ld];B[nf]C[흑 망함
+
+상변 백이 중복이라고 해도, 기본적으로 이 정석은 흑이 망한 형태이기 때문에 백이 충분하다])
+(;W[mb];B[nf];W[le];B[mf])))
+(;W[lc];B[mb]
+(;W[lb]C[변칙수일 때 또다른 응징 방법.
+다만 백을 중복으로 만드려는 상황적인 수법일 때는 두지 않는다.]
+(;B[me];W[ld];B[oc];W[nb];B[ob];W[ma];B[ne]C[백 충분])
+(;B[nb];W[oc];B[ob];W[pc];B[qc];W[pb];B[ld];W[me];B[qb];W[od];B[oe];W[ne];B[pa]
+;W[nd]C[백 만족]))
+(;W[nb]C[상황적인 수법
+
+배석이 없는 상황에서는 흑을 응징하지 못해 호각이지만, 축이 불리할 때 중복을 피하기 위해 종종 사용하는 수법
+
+백은 배석의 두터움을 십분 활용해서 전투도 불사하겠다는 뜻이다
+
+])
+(;W[ob]C[상황적인 수법일 때 최강의 반발];B[ne];W[qc];B[qd];W[rc]CR[mc][mb]C[이 두 점을 살릴 수 없다면 흑의 무리다. 살릴 수 있다면 흑이 좋다.])))
+(;B[me]C[변칙수
+
+A가 간명한 수법]
+(;W[le]C[간명한 수법];B[ne];W[oc]
+(;B[pc]C[정수];W[ld];B[pg]CR[me][ld]C[백 충분
+
+흑이 하나 밀어준 꼴로, 이 교환은 흑의 악수 교환이다])
+(;B[ld]C[변칙수];W[mc];B[kd];W[qc];B[qd];W[rc];B[lf];W[cn];B[ig]C[백 약간 유리
+
+이 결과는 백이 더 좋은 결과다.]))
+(;W[ld]C[백이 축이 유리해야 가능한 수법
+
+정수 중 하나지만, 흑이 비틀 여지가 있다]
+(;B[oc]C[흑이 축이 유리해야 가능한 수법];W[ne];B[od]
+(;W[mf]C[축])
+(;W[nb]C[백이 축이 불리할 때 사용하는 수법, 환원
+
+흑이 붙이고 호구친 정석으로 환원된다. 흑이 약간 손해정석으로 알려진 형태지만, 그래도 변칙수에서 정석형으로 환원되어 약간이나마 백이 미흡하다.]
+;B[le]))
+(;B[ne]C[환원];W[oc];B[pc];W[le])
+(;B[le];W[kd];B[ke];W[jd];B[oc];W[ne];B[od]))))
+(;W[oc]
+(;B[od];W[pc];B[qc];W[md];B[qd];W[lc]C[호각];AB[pj]TR[pj]C[우상귀의 흑은 두텁기 때문에, 우변의 흑 한 점을 약간 느슨한 수로 환원하기 위해 자주 둔다])
+(;B[pc]C[변칙수];W[od];B[oe];W[pe]C[백 충분
+
+흑 두 점의 다음 행마가 없어 백이 충분하다.]
+(;B[ne]C[B로 두는 것도 가능하지만, 흑이 비틀 여지가 많다]
+(;W[lc]CR[pe]LB[qe:A][pf:B]C[백 충분
+
+A, B 어느 쪽으로 두어도 백 한 점은 살아나갈 수 있다는 의도]
+(;B[qe];W[pf];B[qf];W[pg];B[qg];W[ph]
+(;B[qh];W[pi];B[le];W[jd];B[mh];W[qi];B[pb];W[kf]C[백 충분])
+(;B[ng];W[qh];B[kf];W[qd];B[qc];W[jd]CR[rd]C[백 만족
+
+패 맛이 있어 백 만족])
+(;B[ri];W[mh]C[백 충분]))
+(;B[pf];W[qe];B[qf];W[rd]
+(;B[rf];W[pb]C[백 유리])
+(;B[pb];W[rf]C[백 유리])))
+(;W[qe];B[rd];W[lc]C[백 충분]))
+(;B[md];W[pb];B[qb];W[qe];B[rd];W[re];B[ob];W[nb];B[pa];W[of];B[ne];W[lc]C[백 충분])
+(;B[pb];W[pf])
+(;B[qe];W[pf])))
+(;W[od]C[백이 축이 유리해야 가능한 수법]
+(;B[oc];W[oe];B[pc];W[md])
+(;B[oe];W[oc];B[pe])))
+(;B[lc]C[손뺌 수록
+
+백은 손을 빼는 것이 가장 보통이다. 건드린다면 백은 A, B, C가 일반적인 수법. 화점 협공 중 유일하게 삼삼이 좋지 않다.]
+TE[2]
+(;W[qf]TE[2]
+(;B[nd]
+(;W[qc];B[qd];W[pc];B[od]
+(;W[nb];B[rd]LB[md:A][rd:B]C[필수
+
+A의 단점을 완화시키고 백이 차후에 젖혀잇는 것을 없애는 교환
+]
+;W[rc];B[qh]CR[md]C[흑 근소하게 유리
+
+한칸으로 협공하는 것은 상변의 단점을 효율적으로 간접보강하기 위함이다.])
+(;W[oc];B[rd];W[mc];B[md];W[lb];B[kc];W[kb];B[pi]C[흑 근소하게 유리]))
+(;W[md];B[mc];W[qd]
+(;B[oc];W[qc])
+(;B[qc];W[od];B[ne]
+(;W[pc];B[pe];W[oe];B[of];W[oc];B[pf];W[nf];B[me];W[qb];B[rc];W[qe];B[ph];W[rb]
+;B[qg];W[rg];B[rh];W[sf];B[lf])
+(;W[pe];B[pc];W[oe];B[oc];W[nf];B[me];W[mf];B[le];W[lf];B[ke]C[흑 충분]))))
+(;B[pf];W[pg];B[of];W[qc];B[qe]C[잇는 것이 정수. B는 약간 손해수]
+(;W[qg];B[pc];W[re];B[qd];W[rd];B[rc])
+(;W[pc];B[qg];W[md]C[필수
+
+받지 않으면 치중으로 인해 백 전체가 곤마가 된다]))
+(;B[qc]C[상황적인 수법];AB[dp][cj][hq][cq]AW[fq][cn]CR[cj]C[반대쪽 변에 흑의 응원군이 있을 때 사용하는 수법이다.
+응원군이 없다면 백이 약간 좋은 결과]
+(;W[oe]
+(;B[od];W[nd];B[pe];W[ld];B[of];W[ne];B[pf];W[jd];B[qj]C[백 근소하게 유리])
+(;B[pe];W[pf];B[od];W[ld];B[ne];W[kc];B[of];W[qj]C[백 약간 유리]))
+(;W[eo];B[do];W[dn];B[en];W[fo];B[em]C[백이 날일자로 씌운다면 응원군을 바탕으로 끊어서 싸우겠다는 것이 흑의 의도다])))
+(;W[jc]TE[2];B[nd]
+(;W[od]C[축이 유리해야 가능한 수법.];B[oe];W[oc];B[md];W[pc]
+(;B[qd];W[qc];B[rc];W[rb];B[rd];W[mb];B[ph])
+(;B[qc];W[qd];B[pe];W[rc];B[qb];W[rb];B[rf];W[re]C[정석]))
+(;W[qc];B[oc];W[qd];B[qf];W[mc];B[ob];W[md];B[ne];W[rf];B[rg];W[qe];B[pf]))
+(;W[ne]TE[2]
+(;B[pf]
+(;W[kd]
+(;B[kc];W[jd];B[ld];W[le];B[jc];W[id];B[hc])
+(;B[ld];W[le];B[ke]CR[kd]C[백의 어깨짚는 수의 의도는 상변의 백 세력을 지울 때 사용하는 수법이다, 축이 유리할 때는 가능하지만, 불리하다면 일반적으로 배석 상 백이 약간 불리한 정석이다.]
+(;W[kc];B[kb];W[jb]CR[jc]LB[ke:A][me:B]C[로잇는 수는 실수. 백이 A, B 맞보기로 둘 중 하나를 잡을 수 있다.
+다만 주의할 점은 백이 조금만 더 두터워도 백이 부러질 수 있다.
+좌상이 너무 두터워서 끊는 수가 너무 작다면 생각해 볼 수 있다.
+상당히 복잡한 관계가 엮여있다.
+
+상변의 끊는 약점, 흑 A, B의 약점 3가지가 핵심적인 요소고, 수순은 이 3가지의 요소를 고려해서 실전으로 풀어나간다고 생각하면 좋을 것 같다.]
+(;B[mb];W[ka];B[lb]
+(;W[ic];B[je];W[lf];B[id];W[jc];B[ob]C[백 곤란]))
+(;B[lb];W[ic]TR[kb][lb][lc][ld]LB[ke:A][me:B]C[A와 B가 맞보기로, 백은 둘 중 하나를 잡을 수 있다.]))
+(;W[je]C[백이 축이 유리해야 가능한 수법];B[kf];W[lf];B[jd];W[kc]
+(;B[jc]C[축];W[kb];B[lb];W[jb];B[ib];W[ic];B[id];W[kg])
+(;B[jf];W[jc];B[ie];W[ic])
+(;B[lg])))
+(;B[oc]C[A가 보통]
+(;W[nb]
+(;B[ld];W[kc])
+(;B[kc];W[jd];B[ld];W[le];B[jc];W[id];B[ic]C[흑이 밀어가는 수가 정수이자 백이 대응하기 어려운 수
+
+A가 보통]
+(;W[hd];B[me];W[mf];B[md];W[nd];B[lf]
+(;W[pg]C[맥점];B[qf]C[A는 우변을 키우겠다는 의도, B는 선수로 단점을 정비하고 상변을 틀어막겠다는 의도
+
+좌상귀가 흑이면 A, 백이면 B가 정수]
+(;W[of];B[mg];W[nf];B[ke];W[qg]C[A가 정수, B는 무리수]
+(;B[qb];W[lg];B[kg];W[lh])
+(;B[ob]C[무리수];W[pe];B[qe];W[qd];B[oe];W[qc])
+(;B[oh];W[rg];B[qb];W[nh];B[rf];W[lg]))
+(;W[mg];B[ke];W[hc];B[og];W[of];B[ph];W[kh]))
+(;W[ke]C[흑의 의도];B[nf];W[mg];B[ng];W[hc];B[mh];W[lg];B[hb];W[gb];B[ib];W[lh]
+;B[ob]TR[nb][nc][nd][ne]C[넉 점이 죽어서 백이 불만이다]))
+(;W[qc]
+(;B[ob];W[hd];B[me];W[mf];B[md];W[nd];B[lf];W[pe];B[qe];W[of];B[mg];W[pg];B[oe]
+;W[nf];B[ke];W[qg];B[qb]C[호각]
+(;W[lg];B[kg];W[lh])
+(;W[hc]))
+(;B[pc]C[최강수];W[hd];B[me];W[mf];B[md];W[nd];B[lf];W[pg]C[백도 잘 두면 호각으로 이끌 수 있지만, 백이 어려운 진행이다]
+(;B[ke];W[qf])
+(;B[qf]))
+(;B[qd];W[pc]C[백 충분]
+(;B[od];W[ob]C[백 충분])
+(;B[rc];W[od]C[백 충분])))))
+(;W[ob];B[pb];W[kc]
+(;B[nb];W[mb];B[oa]C[백이 손 빼는 것이 보통
+
+흑 충분])
+(;B[];W[nb]C[호각]))
+(;W[kc]C[구 정석];B[nb];W[mc])))
+(;W[pb];B[qc];W[jc];B[le];W[ng]
+(;B[pi];W[je];B[lg]CR[pd][pf][pi][qc]SQ[jc][je]C[흑 근소하게 유리
+
+이 정석은 보통 흑이 약간 좋다고 본다.
+
+전투 자체는 서로 호각이지만, 백은 전투를 감행하면서 우변에서 실리 손실을 보고 있고, 상변에서는 이득은 이득이지만 집으로 이득을 보고 있다고 말하긴 어렵기 때문이다.])
+(;B[ph]))
+(;W[jc];B[pb]CR[pb]C[백이 날일자 교환을 하지 않으면 흑이 먼저 차지하며 상변과 연결을 엿본다.])
+(;W[le]C[백이 축이 불리할 때 사용하는 수법, 상황적인 수법]))
+(;B[pg]C[한 발자국 더 빨리 나가겠다는 의도.]
+(;W[qc]C[좋지 않은 수법.];B[pc];W[qd];B[pe];W[rf]CR[pb][qb]LB[jc:A][qh:B]C[A와 B를 맞보기로 보고 운영해 나가면 흑이 약간 유리하다.
+
+B는 백에게 젖혀이음이나, 빠지는 수를 선수로 물어볼 수 있는 권리가 흑에게 있기 때문에 생각보다 두텁다. 백이 두지 않는다면 흑은 바로 젖혀 이어 역끝내기를 한다.])
+(;W[qd]C[함정수
+
+신진서 박정환 / 2021-11-03
+];B[qc];W[pc];B[pe];W[rd];B[rc];W[rb]
+;B[pb];W[oc];B[qb];W[qf];B[pf];W[qg];B[sd];W[rf];B[md];W[nd];B[qi];W[qh];B[pi];W[ri]
+;B[rj];W[rh];B[ph];W[ra];B[ob];W[nb];B[oa];W[qa];B[sb];W[se];B[qe];W[re];B[qk]C[흑 충분
+
+상변 백도 미생이고, 우변도 치중하면 패가 남아있기 때문에 흑이 충분하다]))
+(;B[ic]C[변칙수
+
+이 수법은 자체로는 백이 약간 좋아 두지 않지만, 실전에서는 상변의 가치가 클 때 종종 나온다]
+;W[pf]
+(;B[qf]
+(;W[qg];B[qe];W[pg];B[pb]C[백 충분])
+(;W[qe]C[축이 유리해야 가능한 수법];B[pe];W[qd];B[qc];W[rf];B[qg];W[pc];B[oc];W[pb]
+;B[of];W[pg];B[ob];W[og];B[re];W[rd];B[rc];W[se];B[od];W[qh]C[백 충분])
+(;W[pg]C[A가 보통, B는 백이 약간 좋다고 여겨진다]
+(;B[qe]
+(;W[qg]C[환원])
+(;W[pb];B[qh];W[qc];B[ph]))
+(;B[qg];W[qe];B[pe];W[re];B[qh];W[qc];B[pc];W[qb];B[of]C[A가 보통]
+(;W[ph]
+(;B[pi];W[ng];B[qj];W[nh]C[백 충분])
+(;B[qi];W[nh]C[백 충분]))
+(;W[og];B[nf];W[pi];B[ph]
+(;W[oh];B[oi];W[mg];B[mf];W[qj])
+(;W[mf];B[oe];W[ng];B[nd];W[oi];B[rj];W[qk];B[rk];W[me];B[md];W[pb])))))
+(;B[pb])))
+(;W[qc]TE[2]
+(;B[pc];W[qd]
+(;B[pe];W[pb];B[ob];W[qb]
+(;B[nb];W[qf]C[흑 근소하게 유리, 손뺌도 수록
+
+이후 진행은 정석 이후];B[];W[kd]
+CR[kc]C[막는 수를 보고 있다.])
+(;B[oc]C[구 정석];W[qf]LB[qh:A]C[과거에는 A 방향으로 다가올 때 이어져 있는 것이 약점이 없다고 해서 자주 이어서 두었으나, 현대에는 A로 다가서는 수 자체가 이상하다고 보고 있기도 하고 또]
+;AB[cp][cq][cr][dr][cn][fq][pp][qn][qq]AW[dq][dp][do][eq][er][hq][pr][nq][lp]TR[eq]
+C[이런 포석에서 밑으로 받아져 있다면 하변은 거의 집으로 봐야하지만, 이어져 있기 때문에 맛이 나빠-]
+;B[jq]
+(;W[jp];B[fr];W[fs];B[iq];W[ip];B[hr];W[fp];B[hp];W[gq];B[gr];W[gp];B[lr]C[쉽게 수가 나기 때문에 잇지 않고 밑으로 받는 것이 정수다])
+(;W[jo]C[B도 수가 나는 것은 동일하다];B[fr]
+(;W[fs];B[hr];W[fp];B[gp];W[hp];B[gr];W[go];B[lr])
+(;W[fp];B[gp];W[hp];B[fo];W[fs]))))
+(;B[qe]C[함정수]
+(;W[pb]C[정수];B[ob];W[qb]
+(;B[oc]
+(;W[qf]C[축이 불리할 때 사용하는 수법]
+(;B[pe];W[re]CR[qe][re]C[이 교환은 흑의 악수 교환이다
+
+백 충분])
+(;B[re];W[pe];B[rf];W[nb]
+(;B[nd];W[oa];B[od];W[pf];B[qg];W[pg];B[qh];W[md];B[ne];W[mc]C[백 유리])
+(;B[oe];W[pf];B[qg];W[pg];B[qh];W[oa];B[od];W[nf]C[흑 망함])))
+(;W[pe]C[축이 유리해야 가능한 수법];B[qf];W[nb]
+(;B[oe]C[축];W[pf];B[na];W[pg]C[흑 망함])
+(;B[nd];W[oa];B[od];W[md];B[of];W[mc]C[백 유리])))
+(;B[pe];W[oc];B[pi]C[백 충분]))
+(;W[qb]C[폐기된 수법]
+(;B[pf]
+(;W[pb];B[nd];W[oc];B[od]C[흑 두터움, 흑 만족])
+(;W[oe];B[pe];W[pb];B[nd];W[mc];B[md]
+(;W[ld];B[ob];W[oc];B[od];W[nb];B[kc]C[흑 두터움, 흑 만족])
+(;W[lb];B[kc]C[흑 두터움, 흑 만족])))
+(;B[pb]C[백의 의도];W[pe];B[oe];W[pf];B[nd];W[qf]C[백 만족]))))
+(;B[qd]C[구정석];AB[pj]C[변에 배석이 있을 때 사용하는 수법];W[pc];B[od]
+(;W[rc];B[nd];W[mc];B[md];W[lb]C[흑이 손 빼는 것도 가능];B[kb]LB[mb:A][rd:B]C[백은 A, B가 맞보기로 살아있어 선수를 뽑을 수 있다.]
+;W[]
+(;B[mb];W[nb];B[la];W[rd]C[백 충분])
+(;B[rd];W[mb];B[kc]C[백 충분]))
+(;W[nd];B[oc];W[ob];B[pb];W[qb];B[nb];W[pa]
+(;B[ne];W[mb];B[md];W[na];B[mf])
+(;B[mb]
+(;W[ne]C[A는 실수
+
+B나 C가 정수]
+(;B[pg];W[qf];B[pf];W[rd]
+(;B[qg];W[re]C[백 유리])
+(;B[re];W[qe];B[rc];W[pe];B[sd];W[oe];B[rd];W[rb]C[흑 붕괴]))
+(;B[rc];W[rb];B[pg]CR[rc][rb]C[백 충분
+
+흑이 높게 두칸 벌릴 수 있지만 대신 젖힌 교환은 악수 교환이다
+
+흑이 빠져서 귀의 사활을 추궁할 수 있는 곳을 선수로 살게 해주어서 백이 충분하다])
+(;B[qg]))
+(;W[nf]C[A는 실수]
+(;B[ne];W[rd]CR[pj]C[상황적인 수법
+
+흑이 우변에 배석이 있어 가능하다.];B[me];W[qe]
+;B[pf])
+(;B[pg]))))
+(;W[nb]C[구정석];B[me];W[]
+(;B[rd];W[rc]C[보통 이 정도 자리로 본다.])
+(;B[rc];W[rb];B[rd];W[lb];B[kc];W[kb];B[jc]C[백이 손을 뺀다
+
+흑 불만]))))
+(;W[pf]TE[1];B[nd];W[md];B[mc];W[qd]C[A가 신수이자 최선]
+(;B[nb];W[qc]LB[ne:A]C[백이 단수 치는 수를 방비함])
+(;B[oc];W[qc]))
+(;W[]
+(;B[qc])
+(;B[qf])
+(;B[qg];W[qc]C[백이 축이 유리해야 가능한 수법]
+(;B[ob]C[흑이 축이 유리해야 가능한 수법
+
+그냥 막는 수보다 실리론 약간 손해지만, 더 두텁다.]
+(;W[pc]C[백이 축이 유리해야 가능한 수법];B[oc];W[od];B[oe];W[nd];B[nb]CR[qg]C[흑 한 점이 절묘한 위치에 있기 때문에 백은 축이 유리하지 않고서는 응징할 수 없다.]
+;W[pb];B[mc];W[pe];B[qd];W[qe];B[rd];W[re];B[ne]C[축])
+(;W[qd];B[pe]C[마늘모가 연구하지 않으면 알기 힘든 정수. 날일자는 손해수다.]
+(;W[re];B[rf];W[qe];B[pf];W[];B[oc];W[qb])
+(;W[rf];B[rg];W[qf];B[pf];W[];B[oh];W[];B[qe];W[re];B[sf]))
+(;W[re];B[qd];W[pb];B[oc];W[rd];B[pf]))
+(;B[pc]))
+(;B[nd]C[과거에 가장 많이 두어졌던 수법이나, A로 끼우면 실리가 모조리 사라지기 때문에 요즘엔 잘 두어지지 않는다.]
+;W[od];B[oe];W[oc]
+(;B[md];W[pc]
+(;B[qd];W[qc];B[rc];W[rb];B[rd];W[mb];B[sb];W[ra];B[ph]CR[of]C[백 약간 유리
+
+흑의 눈목자는 붙이는 약점을 효율적으로 지키는 수다.
+
+이후 진행은 참고도]
+;W[of];B[nf];W[pe];B[ne];W[qf];B[qe];W[pf];B[rf]CR[ph]C[석점의 급소에 위치해있다.])
+(;B[qc];W[qd];B[pe];W[rc];B[qb];W[rb];B[rf];W[re]C[백 약간 유리]))
+(;B[pc]C[신수
+
+인공지능 이후에 발견한 흑의 반발];W[md];B[ne];W[mc];B[pg]CR[lc]
+[mc]TR[od][oe]C[얼핏 보면 백이 관통한 자세가 좋아보이고, 거의 화점 붙여뻗기 정석에서 흑이 엉뚱하게 들여다본 꼴로 보여 과거엔 안 두어졌으나, 백이 찌른 교환도 자충이 찬 악수 교환이고 상변 흑 한 점이 제압하기 어려워 흑의 유력한 반발이다.])))
+(;W[pc]C[변칙수];B[qc];W[qd]
+(;B[rc];W[rd];B[re]C[맥점];W[qe];B[oc]C[흑 충분])
+(;B[pe];W[rd];B[oc];W[pb];B[rc];W[rb];B[re];W[qb];B[qe];W[sc];B[nd]CR[ob]C[흑 충분
+
+단수에는 응수하지 않는다]))
+(;W[ld]C[상황적인 수법];B[kd];W[md]
+(;B[pg]
+(;W[pb];B[qc];W[kc];B[jc];W[kb];B[jd];W[lb]C[흑 충분])
+(;W[kc];B[jc];W[kb];B[jd];W[lb];B[oc]C[흑 만족]))
+(;B[jc];W[qf])
+(;B[ob];W[kc];B[jc];W[kb];B[jd];W[lb];B[nb]
+(;W[qf];B[mb];W[mc])
+(;W[mb]C[A가 보통]
+(;B[qe])
+(;B[qf]CR[qd]C[붙이는 맛이 있다])))))
+(;B[ld]TE[1];W[qc];B[pc];W[qd];B[pe];W[pb];B[ob];W[qb];B[oc];W[qf]LB[nb:A][nd:B]
+C[백이 A로 움직이면 흑은 B로 받는다])
+(;B[kc]TE[2]
+(;W[qc];B[pc];W[qd];B[pe];W[pb];B[ob];W[qb]C[B는 맛이 고약하기 때문에 A로 받는 것이 보통이다]
+(;B[oc];W[qf])
+(;B[nb];W[qf]LB[lc:A]C[차후 A로 붙이는 수가 상당히 고약하다];B[mc]C[젖힌다면 흑이 약간 발이 느리다.]))
+(;W[qf]C[B는 붙여끊는 수가 흑이 좋아야한다. 일반적으로 백이 약간 좋아서 A가 보통.]
+(;B[ne];W[qc];B[pc];W[qd];B[pe];W[rg]CR[kd]C[두칸 높은 협공보다 약간 미흡.])
+(;B[md];W[pc];B[qc];W[qd])))
+(;B[kd]C[협공 중에서 양걸침에 제일 강하다.]TE[2]
+(;W[qc]TE[2];B[pc];W[qd];B[pe];W[pb];B[ob];W[qb]
+(;B[oc];W[qf]C[백 근소하게 유리])
+(;B[nb];W[qf];B[mc]CR[kd]C[백 근소하게 유리
+
+흑 한 점의 간격이 좁다. 다만 형태가 깔끔하다는 장점 때문에 종종 사용된다.]))
+(;W[pf]TE[1];B[of])
+(;W[qf]TE[1];B[ne];W[qc];B[pc];W[qd];B[pe];W[rg]C[호각]))
+(;B[jc]TE[2]
+(;W[qf];B[pf];W[pg];B[of];W[qc];B[qe];W[pc];B[qg]C[호각, 정석
+
+이후 진행은 정석 이후]
+;W[]
+(;B[mc]
+(;W[mb];B[lb];W[nb])
+(;W[nd];B[mb]LB[ob:A]
+(;W[md];B[gc])
+(;W[];B[ob];W[nb];B[oc])))
+(;B[lc];W[mc]))
+(;W[qc];B[pc];W[qd];B[pe];W[pb];B[ob];W[qb];B[nb];W[qf];B[mc]))
+(;B[jd]TE[2]
+(;W[qf];B[pf];W[pg];B[of];W[qc];B[qe];W[pc];B[qg]C[호각
+
+이후 진행은 정석 이후]
+;W[]
+(;B[mc]
+(;W[nd];B[mb]LB[ob:A]
+(;W[md];B[kc]LB[ob:A];W[ld];B[gc])
+(;W[];B[ob];W[nb];B[oc]))
+(;W[mb];B[lb];W[nb]))
+(;B[lc];W[mc]))
+(;W[qc];B[pc];W[qd];B[pe];W[pb];B[ob];W[qb];B[nb];W[qf];B[mc]))
+(;B[oe]C[구정석];W[qc];B[pc]
+(;W[pb];B[qd];W[rb];B[rc];W[qb]C[백 충분])
+(;W[qd];B[qf];W[rf];B[rg];W[re];B[qg];W[pb];B[ob];W[qb]C[흑이 손 빼는 것도 가능, 흑 근소하게 유리]
+;B[oc]C[흑 근소하게 유리]))
+(;B[]
+(;W[qf]C[손뺌도 수록
+
+A와 B가 보통]
+(;B[nd];W[md];B[ne]
+(;W[pc]
+(;B[qc];W[oc]C[A와 B가 보통]
+(;B[qd];W[pg];B[oh];W[og];B[ng];W[nh];B[mc];W[lc];B[mb];W[lb];B[ni];W[mh];B[mg]
+C[백 망함])
+(;B[pf]
+(;W[od];B[pe];W[qb];B[rd];W[rc];B[qd];W[rb]C[B는 언뜻 좁아보이지만, 대신 흑의 활용이 없기 때문에 일장일단이 있다. A와 B는 국면에 따른 취향이다.]
+(;B[qi];W[pg]
+(;B[ng]C[전투])
+(;B[ph];W[og];B[qg];W[rg];B[qh];W[nf])
+(;B[qg]C[활용당함]))
+(;B[qh]))
+(;W[pg]C[변칙수];B[qe]C[흑 충분])
+(;W[qb]C[변칙수]
+(;B[qd]LB[rb:A][pg:B]C[흑 근소하게 유리
+
+A, B 맞보기로 흑이 충분하다]
+(;W[pg];B[rb])
+(;W[rb];B[qg]))
+(;B[qg];W[od];B[rf]C[흑 근소하게 유리])))
+(;B[rd]C[백은 축이 불리해도 A가 가능하다.]
+(;W[od];B[pe];W[oe];B[pf];W[nf]C[흑은 축이 유리하더라도 A를 둘 수도 있다. 둘 다 가능한 수법]
+(;B[ph])
+(;B[me]C[B가 수습의 맥이여서 백도 둘 수 있다.]
+(;W[le]C[축])
+(;W[ke]C[흑이 축이 불리할 때 사용하는 수법];B[ld];W[le];B[mf];W[mc];B[mg];W[of]
+;B[pg]C[백 근소하게 유리])))
+(;W[qi]
+(;B[pe])
+(;B[qe];W[pf];B[pe]))))
+(;B[mc];W[oc];B[ld];W[qd];B[me]LB[qc:A]C[A로 끊는 맛이 있기 때문에 백의 실리가 완전하지 않다.]
+;W[];B[qc]
+(;W[pe];B[od];W[qb];B[rc];W[rb])
+(;W[od];B[pe];W[oe];B[pf];W[of];B[pg];W[rd]
+(;B[rb];W[ng];B[qg];W[rf];B[rg];W[rc];B[qk])
+(;B[qb]C[뻗는 수도 있으나 난해하다.]))))
+(;W[oc];B[pc]
+(;W[pg]C[A는 귀가 완전하지 않지만 연결에 신경쓰는 수법,
+B는 완생이지만 연결이 완벽하지 않다.]
+(;B[qe];W[re];B[pf];W[rf]C[A 등으로 협공해서 호각의 정석이다
+
+만약 C로 두어야한다면 귀가 불완전하기 때문에 애초에 처진 날일자로 두는 것이 낫다]
+(;B[kd])
+(;B[lb])
+(;B[rd]C[B는 참고도]
+(;W[rc]
+(;B[pb];W[sd];B[mc];W[lc];B[mb];W[ld];B[nb]C[백 근소하게 유리])
+(;B[se]C[실수];W[qc];B[qd];W[pb];B[qg];W[of];B[pe];W[qh];B[rg];W[rh];B[sf]C[백 만족
+
+백의 실속이 좋고, 석 점을 먹고도 흑이 미생이다.]))
+(;W[of]C[흑 만족
+
+단수 치는 것은 귀가 완전해지기 때문에 악수다.];B[pe];W[rc]C[나중에 붙이더라도-]
+;B[sd];W[qc];B[rb]CR[of][pe]C[단수의 교환으로 인해, 흑이 배붙임으로 지킬 수 있어 귀가 완전하게 살아있다.]
+;W[qb];B[pb];W[pa];B[ra])))
+(;B[re];W[qe];B[rd];W[lc];B[pe]))
+(;W[re]
+(;B[pe]LB[qi:A][kd:B]C[흑 충분
+
+이후 A와 B를 맞보면 흑이 충분하다]
+(;W[qi];B[kd])
+(;W[jc];B[qi]))
+(;B[pf]C[변칙수];W[pe];B[od];W[lc]C[백 충분]))
+(;W[rd]C[변칙수];B[pf]
+(;W[qg];B[pg]C[흑 약간 유리])
+(;W[qe]C[실수];B[ph]C[흑 만족]))
+(;W[od]C[변칙수];B[pe];W[oe];B[pf];W[of];B[pg]C[흑 만족]))
+(;W[qc]C[상황적인 수법
+
+흑은 축이 유리하다면 B가 보통]
+(;B[oc]
+(;W[qd];B[mc]C[흑 근소하게 유리])
+(;W[mc];B[qd];W[rd];B[pb];W[rb]))
+(;B[qd]C[흑이 축이 유리해야 가능한 수법];W[pc];B[mc];W[od];B[oe];W[oc];B[ld];W[pe]
+;B[me]C[손뺌 수록
+
+받는 것이 정수]
+(;W[pg]C[흑 근소하게 유리])
+(;W[]C[변칙수];B[rd]
+(;W[rc];B[pf];W[qe];B[qg];W[re];B[rf];W[sd];B[pg]C[흑 만족])
+(;W[qh];B[rc];W[rb];B[nb]
+(;W[qe]CR[qb]C[흑 만족
+
+차후에 패 맛이 있어 흑 만족])
+(;W[qb]CR[nb]C[흑 만족
+
+젖힘을 선수로 하고 우변에도 활용이 남아 흑 만족]))
+(;W[qe];B[rc];W[rb];B[qb];W[pb]
+(;B[pg]
+(;W[rh]CR[qh]C[흑 만족
+
+축이 불리하더라도 노림이 남아 충분하다.];B[qh]C[축이 유리해야 가능한 수법]
+;W[qi];B[rg];W[qg];B[ph];W[rf];B[ri];W[sg];B[qj]C[흑 유리])
+(;W[qg];B[qh];W[ph];B[pi];W[oh];B[rh];W[re]
+(;B[qm]C[흑 유리])
+(;B[oi]C[흑 유리])))
+(;B[ph]
+(;W[qh];B[qg];W[rg];B[pg]
+(;W[qi]
+(;B[qj];W[rh];B[pi]C[흑 만족])
+(;B[pi]C[상황적인 수법];AW[pp][qn]C[흑 만족]))
+(;W[rh]C[흑 만족]))
+(;W[pg];B[rg]
+(;W[re];B[og]C[흑 유리])
+(;W[og]C[무리수];B[sb]
+(;W[ra];B[re];W[rf];B[sf]
+(;W[qh];B[nb]C[백 붕괴])
+(;W[qg];B[rh];W[nb];B[mg]C[백 망함]))
+(;W[qa]C[흑 유리
+
+백의 패 부담이 너무 크다.];AW[dd];B[dc];W[cc];B[ra];W[sa];B[ec]
+;W[sc];B[cd]C[백 망함])))
+(;W[];B[qg];W[re]C[흑 유리
+
+])))))))
+(;B[ne]C[현대의 수법];W[lc];B[qh]
+(;W[ph])
+(;W[pg])
+(;W[of];B[nd]
+(;W[oc];B[pe];W[qg];B[pc];W[rd];B[rc];W[qd];B[qc])
+(;W[qc];B[oc];W[qd];B[pe];W[rf];B[pf]C[흑 충분])))
+(;B[oe]C[구정석];W[qc]C[백 약간 유리]
+(;B[pg]
+(;W[pc]
+(;B[pj]C[백 약간 유리])
+(;B[qd]
+(;W[od];B[md];W[rd]C[백 약간 유리])
+(;W[qi];B[md]
+(;W[mc];B[ld]C[백 약간 유리])
+(;W[nd];B[ne];W[me]C[백 약간 유리]))))
+(;W[qd]C[실수];B[qg]C[호각]))
+(;B[qd];W[pc]
+(;B[md];W[od]
+(;B[pe]C[백 약간 유리])
+(;B[nd];W[oc];B[pe]C[백 약간 유리]))
+(;B[pg]C[환원])))
+(;B[];W[oe]C[손뺌도 수록]
+(;B[qe]C[A가 일감이지만 맛이 나쁘다. B로 두는 것이 무난한 수법]
+(;W[rf];B[ob];W[nb];B[re];W[od];B[qc];W[pb];B[qb];W[pc];B[pa];W[oc];B[pe];W[pf]
+C[후속 진행도 수록];B[];W[oa];B[rc]LB[qa:A][se:B]C[A의 끝내기는 선수 1과 3분의 2집의 가치고, B는 선수 거의 역끝내기 4집이므로 이 수가 정수]
+;W[qa];B[ra])
+(;W[pe];B[re];W[rf];B[qc];W[od];B[pb]))
+(;B[qc]C[구형 정석];W[pb];B[qb]
+(;W[rd];B[ob];W[nb];B[pa])
+(;W[pc]C[구형 정석];B[re];W[qe];B[qd];W[rf];B[od];W[nd];B[se]C[이후는 후속 수법이다]
+;W[rb]C[A는 삶, B는 패]
+(;B[pa]
+(;W[mb];B[rc]C[호각])
+(;W[sc];B[oc];W[rd]LB[nf:A][lc:B]C[A나 B 등의 배석에 의해 생사가 결정된다]))
+(;B[ra];W[rc];B[sc];W[sb];B[rd]C[패])))
+(;B[];W[rd])))
+(;W[pf]C[손뺌도 수록]
+(;B[of];W[og];B[nf]
+(;W[qc];B[pg];W[qf];B[qd];W[pc];B[od]
+(;W[mb]C[A와 B는 취향]
+(;B[ph])
+(;B[qg]))
+(;W[rc];B[ph]))
+(;W[ng];B[nd]
+(;W[qc];B[pg];W[qf];B[qd];W[ph];B[oc])
+(;W[mf];B[oc];W[md];B[mc];W[ne];B[nb];W[oe]))
+(;W[pg];B[nd];W[qc];B[qd];W[pc];B[od]
+(;W[mc];B[rc];W[rb];B[kc];W[lc];B[kd]
+(;W[mh];B[oc];W[ob];B[nb];W[pb])
+(;W[qk];B[oc];W[ob];B[nb];W[pb]))
+(;W[mb];B[mc];W[oc];B[lc];W[lb]
+(;B[qj])
+(;B[mh])
+(;B[kc]))))
+(;B[];W[ne]C[손뺌도 수록]
+(;B[oc];W[nb];B[ob];W[rd];B[qe];W[qf];B[re];W[rf];B[rc])
+(;B[]C[A는 귀의 수단을 완전히 없애는 수법, B는 봉쇄하는 수법
+
+B는 귀의 맛이 나쁘다]
+(;W[qc])
+(;W[rf];B[ob];W[nb];B[rc]C[여전히 맛이 나쁘다
+
+A는 두텁게 처리하는 수법, B는 사활을 추궁하는 수법]
+(;W[qd];B[qe];W[re];B[rd];W[pb];B[oc];W[oa];B[qb];W[pe];B[pc];W[pa];B[sb]C[삶])
+(;W[pb];B[oc]C[A는 패, B는 잡으러 가는 수법이지만 사실상 패는 나게 된다]
+(;W[oa];B[qb];W[pc];B[od];W[nd];B[qc];W[pa];B[re];W[qe];B[qd];W[se])
+(;W[rb]C[A, B로 건너가자고 할 수도, C로 패를 내자고 할 수도, D로 바깥쪽을 다치게하거나 탈출하는 것을 맞보기로 볼 수도 있어 사실상 그냥 잡는 것은 불가능하다]
+(;B[na];W[ma];B[oa];W[qc];B[mb];W[mc];B[lb])
+(;B[re];W[oa];B[rg];W[qf];B[sf])
+(;B[oe];W[nf];B[qc];W[oa];B[qb];W[qa];B[pc];W[pa];B[nd];W[md];B[mc]C[패])
+(;B[qf]
+(;W[qg];B[qe];W[qc];B[pg];W[re];B[of];W[ph];B[pe];W[qh];B[oh]C[탈출])
+(;W[qe];B[rd];W[oa];B[qg];W[pe];B[re];W[rg];B[qh]C[바깥이 다침]))))))))
+(;W[qc]
+(;B[pc];W[qd];B[pe];W[pb];B[ob];W[qb]C[흑이 손 빼는 것도 가능
+
+B는 자체로는 잘 두어지지 않지만, 손을 뺀 이후의 국면의 변화에 따라 둘 수 있는 정석이다]
+(;B[nb];W[mc];B[kc]
+(;W[qf];B[mb])
+(;W[mb]CR[dd]C[전투
+
+좌상귀가 백돌일 때 사용하는 수법];B[oc];W[qf]C[전투]
+(;B[le]
+(;W[ne];B[pf];W[qg];B[nf]CR[ne]C[백 한 칸 뜀은 밀고 붙여서 제압할 수 있으므로 논외])
+(;W[ic];B[kd]C[호각])
+(;W[pf];B[nd];W[ic];B[jb]C[호각])
+(;W[kb]C[상황적인 수법]))
+(;B[pf];W[qg];B[le]
+(;W[ic];B[kd]C[호각
+
+이후 진행은 정석 이후];W[mf];B[me];W[ng]C[중앙은 보통 이 수순으로 처리된다]
+(;B[ne])
+(;B[of]))
+(;W[kb];AW[fc]CR[qg][pf]C[상황적인 수법
+
+미는 수가 부분적으로 약간 악수이므로 백은 상변에 응원군이 있다면 붙여서 건너가서 근소하게 유리하다]
+;B[lc];W[me];B[lb];W[la];B[jb];W[lf];B[ka];W[ke];B[ld];W[nf]C[백 약간 유리])
+(;W[];B[hc]C[흑 만족]))))
+(;B[qg];W[oc]))
+(;B[qd];W[pc];B[od]
+(;W[mb])
+(;W[nd])))
+(;W[qg]C[실리로 안정하고 싶으면 A, 귀를 가볍게 보고 바깥으로 탈출하면 B로 취향대로 선택하면 된다.]
+(;B[oc];W[nd];B[qe])
+(;B[pf];W[re];B[pg];W[qh];B[ph]))
+(;W[pb]CR[nc]C[상황적인 수법
+
+보통은 거의 두지 않지만, 상변 백 한 점을 살리고 싶은 상황이라면 종종 둔다.
+
+흑도 부분적인 정수는 A지만, 백이 달리는 수 자체가 상변을 살려야하는 상황이기 때문에 B로 공격을 계속해야할 수도 있다.]
+(;B[qg];W[qc]CR[qg]C[흑 충분
+
+흑 한 점이 한 발 더 멀리 있는 만큼 흑이 충분하다.])
+(;B[qc]C[상황적인 수법]
+(;W[pg]LB[qg:A]C[보통이라면 A로 걸치는 것이 보통이지만, 이 수는-];B[qf];W[qg];B[pf]
+;W[og]CR[ne]C[동그라미의 연결을 보면서 상변을 자연스럽게 수습하겠다는 의도다.]
+(;B[md]C[흑은 타이트하게 나가는 것이 정수고-];W[mc]C[이후 진행은 서로 어렵다.])
+(;B[ne]C[평범하게 가르고 나가서는-];W[ld];B[mf];W[qk]C[백이 양쪽을 수습해 재미가 흑이 재미가 없다.]))
+(;W[kc]C[상환적인 수법
+
+상변을 살겠다는 의도에 충실하다.])
+(;W[qg]C[눈목자 걸침이 보통이지만,];B[pf]C[흑이 어깨짚었을 때, 백이 우])))))
+(;W[mc]C[A나 B가 보통]TE[2]
+(;B[oc]C[현대의 수법]
+(;W[qf]
+(;B[re]C[견실한 지킴.])
+(;B[pf];W[pg];B[of]CR[mc][oc]C[양걸침 정석에 비해 명백한 흑의 이득.]))
+(;W[qg]CR[qc]C[삼삼의 맛이 신경쓰인다면 B도 가능.]
+(;B[qe]CR[qc]C[흑 약간 유리
+
+이후 진행은 정석 이후
+
+삼삼의 수단이 없는 것은 아니지만, 활용 정도다.]
+;W[qc]C[초반이라면 A로 둬서, 사활이 걸린 상황이면 B로 잡을 수 있기 때문에 흑이 충분하다.]
+(;B[nf]LB[nb:C]C[귀에서 사는 수는 있지만, 초반은 큰 곳이 많기 때문에 귀는 방치할 수 있다.
+
+흑은 적절한 시기에 C 정도로 가일수하는 것이 보통이다.]
+(;W[pb];B[ob];W[rd];B[re];W[rb]C[흑 두터움, 흑 유리
+
+이런 식으로 작게 사는 것은 초반에는 아무것도 아니다.])
+(;W[ob]C[붙여서 사는 것은 당장 A로 두어 바깥이 다치고, 설령 B로]
+(;B[nb];W[pb];B[nc]C[흑 유리])
+(;B[pb];W[nb];B[pc];W[re];B[rd];W[rf];B[rc]C[흑 유리
+
+이런 식으로 끝내기를 선수한다고 하더라도 흑이 유리하다.])))
+(;B[pb]C[백을 잡을 수 있다.]))
+(;B[re]))
+(;W[qe];B[qd]TR[qe][mc]C[백 한점이 다쳤기 때문에 이득이 없다. 상변의 백 한점의 위치도 의문이다.]))
+(;B[qg]C[구 정석]
+(;W[pc];B[qc];W[oc];B[qd]TR[mc]C[인공지능은 백이 둘만하다고 하지만, 인간의 시선으로는 백의 한칸이 중복처럼 보인다.])
+(;W[pb];B[qc];W[jc]C[이후 진행은 정석 이후];B[nb]
+(;W[nc];B[ob];W[oc];B[pc];W[mb];B[qb])
+(;W[oc];B[nc];W[nd];B[mb]
+(;W[od];B[lc];W[md];B[kd]C[백 근소하게 좋은 전투
+
+흑도 백의 이 반발을 염두에 두어야 한다])
+(;W[lc]
+(;B[ob];W[od];B[pc];W[pe];B[rd]C[백 충분
+
+초반이라면 흑이 당한 결과])
+(;B[od];W[ob];B[ne];W[md]C[흑 충분
+
+다만 이 사석작전은 초반이라면 흑이 근소하게 좋다])))))
+(;B[kc]C[상황적인 수법
+
+자체로는 별로 나오지 않지만 백의 눈목자 걸침이 변을 깰 때 자주 나오므로 종종 등장한다]
+(;W[qf])
+(;W[pb];B[qc]
+(;W[me]C[백도 흑의 가르는 노림에 대응책이 필요하다]
+(;B[pg]C[흑 근소하게 유리])
+(;B[nb]C[상황적인 수법];W[mb]
+(;B[ob];W[oc];B[pc];W[nc];B[qb])
+(;B[oc])))
+(;W[qb]C[상황적인 수법];B[oc]C[A가 백이 조금 더 좋은 결과지만, 2선으로 기는 수법은 보통 특수한 상황이므로 보통 B의 의도이다]
+(;W[pc];B[qd];W[nc];B[od];W[ob];B[ph]C[흑 두터움, 흑 충분])
+(;W[ob];B[nc];W[nb];B[md];W[lc];B[ld];W[kb];B[jb]C[상황적인 수법, 흑 두터움, 흑 만족
+
+보통은 흑의 외세가 두텁지만, 백의 안형을 가장 확실하게 만들 수 있는 수법이기도 하다])))))
+(;W[md]TE[1]
+(;B[qf]C[정수.];W[pc];B[oc];W[od];B[ob];W[oe];B[qc];W[pe];B[qd];W[nc];B[nb];W[mb]
+;B[lc];W[mc];B[rg]C[흑 약간 유리])
+(;B[pf];W[pc];B[oc];W[od];B[ob];W[pb];B[mc];W[pe];B[qd];W[qe];B[oe];W[nd];B[re]
+;W[nc]C[흑 근소하게 유리])
+(;B[oc]C[우변이 두텁다면 마늘모도 가능])
+(;B[pg];W[pc]
+(;B[qc];W[oc]
+(;B[qb]
+(;W[jd]C[흑 근소하게 유리])
+(;W[jc]C[흑 근소하게 유리]))
+(;B[qd]
+(;W[jd]C[호각])
+(;W[jc]C[호각])))
+(;B[oc]
+(;W[qc]C[백이 축이 유리해야 가능한 수법];B[qd];W[od];B[rc];W[rb];B[nd];W[oe];B[ne]
+;W[nc];B[ob];W[nf];B[qb];W[me]C[호각])
+(;W[od]))))
+(;W[nd]C[상황적인 수법, 손뺌도 수록.
+
+보통은 백의 손해수, 다만 중앙의 곤마와 연결하며 걸칠 때 종종 두어진다.]
+DO[]
+(;B[pf]C[백은 손 빼는 것도 가능
+
+백은 바로 귀의 교환을 하는 것은 실리를 굳혀주어 좋지 않고, 나중에 결행하는 것이 보통
+
+]
+;W[pc]C[정수지만 아끼는 것이 낫다];B[qc];W[oc];B[qb];W[kc]C[일반적인 수순
+귀의 맛이 사라졌고, 흑은 소목에 비해 실리가 확실하게 돋보인다.])
+(;B[nc]C[흑의 손해수];W[mc];B[oc];W[md];B[qf]LB[rd:A][qc:B][mb:C][re:D]C[호각
+
+집으로만 보면 득이지만, 우변에 백이 다가왔을 때 A라던지 B의 맛을 노리면서 C라던지, D 등 뒷맛을 노려지기 때문에 밑붙인 교환은 흑이 약간 손해다]
+(;W[id]C[호각
+
+집으로만 보면 득이지만, 우변에 백이 다가왔을 때 A라던지 B의 맛을 노리면서 C라던지, D 등 뒷맛을 노려지기 때문에 밑붙인 교환은 흑이 약간 손해다
+
+이후 진행은 부분적인 활용]
+;B[]LB[rd:A][qc:B][mb:C][re:D]C[호각
+
+집으로만 보면 득이지만, 우변에 백이 다가왔을 때 A라던지 B의 맛을 노리면서 C라던지, D 등 뒷맛을 노려지기 때문에 밑붙인 교환은 흑이 약간 손해다
+
+이후 진행은 부분적인 활용]
+(;W[mb]LB[qc:A]C[A를 노리고 있다];B[nb];W[pb]LB[qd:A][na:B]C[부분적인 맥점
+
+A와 B를 맞보기로 보고 있다
+B로 받으면 A로 수를 내고, A 방향으로 받으면 B가 선수 끝내기가 된다.])
+(;W[re]
+(;B[qe]C[보통 정수])
+(;B[rc]C[상황적인 수법
+
+흑의 사활을 신경 쓰는 수])
+(;B[rf];W[qc];B[qd];W[rd];B[rb];W[qb];B[rc];W[ra];B[sb];W[sc];B[sd];W[se]C[패]))
+(;W[rd];AW[qh]LB[rf:A][qc:B]C[A, B 맞보기]))
+(;W[re]
+(;B[qe]C[보통 정수])
+(;B[rc]C[상황적인 수법
+
+사활을 신경 쓰는 수])
+(;B[rf];W[qc];B[qd];W[rd];B[rb];W[qb];B[rc];W[ra];B[sb];W[sc];B[sd];W[se]C[패])))
+(;B[];W[pf]
+(;B[nc])
+(;B[qc]LB[nb:A][oe:B][rf:C]C[A, B, C의 세 곳을 노리고 있다
+
+백은 손을 돌리고 나중에 결정하는 것이 보통])
+(;B[ob]
+(;W[nb];B[oc];W[nc];B[oe]
+(;W[rd];B[qe];W[qf];B[re];W[pe];B[qd];W[od];B[rf];W[qh];B[rg]LB[qb:A][qk:B][rc:C]
+C[백이 가일수 한 후에, 백이 A자리로 치중한다면 B로 선수 활용한 후에, C로 받는다.]
+(;W[ph])
+(;W[oh]))
+(;W[od];B[pe];W[pc];B[qc];W[pb];B[qb];W[oa];B[qf]C[흑 유리.]))
+(;W[oc];B[pc];W[nb];B[od];W[nc];B[ne]C[젖히는 것은 약점을 남겨놓는 수. 흑이 붙이지 않는 이유다.]
+;W[oe];B[re];W[rf]C[이으면 무난하게 흑 유리. B도 가능하다.]
+(;B[pb])
+(;B[me])))))
+(;W[pc]C[상황적인 수법
+
+상변 전투에 힘을 주고 싶을 때 자주 사용한다
+
+부분적으로는 A로 두면 흑이 약간 좋지만 협공하면 굳히면서 공격하고, 걸치면 협공하면서 공격 당해서 불만일 때 상변에 백돌이 가게하기 위해서 사용한다
+
+A가 보통
+
+C, D, E는 참고도]
+TE[2]
+(;B[qc];W[oc]
+(;B[qd]
+(;W[lc]C[흑 약간 유리
+
+보통은 잘 두지 않지만, 상변의 흑돌을 협공하거나, 흑진을 지우고 싶을 때 사용한다])
+(;W[kc]CR[mc]C[상황적인 수법, 흑 약간 유리
+
+부분적으로만 본다면 갈라지는 수 등이 있어 손해지만-]
+;AB[cd][ce][bg][gc]AW[ec][de][df]C[이런 배석의 경우 두 칸으로는 흑에게 간격을 주기 때문에 용인될 수 있다.]
+;B[mc]))
+(;B[qb]C[B가 언제든지 선수이므로, A의 벌림이 정수.]
+(;W[kc]C[흑 약간 유리]
+(;B[mc]C[바로 들어오는 침투는-];W[od];B[pe];W[md]CR[od][pe]C[이 교환이 언제든지 선수기 때문에 붙여서 잡아 백이 충분하다.])
+(;B[hc]C[흑이 다가오면-];W[mc]CR[qf]C[가만히 지켜두는 것이 정수다. 얼핏 백이 발이 느려보이지만, 우상의 흑의 약점이 노출되어 있어 백이 충분하다.]))
+(;W[od]C[미는 것은 악수다.];B[pe];W[kc]CR[re]C[여기서 흑이 손을 뺀다면, 약점이 그대로 노출되어 있어 악수가 아니지만-]
+;B[oe];W[md];B[qj]C[흑이 바로 지켜두기 때문에 미는 교환을 미리 하는 것은 악수다.])))
+(;B[oc];W[qc]C[A가 보통]
+(;B[od];W[re];B[qf];W[qe];B[pf];W[ob];B[nb];W[pb]C[호각, 흑이 손 빼는 것도 가능]
+(;B[mc])
+(;B[ng]))
+(;B[ob]C[A가 보통];W[qd];B[pe]
+(;W[qe];B[pf];W[qg]C[백 근소하게 유리])
+(;W[rf];B[qg];W[rg]C[호각]))
+(;B[qd]C[백의 의도];W[ob]C[정석으로 환원된 형태지만, 애초에 백이 상변에 가고 싶다는 의도였으므로 대부분 흑의 방향 선택이 이상하기 때문에 거의 두지 않는다.]))
+(;B[kq];AB[eq][do][dn]AW[pp][cp][co][bm][hq]C[정말 평범하게 협공을 하면-];W[nq]
+C[백이 자연스럽게 협공하면서 굳힘을 하기 때문에 백이 충분하고])
+(;B[nq];AB[do][dn][eq]AW[co][bm][cp][hq][pp]C[그렇다고 걸친다면-];W[kq]C[자연스럽게 하변을 안정시키면서 흑을 공격할 수 있어 역시 백이 충분하다])
+(;B[pq];AB[dn][do][eq]AW[pp][cp][co][bm][hq]C[이럴 때 흑이 종종 사용하는 수법이 밑붙임인데, A로 받는다면-]
+(;W[qq];B[oq];W[qp];B[lq]CR[pq]C[우하는 보통 백이 약간 좋은 정석이지만, 밑붙임을 바탕으로 하변의 백 한 점을 자연스럽게 공격해서 흑이 괜찮은 흐름이고-])
+(;W[oq];B[qq];W[op];B[ro];W[qn];B[qo];W[pn];B[or];W[nr];B[pr];W[mq]C[이런 식으로 전개된다면 백도 두터워서 호각이지만, 흑도 선수로 실리를 빼앗을 수 있다라는 의도다])))
+(;W[]
+(;B[nc]
+(;W[md]C[A, B, C가 보통
+
+D, E, H 정도가 반발 중에선 주로 사용된다.]
+(;B[nd]C[A가 일감이고 좋은 수지만, 집으로는 약간 느슨하기도 하다.
+
+흑이 손을 뺐을 때, 다음 수로 상변을 틀어막는 강력한 수가 없기 때문이다.
+
+B는 그러한 점을 의식한 수법이다.]
+(;W[mf]C[흑은 손 빼는 것이 보통]
+(;B[qh]C[4는 폭이 넓어보이지만, 수가 나지 않는다.];W[qf];B[pg])
+(;B[]C[상변을 막으려는 경우 B로 막는 것이 일감이지만, 끼우는 수가 호수이기 때문에 보통 A로 틀어막는다]
+(;W[kc])
+(;W[mc];B[me];W[le];B[ne]
+(;W[lf];B[ld])
+(;W[mb];B[lf]))))
+(;W[qg]
+(;B[qe]CR[md][nd]C[마늘모로 받는다면, 어깨짚는 교환은 백이 이득이다.])
+(;B[qi];W[qd]CR[nd][md]C[흑은 A로 받는 수도 생각해보고 싶지만,
+
+모든 경우에서 백의 어깨짚은 교환이 이득으로 작용하기 때문에 B로 받아야만 한다.]
+(;B[qc];W[rc]
+(;B[rb];W[pc];B[qb];W[pe];B[od];W[re]CR[nd][md])
+(;B[pc]CR[md][nd]C[백의 교환은 이득이다.];W[re]CR[nd][md]C[백의 교환은 이득이다.])
+(;B[qe];W[rd]
+(;B[pb];W[re]CR[md][nd]C[백의 교환은 이득이다.])
+(;B[qb];W[pc];B[rb];W[pe];B[od];W[re]CR[nd][md]C[백의 교환은 이득이다.])))
+(;B[qe];W[rd]C[A는 축이 유리해야 가능한 수법이다.]
+(;B[rg]C[축이 유리해야 가능한 수법.];W[re];B[qf]
+(;W[rf]C[축이 유리해야 가능한 수법])
+(;W[pc]
+(;B[rf];W[od];B[pe];W[oc];B[ne];W[nb];B[mb];W[ob];B[mc])
+(;B[pg];W[od];B[ne])))
+(;B[re];W[pe]
+(;B[qc];W[pc];B[od];W[rc];B[pf];W[pb])
+(;B[rg];W[pf];B[rf];W[pc];B[od];W[mc]C[연구 중]))
+(;B[qf];W[pc];B[oe]C[A, B 이후의 공방은 서로 어울렸다.]
+(;W[ob];B[nb];W[pf]
+(;B[pg])
+(;B[pe]))
+(;W[rg];B[re];W[qj]))
+(;B[pe];W[re];B[qc];W[rc];B[qb];W[rh])))))
+(;B[mc]C[A가 정수다. 흑이 손 빼더라도 호구로 막아가는 자세가 좋기 때문에 밑으로 받았을 때는 일반적으로 받아둔다.
+
+B는 손해다.]
+(;W[kd]C[이후 흑은 손을 돌린다
+
+흑이 건드릴 좋은 수가 없고, 백은 호구를 보고 있다.
+
+이후 수순은 어깨 짚음의 기본적인 원리를 설명하기 위한 참고도다.]
+(;B[ld]C[흑이 끼우면-];W[le];B[lc];W[kg]C[단수 치고 날일자로 흑의 모양을 효과적으로 지우겠다는 이야기이고, 이 결과는 흑이 끼운 수가 백의 삭감을 도와주고 흑은 눌린 형태가 되는 아쉬운 교환이기 때문에 백이 약간 활발하다. 만약-]
+;B[ke]C[끊으면-];W[je];B[kf];W[jf];B[lf];W[lg];B[mf];W[mg]C[돌려쳐서 버리겠다는 의도이고-]
+;B[nf];W[ih]C[이 결과는 백의 만족이다])
+(;B[lc]C[두 번째로 흑이 그냥 뻗으면 백은 응수하지 않는다];W[];B[ld];W[kf]C[흑이 찌르면 또 다시 한 칸 뛰어서, 손을 뺐음에도 불구하고 효과적으로 흑의 모양을 견제할 수 있어 백의 만족이다]
+;B[le];W[];B[ke];W[if]C[백 유리])
+(;B[];W[lc]))
+(;W[qf]CR[md][mc]C[백돌이 공격 받을 때 어깨 짚음의 교환이 득이 될 것이라는 의도지만, 실수
+
+백이 귀를 붙일 때 악수교환으로 주장하기 위해 그냥 협공해야 한다.]
+;B[qi]CR[qd]TR[md][mc]C[그 전에 어깨 짚은 교환 때문에 붙이는 수가 불가능해져서, 백에게 당장 수습할 뚜렷한 수단이 없다
+
+흑이 약간 좋은 흐름]
+;W[qd];B[qc];W[rc];B[rd];W[qe];B[rb]))
+(;B[lb];W[qf];B[qe]C[상황적인 수법];W[pf];B[nd];W[ne];B[me];W[mf];B[le];W[lf];B[ke]
+;W[kf];B[je];W[jf];B[ie]CR[lb][md]C[상황적인 수법, 백 두터움, 백 만족
+
+흑이 밑으로 받아줬기 때문에 죽여도 백이 체면이 선다.])
+(;B[kd]C[싸울 수 있다면 A, 불리하다면 B 정도다.]
+(;W[mc];B[nd];W[mf]CR[kd][me]C[흑 한 점이 가까이에 있고, 또한 위치가 높아 낮은 한칸과 달리 끼울 수가 없다.])
+(;W[mf];B[mc]))
+(;B[jc];W[mc];B[nd];W[ne];B[me];W[kd]
+(;B[mf];W[jd];B[id]
+(;W[ic])
+(;W[ie]))
+(;B[jd];W[je];B[ie];W[kc];B[mf];W[jf]))
+(;B[kc];W[mc];B[nd];W[me]CR[kc]C[흑 한 점이 가까이 있다.
+
+이후 진행은 정석 이후를 설명하기 위한 참고도]
+;B[hc]C[A가 기억해두면 좋은 수습의 맥점이다. B도 A의 연장선에 있는 수법이라고 기억해두면 좋다.]
+(;W[pe]C[A가 보통]
+(;B[qd];W[ne];B[qe];W[pg];B[of];W[nh];B[oe];W[mg]C[호각])
+(;B[qe];W[qd]C[A가 보통]
+(;B[qf];W[pf]C[A가 정수]
+(;B[pg];W[ne];B[qc];W[rd];B[rc]C[이후 진행은 국면에 따라 달라진다.])
+(;B[qg];W[qc];B[pc];W[pg]C[ 백 약간 유리]))
+(;B[qc];W[rd];B[re];W[pc];B[od];W[rc];B[qb];W[rb];B[pb];W[qg];B[pf];W[oe]C[A가 정수]
+(;B[rg];W[ne];B[nb];W[qf];B[rf];W[qh];B[rh];W[qi];B[ri];W[qj];B[rj]C[백 충분])
+(;B[qf]C[실수];W[nb]C[흑 망함]))
+(;B[re];W[pf]C[A가 정수]
+(;B[qc];W[ne]C[백 충분])
+(;B[qg]C[무리수];W[pc];B[od];W[qc]C[백 유리]))))
+(;W[qd]C[A가 보통]
+(;B[pe];W[qe];B[qf];W[rf];B[pf]CR[rg][qc]C[막음과 귀의 이단젖힘을 맞보기로 보고 있다.
+
+A면 귀살이, 뻗음면 탈출이다. 둘 다 가능하다.]
+(;W[qb];B[rg];W[re])
+(;W[rg];B[qc];W[rc];B[rb]LB[rd:A][pb:B][qh:C]C[A로 이으면 B로 잇는 것이 아니라 흑이 어깨짚을 수도 있으므로 C가 보통이다.]
+;W[ph]))
+(;B[qe];W[pe]C[환원])
+(;B[qc]
+(;W[pe];B[qe];W[rd];B[re]C[환원])
+(;W[qe];B[of];W[rc];B[rb];W[pc];B[qb];W[nb]
+(;B[ob];W[oe];B[ne];W[nf];B[mf];W[ng];B[pe];W[pf];B[od];W[og];B[lf];W[oe];B[oc]
+C[호각])
+(;B[oc];W[qh]C[백 충분])))))
+(;B[jd];W[nd];B[mc];W[lc];B[od];W[kd]CR[jd]C[부적절한 위치에 있다.];B[jc];W[kb])
+(;B[mf]C[상황적인 수법
+
+반발. 흑의 세력이 강할 때 삭감하려는 백의 의도에 정면으로 반발하려는 경우 사용된다.]))
+(;W[qf]C[환원])
+(;W[re]C[A와 B는 귀를 지키겠다는 의도, C는 두텁게 처리하거나 응수해주지 않고 선수를 뽑겠다는 의도]
+(;B[rd]C[백이 손 빼는 것도 가능
+
+A와 B 모두 흑이 근소하게 좋아 진행시키지 않는 경우가 많다
+
+흑이 차후에 B로 호구치면 두텁지만 발은 느린 의미가 있고, 협공한다면 끼우는 맛이 차후에 나쁘다]
+(;W[qd];B[qe];W[qc];B[rc];W[pe];B[qf];W[pc];B[od];W[rf];B[rb];W[qg];B[pf];W[ph]
+;B[of];W[qk]C[이 정석은 흑이 약간 좋다.])
+(;W[qe];B[qd];W[qi]C[흑 근소하게 유리])
+(;W[qh];B[qe];W[qk])
+(;W[od]C[함정수]
+(;B[oe]C[함정수 파훼 성공])
+(;B[oc]C[함정수에 걸려듬];W[qd]))
+(;W[];B[qe]C[호구가 보통]))
+(;B[qd]
+(;W[qh]CR[qf][rd]C[차후에 백은 마늘모로 가일수하고 귀의 한칸 뜀을 노릴 수도(안형), 밀고 붙일 수도(끝내기) 있다.])
+(;W[qi]CR[qf]C[차후에 백은 마늘모로 가일수하고 귀의 한칸 뜀을 노리는 것이 안형 상 이득이다.])
+(;W[rd];B[rc];W[rb]
+(;B[qc];W[qh]C[호각
+
+이후 진행은 정석 이후];B[];W[sc];B[qb]C[우상귀의 흑은 먹여치고 먹여치고 빠지는 수가 있어 생각보다 탄력이 있는 형태다])
+(;B[sc]C[실수
+
+흑이 끊는 수는 뒷맛이 나쁘기 때문에 뒷맛이 상관없을 때를 제외하곤 대부분 실수다.
+
+이후 진행은 참고도]
+(;W[mc]
+(;B[md];W[nb];B[oc];W[lc]
+(;B[ld];W[jc];B[kd];W[qi]C[백 충분
+
+이후 진행은 참고도];B[kc];W[kb];B[jb];W[ib]
+;B[lb];W[ja];B[mb]C[백 만족])
+(;B[qh];W[ld]C[백 충분]))
+(;B[nd];W[nb]C[흑의 다음 행마가 없다];B[ob];W[pb]))
+(;W[];B[lc]C[가령 흑이 한칸의 위치에 돌이 있어 뻗었다고 하더라도-];W[qh];B[];W[md]
+;B[mc];W[qc];B[qb];W[od];B[oc];W[pe]C[이 경우에도 변 쪽의 활용은 없지만, 나중에 중앙으로 생각보다 많이 당하는 형태라서 뻗는 것이 꼭 잇는 것보다 득이라고 할 수 없다.]))))
+(;B[qf];W[rf]CR[qf][rf]C[흑은 손 빼는 것도 가능
+
+원래 흑은 백이 삼삼에 들어가는 자세가 좋아 바로 응수해야 하지만, 어깨 짚은 교환이 약간의 이득이기 때문에 여기서 손을 돌릴 수도 있다]
+(;B[qg]C[기본적인 의도];W[qc]C[중앙의 약점이 신경 쓰인다면, B로 마무리한다.]
+(;B[pc]
+(;W[qb])
+(;W[qd]))
+(;B[qd];W[rd];B[pc];W[qb]C[백 약간 유리]))
+(;B[]C[
+
+];W[qc];B[pc];W[qb]CR[qf][rf]C[약간의 이득이기 때문에 호각])
+(;B[rc]LB[qg:A]C[기본적으로는 A로 뻗는 것이 정수지만, 손을 돌린 후에 국면에 변화가 생긴 상황이면 둘 수 있는 수법]))
+(;B[qe];W[rd]
+(;B[qg]
+(;W[pc];B[qc];W[qd];B[pb];W[pe];B[oc];W[qf])
+(;W[qc]))
+(;B[rf])))
+(;W[rd]C[확실하게 귀를 침식하기 위할 때 자주 사용한다.]
+(;B[qd];W[re];B[rc];W[rb];B[qc];W[qh]C[호각
+
+이후 진행은 정석 이후];B[qj];W[]
+;B[qf]C[백의 사활을 추궁할 때 사용하는 수법];W[rf];B[qg];W[rg];B[ri])
+(;B[qf])
+(;B[qe]C[환원])
+(;B[rf]))
+(;W[mc]C[상황적인 수법
+
+A나 B가 보통]
+(;B[nd]C[백이 흐름을 타게 해주지 않겠다는 의도])
+(;B[md])
+(;B[mb]C[A가 보통]
+(;W[lb]C[B가 보통]
+(;B[lc];W[md];B[kb];W[nb];B[la];W[oc];B[nd];W[od];B[ne];W[oe];B[nf];W[pg]C[백 충분])
+(;B[nb]C[백 충분]))
+(;W[nb]
+(;B[ob];W[nd]
+(;B[na]C[백 충분])
+(;B[oc];W[lb];B[md];W[lc]C[백 만족]))
+(;B[md];W[lc];B[lb];W[kc];B[kb];W[jc];B[oc]C[흑 충분]))))
+(;W[od]C[신수, 상황적인 수법];B[oc];W[qd]
+(;B[pe]C[부분적으로 수를 내주었지만, 초반이라면 흑의 두터움이 약간 더 크다.];W[qe]
+;B[pf];W[rg])
+(;B[qe];W[pe];B[pc]C[귀에서 수를 쉽게 내주지 않겠다는 의도.];W[qf];B[re];W[pf];B[rd]))
+(;W[qc]C[상황적인 수법];B[qd];W[rd];B[re];W[rb]C[패
+
+흑은 패를 이길 수 있다면 1차적으로 A를 생각해야 하고, 이길 수 없다면 B로 받는다]
+(;B[sd])
+(;B[qf]C[흑 근소하게 유리
+
+백은 귀를 가일수하지 않고 손을 돌리는 것이 보통]
+(;W[])
+(;W[ob];B[nb];W[oc];B[od];W[na];B[sd];W[rc]C[흑 약간 유리])))
+(;W[qd]C[좋지 않은 수법
+
+백은 끊거나 붙이는 등의 변화를 구하지 않고서는 흑이 두터운 결말이 된다.]
+;B[qe]
+(;W[pe])
+(;W[od]))
+(;W[]
+(;B[qj])
+(;B[qe]
+(;W[pb];AW[lc][ic][qg][qj]C[백돌이 주변에 응원군으로 있을 때 사용하는 수법]
+(;B[oc]C[최강수지만 무리수];W[qc];B[rd];W[rc];B[ob]C[잡으러 가려면 이하의 수순으로 두어야하는데
+약점이 너무 많아서 흑의 무리수])
+(;B[ob];W[pc]
+(;B[od];W[rd];B[re];W[rb];B[qc];W[rc];B[qd];W[qb]C[이후 흑은 잡으러 가려면 A 등으로 1선을 젖혀야 하는데 무리수고,
+B로 흑은 수습하고 백은 귀살이를 한다]
+(;B[sd];W[oc];B[nb];W[nd]C[끊어지기 때문에 무리수다])
+(;B[ld];W[kc];B[md];W[mb];B[nb];W[rf];B[se];W[sa]))
+(;B[oc];W[rd];B[qd];W[qc];B[rb];W[rc];B[re];W[sb];B[ra];W[pa];B[sd];W[mb];B[oa]
+;W[ne];B[od]C[백이 충분히 활용하고, 놓고 따내는 맛까지 있기 때문에 백이 유리하다])))
+(;W[qc]C[응수타진]
+(;B[pc];W[re]
+(;B[rd]C[A나 B로 활용하겠다는 의도]
+(;W[rf];B[qi])
+(;W[qf];B[rf];W[rg];B[se]))
+(;B[rf];W[rd]
+(;B[qg];W[pb];B[ob];W[rb];B[pa];W[qb]C[삶])
+(;B[pb]C[백은 뒷맛을 노려간다])))
+(;B[rd];W[nb]
+(;B[ob];W[mc];B[nd])
+(;B[mb];W[ob];B[mc];W[rc]C[삶]))))
+(;B[qf]
+(;W[md])
+(;W[mc])
+(;W[qc]
+(;B[qd]C[B가 정수
+
+막는 수는 백이 B로 밀면 패가 나지만 치받는 교환이 약간 이득이기 때문에 충분히 둘 수 있고, A로 두면 치중해서 흑이 잡으러 가겠다는 의도]
+(;W[rd];B[re];W[rb];B[pb];W[pc];B[ob];AB[dp][fq][cn][bo]AW[cq]C[흑은 입구자로 잡으러 가는 것보다 두텁다])
+(;W[pc];B[oc];W[rd];B[re];W[rb]C[패]))
+(;B[re]C[패를 아예 내주지 않겠다는 수법]
+(;W[ob];B[nb];W[oc];B[od]C[B는 난해한 수법. 백은 상황에 따라 귀를 죽일 수도 있다.]
+(;W[rb]C[B로 잡으러 가는 수법도 없지는 않으나 A가 안되면 보통은 무리수다.]
+(;B[rd];W[na];B[ma];W[oa];B[pc];W[pb];B[rc]C[상변의 배석에 따라 삶과 죽음이 결정된다.])
+(;B[oa];W[rd];B[qa];W[ra];B[sc];W[sd];B[sb];W[nd];B[pa]LB[pc:A][qb:B]C[응수타진
+
+A와 B 어느쪽으로 잇는지에 따라 받는 방법을 다르게 하겠다는 의도다.]
+(;W[pc];B[of])
+(;W[qb];B[lc])))
+(;W[qd]C[A로 두어도 백은 사활이 걸리기 때문에, 
+
+A가 정수, B는 실수다.]
+(;B[pf])
+(;B[qe];W[rd];B[oa];W[rb];B[qa];W[ra];B[sc];W[sd];B[sb];W[nd];B[pa];W[md];B[lc]
+;W[of];B[pc]C[백 만족]))
+(;W[rd];B[pc];W[pb];B[rb];W[qb];B[qd];W[rc];B[ra]C[사]))
+(;W[rd];B[pb]))))
+(;B[qg];W[qc]
+(;B[qd];W[rd];B[re];W[rb])
+(;B[re];W[ob];B[nb];W[oc];B[od];W[pc]C[흑은 잡으러 가려면 비마를 달려야 한다.];B[sb]
+;W[rd];B[sd];W[qe];B[rf];W[nd];B[ne];W[md];B[lc];W[pf]C[백 탈출
+
+이처럼 눈목자부터는 넓은 간격 때문에 처진 날일자가 성립하지 않는다
+따라서 처진 날일자로 잡으러 가는 수는 무리수였다,]))))
+(;B[mc]C[손뺌도 수록
+
+훌륭한 굳힘이지만, 현대에는 귀에 사는 맛이 약간 신경 쓰이기 때문에 날일자가 보통이고, 주로 상변의 백세를 더 지우기 위해서, 혹은 흑의 약한 돌과 확실하게 연결하기 위할 때 더 자주 사용되는 굳힘이다.]
+(;W[qd];B[qe];W[re]TR[mc]C[날일자 굳힘의 경우에는 단수 치고 뻗어서 흑이 유리한 진행인데, 눈목자의 위치이기 때문에 약점이 두 군데이다]
+;B[pe])
+(;W[ne]C[A와 B가 일반적인 응수.
+
+C와 D는 백이 약간 기분 좋다고 여겨진다.]
+(;B[ld]C[백은 손을 뺄 수도 있고, 준동할 수도 있다.
+
+A로 두는 것이 보통, B도 없는 수법은 아니나 무겁다]
+(;W[qf];AB[qi]LB[qd:A][le:B]C[귀 쪽 붙임과 타개를 맞보기로 본다];B[qe];W[pf];B[od]
+;W[oi])
+(;W[nc];B[oc];W[pe];B[nd];W[qd];B[qc];W[qe]))
+(;B[od];W[re];B[rd]CR[qi]TR[qe]C[흑이 협공했을 경우 백은 끼워서 활용할 수도 있기 때문에,
+백이 늘어서 활용하는 것은 손해다.
+
+일반적으로 백은 두 점을 가볍게 보고 손을 뺀다.]
+;W[qe];B[qd];W[qi])
+(;B[oc];W[qe];B[qd];W[pe]CR[oc][ne]C[이 교환은 명백하게 백의 이득이다.])
+(;B[nd];W[qd]
+(;B[qe];W[pe]
+(;B[od];W[pf];B[re];W[qh];B[qc])
+(;B[pc];W[qf];B[re];W[pf];B[rd])
+(;B[oe];W[pf];B[qf]C[흑이 축이 유리할 때]
+(;W[of];B[od];W[qg];B[rg];W[rh];B[qh];W[pg];B[rf]
+(;W[qi])
+(;W[ri]))
+(;W[qg];B[rg];W[rd];B[qh];W[pg];B[rf];W[pc];B[od]
+(;W[ob])
+(;W[ph];B[qi];W[ob]))))
+(;B[pe];W[qe];B[qc];W[rc])))
+(;W[];B[qe];W[nc]C[상황적인 수법
+
+흑이 너무 두터워, 바깥에서의 활용보다 안에서 최대한 살자고 해야할 때 사용하는 수법]
+(;B[nd];W[oc]
+(;B[pc];W[mb];B[md];W[pb];B[qb];W[kb];B[lc];W[qa];B[ra];W[oa]C[패])
+(;B[mb];W[qc]))
+(;B[nb]C[맛이 나쁨])
+(;B[md];W[qc];B[pc];W[pb];B[ob];W[rb];B[rd];W[rc]))
+(;W[qc];B[qd];W[pc];B[oc];W[ob];B[nb];W[od];B[nc];W[rd];B[re]
+(;W[rc];B[qf]
+(;W[pb]C[흑이 손 빼는 것도 유력];B[oe]C[흑 두터움, 흑 충분])
+(;W[pa]LB[ra:A]C[실수
+
+삶에는 문제가 없지만, 차후에 흑이 A로 치중하면 1집반 손해다.]))
+(;W[rb]C[패])))
+(;B[nd])
+(;B[md]C[백이 손 빼는 것도 가능]
+(;W[qc];B[qd];W[pc];B[nc];W[rd];B[re];W[rc];B[qf];W[nb];B[mb];W[ob])
+(;W[];B[qe]))
+(;B[pj];W[nc]
+(;B[pf]CR[pj]C[흑 한 점의 효율을 살리기 위해 우변의 발전성을 최대로 만드는 한 칸으로 보통 받는다]
+(;W[qc];B[pc];W[pb];B[qd];W[rb];B[rc];W[qb]C[정석])
+(;W[oe];B[pe];W[pb]C[흑은 손 빼는 것이 보통
+
+정석])
+(;W[ph]C[변칙수
+
+흑은 손 빼는 것이 보통
+
+백이 연결을 막고 집을 부수는 것은 성공했지만, 백의 돌이 높게 위치해 있기 때문에 다음 수가 없어 흑돌에 대한 영향력이 약하다.
+
+]
+;B[oi]C[인간의 수법
+
+인공지능은 어차피 백의 다음 수가 없어 우변을 흑이 어떻게 결정할지 보류하는 것이 보통인데, 인간의 입장에서 완전히 이해하기 어렵기 때문에 인간의 수법을 수록했다.]
+;W[oh];B[nh]
+(;W[ng];B[og];W[rh]LB[qk:A][qe:B]C[A, B 맞보기];B[rj];W[qe];B[pe];W[qf];B[qd];W[pg]
+;B[of];W[rd];B[rc];W[se]C[호각])
+(;W[og]C[실수];B[nd];W[md];B[ne];W[ng];B[oc]C[흑 유리]))
+(;W[qg]C[함정수];B[pg];W[pc];B[qc];W[qd];B[qe];W[rd]
+(;B[rc]C[정수]
+(;W[pb];B[re];W[od];B[pe];W[kc]C[흑 근소하게 유리])
+(;W[re];B[rf]
+(;W[qf];B[pe];W[rg];B[oc];W[ri]C[흑 유리])
+(;W[kc]C[정수
+
+흑 충분])
+(;W[pb];B[se];W[od];B[sd]C[흑 만족])))
+(;B[qb];W[pb];B[re];W[od];B[pe];W[kc]C[호각])))
+(;B[qf];W[ph]C[함정수
+
+B나 C가 정수]
+(;B[qh]C[함정수에 걸림];W[qe]
+(;B[pe]C[실수];W[qi];B[pi];W[qg];B[rh];W[pf];B[rf];W[rg];B[sg];W[pg];B[re];W[ri]
+C[흑 망함])
+(;B[pg];W[pe]C[백 약간 유리]))
+(;B[pb]C[함정수 파훼 성공])
+(;B[oc];W[nd];B[of]C[함정수 파훼 성공])))
+(;B[oc]C[상황적인 수법
+
+초반에는 두지 않지만, 중반에 흑진이 두터울 때 귀에서 수를 아예 내주지 않으면서 굳히기 위해 종종 둔다])
+(;B[lc]C[상황적인 수법
+
+대부분 굳힘의 의미로 두어지는 것이 아니라, 배석 상 나오는 경우가 보통이다.]
+;W[qc];B[qd];W[pc];B[nc];W[nb];B[mb];W[od];B[oc];W[rd];B[re];W[rc]C[A가 보통
+
+다만 A는 백 한 점을 완전히 제압할 수 없기 때문에 상변이 엷을 때 보통 B의 수법을 사용한다]
+(;B[qf];W[ob];B[na];W[pb];B[of])
+(;B[oe];W[qe];B[nd];W[qf]))
+(;B[kc]C[상황적인 수법
+
+대부분 굳힘의 의미로 두어지는 것이 아니라, 배석 상 나오는 경우가 보통이다.]
+;W[qc]
+(;B[pc];W[qd];B[qf];W[qe];B[pe];W[rf])
+(;B[qd];W[pc];B[nc];W[oc];B[od];W[nb];B[mc];W[mb]C[흑은 손을 빼는 것이 보통])))
+(;W[ob]C[상황적인 수법
+
+상변의 흑이 두텁지만 깨야할 때 종종 사용하는 수법]
+(;B[nc];W[nb];B[mc];W[pc];B[qd];W[qc]C[흑 약간 유리];B[rd];W[mb];B[lc]C[백이 손 빼는 것도 가능])
+(;B[qc];W[mc]C[흑 약간 유리])))
+(;B[qc]C[두칸 걸침은 보통의 수법, 어깨짚음은 모양을 지울 때 사용하는 수법.]TE[1]
+(;W[nc]C[가장 기본적인 걸침.];B[pf]
+(;W[kc]C[호각
+
+기본 정석.])
+(;W[kd]C[호각])
+(;W[jd]C[호각]))
+(;W[nd]TE[2];B[pf]
+(;W[kd]CR[nd]C[호각
+
+뒷문이 열려있어 두칸 걸침이 더 일반적이다.])
+(;W[jc]CR[nd]C[호각
+
+뒷문이 열려있어 두칸 걸침이 더 일반적이다.]))
+(;W[pd]TE[2];B[pc]
+(;W[nd]
+(;B[od];W[oe];B[oc]
+(;W[le]C[호각])
+(;W[ng]C[호각])
+(;W[mf]C[호각]))
+(;B[pe]LB[oe:A][oc:B][qd:C]C[차후에 백의 A, B, C가 전부 선수므로 맛이 나쁘다.]
+(;W[jc]C[흑 근소하게 유리
+
+이후 진행은 정석 이후];B[od])
+(;W[jd]C[흑 근소하게 유리])
+(;W[oe]C[상황적인 수법];B[qd];W[pf];B[od];W[nf];B[nc];W[md];B[qf];W[pg];B[mc];W[qg]
+C[상황적인 수법, 백 유리
+
+보통은 흑이 실속이 좋아 두지 않는 수법이지만-];AB[dq]
+[cq][do][cp][ep][cn][fq][gq][di][kp]AW[dn][eo][fp][fn][dm][gp][cm]CR[di]TR[kp]C[호각
+
+이와 같은 경우는 흑도 하변 돌의 위치도 이상하고, 좌변 돌도 가까워 약간 이상하기 때문에 백의 유력한 삭감 방법 중 하나가 된다.])))
+(;W[od]C[A와 B가 보통.]
+(;B[oc];W[nd]
+(;B[re];W[nc]C[손뺌 수록]
+(;B[jc]
+(;W[pg]C[흑 근소하게 유리])
+(;W[qf]C[흑 근소하게 유리]))
+(;B[];W[jd]))
+(;B[mb]LB[qd:A]C[상황적인 수법
+
+상변의 발전성을 견제하고 싶을 때 사용하는 수법.
+
+이후 A의 막음이 크다.]))
+(;B[qd];W[pf];B[nc]C[호각
+
+이후 진행은 정석 이후];W[qe])
+(;B[re];W[oc]
+(;B[pf];W[kd]C[기본 정석.])
+(;B[qf]CR[qf]C[한 발 더 느리지만, 맛이 없기 때문에 일장일단이 있다.]
+(;W[kd]C[호각])
+(;W[kc]C[호각])))))
+(;W[oc]C[상황적인 수법];B[pe];W[lc]C[흑 근소하게 유리
+
+일반적으로 흑이 약간 좋다고 여겨지지만, 가령-]
+;AB[jc]CR[jc]C[이런 배석이라고 가정할 경우, 백이 두 칸을 벌릴 공간을 만들어내기 위해서 바짝 다가서는 것이기 때문에 용인된다.])
+(;W[];B[nd]))
+(;B[qe]TE[1]
+(;W[qc]C[백이 축이 유리해야 가능한 수법]TE[2]
+(;B[od];W[pd];B[pe];W[oc]
+(;B[nd];W[nc];B[md];W[lb])
+(;B[nc];W[nb];B[nd];W[mb]C[정석, 백 근소하게 유리
+
+이후 진행은 정석 이후];B[rc]
+;W[rb];B[rd]C[A가 신수이자 정수
+
+붙여끄는 교환이 과거에는 백이 바로 B로 받기 때문에 바로하는 교환이였지만-]
+(;W[ld];B[pb];W[pc];B[qb];W[ob];B[ra];W[sb];B[sc]
+(;W[of]CR[pa]C[단수를 치지 않고 들여다보는 것은 끊었을 때 압박이 다르기 때문이다. 흑은 반발하기 힘들고 받는 것이 보통이다.]
+(;B[oe]
+(;W[jc]C[백 만족
+
+현대에는 흑이 귀를 잡았지만 백이 나중에 우상귀를 공격대상으로 볼 수 있기 때문에 백이 약간 유리하다고 본다.])
+(;W[ic]C[백 만족
+
+현대에는 흑이 귀를 잡았지만 백이 나중에 우상귀를 공격대상으로 볼 수 있기 때문에 백이 약간 유리하다고 본다.]))
+(;B[jd]C[최강수
+
+이 협공이 흑의 최선의 반발이다.];W[oe];B[me];W[ke];B[lf];W[pg]
+LB[pa:A][rf:B][qg:C]C[A로 미리 단수를 쳐 놓는다면 백이 B로 들여다볼 때 C로 반발할 수 있어 받지 않아도 괜찮지만, 백이 먼저 단수를 치지 않아 반발할 수 없다.
+
+A가 정수.]
+(;B[rg]C[백 약간 유리한 전투])
+(;B[kg];W[rf];B[re];W[pa];B[sa]C[백 유리])))
+(;W[ic]C[백 약간 유리
+
+현대에는 흑이 귀를 잡았지만 백이 나중에 우상귀를 공격대상으로 볼 수 있기 때문에 백이 약간 유리하다고 본다.]))
+(;W[pb];B[qd];W[pc];B[pi]C[구정석, 호각, 백 미흡
+
+흑의 와목을 응징하지 못하고 호각의 결과가 되어 백이 미흡하다.])))
+(;B[nd]C[흑이 축이 유리해야 가능한 수법];W[oc];B[nc]
+(;W[pe]C[백이 축이 유리해야 가능한 수법];B[qf];W[oe];B[ob];W[pb];B[qi]C[백 약간 유리])
+(;W[od];B[oe];W[ne];B[of];W[nb];B[mb];W[ob];B[lc]C[이 진행이 백이 약간 불편하기 때문에, 축이 불리하다면 백은 삼삼이 아닌 소목으로 침투하는 것이 보통이다.]))
+(;B[pc]C[구정석];W[pb];B[oc];W[ob]
+(;B[qd];W[rc];B[nc]C[백 만족
+
+백이 손을 돌려 백 만족.])
+(;B[mc];W[nc];B[nd];W[nb];B[md]C[백 만족
+
+백이 손을 돌려 백 만족.])
+(;B[nc];W[qd];B[pe]C[백 만족
+
+백이 손을 돌려 백 만족.]
+(;W[];B[re];W[rb])
+(;W[pd];B[oe];W[od];B[nd];W[ne]C[백 만족, 전투
+
+백이 약간 유리한 전투.]
+(;B[ld];W[re];B[rf];W[rd];B[qg];W[me];B[kc]C[백 약간 유리, 전투])
+(;B[re]
+(;W[me]
+(;B[lc];W[rb];B[ld]C[백 유리, 전투])
+(;B[qb]C[최강수];W[rb];B[rc];W[qa];B[rd];W[qb];B[lc];W[ld];B[mc];W[kc];B[kb];W[jd]
+;B[jc];W[kd];B[ib];W[ic];B[jb];W[sc];B[hc];W[qi]C[백 약간 유리, 전투]))
+(;W[rb];B[ld];W[me];B[kc]CR[re][rb]C[백 약간 유리, 전투
+
+다만 이 교환은 흑이 근소하게 이득이다.]))))))
+(;W[pc]C[환원]))
+(;B[pe]TE[1]
+(;W[pc]TE[2]
+(;B[qc]TE[2];W[qb];B[qd];W[ob];B[ph]C[백이 손 빼는 것이 보통]
+(;W[md])
+(;W[];B[lc]))
+(;B[oc];W[ob]
+(;B[od];W[nb];B[qc];W[qb];B[pd];W[pb];B[rc];W[lc];B[qi])
+(;B[nc];W[pd];B[oe];W[nb];B[lc];W[re];B[rf];W[od];B[nd];W[rd]CR[od][nd]C[흑돌을 무겁게 만드는 교환]
+;B[qf]))
+(;B[nd]
+(;W[qe];B[pd];W[qd];B[qc]C[A, B 둘 다 가능하다.]
+(;W[qb];B[rc];W[rb];B[oc];W[pb];B[qf];W[rd];B[re];W[sc];B[pg])
+(;W[rc];B[qb];W[rb];B[pb];W[lc]C[응수타진
+
+흑의 응수에 따라 우변을 젖힐지 뛸지 결정하겠다는 뜻이다.]
+(;B[mc];W[pf];B[qf];W[rf];B[qg];W[rg];B[qh];W[rh];B[qi])
+(;B[oc];W[qg])))
+(;W[nc]C[백이 축이 유리해야 가능한 수법]
+(;B[mc]C[난해한 변화];W[md];B[ne];W[lc];B[mb];W[nb];B[lb])
+(;B[md];W[mc];B[ld];W[qe]LB[qf:A][pd:B][qd:C][oc:D][od:E]C[붙임으로 인해 이론적으로는 백이 약간 유리한 결과지만, A가 아닌  B, C, D, E 등의 비틀기에 모두 대응할 수 있어야하므로 가능하면 피하는 것이 좋다.]
+;B[qf];W[qd];B[pg]C[백 약간 유리])))
+(;B[md]C[백이 축이 유리하면 붙여서 흑이 약간 불리하다.];W[qe];B[qd];W[pd];B[qc]
+C[A는 축이 유리할 때 두는 수법]
+(;W[qf];B[pb];W[ob];B[qb];W[oe];B[oc];W[pf];B[nc];W[pj]C[백 약간 유리])
+(;W[qb];B[rb];W[ob];B[qa];W[pb];B[re];W[qf];B[rf];W[qg];B[oe];W[lc]C[백 충분])))
+(;W[qc]TE[2];B[pc]C[A는 축 관계가 좋을 때 사용하는 수법]TE[1]
+(;W[oc]
+(;B[pb];W[pd]
+(;B[qd];W[od];B[ob];W[qe];B[rd]C[백은 A로 축을 몰 수 있어야한다. 백이 B로 뻗어야한다면 껴붙이는 정석을 두지 않는 것이 더 낫다.]
+(;W[pf];B[rc])
+(;W[qf];B[rc];W[mc]))
+(;B[od];W[qd];B[nc];W[oe];B[nd];W[pf];B[ne];W[of]C[백 약간 유리]))
+(;B[pd];W[pb];B[ob];W[nb];B[qb];W[oa];B[rc]))
+(;W[pb]C[축이 불리할 때 사용하는 수법];B[oc];W[qd];B[qe];W[ob];B[mc]C[백 충분
+
+손 빼는 것이 보통]
+;W[];B[re];W[rb]C[백 충분])))
+(;B[jj]C[백 약간 유리
+
+귀→변→중앙 순의 바둑 이론에서 벗어나 최선의 착점은 아니지만, 바둑판의 중심이라는 점에서 여전히 많은 사람들의 낭만을 불러일으키는 착점이다.
+
+디민, 천원의 포석을 사용하는 사람이라도 바둑 이론에서 벗어나 중앙에 집을 지으려고 한다면 크게 대세를 그르치기 때문에 삼가야한다. 따라서 천원은 중앙에 착점하면서 역설적으로 중앙의 가치가 크지 않다는 것을 인정해야하기 때문에 사실상 예능적인 수로 남게 되었다.
+
+이후의 진행은 천원에서 파생되는 전투의 일반적인 형태를 연구했다.]
+;W[ij];B[ii]
+(;W[ji];B[ih];W[ki];B[jk];W[hj]
+(;B[gi];W[il];B[lj];W[jg];B[hf];W[mh];B[km];W[fk]C[호각])
+(;B[jg]
+(;W[lj];B[il];W[gi];B[lh]
+(;W[nj]C[호각])
+(;W[kl];B[gk];W[hg]C[호각]))
+(;W[]
+(;B[lj]C[흑 근소하게 유리];W[];B[li]C[흑 충분])
+(;B[lk]C[흑 근소하게 유리])))
+(;B[gh])
+(;B[kg]))
+(;W[hi];B[hh];W[hj];B[gh];W[jk];B[ji];W[kk]C[호각])))
