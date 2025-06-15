@@ -53,6 +53,34 @@
 }
 
 
+/* 드롭다운 메뉴 기본 스타일 */
+.dropdown-menu {
+  position: absolute;
+  background-color: #ff7f32;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 0;
+  min-width: 160px;
+  z-index: 100;
+}
+
+/* 드롭다운 메뉴 내부 항목 스타일 */
+.dropdown-item {
+  color: white;
+  text-decoration: none;         /* 밑줄 제거 */
+  display: block;
+  padding: 0.75rem 1rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* 드롭다운 항목에 hover 시 */
+.dropdown-item:hover {
+  background-color:  #f56b00;        /* hover 배경색 */
+  color: white;
+}
+
+
+
 
 /* 메인 컨텐츠 레이아웃 */
 .main-layout {

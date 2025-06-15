@@ -2,6 +2,41 @@ import React, { useState, useEffect } from 'react';
 import { db } from '../../firebase'; // Firebase 연결
 import { collection, getDocs, query, orderBy, doc, updateDoc, getDoc } from 'firebase/firestore'; // Firestore 관련 함수
 
+
+const getRankImage = (rank) => {
+  if(rank=="브론즈")
+  {
+    return <img src="/images/브론즈.jpg" alt="브론즈" style={{ width: "40px", height: "40px" }} />
+  }
+  if(rank=="실버")
+  {
+    return <img src="/images/실버.jpg" alt="실버" style={{ width: "40px", height: "40px" }} />
+  }
+  if(rank=="골드")
+  {
+    return <img src="/images/골드.jpg" alt="골드" style={{ width: "40px", height: "40px" }} />
+  }
+  if(rank=="플래티넘")
+  {
+    return <img src="/images/플래티넘.jpg" alt="플래티넘" style={{ width: "40px", height: "40px" }} />
+  }
+  if(rank=="다이아")
+  {
+    return <img src="/images/다이아.jpg" alt="다이아" style={{ width: "40px", height: "40px" }} />
+  }
+  if(rank=="마스터")
+  {
+    return <img src="/images/마스터.jpg" alt="마스터" style={{ width: "40px", height: "40px" }} />
+  }
+  if(rank=="그랜드마스터")
+  {
+    return <img src="/images/그랜드마스터.jpg" alt="그랜드마스터" style={{ width: "40px", height: "40px" }} />
+  }
+  if(rank=="챌린저")
+  {
+    return <img src="/images/챌린저.jpg" alt="챌린저" style={{ width: "40px", height: "40px" }} />
+  }
+};
 // ELO에 따른 랭크 계산 함수
 const getRank = (rating, rankIndex) => {
   if (rating >= 1576) {
@@ -121,7 +156,9 @@ const Ranking = () => {
                 <td className="px-4 py-2 border-b">{index + 1}</td>
                 <td className="px-4 py-2 border-b">{player.playerName}</td>
                 <td className="px-4 py-2 border-b">{player.rating}</td>
-                <td className={`px-4 py-2 border-b ${color}`}>{rank}</td>
+                
+                <td className={`px-4 py-2 border-b ${color}`}>
+                  {getRankImage(rank)}{rank}</td>
                 <td className="border-b p-2">
                   {player.stamina >= 1000 ? `${Math.floor((player.stamina - 1000) / 100) + 1}단` : `${18 - Math.floor(player.stamina / 50)}급`}
                 </td>
@@ -133,7 +170,62 @@ const Ranking = () => {
           })}
         </tbody>
       </table>
+<h2 className="text-xl font-semibold mb-4">랭크 기준표</h2>
+<table className="table-auto border border-gray-300 w-full text-center text-sm">
+  <thead className="bg-gray-100">
+    <tr><th className="border px-4 py-2">사진</th>
+      <th className="border px-4 py-2">랭크</th>
+      <th className="border px-4 py-2">조건</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr className="bg-yellow-100 font-bold">
+      <img src="/images/챌린저.jpg" alt="챌린저" style={{ width: "80px", height: "80px" }} />
+      <td className="border px-4 py-2">챌린저</td>
+      <td className="border px-4 py-2">다이아 랭크 중 1위</td>
+    </tr>
+    <tr className="bg-yellow-100">
+      <img src="/images/그랜드마스터.jpg" alt="그랜드마스터" style={{ width: "80px", height: "80px" }} />
+      <td className="border px-4 py-2">그랜드마스터</td>
+      <td className="border px-4 py-2">다이아 랭크 중 2위 ~ 4위</td>
+    </tr>
+    <tr className="bg-yellow-100">
+      <img src="/images/마스터.jpg" alt="마스터" style={{ width: "80px", height: "80px" }} />
+      <td className="border px-4 py-2">마스터</td>
+      <td className="border px-4 py-2">다이아 랭크 중 5위 ~ 10위</td>
+    </tr>
+    <tr className="bg-blue-100">
+      <img src="/images/다이아.jpg" alt="다이아" style={{ width: "80px", height: "80px" }} />
+      <td className="border px-4 py-2">다이아</td>
+      <td className="border px-4 py-2">레이팅 1576 이상</td>
+    </tr>
+    <tr className="bg-teal-100">
+      <img src="/images/플래티넘.jpg" alt="플래티넘" style={{ width: "80px", height: "80px" }} />
+      <td className="border px-4 py-2">플래티넘</td>
+      <td className="border px-4 py-2">레이팅 1551 ~ 1575</td>
+    </tr>
+    <tr className="bg-green-100">
+      <img src="/images/골드.jpg" alt="골드" style={{ width: "80px", height: "80px" }} />
+      <td className="border px-4 py-2">골드</td>
+      <td className="border px-4 py-2">레이팅 1526 ~ 1550</td>
+    </tr>
+    <tr className="bg-gray-200">
+      <img src="/images/실버.jpg" alt="실버" style={{ width: "80px", height: "80px" }} />
+      <td className="border px-4 py-2">실버</td>
+      <td className="border px-4 py-2">레이팅 1501 ~ 1525</td>
+    </tr>
+    <tr className="bg-orange-100">
+      <img src="/images/브론즈.jpg" alt="브론즈" style={{ width: "80px", height: "80px" }} />
+      <td className="border px-4 py-2">브론즈</td>
+      <td className="border px-4 py-2">레이팅 1500 이하</td>
+    </tr>
+  </tbody>
+</table>
+
+
     </div>
+
+    
   );
 };
 

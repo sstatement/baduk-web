@@ -15,6 +15,7 @@ import ClubMembers from './pages/club/members'; // 경로가 올바르게 설정
 import Announcements from './pages/club/announcements';
 import AnnouncementDetail from "./pages/club/AnnouncementDetail"; // 수정된 경로
 import CreateAnnouncement from "./pages/club/CreateAnnouncement"; // 추가된 페이지 import
+import BadukBoard from './components/BadukBoard/BadukBoard';
 
 import Board from './pages/club/board';
 import Quest from './pages/Quest';
@@ -143,7 +144,7 @@ const App = () => {
         <Route path="/announcements/create" element={<CreateAnnouncement />} /> {/* 공지사항 작성 페이지 */}
         <Route path="/announcements/:id" element={<AnnouncementDetail />} />
         <Route path="/club/board" element={<Board />} />
-        
+        <Route path="/badukboard" element={<BadukBoard />} />
         {/* 로그인/회원가입 페이지는 로그인 여부와 상관없이 접근 가능 */}
         <Route path="/signup" element={user ? <Navigate to="/" /> : <Signup />} />
         <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
