@@ -4,14 +4,27 @@ import { Link } from 'react-router-dom';
 const Nav = () => {
   const [isMissionDropdownOpen, setIsMissionDropdownOpen] = useState(false);
   const [isLeagueDropdownOpen, setIsLeagueDropdownOpen] = useState(false);
-  const [isClubDropdownOpen, setIsClubDropdownOpen] = useState(false); // 동아리 드롭다운 상태 추가
+  const [isClubDropdownOpen, setIsClubDropdownOpen] = useState(false);
+
+  // 모바일 햄버거 메뉴 열림 상태
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <nav className="App-header">
-      
-      <ul className="navbar">
+      {/* 모바일 햄버거 버튼: 모바일에서만 보임 */}
+      <div className="hamburger-container">
+        <button
+          className="hamburger-btn"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="메뉴 토글"
+        >
+          {mobileMenuOpen ? '✖' : '☰'}
+        </button>
+      </div>
 
- {/* 동아리 드롭다운 */}
+      {/* 기본 네비바 (PC에서는 보이고, 모바일에서는 숨김) */}
+      <ul className="navbar">
+        {/* 동아리 드롭다운 */}
         <li
           className="relative"
           onMouseEnter={() => setIsClubDropdownOpen(true)}
@@ -24,7 +37,7 @@ const Nav = () => {
                 <li><Link to="/club/intro" className="dropdown-item">동아리 소개</Link></li>
                 <li><Link to="/club/rules" className="dropdown-item">회칙</Link></li>
                 <li><Link to="/club/members" className="dropdown-item">회원 목록</Link></li>
-                 <li><Link to="/club/announcements" className="dropdown-item">공지사항</Link></li>
+                <li><Link to="/club/announcements" className="dropdown-item">공지사항</Link></li>
                 <li><Link to="/club/board" className="dropdown-item">게시판</Link></li>
               </ul>
             </div>
@@ -50,11 +63,10 @@ const Nav = () => {
           )}
         </li>
 
-        {/* 주간 퀘스트 & 주간 보스 */}
         <li><Link to="/quest" className="nav-button">주간 퀘스트</Link></li>
         <li><Link to="/boss" className="nav-button">주간 보스</Link></li>
-        <li><Link to="/badukboard"className="nav-button">바둑 대국</Link></li>
-        {/* 레이팅 리그전 드롭다운 */}
+        <li><Link to="/badukboard" className="nav-button">바둑 대국</Link></li>
+
         <li
           className="relative"
           onMouseEnter={() => setIsLeagueDropdownOpen(true)}
@@ -72,12 +84,23 @@ const Nav = () => {
           )}
         </li>
 
-       
-
-        {/* 마이페이지 */}
         <li><Link to="/mypage" className="nav-button">마이페이지</Link></li>
       </ul>
-      
+
+      {/* 모바일 햄버거 메뉴 내용 (모바일에서만 보이고, 토글 상태에 따라 보임) */}
+      {mobileMenuOpen && (
+        <ul className="mobile-menu">
+          <li><Link to="/club/intro" onClick={() => setMobileMenuOpen(false)}>동아리 소개</Link></li>
+          <li><Link to="/mission/entry" onClick={() => setMobileMenuOpen(false)}>입문</Link></li>
+          <li><Link to="/quest" onClick={() => setMobileMenuOpen(false)}>주간 퀘스트</Link></li>
+          <li><Link to="/boss" onClick={() => setMobileMenuOpen(false)}>주간 보스</Link></li>
+          <li><Link to="/badukboard" onClick={() => setMobileMenuOpen(false)}>바둑 대국</Link></li>
+          <li><Link to="/league/ranking" onClick={() => setMobileMenuOpen(false)}>리그 순위표</Link></li>
+          <li><Link to="/league/History" onClick={() => setMobileMenuOpen(false)}>대전 기록</Link></li>
+          <li><Link to="/league/Analysis" onClick={() => setMobileMenuOpen(false)}>경기 분석</Link></li>
+          <li><Link to="/mypage" onClick={() => setMobileMenuOpen(false)}>마이페이지</Link></li>
+        </ul>
+      )}
     </nav>
   );
 };

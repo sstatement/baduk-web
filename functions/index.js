@@ -8,7 +8,8 @@ exports.setAdminRole = functions.https.onCall(async (data, context) => {
   const uid = data.uid; // 호출 시 UID를 받아옵니다.
 
   if (!context.auth || !context.auth.token.admin) {
-    throw new functions.https.HttpsError("permission-denied", "Only admins can assign roles");
+    throw new functions.https.HttpsError("permission-denied", 
+      "Only admins can assign roles");
   }
 
   try {

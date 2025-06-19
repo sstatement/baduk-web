@@ -24,6 +24,63 @@
   }
 } 
 
+
+/* 기본 숨김 처리 */
+.hamburger-container {
+  display: none;
+}
+
+/* 기본 네비바 스타일 */
+.navbar {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+/* 모바일 메뉴는 기본 숨김 */
+.mobile-menu {
+  position: fixed;
+  z-index: 9999; 
+  display: none;
+  list-style: none;
+  padding: 10px 0;
+  background-color: #222;
+}
+
+/* 링크 스타일 */
+.nav-button,
+.mobile-menu li a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  display: block;
+}
+
+.nav-button:hover,
+.mobile-menu li a:hover {
+  background-color: #444;
+}
+
+/* 반응형: 화면이 768px 미만일 때 */
+@media (max-width: 767px) {
+  /* PC 네비바 숨기기 */
+  .navbar {
+    display: none !important;
+  }
+
+  /* 햄버거 버튼 보이기 */
+  .hamburger-container {
+    display: flex !important;
+    justify-content: flex-end;
+  }
+
+  /* 모바일 메뉴 보이기 (JS 토글로 display:block 처리됨) */
+  .mobile-menu {
+    display: block;
+  }
+}
+
+
 /* 네비게이션 바 스타일 */
 .navbar {
   display: flex;
@@ -334,26 +391,24 @@
   background-color: #d32f2f;
 }
 
-/* AdSlider 스타일 */
 .ad-slider {
   position: relative;
   width: 100%;
-  margin: 0 auto;
-  max-width: 600px; /* 최대 너비 설정 */
+  max-width: 600px;
   height: 300px;
   overflow: hidden;
-  position: relative;
-  top: -150px; /* nav 아래에 위치하도록 여백 설정 */
-  left: 50%; /* 수평 중앙 정렬 */
-  transform: translateX(-80%); 
-  border: 2px solid #333; /* 테두리 추가 */
-  border-radius: 10px; /* 테두리 모서리 둥글게 처리 */
+  top: -150px;
+  left: 50%;
+  transform: translateX(-80%);
+  border: 2px solid #333;
+  border-radius: 10px;
+  margin: 0 auto;
 }
 
 .ad-slider img.slider-image {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* 이미지 비율을 유지하면서 크기에 맞게 표시 */
+  object-fit: contain;
 }
 
 .ad-slider .slide-description {
@@ -384,6 +439,27 @@
 
 .ad-slider .prev-button {
   left: 4px;
+}
+
+/* 반응형: 화면이 768px 미만일 때 */
+@media (max-width: 767px) {
+  .ad-slider {
+    max-width: 90vw;       /* 화면 너비의 90%로 축소 */
+    height: 200px;         /* 높이도 줄임 */
+    top: -80px;            /* 위치 조절 */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .ad-slider .next-button,
+  .ad-slider .prev-button {
+    padding: 6px;          /* 버튼 크기 줄임 */
+  }
+
+  .ad-slider .slide-description {
+    font-size: 0.8rem;     /* 글자 크기 조절 */
+    padding: 6px;
+  }
 }
 
 /* 공지사항 카드 스타일 */
