@@ -22,11 +22,14 @@ const History = () => {
   const [players, setPlayers] = useState([]);
   const [userRole, setUserRole] = useState('user');
   const [playerStatsMap, setPlayerStatsMap] = useState({});
+  const [approvingId, setApprovingId] = useState(null);
+  const [saving, setSaving] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         const userDoc = await getDoc(doc(db, 'users', user.uid));
+        console.log("🔥 유저 role:", userDoc.data().role);
         if (userDoc.exists()) {
           setUserRole(userDoc.data().role || 'user');
         }
@@ -61,6 +64,10 @@ const History = () => {
   };
 
   const updatePlayerStatsAndMatch = async (winnerName, loserName, matchDocId) => {
+     if (approvingId === matchDocId) return; // 이미 승인 중이면 무시
+      setApprovingId(matchDocId);
+
+    
     try {
       const playersRef = collection(db, 'matchApplications');
 
@@ -122,7 +129,9 @@ const History = () => {
       fetchPlayers(); // stats 재로드
     } catch (error) {
       console.error('업데이트 실패:', error);
-    }
+    }finally {
+    setApprovingId(null); // 승인 처리 완료 또는 실패 후 초기화
+  }
   };
 
   const fetchMatchResults = async () => {
@@ -153,6 +162,7 @@ const History = () => {
   };
 
   const saveMatchResult = async () => {
+    if (saving) return; // 이미 처리 중이면 무시
     setMessage('');
     if (!winner || !loser || !date) {
       setMessage('날짜, 승자, 패자를 모두 입력해주세요.');
@@ -166,6 +176,8 @@ const History = () => {
       setMessage('승자 또는 패자가 등록된 참가자가 아닙니다.');
       return;
     }
+
+    setSaving(true);
     try {
       const matchesRef = collection(db, 'matches');
       await addDoc(matchesRef, {
@@ -184,6 +196,9 @@ const History = () => {
       console.error('대국 결과 저장 실패:', error);
       setMessage('대국 결과 저장에 실패했습니다.');
     }
+    finally {
+    setSaving(false);
+  }
   };
 
   useEffect(() => {
@@ -227,9 +242,10 @@ const History = () => {
 
         <button
           onClick={saveMatchResult}
-          className="bg-blue-600 text-white p-3 rounded w-full hover:bg-blue-700"
+          className="bg-blue-600 text-white p-3 rounded w-full hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+  disabled={saving}
         >
-          대국 결과 저장 (승인 대기)
+          {saving ? '저장 중...' : '대국 결과 저장 (승인 대기)'}
         </button>
         {message && <p className="mt-3 text-red-600">{message}</p>}
       </div>
@@ -250,8 +266,9 @@ const History = () => {
                 <button
                   onClick={() => updatePlayerStatsAndMatch(winner, loser, id)}
                   className="mt-2 px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700"
+                  disabled={approvingId === id}  // 처리 중인 경우 비활성화
                 >
-                  승인하기
+                  {approvingId === id ? '승인 중...' : '승인하기'}
                 </button>
               )}
             </li>
@@ -280,7 +297,7 @@ const History = () => {
               >
                 <p><strong>날짜:</strong> {new Date(date.toDate()).toLocaleDateString()}</p>
                 <p>
-                  <strong>승자:</strong> {winner} (ELO: {winnerEloToShow ? Math.round(winnerEloToShow) : 'N/A'}, 승률: {winnerRateToShow ? (winnerRateToShow * 100).toFixed(1) : 'N/A'}%)
+                  <strong>승자:</strong> {winner} (ELO: {winnerEloToShow ? Math.round(winnerEloToShow) : 'N/A'}, 승률: {winnerRateToShow ? (winnerRateToShow * 100).toFixed(1) : '0'}%)
                 </p>
                 <p>
                   <strong>패자:</strong> {loser} (ELO: {loserEloToShow ? Math.round(loserEloToShow) : 'N/A'}, 승률: {loserRateToShow ? (loserRateToShow * 100).toFixed(1) : '0'}%)
