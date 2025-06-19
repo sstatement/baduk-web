@@ -1,24 +1,81 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import {
+  signInWithPopup,
+  GoogleAuthProvider,
+  signOut,
+  onAuthStateChanged,
+} from "firebase/auth";
+import {
+  auth,
+  db,
+} from "../firebase";
+import {
+  doc,
+  onSnapshot,
+  collection,
+  query,
+  where,
+  orderBy,
+  getDocs,
+} from "firebase/firestore";
 
 const rankImages = {
   챌린저: "/images/챌린저.jpg",
   그랜드마스터: "/images/그랜드마스터.jpg",
   마스터: "/images/마스터.jpg",
   다이아: "/images/다이아.jpg",
-  플래티넘: "/images/플래티넘.jpg",
+  플레티넘: "/images/플래티넘.jpg",
   골드: "/images/골드.jpg",
   실버: "/images/실버.jpg",
   브론즈: "/images/브론즈.jpg",
 };
 
-const Article = ({ user, handleGoogleLogin, handleLogout, userProfile }) => {
-  // userProfile 예시: { rank: "다이아", stamina: 1200, mileage: 2500, photoURL: "", displayName: "" }
+const provider = new GoogleAuthProvider();
 
-  // 랭크 이미지 URL
-  const rankImgSrc = userProfile?.rank ? rankImages[userProfile.rank] : null;
+const Article = () => {
+  const [user, setUser] = useState(null);
+  const [profileData, setProfileData] = useState({
+    photoURL: "",
+    name: "",
+    mileage: 0,
+    stamina: 0,
+    rating: 0,
+    rank: "브론즈",
+  });
 
-  // 기력 텍스트 예시 (기력 계산 로직이 필요하다면 분리 가능)
+  // 랭크 계산 함수 (변경 없음)
+  async function getRankByRatingAndPosition(userName, rating) {
+    if (rating < 1576) {
+      if (rating >= 1551) return "플레티넘";
+      if (rating >= 1526) return "골드";
+      if (rating >= 1501) return "실버";
+      return "브론즈";
+    }
+
+    const q = query(
+      collection(db, "matchApplications"),
+      where("rating", ">=", 1576),
+      orderBy("rating", "desc")
+    );
+    const querySnapshot = await getDocs(q);
+
+    const diamondPlayers = querySnapshot.docs.map((doc) => ({
+      playerName: doc.data().playerName,
+      rating: doc.data().rating,
+    }));
+
+    const userIndex = diamondPlayers.findIndex((p) => p.playerName === userName);
+
+    if (userIndex === -1) return "다이아";
+
+    if (userIndex === 0) return "챌린저";
+    if (userIndex >= 1 && userIndex <= 3) return "그랜드마스터";
+    if (userIndex >= 4 && userIndex <= 9) return "마스터";
+
+    return "다이아";
+  }
+
   const getStaminaText = (stamina) => {
     if (!stamina) return "-";
     if (stamina >= 1000) {
@@ -27,6 +84,113 @@ const Article = ({ user, handleGoogleLogin, handleLogout, userProfile }) => {
     return `${18 - Math.floor(stamina / 50)}급`;
   };
 
+  useEffect(() => {
+  let unsubscribeUser = () => {};
+  let unsubscribeMyMatchApp = () => {};
+  let unsubscribeDiamondRanking = () => {};
+
+  const unsubscribeAuth = onAuthStateChanged(auth, (user) => {
+    setUser(user);
+
+    if (user) {
+      const userDocRef = doc(db, "users", user.uid);
+
+      // users 문서 구독
+      unsubscribeUser = onSnapshot(userDocRef, (userSnap) => {
+        if (userSnap.exists()) {
+          const userData = userSnap.data();
+          const userName = userData.name;
+
+          // 내 매치앱 문서 구독
+          const myMatchAppQuery = query(
+            collection(db, "matchApplications"),
+            where("playerName", "==", userName)
+          );
+          unsubscribeMyMatchApp = onSnapshot(myMatchAppQuery, (matchAppSnap) => {
+            let stamina = 0;
+            let rating = 0;
+            if (!matchAppSnap.empty) {
+              const data = matchAppSnap.docs[0].data();
+              stamina = data.stamina || 0;
+              rating = data.rating || 0;
+            }
+
+            // 다이아 이상 랭킹 구독해서 순위 실시간 반영
+            const diamondQuery = query(
+              collection(db, "matchApplications"),
+              where("rating", ">=", 1576),
+              orderBy("rating", "desc")
+            );
+            unsubscribeDiamondRanking(); // 기존 구독 해제
+            unsubscribeDiamondRanking = onSnapshot(diamondQuery, (diamondSnap) => {
+              const diamondPlayers = diamondSnap.docs.map(doc => ({
+                playerName: doc.data().playerName,
+                rating: doc.data().rating,
+              }));
+
+              const userIndex = diamondPlayers.findIndex(p => p.playerName === userName);
+
+              let rank = "브론즈";
+              if (rating < 1576) {
+                if (rating >= 1551) rank = "플레티넘";
+                else if (rating >= 1526) rank = "골드";
+                else if (rating >= 1501) rank = "실버";
+                else rank = "브론즈";
+              } else {
+                if (userIndex === 0) rank = "챌린저";
+                else if (userIndex >= 1 && userIndex <= 3) rank = "그랜드마스터";
+                else if (userIndex >= 4 && userIndex <= 9) rank = "마스터";
+                else rank = "다이아";
+              }
+
+              setProfileData({
+                photoURL: userData.photoURL || user.photoURL || "/images/바통이.jpg",
+                name: userData.name || user.displayName || user.email,
+                mileage: userData.mileage || 0,
+                stamina,
+                rating,
+                rank,
+              });
+            });
+          });
+        } else {
+          setProfileData({
+            photoURL: user.photoURL || "/images/바통이.jpg",
+            name: user.displayName || user.email,
+            mileage: 0,
+            stamina: 0,
+            rating: 0,
+            rank: "브론즈",
+          });
+        }
+      });
+    } else {
+      setProfileData({
+        photoURL: "",
+        name: "",
+        mileage: 0,
+        stamina: 0,
+        rating: 0,
+        rank: "브론즈",
+      });
+
+      unsubscribeUser();
+      unsubscribeMyMatchApp();
+      unsubscribeDiamondRanking();
+    }
+  });
+
+  return () => {
+    unsubscribeAuth();
+    unsubscribeUser();
+    unsubscribeMyMatchApp();
+    unsubscribeDiamondRanking();
+  };
+}, []);
+
+
+  const rankImgSrc = rankImages[profileData.rank] || null;
+
   return (
     <article className="article p-4 border rounded-md shadow-sm">
       <h2 className="text-xl font-semibold mb-4">로그인</h2>
@@ -34,7 +198,7 @@ const Article = ({ user, handleGoogleLogin, handleLogout, userProfile }) => {
       {!user ? (
         <div className="login-container">
           <button
-            onClick={handleGoogleLogin}
+            onClick={() => signInWithPopup(auth, provider)}
             className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
           >
             구글 계정으로 로그인
@@ -42,52 +206,46 @@ const Article = ({ user, handleGoogleLogin, handleLogout, userProfile }) => {
         </div>
       ) : (
         <div className="profile-container flex flex-col items-center gap-3">
-          {/* 프로필 사진 */}
-          {userProfile?.photoURL ? (
+          {profileData.photoURL ? (
             <img
-              src="{userProfile.photoURL}"
+              src={profileData.photoURL}
               alt="프로필 사진"
-              className="w-20 h-20 rounded-full object-cover"
+              style={{ width: "80px", height: "80px" }}
             />
           ) : (
-            <div className="w-20 h-20 rounded-full bg-gray-300 flex items-center justify-center text-gray-600">
+            <div >
               <img
-              src="images/바통이.jpg"
-              alt="프로필 사진"
-              className="w-20 h-120 rounded-full object-cover"
-              style={{ height: "80px" }}
-            />
+                src="/images/바통이.jpg"
+                alt="기본 프로필"
+                style={{ width: "80px", height: "80px" }}
+                
+              />
             </div>
           )}
 
-          {/* 이름 */}
           <p className="text-lg font-medium">
-            {userProfile?.displayName || user.displayName || user.email}
+            <strong>이름 : </strong>
+            {profileData.name}
           </p>
 
-          {/* 랭크 및 랭크 사진 */}
           <div className="flex items-center gap-2">
             {rankImgSrc && (
               <img
                 src={rankImgSrc}
-                alt={`${userProfile.rank} 랭크 이미지`}
-                className="w-8 h-8"
+                alt={`${profileData.rank} 랭크 이미지`}
+                style={{ width: "80px", height: "80px" }}
               />
             )}
-            <span className="font-semibold">{userProfile?.rank || "-"}</span>
           </div>
 
-          {/* 기력 */}
           <p>
-            <strong>기력:</strong> {getStaminaText(userProfile?.stamina)}
+            <strong>기력:</strong> {getStaminaText(profileData.stamina)}
           </p>
 
-          {/* 마일리지 */}
           <p>
-            <strong>마일리지:</strong> {userProfile?.mileage ?? 0} 점
+            <strong>마일리지:</strong> {profileData.mileage ?? 0} 점
           </p>
 
-          {/* 마이페이지 링크 */}
           <Link
             to="/mypage"
             className="mt-2 px-3 py-1 border rounded text-blue-600 hover:bg-blue-100"
@@ -95,12 +253,11 @@ const Article = ({ user, handleGoogleLogin, handleLogout, userProfile }) => {
             마이페이지 보기
           </Link>
 
-          {/* 로그아웃 버튼 */}
           <button
-            onClick={handleLogout}
+            onClick={() => signOut(auth)}
             className="mt-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition"
           >
-            로그아웃
+            로그아웃  
           </button>
         </div>
       )}

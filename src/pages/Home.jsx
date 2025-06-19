@@ -1,18 +1,29 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
-import { signOut } from "firebase/auth";
+import { signOut, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
-// 필요한 컴포넌트 임포트
 import Section1 from "../components/Section1";
 import Section2 from "../components/Section2";
 import Article from "../components/Article";
 import Aside from "../components/Aside";
-import Footer from "../components/Footer";
-import Slider from "../components/AdSlider"; // 슬라이더 컴포넌트 추가
+import Slider from "../components/AdSlider";
+import RankingPreview from "../components/RankingPreview"; // 추가
 
 const Home = ({ user }) => {
   const navigate = useNavigate();
+
+  // ✅ 구글 로그인 함수 추가
+  const handleGoogleLogin = async () => {
+    try {
+      const provider = new GoogleAuthProvider();
+      await signInWithPopup(auth, provider);
+      console.log("로그인 성공");
+      // 로그인 성공 후, 리다이렉트가 필요하다면 navigate("/") 등도 가능
+    } catch (error) {
+      console.error("구글 로그인 오류:", error);
+    }
+  };
 
   // 로그아웃 함수
   const handleLogout = () => {
@@ -28,25 +39,26 @@ const Home = ({ user }) => {
 
   return (
     <div className="home-container">
-      {/* 메인 레이아웃 */}
       <div className="main-layout">
-        {/* 왼쪽 섹션 */}
         <div className="left-section">
           <Slider />
           <Section1 />
           <Section2 />
+          <RankingPreview />
         </div>
-  
-        {/* 오른쪽 섹션 */}
+
         <div className="right-section">
-          <Article user={user} handleLogout={handleLogout} />
+          {/* ✅ handleGoogleLogin 추가 */}
+          <Article
+            user={user}
+            handleLogout={handleLogout}
+            handleGoogleLogin={handleGoogleLogin}
+          />
           <Aside />
         </div>
       </div>
-  
     </div>
   );
-  
 };
 
 export default Home;

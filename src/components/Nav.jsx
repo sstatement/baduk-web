@@ -67,7 +67,6 @@ const Nav = () => {
                 <li><Link to="/league/ranking" className="dropdown-item">리그 순위표</Link></li>
                 <li><Link to="/league/history" className="dropdown-item">대전 기록</Link></li>
                 <li><Link to="/league/analysis" className="dropdown-item">경기 분석</Link></li>
-                <li><Link to="/league/apply" className="dropdown-item">리그 참가 신청</Link></li>
               </ul>
             </div>
           )}

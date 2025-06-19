@@ -79,6 +79,48 @@
   color: white;
 }
 
+/* app.css */
+
+.ranking-preview-container {
+  margin-top: 1.5rem; /* mt-6 */
+  padding: 1.5rem; /* p-6 */
+  border: 2px solid #facc15; /* yellow-400 */
+  border-radius: 1rem; /* rounded-2xl */
+  background-color: #fef9c3; /* yellow-50 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ranking-preview-title {
+  font-size: 1.25rem; /* text-xl */
+  font-weight: bold;
+  color: #ca8a04; /* yellow-700 */
+  margin-bottom: 1rem; /* mb-4 */
+  text-align: center;
+}
+
+.ranking-preview-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem; /* px-4 py-3 */
+  border: 1px solid #facc15;
+  border-radius: 0.5rem; /* rounded-lg */
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* shadow-sm */
+}
+
+.ranking-preview-player {
+  font-weight: 600;
+  color: #1f2937; /* gray-800 */
+}
+
+.ranking-preview-rating {
+  font-size: 0.875rem;
+  color: #6b7280; /* gray-500 */
+}
 
 
 

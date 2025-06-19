@@ -1,5 +1,5 @@
 import React from "react";
-import batonImage from "../images/바통이.jpg"; // 이미지 경로를 import로 가져옴
+import batonImage from "../images/가두모집.jpg"; // 이미지 경로를 import로 가져옴
 
 const Aside = () => {
   return (
@@ -11,7 +11,7 @@ const Aside = () => {
         <img
           src={batonImage}  // import한 이미지를 src에 사용
           alt="광고 배너"
-          className="w-full max-h-48 object-contain transform scale-50"
+          style={{ width: "400px", height: "700px" }}
         />
       </div>
     </aside>
