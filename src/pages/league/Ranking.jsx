@@ -79,8 +79,8 @@ const Ranking = () => {
         rating: doc.data().rating,
         stamina: doc.data().stamina,
         createdAt: doc.data().createdAt.toDate(),
-        wins: doc.data().wins || 0, 
-        losses: doc.data().losses || 0, 
+        win: doc.data().win || 0, 
+        loss: doc.data().loss || 0, 
         createdAt: doc.data().createdAt.toDate(),
       }));
 
@@ -100,7 +100,7 @@ const Ranking = () => {
       const winnerDoc = await getDoc(winnerRef);
       const winnerData = winnerDoc.data();
       await updateDoc(winnerRef, {
-        wins: winnerData.wins + 1,
+        win: winnerData.win + 1,
       });
 
       // 패자 문서 업데이트
@@ -108,7 +108,7 @@ const Ranking = () => {
       const loserDoc = await getDoc(loserRef);
       const loserData = loserDoc.data();
       await updateDoc(loserRef, {
-        losses: loserData.losses + 1,
+        loss: loserData.loss + 1,
       });
 
       // 승수/패수 반영 후, 순위 업데이트
@@ -150,7 +150,7 @@ const Ranking = () => {
           {players.map((player, index) => {
             // getRank 함수에서 반환하는 값을 안전하게 처리
             const { rank, color } = getRank(player.rating, index + 1);
-            const winRate = player.wins + player.losses === 0 ? 0 : (player.wins / (player.wins + player.losses) * 100).toFixed(2); 
+            const winRate = player.win + player.loss === 0 ? 0 : (player.win / (player.win + player.loss) * 100).toFixed(2); 
             return (
               <tr key={player.id}>
                 <td className="px-4 py-2 border-b">{index + 1}</td>
@@ -162,8 +162,8 @@ const Ranking = () => {
                 <td className="border-b p-2">
                   {player.stamina >= 1000 ? `${Math.floor((player.stamina - 1000) / 100) + 1}단` : `${18 - Math.floor(player.stamina / 50)}급`}
                 </td>
-                <td className="px-4 py-2 border-b">{player.wins}</td>
-                <td className="px-4 py-2 border-b">{player.losses}</td>
+                <td className="px-4 py-2 border-b">{player.win}</td>
+                <td className="px-4 py-2 border-b">{player.loss}</td>
                 <td className="px-4 py-2 border-b">{winRate}%</td>
               </tr>
             );

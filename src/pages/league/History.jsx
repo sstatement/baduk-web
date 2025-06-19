@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { db } from '../../firebase';
+import { db, auth } from '../../firebase';
 import {
   collection,
   getDocs,
@@ -8,7 +8,9 @@ import {
   where,
   doc,
   updateDoc,
+  getDoc,
 } from 'firebase/firestore';
+import { onAuthStateChanged } from 'firebase/auth';
 
 const History = () => {
   const [matchResults, setMatchResults] = useState([]);
@@ -18,92 +20,108 @@ const History = () => {
   const [date, setDate] = useState('');
   const [message, setMessage] = useState('');
   const [players, setPlayers] = useState([]);
+  const [userRole, setUserRole] = useState('user');
+  const [playerStatsMap, setPlayerStatsMap] = useState({});
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const userDoc = await getDoc(doc(db, 'users', user.uid));
+        if (userDoc.exists()) {
+          setUserRole(userDoc.data().role || 'user');
+        }
+      }
+    });
+    return () => unsubscribe();
+  }, []);
 
   const fetchPlayers = async () => {
     try {
       const playersRef = collection(db, 'matchApplications');
       const querySnapshot = await getDocs(playersRef);
       const playersList = [];
+      const stats = {};
+
       querySnapshot.forEach((doc) => {
-        const player = doc.data();
-        if (player.playerName) playersList.push(player.playerName);
+        const data = doc.data();
+        if (data.playerName) {
+          playersList.push(data.playerName);
+          stats[data.playerName] = {
+            rating: data.rating ?? 1000,
+            winRate: data.winRate ?? 0,
+          };
+        }
       });
+
       setPlayers(playersList);
+      setPlayerStatsMap(stats); // 선수 정보 저장
     } catch (error) {
       console.error('선수 목록 불러오기 실패:', error);
     }
   };
 
-  // 선수 기록 업데이트 함수
-  const updatePlayerStats = async (winnerName, loserName) => {
+  const updatePlayerStatsAndMatch = async (winnerName, loserName, matchDocId) => {
     try {
       const playersRef = collection(db, 'matchApplications');
 
-      // 승자 선수 문서 찾기
       const qWinner = query(playersRef, where('playerName', '==', winnerName));
       const winnerSnapshot = await getDocs(qWinner);
-      if (winnerSnapshot.empty) {
-        console.warn(`승자 ${winnerName} 문서가 없습니다.`);
-        return;
-      }
+      if (winnerSnapshot.empty) return;
       const winnerDoc = winnerSnapshot.docs[0];
       const winnerData = winnerDoc.data();
 
-      // 패자 선수 문서 찾기
       const qLoser = query(playersRef, where('playerName', '==', loserName));
       const loserSnapshot = await getDocs(qLoser);
-      if (loserSnapshot.empty) {
-        console.warn(`패자 ${loserName} 문서가 없습니다.`);
-        return;
-      }
+      if (loserSnapshot.empty) return;
       const loserDoc = loserSnapshot.docs[0];
       const loserData = loserDoc.data();
 
-      // 기존 데이터 읽기 (기본값 지정)
       const winnerWin = winnerData.win || 0;
       const winnerLoss = winnerData.loss || 0;
-      const winnerRating = winnerData.rating || 1000; // 기본 1000
+      const winnerRating = winnerData.rating || 1000;
 
       const loserWin = loserData.win || 0;
       const loserLoss = loserData.loss || 0;
       const loserRating = loserData.rating || 1000;
 
-      // 승리/패배 횟수 증가
       const newWinnerWin = winnerWin + 1;
-      const newWinnerLoss = winnerLoss;
-      const newLoserWin = loserWin;
       const newLoserLoss = loserLoss + 1;
 
-      // 승률 계산
-      const winnerWinRate = newWinnerWin / (newWinnerWin + newWinnerLoss);
-      const loserWinRate = newLoserWin / (newLoserWin + newLoserLoss);
+      const winnerWinRate = newWinnerWin / (newWinnerWin + winnerLoss);
+      const loserWinRate = loserWin / (loserWin + newLoserLoss);
 
-      // 간단한 ELO 계산 (예: 기본 공식)
-      // K-factor는 32로 설정, 예상 승률 계산
       const K = 32;
       const expectedWinner = 1 / (1 + Math.pow(10, (loserRating - winnerRating) / 400));
       const expectedLoser = 1 / (1 + Math.pow(10, (winnerRating - loserRating) / 400));
-
       const updatedWinnerRating = winnerRating + K * (1 - expectedWinner);
       const updatedLoserRating = loserRating + K * (0 - expectedLoser);
 
-      // Firestore에 업데이트
       await updateDoc(doc(db, 'matchApplications', winnerDoc.id), {
         win: newWinnerWin,
-        loss: newWinnerLoss,
+        loss: winnerLoss,
         winRate: winnerWinRate,
         rating: updatedWinnerRating,
       });
 
       await updateDoc(doc(db, 'matchApplications', loserDoc.id), {
-        win: newLoserWin,
+        win: loserWin,
         loss: newLoserLoss,
         winRate: loserWinRate,
         rating: updatedLoserRating,
       });
 
+      await updateDoc(doc(db, 'matches', matchDocId), {
+        status: 'approve',
+        winnerELO: updatedWinnerRating,
+        loserELO: updatedLoserRating,
+        winnerWinRate,
+        loserWinRate,
+      });
+
+      fetchMatchResults();
+      fetchPlayers(); // stats 재로드
     } catch (error) {
-      console.error('선수 기록 업데이트 실패:', error);
+      console.error('업데이트 실패:', error);
     }
   };
 
@@ -113,25 +131,19 @@ const History = () => {
       const qApproved = query(matchesRef, where('status', '==', 'approve'));
       const qPending = query(matchesRef, where('status', '==', 'pending'));
 
-      // 승인된 기록
       const approvedSnapshot = await getDocs(qApproved);
-      const approvedResults = [];
-      for (const docSnap of approvedSnapshot.docs) {
-        const data = docSnap.data();
-        approvedResults.push({ id: docSnap.id, ...data });
-
-        // 각 승인된 기록에 대해 선수 기록 업데이트
-        await updatePlayerStats(data.winner, data.loser);
-      }
+      const approvedResults = approvedSnapshot.docs.map(docSnap => ({
+        id: docSnap.id,
+        ...docSnap.data(),
+      }));
       approvedResults.sort((a, b) => b.date.toDate() - a.date.toDate());
       setMatchResults(approvedResults);
 
-      // 승인 대기중 기록
       const pendingSnapshot = await getDocs(qPending);
-      const pendingResultsArr = [];
-      pendingSnapshot.forEach((doc) => {
-        pendingResultsArr.push({ id: doc.id, ...doc.data() });
-      });
+      const pendingResultsArr = pendingSnapshot.docs.map(docSnap => ({
+        id: docSnap.id,
+        ...docSnap.data(),
+      }));
       pendingResultsArr.sort((a, b) => b.date.toDate() - a.date.toDate());
       setPendingResults(pendingResultsArr);
 
@@ -170,7 +182,7 @@ const History = () => {
       fetchMatchResults();
     } catch (error) {
       console.error('대국 결과 저장 실패:', error);
-      setMessage('대국 결과 저장에 실패했습니다. 다시 시도해주세요.');
+      setMessage('대국 결과 저장에 실패했습니다.');
     }
   };
 
@@ -234,6 +246,14 @@ const History = () => {
               <p><strong>승자:</strong> {winner}</p>
               <p><strong>패자:</strong> {loser}</p>
               <p className="text-sm text-gray-600">관리자 승인 대기 중</p>
+              {['admin', 'staff'].includes(userRole) && (
+                <button
+                  onClick={() => updatePlayerStatsAndMatch(winner, loser, id)}
+                  className="mt-2 px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700"
+                >
+                  승인하기
+                </button>
+              )}
             </li>
           ))}
         </ul>
@@ -244,20 +264,30 @@ const History = () => {
       <h3 className="text-xl font-semibold mb-4 mt-8">승인된 대전 기록 목록</h3>
       {matchResults.length > 0 ? (
         <ul>
-          {matchResults.map(({ id, date, winner, loser, winnerELO, loserELO, winnerWinRate, loserWinRate }) => (
-            <li
-              key={id}
-              className="border rounded p-4 mb-4 shadow hover:shadow-lg transition-shadow"
-            >
-              <p><strong>날짜:</strong> {new Date(date.toDate()).toLocaleDateString()}</p>
-              <p>
-                <strong>승자:</strong> {winner} (ELO: {winnerELO ? Math.round(winnerELO) : 'N/A'}, 승률: {winnerWinRate ? (winnerWinRate * 100).toFixed(1) : 'N/A'}%)
-              </p>
-              <p>
-                <strong>패자:</strong> {loser} (ELO: {loserELO ? Math.round(loserELO) : 'N/A'}, 승률: {loserWinRate ? (loserWinRate * 100).toFixed(1) : 'N/A'}%)
-              </p>
-            </li>
-          ))}
+          {matchResults.map(({ id, date, winner, loser, winnerELO, loserELO, winnerWinRate, loserWinRate }) => {
+            const winnerStats = playerStatsMap[winner] || {};
+            const loserStats = playerStatsMap[loser] || {};
+
+            const winnerEloToShow = winnerELO ?? winnerStats.rating;
+            const loserEloToShow = loserELO ?? loserStats.rating;
+            const winnerRateToShow = winnerWinRate ?? winnerStats.winRate;
+            const loserRateToShow = loserWinRate ?? loserStats.winRate;
+
+            return (
+              <li
+                key={id}
+                className="border rounded p-4 mb-4 shadow hover:shadow-lg transition-shadow"
+              >
+                <p><strong>날짜:</strong> {new Date(date.toDate()).toLocaleDateString()}</p>
+                <p>
+                  <strong>승자:</strong> {winner} (ELO: {winnerEloToShow ? Math.round(winnerEloToShow) : 'N/A'}, 승률: {winnerRateToShow ? (winnerRateToShow * 100).toFixed(1) : 'N/A'}%)
+                </p>
+                <p>
+                  <strong>패자:</strong> {loser} (ELO: {loserEloToShow ? Math.round(loserEloToShow) : 'N/A'}, 승률: {loserRateToShow ? (loserRateToShow * 100).toFixed(1) : '0'}%)
+                </p>
+              </li>
+            );
+          })}
         </ul>
       ) : (
         <p>승인된 대전 기록이 없습니다.</p>
