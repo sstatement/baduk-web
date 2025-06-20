@@ -1,0 +1,78 @@
+.members-container {
+  max-width: 900px;
+  margin: 50px auto 80px;
+  padding: 30px 20px;
+  background-color: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #2c3e50;
+}
+
+.members-container h1 {
+  font-size: 28px;
+  font-weight: 900;
+  margin-bottom: 24px;
+  text-align: center;
+  color: #34495e;
+}
+
+.members-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+}
+
+.members-table thead tr th {
+  text-align: left;
+  padding: 12px 20px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #556677;
+  border-bottom: 2px solid #dcdfe6;
+}
+
+.members-table tbody tr {
+  background-color: #f9fafb;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.members-table tbody tr:hover {
+  background-color: #e0f0ff;
+  cursor: pointer;
+}
+
+.members-table tbody tr td {
+  padding: 14px 20px;
+  font-size: 15px;
+  color: #3a4a66;
+  border: none;
+}
+
+.members-table tbody tr td:first-child {
+  font-weight: 600;
+}
+
+.members-table tbody tr td:last-child {
+  color: #7a8aab;
+  font-style: italic;
+}
+
+@media (max-width: 600px) {
+  .members-container {
+    padding: 20px 10px;
+    margin: 30px 10px 50px;
+  }
+
+  .members-container h1 {
+    font-size: 22px;
+  }
+
+  .members-table thead tr th,
+  .members-table tbody tr td {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+}

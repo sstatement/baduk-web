@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../Intro.css';
 const ClubIntro = () => {
   return (
     <div className="club-intro-container">

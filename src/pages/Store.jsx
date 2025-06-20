@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { db, auth } from '../firebase';
 import { getDoc, doc, updateDoc, increment } from 'firebase/firestore';
-
+import "./store.css"
 const titles = [
   "초고수", "명인 (名人)", "대가 (大家)", "국수 (國手)", "신의 한 수",
   "입신", "바둑 마스터", "대마 불사", "반상을 지배하는자", "불멸의 전략가"
@@ -253,11 +253,13 @@ const Store = () => {
 
   return (
     <div className="max-w-2xl mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-4">🎁 마일리지 상점</h1>
-      <p className="text-right mb-2 text-sm text-gray-600">
+      <h1 className="text-3xl font-extrabold mb-6 text-indigo-700 select-none">🎁 마일리지 상점</h1>
+      <p className="text-right mb-2 text-sm text-gray-600 select-none">
         환영합니다, <span className="font-semibold">{userName}</span>
       </p>
-      <p className="text-right mb-6">현재 마일리지: <span className="font-semibold">{mileage}점</span></p>
+      <p className="text-right mb-8 text-lg font-semibold select-none">
+        현재 마일리지: <span className="text-indigo-600">{mileage}점</span>
+      </p>
 
       {/* 칭호 선택 */}
       {isChoosingTitle && (
@@ -552,14 +554,17 @@ const Store = () => {
       )}
 
       {/* 기본 상품 목록 */}
-      <div className="grid gap-4">
-        {items.map((item) => (
-          <div key={item.id} className="p-4 border rounded shadow">
-            <h2 className="text-xl font-semibold">{item.name}</h2>
-            <p className="text-sm text-gray-600 mb-2">{item.description}</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {items.map((item, index) => (
+          <div key={item.id} className="product-card" role="region" aria-label={item.name}>
+            {index < 2 && <div className="new-badge">NEW</div>}
+            <h2 className="text-2xl font-bold mb-2 text-indigo-600">{item.name}</h2>
+            <p className="text-gray-500 mb-6 min-h-[3rem]">{item.description}</p>
+
             <button
               onClick={() => handlePurchase(item)}
-              className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+              className="sparkle-button bg-indigo-600 text-white px-5 py-2 rounded-lg shadow-md hover:bg-indigo-700 transition-colors font-semibold select-none"
+              aria-label={`구매하기: ${item.name}`}
             >
               구매 {item.cost > 0 ? `(${item.cost}점)` : "(무료)"}
             </button>

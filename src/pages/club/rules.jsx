@@ -1,10 +1,10 @@
 // src/pages/club/rules.jsx
 
 import React from 'react';
-
+import '../Rule.css';
 const ClubRules = () => {
   return (
-    <div>
+    <div className="club-rules-container">
       <h1>회칙</h1>
 <h3>제1장 총칙</h3>
 

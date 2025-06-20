@@ -1,0 +1,51 @@
+/* 반짝이는 효과용 keyframes */
+@keyframes sparkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+/* 버튼 및 카드에 적용 */
+.sparkle-button {
+  animation: sparkle 2.5s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+  transition: box-shadow 0.3s ease;
+}
+
+.sparkle-button:hover {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 8px rgba(59, 130, 246, 0.7);
+}
+
+.product-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow:
+    0 4px 6px rgba(59, 130, 246, 0.1),
+    0 0 10px rgba(59, 130, 246, 0.2);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card:hover {
+  box-shadow:
+    0 6px 10px rgba(59, 130, 246, 0.3),
+    0 0 20px rgba(59, 130, 246, 0.5);
+  transform: translateY(-4px);
+}
+
+/* 신제품 뱃지 */
+.new-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(45deg, #3b82f6, #9333ea);
+  color: white;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  box-shadow: 0 0 8px #9333ea;
+  animation: sparkle 3s ease-in-out infinite;
+}

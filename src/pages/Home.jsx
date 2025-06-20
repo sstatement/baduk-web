@@ -4,6 +4,8 @@ import { auth } from "../firebase";
 import { signOut, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 import Section1 from "../components/Section1";
+import FAQ from "../components/FAQ";
+import OurBenefit from "../components/OurBenefit";
 import Section2 from "../components/Section2";
 import Section3 from "../components/Section3";
 import Article from "../components/Article";
@@ -45,6 +47,8 @@ const Home = ({ user }) => {
           <Slider />
           <Section1 />
           <Section3 />
+          <FAQ />
+          <OurBenefit />
         </div>
 
         <div className="right-section">
@@ -57,7 +61,6 @@ const Home = ({ user }) => {
           <Aside />
           <RankingPreview />
         </div>
-        
       </div>
     </div>
   );

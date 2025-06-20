@@ -298,6 +298,10 @@ const Article = () => {
           <Link
             to="/mypage"
             className="mt-2 px-3 py-1 border rounded text-blue-600 hover:bg-blue-100"
+            style={{
+    textDecoration: "none",   // 밑줄 제거
+    cursor: "pointer",        // 클릭 가능 커서 유지
+  }}
           >
             마이페이지 보기
           </Link>

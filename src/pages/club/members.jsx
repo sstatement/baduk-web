@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../../firebase'; // Firebase에서 Firestore를 가져옵니다
 import { collection, getDocs } from 'firebase/firestore'; // Firestore에서 collection과 getDocs 가져오기
-
+import '../members.css';
 const ClubMembers = () => {
   const [members, setMembers] = useState([]); // 회원 목록 상태 관리
   const [loading, setLoading] = useState(true); // 데이터 로딩 상태 관리
