@@ -33,6 +33,37 @@ const rankImages = {
 
 const provider = new GoogleAuthProvider();
 
+const borderStylesMap = {
+  default_border: {
+    border: "2px solid black",
+  },
+  gold_border: {
+    border: "3px solid gold",
+  },
+  shining_border: {
+    boxShadow: "0 0 10px 4px rgba(0, 255, 255, 0.6)",
+  },
+  rainbow_border: {
+    background: "linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet)",
+    borderRadius: "8px",
+  },
+  dotted_border: {
+    border: "2px dashed #555",
+  },
+  ice_border: {
+    border: "2px solid #4fd1c5",
+    boxShadow: "0 0 8px #81e6d9",
+  },
+  fire_border: {
+    background: "linear-gradient(45deg, red, orange)",
+    borderRadius: "8px",
+  },
+  shadow_border: {
+    border: "2px solid #333",
+    boxShadow: "0 2px 10px rgba(0,0,0,0.3)",
+  },
+};
+
 const Article = () => {
   const [user, setUser] = useState(null);
   const [profileData, setProfileData] = useState({
@@ -42,11 +73,11 @@ const Article = () => {
     stamina: 0,
     rating: 0,
     rank: "브론즈",
-    chosenTitle: "",  // 칭호
-    nameColor: "",    // 닉네임 컬러 (ex: "#FF0000" or "linear-gradient(...)")
+    chosenTitle: "",
+    nameColor: "",
+    borderStyle: "default_border", // 기본 테두리
   });
 
-  // 랭크 계산 함수 (변경 없음)
   async function getRankByRatingAndPosition(userName, rating) {
     if (rating < 1576) {
       if (rating >= 1551) return "플레티넘";
@@ -54,27 +85,21 @@ const Article = () => {
       if (rating >= 1501) return "실버";
       return "브론즈";
     }
-
     const q = query(
       collection(db, "matchApplications"),
       where("rating", ">=", 1576),
       orderBy("rating", "desc")
     );
     const querySnapshot = await getDocs(q);
-
     const diamondPlayers = querySnapshot.docs.map((doc) => ({
       playerName: doc.data().playerName,
       rating: doc.data().rating,
     }));
-
     const userIndex = diamondPlayers.findIndex((p) => p.playerName === userName);
-
     if (userIndex === -1) return "다이아";
-
     if (userIndex === 0) return "챌린저";
     if (userIndex >= 1 && userIndex <= 3) return "그랜드마스터";
     if (userIndex >= 4 && userIndex <= 9) return "마스터";
-
     return "다이아";
   }
 
@@ -102,7 +127,6 @@ const Article = () => {
             const userData = userSnap.data();
             const userName = userData.name;
 
-            // 내 매치앱 문서 구독
             const myMatchAppQuery = query(
               collection(db, "matchApplications"),
               where("playerName", "==", userName)
@@ -116,13 +140,12 @@ const Article = () => {
                 rating = data.rating || 0;
               }
 
-              // 다이아 이상 랭킹 구독해서 순위 실시간 반영
               const diamondQuery = query(
                 collection(db, "matchApplications"),
                 where("rating", ">=", 1576),
                 orderBy("rating", "desc")
               );
-              unsubscribeDiamondRanking(); // 기존 구독 해제
+              unsubscribeDiamondRanking();
               unsubscribeDiamondRanking = onSnapshot(diamondQuery, (diamondSnap) => {
                 const diamondPlayers = diamondSnap.docs.map(doc => ({
                   playerName: doc.data().playerName,
@@ -151,8 +174,9 @@ const Article = () => {
                   stamina,
                   rating,
                   rank,
-                  chosenTitle: userData.chosenTitle || "",  // 칭호
-                  nameColor: userData.nameColor || "",      // 닉네임 컬러
+                  chosenTitle: userData.chosenTitle || "",
+                  nameColor: userData.nameColor || "",
+                  borderStyle: userData.borderStyle || "default_border",
                 });
               });
             });
@@ -166,6 +190,7 @@ const Article = () => {
               rank: "브론즈",
               chosenTitle: "",
               nameColor: "",
+              borderStyle: "default_border",
             });
           }
         });
@@ -179,6 +204,7 @@ const Article = () => {
           rank: "브론즈",
           chosenTitle: "",
           nameColor: "",
+          borderStyle: "default_border",
         });
 
         unsubscribeUser();
@@ -197,7 +223,6 @@ const Article = () => {
 
   const rankImgSrc = rankImages[profileData.rank] || null;
 
-  // 닉네임 컬러가 그라데이션인 경우도 고려 (CSS background-clip 사용)
   const nameStyle = profileData.nameColor
     ? (profileData.nameColor.includes("gradient")
         ? {
@@ -208,8 +233,15 @@ const Article = () => {
         : { color: profileData.nameColor })
     : {};
 
+  const appliedBorderStyle = borderStylesMap[profileData.borderStyle] || borderStylesMap["default_border"];
+
   return (
-    <article className="article p-4 border rounded-md shadow-sm">
+    <article
+      className="article p-4 rounded-md shadow-sm"
+      style={{
+        ...appliedBorderStyle,
+      }}
+    >
       <h2 className="text-xl font-semibold mb-4">로그인</h2>
 
       {!user ? (
