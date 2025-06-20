@@ -2,6 +2,64 @@ import { useEffect, useState } from "react";
 import { doc, getDoc, collection, getDocs, updateDoc } from "firebase/firestore";
 import { db } from "../firebase";
 
+const styles = {
+  container: {
+    maxWidth: '800px',
+    margin: '40px auto',
+    padding: '24px',
+    backgroundColor: '#fffaf0', // 아이보리
+    borderRadius: '12px',
+    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+    fontFamily: "'Noto Sans KR', sans-serif",
+    color: '#4b3621',
+    lineHeight: 1.6,
+  },
+  title: {
+    fontSize: '28px',
+    fontWeight: '700',
+    borderBottom: '3px solid #d4a373',
+    paddingBottom: '12px',
+    marginBottom: '24px',
+  },
+  section: {
+    marginBottom: '32px',
+    padding: '16px',
+    borderRadius: '8px',
+    backgroundColor: '#fff',
+    border: '1px solid #f3e9dd',
+  },
+  sectionTitle: {
+    fontSize: '20px',
+    fontWeight: '600',
+    marginBottom: '12px',
+    color: '#6b4226',
+  },
+  label: {
+    fontWeight: '600',
+    marginRight: '8px',
+  },
+  checkboxLabel: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '8px',
+  },
+  img: {
+    width: 40,
+    height: 40,
+    verticalAlign: 'middle',
+    marginLeft: 8,
+    borderRadius: '50%',
+    border: '2px solid #d4a373',
+  },
+  questBox: {
+    marginTop: 8,
+    padding: '8px 12px',
+    backgroundColor: '#fefae0',
+    borderRadius: '6px',
+    border: '1px solid #f3e9dd',
+  },
+};
+
 const MyPage = ({ userId }) => {
   const [userData, setUserData] = useState(null);
   const [matchData, setMatchData] = useState(null);
@@ -19,74 +77,61 @@ const MyPage = ({ userId }) => {
   };
 
   const getRank = (playerName, allMatches) => {
-    // rating 기준 내림차순 정렬
     const sorted = [...allMatches].sort((a, b) => b.rating - a.rating);
-
-    // 현재 선수 index (순위)
     const playerIndex = sorted.findIndex(match => match.playerName === playerName);
     if (playerIndex === -1) return "랭크 없음";
-
     const rating = sorted[playerIndex].rating;
 
-    // 다이아 랭크 기준
     if (rating >= 1576) {
-      if (playerIndex === 0) return "챌린저"; // 1위
-      if (playerIndex >= 1 && playerIndex <= 3) return "그랜드마스터"; // 2~4위
-      if (playerIndex >= 4 && playerIndex <= 9) return "마스터"; // 5~10위
-      return "다이아"; // 11위 이하 다이아
+      if (playerIndex === 0) return "챌린저";
+      if (playerIndex >= 1 && playerIndex <= 3) return "그랜드마스터";
+      if (playerIndex >= 4 && playerIndex <= 9) return "마스터";
+      return "다이아";
     }
-
-    if (rating >= 1551 && rating <= 1575) return "플래티넘";
-    if (rating >= 1526 && rating <= 1550) return "골드";
-    if (rating >= 1501 && rating <= 1525) return "실버";
+    if (rating >= 1551) return "플래티넘";
+    if (rating >= 1526) return "골드";
+    if (rating >= 1501) return "실버";
     if (rating <= 1500) return "브론즈";
-
     return "랭크 없음";
   };
 
-  // userData, matchData가 모두 준비된 경우에만 rank 계산
   const rank = userData && matchData ? getRank(userData.name, matchData) : null;
   const rankImgSrc = rank ? rankImages[rank] : null;
 
   const fetchUserData = async (userId) => {
-    const userDocRef = doc(db, "users", userId);
     try {
-      const docSnap = await getDoc(userDocRef);
+      const docSnap = await getDoc(doc(db, "users", userId));
       if (docSnap.exists()) {
         setUserData(docSnap.data());
       } else {
         setError("사용자 데이터를 찾을 수 없습니다.");
       }
     } catch (err) {
-      setError("사용자 데이터를 가져오는 데 실패했습니다.");
       console.error(err);
+      setError("사용자 데이터를 가져오는 데 실패했습니다.");
     }
   };
 
   const fetchAllMatchData = async () => {
     try {
-      const matchQueryRef = collection(db, "matchApplications");
-      const querySnapshot = await getDocs(matchQueryRef);
-      if (!querySnapshot.empty) {
-        const matches = querySnapshot.docs.map(doc => doc.data());
-        setMatchData(matches);
-      } else {
-        setError("매치 데이터를 찾을 수 없습니다.");
-      }
+      const querySnapshot = await getDocs(collection(db, "matchApplications"));
+      const matches = querySnapshot.docs.map(doc => doc.data());
+      setMatchData(matches);
     } catch (err) {
-      setError("매치 데이터를 가져오는 데 실패했습니다.");
       console.error(err);
+      setError("매치 데이터를 가져오는 데 실패했습니다.");
     }
   };
 
   useEffect(() => {
-    if (!userId) return;
-    fetchUserData(userId);
-    fetchAllMatchData();
+    if (userId) {
+      fetchUserData(userId);
+      fetchAllMatchData();
+    }
   }, [userId]);
 
-  if (error) return <div>{error}</div>;
-  if (!userData || !matchData) return <div>로딩 중...</div>;
+  if (error) return <div style={{ padding: '20px', color: 'red' }}>{error}</div>;
+  if (!userData || !matchData) return <div style={{ padding: '20px' }}>로딩 중...</div>;
 
   const getStaminaRank = (stamina) => {
     return stamina >= 1000
@@ -94,29 +139,27 @@ const MyPage = ({ userId }) => {
       : `${18 - Math.floor(stamina / 50)}급`;
   };
 
-  // 현재 사용자 매치 데이터 찾기
   const myMatch = matchData.find(match => match.playerName === userData.name);
 
   return (
-    <div className="max-w-4xl mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">마이페이지</h1>
+    <div style={styles.container}>
+      <h1 style={styles.title}>마이페이지</h1>
 
-      <div className="mb-6">
-        <h2 className="text-xl">사용자 정보</h2>
-        <p><strong>이름:</strong> {userData.name}</p>
-        <p><strong>역할:</strong> {userData.admin ? "admin" : userData.role}</p>
-        <div>
-          <label htmlFor="notificationsEnabled" className="mr-2">알림:</label>
+      <div style={styles.section}>
+        <h2 style={styles.sectionTitle}>👤 사용자 정보</h2>
+        <p><span style={styles.label}>이름:</span> {userData.name}</p>
+        <p><span style={styles.label}>역할:</span> {userData.admin ? "admin" : userData.role}</p>
+        <div style={styles.checkboxLabel}>
+          <label htmlFor="notificationsEnabled">알림:</label>
           <input
             type="checkbox"
             id="notificationsEnabled"
             checked={userData.notificationsEnabled}
             onChange={async () => {
               try {
-                const updatedNotifications = !userData.notificationsEnabled;
-                const userDocRef = doc(db, "users", userId);
-                await updateDoc(userDocRef, { notificationsEnabled: updatedNotifications });
-                setUserData(prev => ({ ...prev, notificationsEnabled: updatedNotifications }));
+                const updated = !userData.notificationsEnabled;
+                await updateDoc(doc(db, "users", userId), { notificationsEnabled: updated });
+                setUserData(prev => ({ ...prev, notificationsEnabled: updated }));
               } catch (err) {
                 console.error("알림 설정 업데이트 실패:", err);
               }
@@ -125,36 +168,33 @@ const MyPage = ({ userId }) => {
         </div>
       </div>
 
-      <div className="mb-6">
-        <h2 className="text-xl">완료한 보스 및 퀘스트</h2>
+      <div style={styles.section}>
+        <h2 style={styles.sectionTitle}>📜 완료한 보스 및 퀘스트</h2>
         <div>
-          <p><strong>보스 완료:</strong> {Array.isArray(userData.BossCompleted) ? userData.BossCompleted.filter(Boolean).length : 0} / {Array.isArray(userData.BossCompleted) ? userData.BossCompleted.length : 0}</p>
-          {Array.isArray(userData.BossCompleted) && userData.BossCompleted.map((completed, index) => completed && <p key={index}>- 보스 {index + 1}</p>)}
+          <p><span style={styles.label}>보스 완료:</span> {userData.BossCompleted?.filter(Boolean).length || 0} / {userData.BossCompleted?.length || 0}</p>
+          {userData.BossCompleted?.map((completed, i) =>
+            completed && <div key={i} style={styles.questBox}>보스 {i + 1}</div>
+          )}
         </div>
-        <div>
-          <p><strong>퀘스트 완료:</strong> {Array.isArray(userData.questsCompleted) ? userData.questsCompleted.filter(Boolean).length : 0} / {Array.isArray(userData.questsCompleted) ? userData.questsCompleted.length : 0}</p>
-          {Array.isArray(userData.questsCompleted) && userData.questsCompleted.map((completed, index) => completed && <p key={index}>- 퀘스트 {index + 1}</p>)}
+        <div style={{ marginTop: '12px' }}>
+          <p><span style={styles.label}>퀘스트 완료:</span> {userData.questsCompleted?.filter(Boolean).length || 0} / {userData.questsCompleted?.length || 0}</p>
+          {userData.questsCompleted?.map((completed, i) =>
+            completed && <div key={i} style={styles.questBox}>퀘스트 {i + 1}</div>
+          )}
         </div>
       </div>
 
-      <div className="mb-6">
-        <h2 className="text-xl">매치 데이터</h2>
+      <div style={styles.section}>
+        <h2 style={styles.sectionTitle}>📊 매치 데이터</h2>
         {myMatch ? (
           <>
-            <p>
-              <strong>레이팅:</strong> {myMatch.rating} ({rank}){" "}
-              {rankImgSrc && (
-                <img
-                  src={rankImgSrc}
-                  alt={`${rank} 랭크 이미지`}
-                  style={{ width: 40, height: 40, verticalAlign: "middle", marginLeft: 8 }}
-                />
-              )}
+            <p><span style={styles.label}>레이팅:</span> {myMatch.rating} ({rank})
+              {rankImgSrc && <img src={rankImgSrc} alt={`${rank} 랭크`} style={styles.img} />}
             </p>
-            <p><strong>승:</strong> {myMatch.wins}</p>
-            <p><strong>패:</strong> {myMatch.losses}</p>
-            <p><strong>승률:</strong> {(myMatch.winRate ? (myMatch.winRate * 100).toFixed(2) : "0.00")}%</p>
-            <p><strong>기력:</strong> {getStaminaRank(myMatch.stamina)}</p>
+            <p><span style={styles.label}>승:</span> {myMatch.wins}</p>
+            <p><span style={styles.label}>패:</span> {myMatch.losses}</p>
+            <p><span style={styles.label}>승률:</span> {(myMatch.winRate * 100).toFixed(2)}%</p>
+            <p><span style={styles.label}>기력:</span> {getStaminaRank(myMatch.stamina)}</p>
           </>
         ) : (
           <p>매치 데이터가 없습니다.</p>

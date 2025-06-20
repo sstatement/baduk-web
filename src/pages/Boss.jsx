@@ -3,15 +3,14 @@ import { db } from "../firebase";
 import { doc, updateDoc, collection, getDocs, onSnapshot, getDoc } from "firebase/firestore";
 
 const Boss = ({ user }) => {
-  const [bosses, setBosses] = useState([]); // 보스 리스트 상태
-  const [bossesCompleted, setBossesCompleted] = useState([]); // 보스 완료 상태
+  const [bosses, setBosses] = useState([]);
+  const [bossesCompleted, setBossesCompleted] = useState([]);
   const [role, setRole] = useState(null);
-  const [users, setUsers] = useState([]); // 모든 사용자 목록
-  const [selectedUser, setSelectedUser] = useState(null); // 선택된 사용자
-  const [loading, setLoading] = useState(false); // 로딩 상태
-  const [error, setError] = useState(null); // 에러 상태
+  const [users, setUsers] = useState([]);
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  // 보스 리스트
   const allBosses = [
     { name: "곽지섭", grade: "타이젬 6~7단", condition: "5단 이상", points: 500 },
     { name: "고원준", grade: "타이젬 6~7단", condition: "5단 이상", points: 500 },
@@ -30,34 +29,28 @@ const Boss = ({ user }) => {
     { name: "4점 접바둑 성재명", grade: "타이젬 5~6단", condition: "1급 이상", points: 100 },
   ];
 
-  // 유저 데이터 가져오기 (실시간 업데이트)
   useEffect(() => {
     if (!user?.uid) return;
-
     const userRef = doc(db, "users", user.uid);
-
-    // 실시간으로 사용자의 데이터 변경을 추적
     const unsubscribe = onSnapshot(userRef, (docSnap) => {
       if (docSnap.exists()) {
         const userData = docSnap.data();
         setRole(userData.role);
-        setBosses(userData.Boss || new Array(allBosses.length).fill(false)); // 기본값은 모두 미완료
-        setBossesCompleted(userData.BossCompleted || new Array(12).fill(false)); // 보스 완료 목록
+        setBosses(userData.Boss || new Array(allBosses.length).fill(false));
+        setBossesCompleted(userData.BossCompleted || new Array(allBosses.length).fill(false));
       }
     });
-
-    return () => unsubscribe(); // 컴포넌트가 언마운트될 때 리스너 정리
+    return () => unsubscribe();
   }, [user]);
 
-  // 모든 사용자 목록 가져오기 (관리자와 스태프만)
   useEffect(() => {
     if (role === "admin" || role === "staff") {
       const fetchUsersList = async () => {
+        setLoading(true);
         try {
-          setLoading(true);
           const usersCollection = collection(db, "users");
           const usersSnapshot = await getDocs(usersCollection);
-          const usersList = usersSnapshot.docs.map(doc => doc.data());
+          const usersList = usersSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
           setUsers(usersList);
         } catch (err) {
           setError("회원 목록을 불러오는 데 실패했습니다.");
@@ -65,172 +58,100 @@ const Boss = ({ user }) => {
           setLoading(false);
         }
       };
-
       fetchUsersList();
     }
   }, [role]);
 
-  // ✅ 보스 체크 핸들러 (일반 회원용)
   const handleBossToggle = async (index) => {
     if (!user?.uid) return;
-
     const newBosses = [...bosses];
     newBosses[index] = !newBosses[index];
-
     setBosses(newBosses);
-
-    const userRef = doc(db, "users", user.uid);
-
     try {
-      await updateDoc(userRef, { Boss: newBosses });
+      await updateDoc(doc(db, "users", user.uid), { Boss: newBosses });
     } catch (err) {
-      setError("보스 상태를 업데이트하는 데 실패했습니다.");
+      setError("보스 상태 업데이트 실패");
     }
   };
 
-// ✅ "보스 상태" 관리자/스태프 토글 핸들러
-const handleBossAdminToggle = async (index, targetUserId) => {
-  if (!(role === "admin" || role === "staff")) return;
-  if (!selectedUser || !selectedUser.id) return; // selectedUser가 없거나 id가 없으면 실행하지 않음
+  const handleBossAdminToggle = async (index, targetUserId) => {
+    if (!(role === "admin" || role === "staff")) return;
+    const newBosses = [...(selectedUser.Boss || new Array(allBosses.length).fill(false))];
+    newBosses[index] = !newBosses[index];
+    setSelectedUser(prev => ({ ...prev, Boss: newBosses }));
+    await updateDoc(doc(db, "users", targetUserId), { Boss: newBosses });
+  };
 
-  const newBosses = [...(selectedUser.Boss || new Array(allBosses.length).fill(false))];
-  newBosses[index] = !newBosses[index];
+  const handleSuccess = async (index, points) => {
+    if (!(role === "admin" || role === "staff")) return;
+    const newCompleted = [...bossesCompleted];
+    newCompleted[index] = true;
+    setBossesCompleted(newCompleted);
+    await updateDoc(doc(db, "users", user.uid), { BossCompleted: newCompleted });
+    await updateMileage(user.uid, points);
+  };
 
-  // 선택된 사용자의 보스 상태 업데이트
-  const updatedUser = { ...selectedUser, Boss: newBosses };
-  setSelectedUser(updatedUser); // UI에 상태 바로 반영
-
-  const targetUserRef = doc(db, "users", targetUserId);
-
-  try {
-    // 데이터베이스 업데이트를 위한 비동기 작업
-    await updateDoc(targetUserRef, { Boss: newBosses });
-  } catch (err) {
-    setError("보스 상태를 관리자에 의해 업데이트하는 데 실패했습니다.");
-  }
-};
-
-// ✅ "성공" 버튼 핸들러 (관리자/스태프용)
-const handleSuccess = async (index, points) => {
-  if (!(role === "admin" || role === "staff")) return;
-
-  const newCompleted = [...bossesCompleted];
-  newCompleted[index] = true;
-
-  // UI에 상태 바로 반영
-  setBossesCompleted(newCompleted);
-
-  const userRef = doc(db, "users", user.uid);
-
-  try {
-    // 데이터베이스 업데이트와 마일리지 추가를 동시에 실행
-    await Promise.all([
-      updateDoc(userRef, { BossCompleted: newCompleted }), // 성공 상태 업데이트
-      updateMileage(user.uid, points), // 마일리지 추가
-    ]);
-  } catch (err) {
-    setError("보스 성공 상태나 마일리지 업데이트에 실패했습니다.");
-  }
-};
-
-
-  // ✅ 마일리지 업데이트
   const updateMileage = async (userId, points) => {
     const userRef = doc(db, "users", userId);
-    const userSnap = await getDoc(userRef);
+    const snap = await getDoc(userRef);
+    const currentMileage = snap.exists() ? snap.data().mileage || 0 : 0;
+    await updateDoc(userRef, { mileage: currentMileage + points });
+  };
 
-    if (userSnap.exists()) {
-      const currentMileage = userSnap.data().mileage || 0;
-      try {
-        await updateDoc(userRef, { mileage: currentMileage + points });
-      } catch (err) {
-        setError("마일리지 추가에 실패했습니다.");
-      }
-    }
+  const styles = {
+    container: { maxWidth: "900px", margin: "40px auto", padding: "20px", backgroundColor: "#1a1a1a", color: "#fefefe", fontFamily: "'Pretendard', sans-serif", borderRadius: "12px" },
+    title: { fontSize: "32px", fontWeight: "bold", marginBottom: "24px", color: "#ffd700", borderBottom: "3px solid #ff5555", paddingBottom: "10px" },
+    bossItem: { backgroundColor: "#2a2a2a", padding: "16px", marginBottom: "20px", borderRadius: "8px", border: "2px solid #ff4444" },
+    bossTitle: { fontSize: "20px", fontWeight: "bold", color: "#ff7777", marginBottom: "8px" },
+    description: { fontSize: "14px", color: "#cccccc", marginBottom: "4px" },
+    reward: { fontSize: "14px", color: "#ffddaa", marginBottom: "10px" },
+    checkbox: { marginRight: "8px", transform: "scale(1.2)" },
+    label: { fontSize: "14px", color: "#dddddd" },
+    successBadge: { marginLeft: "12px", fontWeight: "bold", color: "#ffcc00" },
+    successButton: { marginTop: "10px", backgroundColor: "#ff3333", color: "white", border: "none", padding: "8px 14px", borderRadius: "6px", cursor: "pointer", fontWeight: "bold" },
+    userItem: { backgroundColor: "#333", padding: "8px", marginBottom: "6px", borderRadius: "6px", cursor: "pointer" },
   };
 
   return (
-    <div className="boss-container">
-      <h1>주간 보스</h1>
-
-      {/* 에러 메시지 표시 */}
-      {error && <div className="error-message">{error}</div>}
-
-      {/* 관리자/스태프는 다른 사용자의 보스 상태를 관리할 수 있음 */}
+    <div style={styles.container}>
+      <h1 style={styles.title}>🔥 주간 보스전 🔥</h1>
+      {error && <div style={{ color: "#ff5555" }}>{error}</div>}
       {(role === "admin" || role === "staff") && (
-        <div className="users-list">
-          <h2>회원 목록</h2>
-          {loading ? (
-            <p>로딩 중...</p>
-          ) : (
-            users.map((user, index) => (
-              <div key={index} className="user-item">
-                <h4
-                  onClick={() => setSelectedUser(user)} // 이름 클릭 시 해당 사용자 선택
-                >
-                  {user.name}
-                </h4>
-              </div>
-            ))
-          )}
+        <div>
+          <h2 style={styles.bossTitle}>👥 회원 목록</h2>
+          {loading ? <p>로딩 중...</p> : users.map((user, i) => (
+            <div key={i} style={styles.userItem} onClick={() => setSelectedUser(user)}>{user.name}</div>
+          ))}
         </div>
       )}
-
-      {/* 선택된 사용자의 보스 상태 보여주기 */}
       {selectedUser && (
-        <div className="user-boss-status">
-          <h3>{selectedUser.name}의 보스 상태</h3>
+        <div>
+          <h3 style={{ color: "#ffcc00", fontSize: "20px", margin: "20px 0" }}>{selectedUser.name}의 보스 상태</h3>
           {allBosses.map((boss, index) => (
-            <div key={index} className="boss-item">
-              <h4>{boss.name}</h4>
-              <p>{boss.grade}, {boss.condition}</p>
-              <p>보상: {boss.points}점</p>
-
-              {/* 관리자가 체크할 수 있는 체크박스 */}
-              <label>
-                <input
-                  type="checkbox"
-                  checked={selectedUser.Boss ? selectedUser.Boss[index] : false}
-                  onChange={() => handleBossAdminToggle(index, selectedUser.id)} // 보스 진행 상태 수정
-                />
-                보스를 클리어 했습니다!
+            <div key={index} style={styles.bossItem}>
+              <div style={styles.bossTitle}>{boss.name}</div>
+              <div style={styles.description}>{boss.grade}, {boss.condition}</div>
+              <div style={styles.reward}>보상: {boss.points}점</div>
+              <label style={styles.label}>
+                <input type="checkbox" style={styles.checkbox} checked={selectedUser.Boss?.[index] || false} onChange={() => handleBossAdminToggle(index, selectedUser.id)} /> 클리어 했습니다!
               </label>
-
-              {/* 완료된 보스 표시 */}
-              {selectedUser.BossCompleted && selectedUser.BossCompleted[index] && <span>🎉 완료됨!</span>}
-
-              {/* "성공" 버튼 */}
-              {role === "admin" || role === "staff" && !selectedUser.BossCompleted[index] && (
-                <button onClick={() => handleSuccess(index, boss.points)} disabled={selectedUser.BossCompleted && selectedUser.BossCompleted[index]}>
-                  성공 표시
-                </button>
-              )}
+              {selectedUser.BossCompleted?.[index] && <span style={styles.successBadge}>🎉 완료됨!</span>}
+              {(!selectedUser.BossCompleted?.[index]) && <button style={styles.successButton} onClick={() => handleSuccess(index, boss.points)}>✅ 성공 표시</button>}
             </div>
           ))}
         </div>
       )}
-
-      {/* 주간 보스를 일반 회원이 볼 때 */}
-      <div className="boss-list">
-        {role !== "admin" && role !== "staff" && allBosses.map((boss, index) => (
-          <div key={index} className="boss-item">
-            <h3>{boss.name}</h3>
-            <p>{boss.grade}, {boss.condition}</p>
-            <p>보상: {boss.points}점</p>
-
-            <label>
-              <input
-                type="checkbox"
-                checked={bosses[index] || false}
-                onChange={() => handleBossToggle(index)} // 체크박스 상태 변경
-                disabled={!user || bossesCompleted[index]} // 보스 완료된 경우 체크박스 비활성화
-              />
-              보스를 클리어 했습니다!
-            </label>
-            {bossesCompleted[index] && <span>🎉 완료됨!</span>}
-          </div>
-        ))}
-      </div>
+      {(role !== "admin" && role !== "staff") && allBosses.map((boss, index) => (
+        <div key={index} style={styles.bossItem}>
+          <div style={styles.bossTitle}>{boss.name}</div>
+          <div style={styles.description}>{boss.grade}, {boss.condition}</div>
+          <div style={styles.reward}>보상: {boss.points}점</div>
+          <label style={styles.label}>
+            <input type="checkbox" style={styles.checkbox} checked={bosses[index] || false} onChange={() => handleBossToggle(index)} disabled={bossesCompleted[index]} /> 클리어 했습니다!
+          </label>
+          {bossesCompleted[index] && <span style={styles.successBadge}>🔥 완료됨!</span>}
+        </div>
+      ))}
     </div>
   );
 };

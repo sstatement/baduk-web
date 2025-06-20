@@ -12,6 +12,112 @@ import {
 } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
 
+const styles = {
+  container: {
+    maxWidth: 720,
+    margin: '40px auto',
+    padding: 24,
+    fontFamily: `'Segoe UI', Tahoma, Geneva, Verdana, sans-serif`,
+    color: '#1f2937', // dark slate
+    backgroundColor: '#f9fafb',
+    borderRadius: 8,
+    boxShadow: '0 6px 12px rgba(0,0,0,0.15)',
+  },
+  header: {
+    fontSize: 28,
+    fontWeight: 700,
+    marginBottom: 24,
+    borderBottom: '3px solid #374151', // dark gray border
+    paddingBottom: 8,
+    letterSpacing: '0.04em',
+  },
+  sectionHeader: {
+    fontSize: 20,
+    fontWeight: 600,
+    marginBottom: 16,
+    borderBottom: '2px solid #6b7280', // gray border
+    paddingBottom: 6,
+    color: '#374151',
+  },
+  input: {
+    width: '100%',
+    padding: '10px 12px',
+    marginBottom: 16,
+    fontSize: 16,
+    borderRadius: 4,
+    border: '1.8px solid #374151', // dark slate border
+    outline: 'none',
+    color: '#111827',
+    backgroundColor: '#f3f4f6',
+    transition: 'border-color 0.3s ease',
+  },
+  inputFocus: {
+    borderColor: '#2563eb',
+    backgroundColor: '#fff',
+  },
+  button: {
+    width: '100%',
+    backgroundColor: '#1f2937',
+    color: '#f9fafb',
+    fontWeight: '600',
+    padding: '12px 0',
+    fontSize: 18,
+    borderRadius: 6,
+    border: 'none',
+    cursor: 'pointer',
+    userSelect: 'none',
+    transition: 'background-color 0.3s ease',
+  },
+  buttonDisabled: {
+    backgroundColor: '#6b7280',
+    cursor: 'not-allowed',
+  },
+  message: {
+    marginTop: 12,
+    color: '#dc2626',
+    fontWeight: 600,
+  },
+  listContainer: {
+    marginBottom: 40,
+  },
+  listItem: {
+    backgroundColor: '#e5e7eb', // light gray
+    borderRadius: 6,
+    padding: 18,
+    marginBottom: 18,
+    boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+    transition: 'box-shadow 0.3s ease',
+  },
+  listItemHover: {
+    boxShadow: '0 6px 14px rgba(0,0,0,0.18)',
+  },
+  listLabel: {
+    fontWeight: 600,
+    marginRight: 8,
+    color: '#111827',
+  },
+  smallText: {
+    fontSize: 13,
+    color: '#6b7280',
+  },
+  approveButton: {
+    marginTop: 12,
+    backgroundColor: '#166534',
+    color: '#d1fae5',
+    padding: '8px 16px',
+    fontSize: 14,
+    fontWeight: 600,
+    border: 'none',
+    borderRadius: 5,
+    cursor: 'pointer',
+    transition: 'background-color 0.3s ease',
+  },
+  approveButtonDisabled: {
+    backgroundColor: '#4d7c0f',
+    cursor: 'not-allowed',
+  },
+};
+
 const History = () => {
   const [matchResults, setMatchResults] = useState([]);
   const [pendingResults, setPendingResults] = useState([]);
@@ -29,7 +135,6 @@ const History = () => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         const userDoc = await getDoc(doc(db, 'users', user.uid));
-        console.log("🔥 유저 role:", userDoc.data().role);
         if (userDoc.exists()) {
           setUserRole(userDoc.data().role || 'user');
         }
@@ -57,17 +162,16 @@ const History = () => {
       });
 
       setPlayers(playersList);
-      setPlayerStatsMap(stats); // 선수 정보 저장
+      setPlayerStatsMap(stats);
     } catch (error) {
       console.error('선수 목록 불러오기 실패:', error);
     }
   };
 
   const updatePlayerStatsAndMatch = async (winnerName, loserName, matchDocId) => {
-     if (approvingId === matchDocId) return; // 이미 승인 중이면 무시
-      setApprovingId(matchDocId);
+    if (approvingId === matchDocId) return;
+    setApprovingId(matchDocId);
 
-    
     try {
       const playersRef = collection(db, 'matchApplications');
 
@@ -126,12 +230,12 @@ const History = () => {
       });
 
       fetchMatchResults();
-      fetchPlayers(); // stats 재로드
+      fetchPlayers();
     } catch (error) {
       console.error('업데이트 실패:', error);
-    }finally {
-    setApprovingId(null); // 승인 처리 완료 또는 실패 후 초기화
-  }
+    } finally {
+      setApprovingId(null);
+    }
   };
 
   const fetchMatchResults = async () => {
@@ -162,7 +266,7 @@ const History = () => {
   };
 
   const saveMatchResult = async () => {
-    if (saving) return; // 이미 처리 중이면 무시
+    if (saving) return;
     setMessage('');
     if (!winner || !loser || !date) {
       setMessage('날짜, 승자, 패자를 모두 입력해주세요.');
@@ -195,29 +299,24 @@ const History = () => {
     } catch (error) {
       console.error('대국 결과 저장 실패:', error);
       setMessage('대국 결과 저장에 실패했습니다.');
+    } finally {
+      setSaving(false);
     }
-    finally {
-    setSaving(false);
-  }
   };
 
-  useEffect(() => {
-    fetchPlayers();
-    fetchMatchResults();
-  }, []);
-
   return (
-    <div className="p-6 max-w-4xl mx-auto">
-      <h2 className="text-2xl font-bold mb-6">대전 기록 입력</h2>
+    <div style={styles.container}>
+      <h2 style={styles.header}>대전 기록 입력</h2>
 
-      <div className="mb-8 border rounded p-4 shadow">
+      <div style={{ ...styles.listItem, backgroundColor: '#f3f4f6', boxShadow: 'none' }}>
         <input
           type="text"
           placeholder="승자 이름"
           value={winner}
           onChange={(e) => setWinner(e.target.value)}
           list="players-list"
-          className="border rounded p-2 w-full mb-3"
+          style={styles.input}
+          autoComplete="off"
         />
         <input
           type="text"
@@ -225,7 +324,8 @@ const History = () => {
           value={loser}
           onChange={(e) => setLoser(e.target.value)}
           list="players-list"
-          className="border rounded p-2 w-full mb-3"
+          style={styles.input}
+          autoComplete="off"
         />
         <datalist id="players-list">
           {players.map((player) => (
@@ -237,51 +337,59 @@ const History = () => {
           type="date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
-          className="border rounded p-2 w-full mb-4"
+          style={styles.input}
         />
 
         <button
           onClick={saveMatchResult}
-          className="bg-blue-600 text-white p-3 rounded w-full hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
-  disabled={saving}
+          disabled={saving}
+          style={{
+            ...styles.button,
+            ...(saving ? styles.buttonDisabled : {}),
+          }}
         >
           {saving ? '저장 중...' : '대국 결과 저장 (승인 대기)'}
         </button>
-        {message && <p className="mt-3 text-red-600">{message}</p>}
+        {message && <p style={styles.message}>{message}</p>}
       </div>
 
-      <h3 className="text-xl font-semibold mb-4">승인 대기 중인 대전 기록</h3>
-      {pendingResults.length > 0 ? (
-        <ul>
-          {pendingResults.map(({ id, date, winner, loser }) => (
-            <li
+      <h3 style={styles.sectionHeader}>승인 대기 중인 대전 기록</h3>
+      <div style={styles.listContainer}>
+        {pendingResults.length > 0 ? (
+          pendingResults.map(({ id, date, winner, loser }) => (
+            <div
               key={id}
-              className="border rounded p-4 mb-4 shadow hover:shadow-lg transition-shadow bg-yellow-50"
+              style={styles.listItem}
+              onMouseOver={(e) => e.currentTarget.style.boxShadow = styles.listItemHover.boxShadow}
+              onMouseOut={(e) => e.currentTarget.style.boxShadow = styles.listItem.boxShadow}
             >
-              <p><strong>날짜:</strong> {new Date(date.toDate()).toLocaleDateString()}</p>
-              <p><strong>승자:</strong> {winner}</p>
-              <p><strong>패자:</strong> {loser}</p>
-              <p className="text-sm text-gray-600">관리자 승인 대기 중</p>
+              <p><span style={styles.listLabel}>날짜:</span> {new Date(date.toDate()).toLocaleDateString()}</p>
+              <p><span style={styles.listLabel}>승자:</span> {winner}</p>
+              <p><span style={styles.listLabel}>패자:</span> {loser}</p>
+              <p style={styles.smallText}>관리자 승인 대기 중</p>
               {['admin', 'staff'].includes(userRole) && (
                 <button
                   onClick={() => updatePlayerStatsAndMatch(winner, loser, id)}
-                  className="mt-2 px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700"
-                  disabled={approvingId === id}  // 처리 중인 경우 비활성화
+                  disabled={approvingId === id}
+                  style={{
+                    ...styles.approveButton,
+                    ...(approvingId === id ? styles.approveButtonDisabled : {}),
+                  }}
                 >
                   {approvingId === id ? '승인 중...' : '승인하기'}
                 </button>
               )}
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>승인 대기 중인 대전 기록이 없습니다.</p>
-      )}
+            </div>
+          ))
+        ) : (
+          <p>승인 대기 중인 대전 기록이 없습니다.</p>
+        )}
+      </div>
 
-      <h3 className="text-xl font-semibold mb-4 mt-8">승인된 대전 기록 목록</h3>
-      {matchResults.length > 0 ? (
-        <ul>
-          {matchResults.map(({ id, date, winner, loser, winnerELO, loserELO, winnerWinRate, loserWinRate }) => {
+      <h3 style={styles.sectionHeader}>승인된 대전 기록 목록</h3>
+      <div style={styles.listContainer}>
+        {matchResults.length > 0 ? (
+          matchResults.map(({ id, date, winner, loser, winnerELO, loserELO, winnerWinRate, loserWinRate }) => {
             const winnerStats = playerStatsMap[winner] || {};
             const loserStats = playerStatsMap[loser] || {};
 
@@ -291,24 +399,26 @@ const History = () => {
             const loserRateToShow = loserWinRate ?? loserStats.winRate;
 
             return (
-              <li
+              <div
                 key={id}
-                className="border rounded p-4 mb-4 shadow hover:shadow-lg transition-shadow"
+                style={styles.listItem}
+                onMouseOver={(e) => e.currentTarget.style.boxShadow = styles.listItemHover.boxShadow}
+                onMouseOut={(e) => e.currentTarget.style.boxShadow = styles.listItem.boxShadow}
               >
-                <p><strong>날짜:</strong> {new Date(date.toDate()).toLocaleDateString()}</p>
+                <p><span style={styles.listLabel}>날짜:</span> {new Date(date.toDate()).toLocaleDateString()}</p>
                 <p>
-                  <strong>승자:</strong> {winner} (ELO: {winnerEloToShow ? Math.round(winnerEloToShow) : 'N/A'}, 승률: {winnerRateToShow ? (winnerRateToShow * 100).toFixed(1) : '0'}%)
+                  <span style={styles.listLabel}>승자:</span> {winner} (ELO: {winnerEloToShow ? Math.round(winnerEloToShow) : 'N/A'}, 승률: {winnerRateToShow ? (winnerRateToShow * 100).toFixed(1) : '0'}%)
                 </p>
                 <p>
-                  <strong>패자:</strong> {loser} (ELO: {loserEloToShow ? Math.round(loserEloToShow) : 'N/A'}, 승률: {loserRateToShow ? (loserRateToShow * 100).toFixed(1) : '0'}%)
+                  <span style={styles.listLabel}>패자:</span> {loser} (ELO: {loserEloToShow ? Math.round(loserEloToShow) : 'N/A'}, 승률: {loserRateToShow ? (loserRateToShow * 100).toFixed(1) : '0'}%)
                 </p>
-              </li>
+              </div>
             );
-          })}
-        </ul>
-      ) : (
-        <p>승인된 대전 기록이 없습니다.</p>
-      )}
+          })
+        ) : (
+          <p>승인된 대전 기록이 없습니다.</p>
+        )}
+      </div>
     </div>
   );
 };
