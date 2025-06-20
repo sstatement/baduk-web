@@ -24,17 +24,16 @@
   }
 } 
 
+.home-container {
+  //background: linear-gradient(to right, #e0f7fa, #fff); /* 파스텔 톤 */
+
+}
+
+
 
 /* 기본 숨김 처리 */
 .hamburger-container {
   display: none;
-}
-
-/* 기본 네비바 스타일 */
-.navbar {
-  display: flex;
-  gap: 20px;
-  list-style: none;
 }
 
 /* 모바일 메뉴는 기본 숨김 */
@@ -136,7 +135,6 @@
   color: white;
 }
 
-/* app.css */
 
 .ranking-preview-container {
   margin-top: 1.5rem; /* mt-6 */
@@ -539,3 +537,79 @@
     flex-direction: column;
   }
 }
+
+
+
+
+
+
+/* feature section layout */
+.feature-section {
+  background-color: #f9fafb; /* gray-50 */
+  padding: 4rem 1rem;
+  text-align: center;
+  height:600px;
+}
+
+.feature-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* 3열 */
+  grid-template-rows: repeat(2, auto);    /* 2행 */
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+/* individual card */
+.feature-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb; /* gray-200 */
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* icon circle */
+.icon-circle {
+  background-color: #f3f4f6;
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* title & description */
+.feature-card-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.feature-card-desc {
+  font-size: 0.875rem;
+  color: #6b7280; /* gray-500 */
+}
+

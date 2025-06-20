@@ -5,6 +5,7 @@ import { signOut, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 import Section1 from "../components/Section1";
 import Section2 from "../components/Section2";
+import Section3 from "../components/Section3";
 import Article from "../components/Article";
 import Aside from "../components/Aside";
 import Slider from "../components/AdSlider";
@@ -43,8 +44,7 @@ const Home = ({ user }) => {
         <div className="left-section">
           <Slider />
           <Section1 />
-          <Section2 />
-          <RankingPreview />
+          <Section3 />
         </div>
 
         <div className="right-section">
@@ -55,7 +55,9 @@ const Home = ({ user }) => {
             handleGoogleLogin={handleGoogleLogin}
           />
           <Aside />
+          <RankingPreview />
         </div>
+        
       </div>
     </div>
   );

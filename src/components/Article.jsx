@@ -25,7 +25,7 @@ const rankImages = {
   그랜드마스터: "/images/그랜드마스터.jpg",
   마스터: "/images/마스터.jpg",
   다이아: "/images/다이아.jpg",
-  플레티넘: "/images/플래티넘.jpg",
+  플레티넘: "/images/플레티넘.jpg",
   골드: "/images/골드.jpg",
   실버: "/images/실버.jpg",
   브론즈: "/images/브론즈.jpg",
@@ -42,6 +42,8 @@ const Article = () => {
     stamina: 0,
     rating: 0,
     rank: "브론즈",
+    chosenTitle: "",  // 칭호
+    nameColor: "",    // 닉네임 컬러 (ex: "#FF0000" or "linear-gradient(...)")
   });
 
   // 랭크 계산 함수 (변경 없음)
@@ -85,111 +87,126 @@ const Article = () => {
   };
 
   useEffect(() => {
-  let unsubscribeUser = () => {};
-  let unsubscribeMyMatchApp = () => {};
-  let unsubscribeDiamondRanking = () => {};
+    let unsubscribeUser = () => {};
+    let unsubscribeMyMatchApp = () => {};
+    let unsubscribeDiamondRanking = () => {};
 
-  const unsubscribeAuth = onAuthStateChanged(auth, (user) => {
-    setUser(user);
+    const unsubscribeAuth = onAuthStateChanged(auth, (user) => {
+      setUser(user);
 
-    if (user) {
-      const userDocRef = doc(db, "users", user.uid);
+      if (user) {
+        const userDocRef = doc(db, "users", user.uid);
 
-      // users 문서 구독
-      unsubscribeUser = onSnapshot(userDocRef, (userSnap) => {
-        if (userSnap.exists()) {
-          const userData = userSnap.data();
-          const userName = userData.name;
+        unsubscribeUser = onSnapshot(userDocRef, (userSnap) => {
+          if (userSnap.exists()) {
+            const userData = userSnap.data();
+            const userName = userData.name;
 
-          // 내 매치앱 문서 구독
-          const myMatchAppQuery = query(
-            collection(db, "matchApplications"),
-            where("playerName", "==", userName)
-          );
-          unsubscribeMyMatchApp = onSnapshot(myMatchAppQuery, (matchAppSnap) => {
-            let stamina = 0;
-            let rating = 0;
-            if (!matchAppSnap.empty) {
-              const data = matchAppSnap.docs[0].data();
-              stamina = data.stamina || 0;
-              rating = data.rating || 0;
-            }
-
-            // 다이아 이상 랭킹 구독해서 순위 실시간 반영
-            const diamondQuery = query(
+            // 내 매치앱 문서 구독
+            const myMatchAppQuery = query(
               collection(db, "matchApplications"),
-              where("rating", ">=", 1576),
-              orderBy("rating", "desc")
+              where("playerName", "==", userName)
             );
-            unsubscribeDiamondRanking(); // 기존 구독 해제
-            unsubscribeDiamondRanking = onSnapshot(diamondQuery, (diamondSnap) => {
-              const diamondPlayers = diamondSnap.docs.map(doc => ({
-                playerName: doc.data().playerName,
-                rating: doc.data().rating,
-              }));
-
-              const userIndex = diamondPlayers.findIndex(p => p.playerName === userName);
-
-              let rank = "브론즈";
-              if (rating < 1576) {
-                if (rating >= 1551) rank = "플레티넘";
-                else if (rating >= 1526) rank = "골드";
-                else if (rating >= 1501) rank = "실버";
-                else rank = "브론즈";
-              } else {
-                if (userIndex === 0) rank = "챌린저";
-                else if (userIndex >= 1 && userIndex <= 3) rank = "그랜드마스터";
-                else if (userIndex >= 4 && userIndex <= 9) rank = "마스터";
-                else rank = "다이아";
+            unsubscribeMyMatchApp = onSnapshot(myMatchAppQuery, (matchAppSnap) => {
+              let stamina = 0;
+              let rating = 0;
+              if (!matchAppSnap.empty) {
+                const data = matchAppSnap.docs[0].data();
+                stamina = data.stamina || 0;
+                rating = data.rating || 0;
               }
 
-              setProfileData({
-                photoURL: userData.photoURL || user.photoURL || "/images/바통이.jpg",
-                name: userData.name || user.displayName || user.email,
-                mileage: userData.mileage || 0,
-                stamina,
-                rating,
-                rank,
+              // 다이아 이상 랭킹 구독해서 순위 실시간 반영
+              const diamondQuery = query(
+                collection(db, "matchApplications"),
+                where("rating", ">=", 1576),
+                orderBy("rating", "desc")
+              );
+              unsubscribeDiamondRanking(); // 기존 구독 해제
+              unsubscribeDiamondRanking = onSnapshot(diamondQuery, (diamondSnap) => {
+                const diamondPlayers = diamondSnap.docs.map(doc => ({
+                  playerName: doc.data().playerName,
+                  rating: doc.data().rating,
+                }));
+
+                const userIndex = diamondPlayers.findIndex(p => p.playerName === userName);
+
+                let rank = "브론즈";
+                if (rating < 1576) {
+                  if (rating >= 1551) rank = "플레티넘";
+                  else if (rating >= 1526) rank = "골드";
+                  else if (rating >= 1501) rank = "실버";
+                  else rank = "브론즈";
+                } else {
+                  if (userIndex === 0) rank = "챌린저";
+                  else if (userIndex >= 1 && userIndex <= 3) rank = "그랜드마스터";
+                  else if (userIndex >= 4 && userIndex <= 9) rank = "마스터";
+                  else rank = "다이아";
+                }
+
+                setProfileData({
+                  photoURL: userData.photoURL || user.photoURL || "/images/바통이.jpg",
+                  name: userData.name || user.displayName || user.email,
+                  mileage: userData.mileage || 0,
+                  stamina,
+                  rating,
+                  rank,
+                  chosenTitle: userData.chosenTitle || "",  // 칭호
+                  nameColor: userData.nameColor || "",      // 닉네임 컬러
+                });
               });
             });
-          });
-        } else {
-          setProfileData({
-            photoURL: user.photoURL || "/images/바통이.jpg",
-            name: user.displayName || user.email,
-            mileage: 0,
-            stamina: 0,
-            rating: 0,
-            rank: "브론즈",
-          });
-        }
-      });
-    } else {
-      setProfileData({
-        photoURL: "",
-        name: "",
-        mileage: 0,
-        stamina: 0,
-        rating: 0,
-        rank: "브론즈",
-      });
+          } else {
+            setProfileData({
+              photoURL: user.photoURL || "/images/바통이.jpg",
+              name: user.displayName || user.email,
+              mileage: 0,
+              stamina: 0,
+              rating: 0,
+              rank: "브론즈",
+              chosenTitle: "",
+              nameColor: "",
+            });
+          }
+        });
+      } else {
+        setProfileData({
+          photoURL: "",
+          name: "",
+          mileage: 0,
+          stamina: 0,
+          rating: 0,
+          rank: "브론즈",
+          chosenTitle: "",
+          nameColor: "",
+        });
 
+        unsubscribeUser();
+        unsubscribeMyMatchApp();
+        unsubscribeDiamondRanking();
+      }
+    });
+
+    return () => {
+      unsubscribeAuth();
       unsubscribeUser();
       unsubscribeMyMatchApp();
       unsubscribeDiamondRanking();
-    }
-  });
-
-  return () => {
-    unsubscribeAuth();
-    unsubscribeUser();
-    unsubscribeMyMatchApp();
-    unsubscribeDiamondRanking();
-  };
-}, []);
-
+    };
+  }, []);
 
   const rankImgSrc = rankImages[profileData.rank] || null;
+
+  // 닉네임 컬러가 그라데이션인 경우도 고려 (CSS background-clip 사용)
+  const nameStyle = profileData.nameColor
+    ? (profileData.nameColor.includes("gradient")
+        ? {
+            background: profileData.nameColor,
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }
+        : { color: profileData.nameColor })
+    : {};
 
   return (
     <article className="article p-4 border rounded-md shadow-sm">
@@ -213,18 +230,18 @@ const Article = () => {
               style={{ width: "80px", height: "80px" }}
             />
           ) : (
-            <div >
+            <div>
               <img
                 src="/images/바통이.jpg"
                 alt="기본 프로필"
                 style={{ width: "80px", height: "80px" }}
-                
               />
             </div>
           )}
 
-          <p className="text-lg font-medium">
+          <p className="text-lg font-medium" style={nameStyle}>
             <strong>이름 : </strong>
+            {profileData.chosenTitle ? `${profileData.chosenTitle} ` : ""}
             {profileData.name}
           </p>
 
@@ -257,7 +274,7 @@ const Article = () => {
             onClick={() => signOut(auth)}
             className="mt-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition"
           >
-            로그아웃  
+            로그아웃
           </button>
         </div>
       )}

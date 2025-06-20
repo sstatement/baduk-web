@@ -17,6 +17,7 @@ const AnnouncementDetail = () => {
 
         if (docSnap.exists()) {
           setAnnouncement(docSnap.data());
+          console.log(announcement.content);
         } else {
           console.error("해당 공지사항을 찾을 수 없습니다.");
           navigate("/announcements");
@@ -44,7 +45,7 @@ const AnnouncementDetail = () => {
           : "날짜 정보 없음"}
       </p>
       <hr className="my-4" />
-      <p className="text-gray-800">{announcement.content}</p>
+      <p  style={{ whiteSpace: "pre-line" }} className="text-gray-800">{announcement.content}</p>
       <div className="mt-6 flex justify-end">
         <button
           onClick={() => navigate(-1)}
