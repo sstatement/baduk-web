@@ -37,6 +37,8 @@ import Apply from "./pages/league/apply";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import SGFFileViewer from "./components/BadukBoard/SGFFileViewer";
+
 
 import "./App.css";
 
@@ -177,6 +179,7 @@ const AppRoutes = () => {
         <Route path="/announcements/:id" element={<AnnouncementDetail />} />
         <Route path="/club/board" element={<Board />} />
         <Route path="/badukboard" element={<BadukBoard />} />
+        <Route path="/SGFfileviewer" element={<SGFFileViewer />} />
         <Route path="/setup-profile" element={<SetupProfile />} />
         <Route path="/signup" element={user ? <Navigate to="/" /> : <Signup />} />
         <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
