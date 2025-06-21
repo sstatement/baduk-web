@@ -138,6 +138,8 @@ const History = () => {
         if (userDoc.exists()) {
           setUserRole(userDoc.data().role || 'user');
         }
+        await fetchPlayers(); // ✅ 선수 목록 로딩
+      await fetchMatchResults();
       }
     });
     return () => unsubscribe();
@@ -303,6 +305,24 @@ const History = () => {
       setSaving(false);
     }
   };
+const deleteMatch = async (matchId) => {
+  const confirmDelete = window.confirm('정말로 이 대전 기록을 삭제하시겠습니까?');
+  if (!confirmDelete) return;
+
+  try {
+    await updateDoc(doc(db, 'matches', matchId), {
+      status: 'deleted',
+      deletedAt: new Date(),
+    });
+    await fetchMatchResults(); // 목록 새로고침
+  } catch (error) {
+    console.error('대전 기록 삭제 실패:', error);
+    setMessage('대전 기록 삭제 중 오류가 발생했습니다.');
+  }
+};
+
+
+
 
   return (
     <div style={styles.container}>
@@ -378,6 +398,8 @@ const History = () => {
                 >
                   {approvingId === id ? '승인 중...' : '승인하기'}
                 </button>
+                
+                
               )}
             </div>
           ))
