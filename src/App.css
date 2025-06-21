@@ -118,6 +118,7 @@
   padding: 0.5rem 0;
   min-width: 160px;
   z-index: 100;
+  list-style: none !important;
 }
 
 /* 드롭다운 메뉴 내부 항목 스타일 */
@@ -127,6 +128,7 @@
   display: block;
   padding: 0.75rem 1rem;
   transition: background-color 0.2s ease-in-out;
+  list-style: none !important;
 }
 
 /* 드롭다운 항목에 hover 시 */
@@ -399,9 +401,6 @@
   max-width: 600px;
   height: 300px;
   overflow: hidden;
-  top: -150px;
-  left: 50%;
-  transform: translateX(-80%);
   border: 2px solid #333;
   border-radius: 10px;
   margin: 0 auto;
