@@ -62,7 +62,65 @@ const borderStylesMap = {
     border: "2px solid #333",
     boxShadow: "0 2px 10px rgba(0,0,0,0.3)",
   },
+
+  neon_border: {
+    border: "2px solid #0ff",
+    boxShadow: "0 0 8px #0ff, 0 0 20px #0ff, 0 0 40px #0ff",
+    borderRadius: "10px",
+  },
+  double_stripe_border: {
+    border: "4px double #ff6f61",
+    borderRadius: "6px",
+  },
+  glitch_border: {
+    border: "2px solid #ff005a",
+    boxShadow: "2px 0 #00fff7, -2px 0 #ff005a",
+    borderRadius: "6px",
+    animation: "glitch 1s infinite",
+  },
+  dotted_glow_border: {
+    border: "2px dotted #a78bfa",
+    boxShadow: "0 0 12px 2px #a78bfa88",
+    borderRadius: "8px",
+  },
+  engraved_border: {
+    border: "3px solid #888",
+    boxShadow: "inset 0 0 5px #444",
+    borderRadius: "12px",
+  },
+  gold_fleck_border: {
+    border: "2px solid #b8860b",
+    backgroundImage: "radial-gradient(circle at 20% 20%, #ffd700 10%, transparent 11%), radial-gradient(circle at 80% 80%, #ffec8b 10%, transparent 11%)",
+    backgroundRepeat: "no-repeat",
+    borderRadius: "10px",
+    boxShadow: "0 0 8px #b8860b88",
+  },
+  pixelated_border: {
+    border: "4px solid transparent",
+    boxShadow: "0 0 0 2px #00f, 4px 4px 0 2px #00f, 8px 8px 0 2px #00f",
+    borderRadius: "4px",
+  },
+  galaxy_border: {
+  borderRadius: "12px",
+  border: "1.5px solid transparent",
+  backgroundImage: `
+    radial-gradient(circle at center, rgba(127,0,255,0.3), transparent 70%),
+    radial-gradient(circle at top right, #7f00ff, #e100ff, #00ffff),
+    linear-gradient(45deg, #7f00ff, #e100ff, #00ffff)
+  `,
+  backgroundOrigin: "border-box",
+  backgroundClip: "content-box, border-box, border-box",
+  boxShadow: `
+    0 0 5px 1px #7f00ff,
+    0 0 10px 2px #e100ff,
+    0 0 15px 3px #00ffff
+  `,
+  position: "relative",
+  animation: "galaxyGlow 4s linear infinite",
+  color: "white",
+}
 };
+
 
 const Article = () => {
   const [user, setUser] = useState(null);

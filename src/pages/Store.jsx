@@ -4,25 +4,62 @@ import { getDoc, doc, updateDoc, increment } from 'firebase/firestore';
 import "./store.css"
 const titles = [
   "초고수", "명인 (名人)", "대가 (大家)", "국수 (國手)", "신의 한 수",
-  "입신", "바둑 마스터", "대마 불사", "반상을 지배하는자", "불멸의 전략가"
+  "입신", "바둑 마스터", "대마 불사", "반상을 지배하는자", "불멸의 전략가", "바둑 신", "임경호의 제자", "임경호의 호적수"
+  ,"천하제일사수", "바둑의 대성인", "무적의 바둑왕", "흑백의 마법사", "수읽기의 달인",
+  "전장의 지휘관", "끝판왕", "바둑의 현자", "철벽 방어자", "사활의 달인",
+  "계산기천재", "반상계의 영웅", "전략의 귀재", "불패의 신기", "신수(神手)",
+  "착점의 달인", "승리의 화신", "바둑의 사도", "명경지수", "대국의 천재"
 ];
 
 // 단색 + 그라데이션 색상 예시
 const colors = [
-  "#FF5F6D",
-  "#FFC371",
-  "#24C6DC",
-  "#514A9D",
-  "#FF512F",
-  "#DD2476",
-  "#8A2387",
-  "#00F260",
-  "#0575E6",
-  "#7F00FF",
-  "#E100FF",
+  "#FF5F6D", // 단색 레드톤
+  "#FFC371", // 단색 오렌지톤
+  "#24C6DC", // 단색 청록톤
+  "#514A9D", // 단색 보라톤
+  "#FF512F", // 단색 빨강
+  "#DD2476", // 단색 핑크톤
+  "#8A2387", // 단색 진한 보라
+  "#00F260", // 단색 연두
+  "#0575E6", // 단색 파랑
+  "#7F00FF", // 단색 퍼플
+  "#E100FF", // 단색 핫핑크
+
+  // 선형 그라데이션 (좌->우)
   "linear-gradient(to right, #FF5F6D, #FFC371)",
-  "linear-gradient(to right, #24C6DC, #514A9D)"
+  "linear-gradient(to right, #24C6DC, #514A9D)",
+
+  // 선형 그라데이션 (대각선)
+  "linear-gradient(135deg, #667eea, #764ba2)",
+
+  // 방사형 그라데이션 (중앙부터 바깥으로)
+  "radial-gradient(circle, #ff9a9e, #fad0c4)",
+
+  // 투명도 있는 단색 (RGBA)
+  "rgba(255, 95, 109, 0.7)",
+
+  // 투명도 있는 그라데이션
+  "linear-gradient(to right, rgba(255, 95, 109, 0.8), rgba(255, 195, 113, 0.8))",
+
+  // 다중 스탑 그라데이션
+  "linear-gradient(90deg, #ff6a00 0%, #ee0979 50%, #ff6a00 100%)",
+
+  // 반투명 블루
+  "rgba(5, 117, 230, 0.6)",
+
+  // 다크 + 라이트 그라데이션
+  "linear-gradient(to right, #141E30, #243B55)",
+
+  // 네온 그린 그라데이션
+  "linear-gradient(45deg, #00FF00, #00B300)",
+
+  // 은은한 파스텔톤 그라데이션
+  "linear-gradient(to right, #a1c4fd, #c2e9fb)",
+
+  // 다크 퍼플 투명도
+  "rgba(128, 0, 128, 0.8)",
 ];
+
 
 // 테두리 스타일 목록과 가격
 const borders = [
@@ -30,59 +67,174 @@ const borders = [
     id: "default_border",
     name: "⚫ 기본 테두리",
     description: "검은색 실선 테두리 (무료/기본)",
-    style: "border: 2px solid black",
+    style: { border: "2px solid black" },
     cost: 0,
   },
   {
     id: "gold_border",
     name: "🌕 금빛 테두리",
     description: "황금색 고급 테두리",
-    style: "border: 3px solid gold",
+    style: { border: "3px solid gold" },
     cost: 200,
   },
   {
     id: "shining_border",
     name: "✨ 빛나는 테두리",
+    style: { boxShadow: "0 0 10px 4px rgba(0, 255, 255, 0.6)" },
     description: "빛나는 청록색 그림자",
-    style: "box-shadow: 0 0 10px 4px rgba(0, 255, 255, 0.6)",
     cost: 300,
   },
   {
     id: "rainbow_border",
     name: "🌈 무지개 테두리",
+    style: {
+      background: "linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet)",
+      borderRadius: "8px",
+    },
     description: "그라데이션 무지개 테두리",
-    style: "background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet); border-radius: 8px;", 
     cost: 500,
   },
   {
     id: "dotted_border",
     name: "🎲 점선 테두리",
+    style: { border: "2px dashed #555" },
     description: "스타일리시한 회색 점선",
-    style: "border: 2px dashed #555",
     cost: 150,
   },
   {
     id: "ice_border",
     name: "🧊 아이스 테두리",
+    style: {
+      border: "2px solid #4fd1c5",
+      boxShadow: "0 0 8px #81e6d9",
+    },
     description: "푸른빛 입체 효과",
-    style: "border: 2px solid #4fd1c5; box-shadow: 0 0 8px #81e6d9",
     cost: 250,
   },
   {
     id: "fire_border",
     name: "🔥 불꽃 테두리",
+    style: {
+      background: "linear-gradient(45deg, red, orange)",
+      borderRadius: "8px",
+    },
     description: "빨강+주황 불꽃 테마",
-    style: "background: linear-gradient(45deg, red, orange); border-radius: 8px;",
     cost: 500,
   },
   {
     id: "shadow_border",
     name: "🖤 그림자 테두리",
+    style: {
+      border: "2px solid #333",
+      boxShadow: "0 2px 10px rgba(0,0,0,0.3)",
+    },
     description: "어두운 테두리 + 강한 그림자",
-    style: "border: 2px solid #333; box-shadow: 0 2px 10px rgba(0,0,0,0.3)",
     cost: 200,
-  }
+  },
+  {
+    id: "neon_border",
+    name: "🌟 네온 테두리",
+    style: {
+      border: "2px solid #0ff",
+      boxShadow: "0 0 8px #0ff, 0 0 20px #0ff, 0 0 40px #0ff",
+      borderRadius: "10px",
+    },
+    description: "형광빛 네온사인 느낌의 반짝이는 테두리",
+    cost: 400,
+  },
+  {
+    id: "double_stripe_border",
+    name: "〰️ 더블 스트라이프 테두리",
+    style: {
+      border: "4px double #ff6f61",
+      borderRadius: "6px",
+    },
+    description: "얇은 두 줄 선으로 된 세련된 테두리",
+    cost: 250,
+  },
+  {
+    id: "glitch_border",
+    name: "🎮 글리치 테두리",
+    style: {
+      border: "2px solid #ff005a",
+      boxShadow: "2px 0 #00fff7, -2px 0 #ff005a",
+      borderRadius: "6px",
+      animation: "glitch 1s infinite",
+    },
+    description: "레트로 게임 글리치 효과가 가미된 테두리",
+    cost: 600,
+  },
+  {
+    id: "dotted_glow_border",
+    name: "✨ 점선 + 빛나는 테두리",
+    style: {
+      border: "2px dotted #a78bfa",
+      boxShadow: "0 0 12px 2px #a78bfa88",
+      borderRadius: "8px",
+    },
+    description: "작은 점선과 은은한 빛 효과가 어우러진 테두리",
+    cost: 350,
+  },
+  {
+    id: "engraved_border",
+    name: "🪓 조각된 돌 테두리",
+    style: {
+      border: "3px solid #888",
+      boxShadow: "inset 0 0 5px #444",
+      borderRadius: "12px",
+    },
+    description: "돌에 새겨진 듯한 음각 느낌의 테두리",
+    cost: 450,
+  },
+  {
+    id: "gold_fleck_border",
+    name: "🌟 금가루 테두리",
+    style: {
+      border: "2px solid #b8860b",
+      backgroundImage:
+        "radial-gradient(circle at 20% 20%, #ffd700 10%, transparent 11%), radial-gradient(circle at 80% 80%, #ffec8b 10%, transparent 11%)",
+      backgroundRepeat: "no-repeat",
+      borderRadius: "10px",
+      boxShadow: "0 0 8px #b8860b88",
+    },
+    description: "금가루가 반짝이는 듯한 불규칙 테두리",
+    cost: 550,
+  },
+  {
+    id: "pixelated_border",
+    name: "🟦 픽셀 아트 테두리",
+    style: {
+      border: "4px solid transparent",
+      boxShadow:
+        "0 0 0 2px #00f, 4px 4px 0 2px #00f, 8px 8px 0 2px #00f",
+      borderRadius: "4px",
+    },
+    description: "복고풍 8비트 픽셀 스타일 테두리",
+    cost: 500,
+  },
+  {
+  id: "galaxy_border",
+  name: "🌌 은하계 테두리",
+  description: "멋진 은하계 느낌의 반짝임과 그라데이션",
+  style: {
+    borderRadius: "12px",
+    border: "3px solid transparent",
+    backgroundImage: `linear-gradient(white, white), radial-gradient(circle at top left, #7f00ff, #e100ff, #00ffff)`,
+    backgroundOrigin: "border-box",
+    backgroundClip: "content-box, border-box",
+    boxShadow: `
+      0 0 10px 2px #7f00ff,
+      0 0 20px 4px #e100ff,
+      0 0 30px 6px #00ffff
+    `,
+    position: "relative",
+    animation: "galaxyGlow 4s linear infinite",
+  },
+  cost: 700,
+},
 ];
+
+
 
 const Store = () => {
   const [items, setItems] = useState([]);
@@ -447,67 +599,49 @@ const Store = () => {
             }}
           >
             {borders.map((border) => {
-              const isSelected = selectedBorder === border.id;
-              // 테두리 미리보기 스타일 적용 위한 인라인 스타일 객체 변환
-              let previewStyle = {};
-              if (border.style.includes('border:')) {
-                // ex) "border: 2px solid black" => {border: "2px solid black"}
-                const borderPart = border.style.split(';')[0].replace('border:', '').trim();
-                previewStyle.border = borderPart;
-              }
-              if (border.style.includes('box-shadow:')) {
-                const boxShadowPart = border.style.match(/box-shadow:\s*([^;]+);?/);
-                if (boxShadowPart) previewStyle.boxShadow = boxShadowPart[1].trim();
-              }
-              if (border.style.includes('background:')) {
-                const bgPart = border.style.match(/background:\s*([^;]+);?/);
-                if (bgPart) previewStyle.background = bgPart[1].trim();
-              }
-              if (border.style.includes('border-radius:')) {
-                const radiusPart = border.style.match(/border-radius:\s*([^;]+);?/);
-                if (radiusPart) previewStyle.borderRadius = radiusPart[1].trim();
-              }
+  const isSelected = selectedBorder === border.id;
 
-              return (
-                <button
-                  key={border.id}
-                  type="button"
-                  onClick={() => setSelectedBorder(border.id)}
-                  style={{
-                    padding: "12px",
-                    borderRadius: 8,
-                    border: isSelected ? "3px solid #2563eb" : "2px solid #ccc",
-                    backgroundColor: "#fff",
-                    color: "#333",
-                    fontWeight: isSelected ? "700" : "500",
-                    cursor: "pointer",
-                    boxShadow: isSelected ? "0 0 10px rgba(37, 99, 235, 0.7)" : "none",
-                    transform: isSelected ? "scale(1.05)" : "scale(1)",
-                    transition: "all 0.3s ease",
-                    textAlign: "center",
-                    userSelect: "none",
-                    outline: "none",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    gap: 8,
-                  }}
-                >
-                  <div
-                    style={{
-                      width: 80,
-                      height: 50,
-                      ...previewStyle,
-                    }}
-                  />
-                  <span>{border.name}</span>
-                  <small style={{ fontSize: 12, color: "#555" }}>{border.description}</small>
-                  <small style={{ fontSize: 14, fontWeight: "600", marginTop: 4 }}>
-                    {border.cost === 0 ? "무료" : `${border.cost}점`}
-                  </small>
-                </button>
-              );
-            })}
+  return (
+    <button
+      key={border.id}
+      type="button"
+      onClick={() => setSelectedBorder(border.id)}
+      style={{
+        padding: "12px",
+        borderRadius: 8,
+        border: isSelected ? "3px solid #2563eb" : "2px solid #ccc",
+        backgroundColor: "#fff",
+        color: "#333",
+        fontWeight: isSelected ? "700" : "500",
+        cursor: "pointer",
+        boxShadow: isSelected ? "0 0 10px rgba(37, 99, 235, 0.7)" : "none",
+        transform: isSelected ? "scale(1.05)" : "scale(1)",
+        transition: "all 0.3s ease",
+        textAlign: "center",
+        userSelect: "none",
+        outline: "none",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 8,
+      }}
+    >
+      <div
+        style={{
+          width: 80,
+          height: 50,
+          ...border.style,
+        }}
+      />
+      <span>{border.name}</span>
+      <small style={{ fontSize: 12, color: "#555" }}>{border.description}</small>
+      <small style={{ fontSize: 14, fontWeight: "600", marginTop: 4 }}>
+        {border.cost === 0 ? "무료" : `${border.cost}점`}
+      </small>
+    </button>
+  );
+})}
+
           </div>
           <div style={{ marginTop: 16, display: "flex", gap: 12 }}>
             <button

@@ -49,3 +49,54 @@
   box-shadow: 0 0 8px #9333ea;
   animation: sparkle 3s ease-in-out infinite;
 }
+@keyframes glitch {
+  0% {
+    box-shadow: 2px 0 #00fff7, -2px 0 #ff005a;
+  }
+  50% {
+    box-shadow: -2px 0 #00fff7, 2px 0 #ff005a;
+  }
+  100% {
+    box-shadow: 2px 0 #00fff7, -2px 0 #ff005a;
+  }
+}
+@keyframes glitch {
+  0% {
+    clip: rect(44px, 9999px, 56px, 0);
+    transform: translate(0);
+  }
+  20% {
+    clip: rect(32px, 9999px, 76px, 0);
+    transform: translate(-2px, -2px);
+  }
+  40% {
+    clip: rect(24px, 9999px, 56px, 0);
+    transform: translate(2px, 2px);
+  }
+  60% {
+    clip: rect(44px, 9999px, 56px, 0);
+    transform: translate(-2px, 2px);
+  }
+  80% {
+    clip: rect(32px, 9999px, 76px, 0);
+    transform: translate(2px, -2px);
+  }
+  100% {
+    clip: rect(44px, 9999px, 56px, 0);
+    transform: translate(0);
+  }
+}
+@keyframes galaxyGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 10px 2px #7f00ff,
+      0 0 20px 4px #e100ff,
+      0 0 30px 6px #00ffff;
+  }
+  50% {
+    box-shadow:
+      0 0 20px 4px #7f00ff,
+      0 0 30px 8px #e100ff,
+      0 0 40px 10px #00ffff;
+  }
+}
