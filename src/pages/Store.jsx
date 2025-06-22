@@ -404,14 +404,98 @@ const Store = () => {
   if (!user) return <p className="text-center text-red-500">로그인이 필요합니다.</p>;
 
   return (
-    <div className="max-w-2xl mx-auto p-6">
-      <h1 className="text-3xl font-extrabold mb-6 text-indigo-700 select-none">🎁 마일리지 상점</h1>
-      <p className="text-right mb-2 text-sm text-gray-600 select-none">
-        환영합니다, <span className="font-semibold">{userName}</span>
-      </p>
-      <p className="text-right mb-8 text-lg font-semibold select-none">
-        현재 마일리지: <span className="text-indigo-600">{mileage}점</span>
-      </p>
+    <div
+  style={{
+    maxWidth: "720px",
+    margin: "40px auto",
+    padding: "32px",
+    borderRadius: "24px",
+    border: "1px solid rgba(255,255,255,0.2)",
+    backdropFilter: "blur(12px)",
+    background: "linear-gradient(145deg, rgba(255,255,255,0.6), rgba(237,242,255,0.8))",
+    boxShadow: "0 20px 60px rgba(0, 0, 0, 0.15)",
+    position: "relative",
+    overflow: "hidden",
+    fontFamily: "'Segoe UI', sans-serif",
+  }}
+>
+  {/* 퍼지는 빛 효과 */}
+  <div
+    style={{
+      position: "absolute",
+      top: "-40px",
+      left: "-40px",
+      width: "160px",
+      height: "160px",
+      backgroundColor: "#818cf8",
+      borderRadius: "9999px",
+      opacity: 0.3,
+      filter: "blur(48px)",
+      animation: "pingSlow 3s infinite",
+    }}
+  />
+  <div
+    style={{
+      position: "absolute",
+      bottom: "-40px",
+      right: "-40px",
+      width: "160px",
+      height: "160px",
+      backgroundColor: "#f9a8d4",
+      borderRadius: "9999px",
+      opacity: 0.2,
+      filter: "blur(48px)",
+      animation: "pingSlow 3s infinite",
+    }}
+  />
+
+  <h1
+    style={{
+      fontSize: "32px",
+      fontWeight: "800",
+      color: "#4338ca",
+      marginBottom: "16px",
+      display: "flex",
+      alignItems: "center",
+      gap: "12px",
+      userSelect: "none",
+      textShadow: "0 2px 6px rgba(0,0,0,0.1)",
+    }}
+  >
+    🎁 마일리지 상점
+    <span
+      style={{
+        fontSize: "12px",
+        background: "linear-gradient(to right, #facc15, #f472b6)",
+        color: "#fff",
+        padding: "4px 8px",
+        borderRadius: "999px",
+        animation: "pulse 2s infinite",
+      }}
+    >
+      NEW
+    </span>
+  </h1>
+
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "space-between",
+      flexWrap: "wrap",
+      gap: "8px",
+      fontSize: "16px",
+      color: "#374151",
+    }}
+  >
+    <p style={{ margin: 0, fontWeight: 500, userSelect: "none" }}>
+      👋 환영합니다, <span style={{ fontWeight: 700, color: "#1e3a8a" }}>{userName}</span> 님
+    </p>
+    <p style={{ margin: 0, fontWeight: 600, color: "#4f46e5", fontSize: "18px", userSelect: "none" }}>
+      💰 현재 마일리지: <span style={{ fontWeight: 800 }}>{mileage}점</span>
+    </p>
+  </div>
+
+
 
       {/* 칭호 선택 */}
       {isChoosingTitle && (
@@ -691,7 +775,7 @@ const Store = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {items.map((item, index) => (
           <div key={item.id} className="product-card" role="region" aria-label={item.name}>
-            {index < 2 && <div className="new-badge">NEW</div>}
+            {index >= 2 && <div className="new-badge">NEW</div>}
             <h2 className="text-2xl font-bold mb-2 text-indigo-600">{item.name}</h2>
             <p className="text-gray-500 mb-6 min-h-[3rem]">{item.description}</p>
 
