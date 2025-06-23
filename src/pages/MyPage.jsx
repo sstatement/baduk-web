@@ -191,8 +191,8 @@ const MyPage = ({ userId }) => {
             <p><span style={styles.label}>레이팅:</span> {myMatch.rating} ({rank})
               {rankImgSrc && <img src={rankImgSrc} alt={`${rank} 랭크`} style={styles.img} />}
             </p>
-            <p><span style={styles.label}>승:</span> {myMatch.wins}</p>
-            <p><span style={styles.label}>패:</span> {myMatch.losses}</p>
+            <p><span style={styles.label}>승:</span> {myMatch.win}</p>
+            <p><span style={styles.label}>패:</span> {myMatch.loss}</p>
             <p><span style={styles.label}>승률:</span> {(myMatch.winRate * 100).toFixed(2)}%</p>
             <p><span style={styles.label}>기력:</span> {getStaminaRank(myMatch.stamina)}</p>
           </>

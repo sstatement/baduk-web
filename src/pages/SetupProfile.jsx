@@ -76,7 +76,7 @@ const SetupProfile = () => {
       );
 
       const staminaValue = staminaMap[rank] ?? staminaMap["1단"];
-      const matchAppRef = doc(db, "matchApplications", name);
+      const matchAppRef = doc(db, "matchApplications",`${name}_${user.uid}`);
       await setDoc(matchAppRef, {
         playerName: name,
         stamina: staminaValue,

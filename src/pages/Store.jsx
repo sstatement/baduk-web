@@ -58,6 +58,82 @@ const colors = [
 
   // 다크 퍼플 투명도
   "rgba(128, 0, 128, 0.8)",
+  // 딥 블루 + 민트 (밤하늘 느낌)
+  "linear-gradient(to right, #0f2027, #203a43, #2c5364)",
+
+  // 선셋 오렌지 + 퍼플
+  "linear-gradient(to right, #ff9966, #ff5e62)",
+
+  // 네온 핑크 + 블루 (하이틴 감성)
+  "linear-gradient(to right, #f953c6, #b91d73)",
+
+  // 차분한 라벤더 + 민트
+  "linear-gradient(to right, #d4fc79, #96e6a1)",
+
+  // 블랙 + 딥 레드 그라데이션 (고급스러운 느낌)
+  "linear-gradient(to right, #000000, #434343)",
+
+  // 에메랄드 + 딥 블루 (바다 느낌)
+  "linear-gradient(120deg, #89f7fe, #66a6ff)",
+
+  // 트로피컬 오렌지 + 민트
+  "linear-gradient(to right, #f6d365, #fda085)",
+
+  // 그레이톤 메탈릭 느낌
+  "linear-gradient(to right, #bdc3c7, #2c3e50)",
+
+  // 형광 블루 투명
+  "rgba(0, 255, 255, 0.7)",
+
+  // 초록-블루 계열의 고급 그라데이션
+  "linear-gradient(to right, #1D976C, #93F9B9)",
+
+  // 아이스 블루 + 흰색 계열
+  "linear-gradient(to right, #83a4d4, #b6fbff)",
+
+  // 다크 네이비 + 보라빛
+  "linear-gradient(135deg, #1f1c2c, #928dab)",
+   // 코발트 + 바이올렛 + 인디고 (사이버 감성)
+  "linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b)",
+
+  // 유리처럼 맑은 민트 + 아이스 블루 (글래스 느낌)
+  "linear-gradient(to right, #74ebd5, #ACB6E5)",
+
+  // 핑크 + 보라 + 블루 (디지털 감성)
+  "linear-gradient(to right, #fc466b, #3f5efb)",
+
+  // 우주 느낌: 딥 네이비 + 블루 + 퍼플
+  "linear-gradient(120deg, #2c3e50, #4ca1af)",
+
+  // 하늘+라일락+인디고 (몽환적인 색감)
+  "linear-gradient(to right, #c2e9fb, #a1c4fd, #d4fc79)",
+
+  // 고급 메탈릭 (티타늄+블루 계열)
+  "linear-gradient(to right, #232526, #414345)",
+
+  // 네온 블루 + 네온 퍼플 (완전 강한 대비)
+  "linear-gradient(135deg, #00c6ff, #0072ff)",
+
+  // 검정+금색+갈색 (럭셔리 느낌)
+  "linear-gradient(to right, #1e130c, #9a8478)",
+
+  // 청록+옅은 옐로우 + 은은한 회색 (세련된 초현대 느낌)
+  "linear-gradient(to right, #fdfbfb, #ebedee, #a1ffce)",
+
+  // 무채색 그라데이션 (블랙 → 화이트 → 그레이)
+  "linear-gradient(90deg, #000000, #434343, #ffffff)",
+
+  // 오팔빛 느낌의 세련된 파스텔 계열
+  "linear-gradient(to right, #fdfcfb, #e2d1c3)",
+
+  // 청록 → 네이비 → 퍼플 (수중+밤하늘 느낌)
+  "linear-gradient(to right, #00c9ff, #92fe9d)",
+
+  // 초록 → 노랑 → 분홍 → 보라 (레인보우 분위기)
+  "linear-gradient(135deg, #f6ff00, #00ff87, #ff00f7)",
+
+  // 유리조각 느낌의 회색+은빛 블루
+  "linear-gradient(135deg, #e0eafc, #cfdef3)",
 ];
 
 

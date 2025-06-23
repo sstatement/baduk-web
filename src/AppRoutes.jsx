@@ -38,7 +38,7 @@ import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import SGFFileViewer from "./components/BadukBoard/SGFFileViewer";
-
+import HallOfFame from './pages/league/HallOfFame';
 
 import "./App.css";
 
@@ -169,6 +169,7 @@ const AppRoutes = () => {
         <Route path="/league/history" element={<History />} />
         <Route path="/league/analysis" element={<Analysis />} />
         <Route path="/league/apply" element={<Apply />} />
+        <Route path="/league/hall-of-fame" element={<HallOfFame />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/club/intro" element={<ClubIntro />} />

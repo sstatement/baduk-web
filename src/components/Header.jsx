@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import bannerImg from "../images/baduk-banner.jpg"; // 배너 이미지 불러오기
+import bannerImg from "../images/banner.jpg"; // 배너 이미지 불러오기
 
 const Header = () => {
   const navigate = useNavigate();
