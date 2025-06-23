@@ -118,7 +118,44 @@ const borderStylesMap = {
   position: "relative",
   animation: "galaxyGlow 4s linear infinite",
   color: "white",
-}
+},
+hologram_border: {
+  border: "2px solid transparent",
+  borderRadius: "12px",
+  backgroundImage: "linear-gradient(135deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb)",
+  backgroundClip: "padding-box",
+  boxShadow: "0 0 12px rgba(255, 255, 255, 0.5)",
+  animation: "hologramShift 6s infinite linear",
+},
+cyberpunk_border: {
+  border: "2px solid #ff005a",
+  boxShadow: "0 0 10px #0ff, inset 0 0 5px #ff005a",
+  borderRadius: "10px",
+  backgroundColor: "#111",
+  color: "#0ff",
+  animation: "neonPulse 2s infinite ease-in-out",
+},
+kuromi_border: {
+  border: "2px dashed #6b21a8",
+  boxShadow: "0 0 10px #9333ea",
+  borderRadius: "14px",
+  backgroundColor: "#1f1b24",
+  color: "#f3e8ff",
+},
+cozy_border: {
+  border: "3px solid #d2b48c",
+  backgroundColor: "#fdf6ec",
+  borderRadius: "10px",
+  boxShadow: "0 0 8px #cbbeb5",
+},
+ai_border: {
+  border: "2px solid #10a37f",
+  borderRadius: "10px",
+  boxShadow: "0 0 6px #10a37f88, 0 0 12px #7de2d1",
+  background: "linear-gradient(135deg, #0f766e, #14b8a6, #67e8f9)",
+  color: "#fff",
+},
+
 };
 
 

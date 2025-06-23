@@ -65,8 +65,7 @@ const Nav = () => {
         <li><Link to="/quest" className="nav-button">주간 퀘스트</Link></li>
         <li><Link to="/boss" className="nav-button">주간 보스</Link></li>
         <li><Link to="/store" className="nav-button">마일리지 상점</Link></li>
-        <li><Link to="/badukboard" className="nav-button">바둑 대국</Link></li>    
-        
+        <li><Link to="/badukboard" className="nav-button">바둑 대국</Link></li>     
         <li
           className="relative"
           onMouseEnter={() => setIsLeagueDropdownOpen(true)}

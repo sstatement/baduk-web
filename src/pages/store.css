@@ -100,3 +100,18 @@
       0 0 40px 10px #00ffff;
   }
 }
+@keyframes hologramShift {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+@keyframes neonPulse {
+  0%, 100% { box-shadow: 0 0 8px #0ff; }
+  50% { box-shadow: 0 0 16px #0ff; }
+}
+
+@keyframes galaxyGlow {
+  0% { box-shadow: 0 0 10px #7f00ff; }
+  50% { box-shadow: 0 0 30px #00ffff; }
+  100% { box-shadow: 0 0 10px #7f00ff; }
+}

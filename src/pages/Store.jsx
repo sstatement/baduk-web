@@ -232,6 +232,76 @@ const borders = [
   },
   cost: 700,
 },
+{
+  id: "hologram_border",
+  name: "🪩 홀로그램 테두리",
+  description: "빛에 따라 색이 변하는 오로라 느낌의 테두리",
+  style: {
+    border: "2px solid transparent",
+    borderRadius: "12px",
+    backgroundImage: "linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4, #a18cd1, #fbc2eb)",
+    backgroundClip: "padding-box",
+    boxShadow: "0 0 12px rgba(255, 255, 255, 0.5)",
+    animation: "hologramShift 6s infinite linear",
+  },
+  cost: 600,
+},
+{
+  id: "cyberpunk_border",
+  name: "🕶️ 사이버펑크 테두리",
+  description: "디지털 세계에서 튀어나온 듯한 강렬한 컬러 조합",
+  style: {
+    border: "2px solid #ff005a",
+    boxShadow: "0 0 10px #0ff, inset 0 0 5px #ff005a",
+    borderRadius: "10px",
+    backgroundColor: "#111",
+    color: "#0ff",
+    animation: "neonPulse 2s infinite ease-in-out",
+  },
+  cost: 650,
+},
+{
+  id: "kuromi_border",
+  name: "💜 쿠로미 테두리",
+  description: "보라색과 검정색의 귀여운 반항 스타일",
+  style: {
+    border: "2px dashed #6b21a8",
+    boxShadow: "0 0 10px #9333ea",
+    borderRadius: "14px",
+    backgroundColor: "#1f1b24",
+    color: "#f3e8ff",
+  },
+  cost: 400,
+},
+{
+  id: "cozy_border",
+  name: "☕ 코지 무드 테두리",
+  description: "따뜻한 브라운톤과 크림 배경으로 아늑한 분위기",
+  style: {
+    border: "3px solid #d2b48c",
+    backgroundColor: "#fdf6ec",
+    borderRadius: "10px",
+    boxShadow: "0 0 8px #cbbeb5",
+  },
+  cost: 300,
+},{
+  id: "ai_border",
+  name: "🤖 AI 테두리",
+  description: "디지털 신세계, ChatGPT 스타일의 프리즘 테두리",
+  style: {
+    border: "2px solid #10a37f",
+    borderRadius: "10px",
+    boxShadow: "0 0 6px #10a37f88, 0 0 12px #7de2d1",
+    background: "linear-gradient(135deg, #0f766e, #14b8a6, #67e8f9)",
+    color: "#fff",
+  },
+  cost: 550,
+},
+
+
+
+
+
 ];
 
 

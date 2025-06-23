@@ -10,9 +10,14 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import { getPlayerELO, getMatchApplications } from '../../firebase';
+import { getMatchApplications } from '../../firebase';
+import { 
+  getFirestore, collection, query, where, getDocs 
+} from 'firebase/firestore';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+
+const db = getFirestore();  // Firebase Firestore 인스턴스
 
 const styles = {
   container: {
@@ -76,52 +81,130 @@ const styles = {
 const LeagueAnalysis = () => {
   const [playerName, setPlayerName] = useState('');
   const [opponentName, setOpponentName] = useState('');
-  const [eloHistory, setEloHistory] = useState([]);
+  const [eloHistory, setEloHistory] = useState({ labels: [], data: [] });
   const [winProbability, setWinProbability] = useState(null);
 
+  // Firestore 'matches' 컬렉션에서 선수 이름 포함된 approve 상태 경기 가져오기
+  const getMatchesByPlayer = async (player) => {
+    if (!player) return [];
+
+    try {
+      const matchesRef = collection(db, 'matches');
+      // status == 'approve' AND (winner == player OR loser == player)
+      // Firestore 쿼리는 OR 조건 직접 지원하지 않아 2개 쿼리 병합 필요
+      const qWinner = query(matchesRef, where('status', '==', 'approve'), where('winner', '==', player));
+      const qLoser = query(matchesRef, where('status', '==', 'approve'), where('loser', '==', player));
+
+      const [winnerSnap, loserSnap] = await Promise.all([getDocs(qWinner), getDocs(qLoser)]);
+      
+      const winnerMatches = winnerSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      const loserMatches = loserSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+      return [...winnerMatches, ...loserMatches];
+    } catch (error) {
+      console.error('getMatchesByPlayer error:', error);
+      return [];
+    }
+  };
+
+  // 선수 이름 입력 변경 시, matchApplications와 matches 합쳐서 ELO 변동 그래프 데이터 만들기
   useEffect(() => {
     const fetchEloHistory = async () => {
-      if (!playerName) return;
+      if (!playerName) {
+        setEloHistory({ labels: [], data: [] });
+        return;
+      }
 
-      const matches = await getMatchApplications(playerName);
-      let currentElo = await getPlayerELO(playerName);
-      let eloChanges = [];
-      let dates = [];
+      try {
+        // 1) 기존 matchApplications 데이터 가져오기
+        const applications = await getMatchApplications(playerName);
+        const filteredApps = applications.filter(
+          (m) => m.status === 'approve' && (m.winner === playerName || m.loser === playerName)
+        );
 
-      matches.forEach((match) => {
-        const matchDate = match.date
-          ? match.date instanceof Date
-            ? match.date
-            : match.date.toDate()
-          : null;
-        if (!matchDate) return;
+        // 2) Firestore matches 컬렉션에서 데이터 가져오기
+        const firestoreMatches = await getMatchesByPlayer(playerName);
 
-        const winner = match.winner;
-        let score = winner === playerName ? 1 : 0;
-        const opponentElo = match.opponentELO;
-        const kFactor = 32;
-        const expectedScore =
-          1 / (1 + Math.pow(10, (opponentElo - currentElo) / 400));
-        currentElo += kFactor * (score - expectedScore);
+        // 3) 둘 다 합치기
+        const combined = [...filteredApps, ...firestoreMatches];
 
-        eloChanges.push(Number(currentElo.toFixed(2)));
-        dates.push(matchDate.toLocaleDateString());
-      });
+        // 4) createdAt 혹은 date 필드 가져오기 (둘 중에 있는 걸로)
+        // firestoreMatches는 createdAt, applications는 date 일 수도 있음
+        const processed = combined
+          .map((match) => {
+            // createdAt 또는 date 둘 중 있는 걸로 변환
+            const createdAtRaw = match.createdAt || match.date;
+            const createdAt = createdAtRaw instanceof Date ? createdAtRaw : createdAtRaw?.toDate?.();
+            if (!createdAt) return null;
 
-      setEloHistory({ labels: dates, data: eloChanges });
+            // 선수 위치에 따른 ELO 값
+            let elo = null;
+            if (match.winner === playerName) elo = match.winnerELO || match.rating || null;
+            else if (match.loser === playerName) elo = match.loserELO || match.rating || null;
+
+            return {
+              createdAt,
+              elo,
+            };
+          })
+          .filter((item) => item !== null && item.elo !== null);
+
+        // 5) 날짜 오름차순 정렬
+        processed.sort((a, b) => a.createdAt - b.createdAt);
+
+        // 6) 날짜, ELO 분리
+        const labels = processed.map((p) => p.createdAt.toLocaleDateString());
+        const data = processed.map((p) => p.elo);
+
+        setEloHistory({ labels, data });
+      } catch (error) {
+        console.error('fetchEloHistory error:', error);
+        setEloHistory({ labels: [], data: [] });
+      }
     };
 
     fetchEloHistory();
   }, [playerName]);
 
+  // 예상 승률 계산 (기존 함수 재활용)
+  const getLatestRating = async (player) => {
+    if (!player) return null;
+
+    try {
+      // 기존 matchApplications 기반
+      const matches = await getMatchApplications(player);
+      const filtered = matches.filter((m) => m.playerName === player);
+      if (filtered.length === 0) return null;
+
+      filtered.sort((a, b) => {
+        const dateA = a.date instanceof Date ? a.date : a.date.toDate();
+        const dateB = b.date instanceof Date ? b.date : b.date.toDate();
+        return dateB - dateA;
+      });
+
+      return filtered[0].rating || null;
+    } catch (error) {
+      console.error('getLatestRating error:', error);
+      return null;
+    }
+  };
+
   const calculateWinProbability = async () => {
-    if (!playerName || !opponentName) return;
+    if (!playerName || !opponentName) {
+      alert('선수 이름과 상대방 이름을 모두 입력해주세요.');
+      return;
+    }
 
-    const playerElo = await getPlayerELO(playerName);
-    const opponentElo = await getPlayerELO(opponentName);
-    const expectedScore =
-      1 / (1 + Math.pow(10, (opponentElo - playerElo) / 400));
+    const playerRating = await getLatestRating(playerName);
+    const opponentRating = await getLatestRating(opponentName);
 
+    if (playerRating === null || opponentRating === null) {
+      alert('선수 또는 상대방의 최신 레이팅을 찾을 수 없습니다.');
+      setWinProbability(null);
+      return;
+    }
+
+    const expectedScore = 1 / (1 + Math.pow(10, (opponentRating - playerRating) / 400));
     setWinProbability((expectedScore * 100).toFixed(2));
   };
 
@@ -137,7 +220,7 @@ const LeagueAnalysis = () => {
         style={styles.input}
       />
 
-      {eloHistory.labels && eloHistory.data && (
+      {eloHistory.labels.length > 0 && eloHistory.data.length > 0 && (
         <div style={styles.chartWrapper}>
           <Line
             data={{
@@ -157,27 +240,15 @@ const LeagueAnalysis = () => {
             options={{
               responsive: true,
               plugins: {
-                legend: {
-                  position: 'top',
-                },
-                title: {
-                  display: false,
-                },
+                legend: { position: 'top' },
+                title: { display: false },
               },
               scales: {
-                x: {
-                  title: {
-                    display: true,
-                    text: '날짜',
-                  },
-                },
-                y: {
-                  min: 1000,
-                  max: 2000,
-                  title: {
-                    display: true,
-                    text: 'ELO 레이팅',
-                  },
+                x: { title: { display: true, text: '날짜' } },
+                y: { 
+                  title: { display: true, text: 'ELO' },
+                  min: Math.min(...eloHistory.data) - 50,
+                  max: Math.max(...eloHistory.data) + 50,
                 },
               },
             }}
@@ -198,9 +269,7 @@ const LeagueAnalysis = () => {
       </button>
 
       {winProbability !== null && (
-        <div style={styles.winRateBox}>
-          예상 승률: {winProbability}%
-        </div>
+        <div style={styles.winRateBox}>예상 승률: {winProbability}%</div>
       )}
     </div>
   );

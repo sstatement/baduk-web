@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../../firebase';
-import { collection, getDocs, query, orderBy } from 'firebase/firestore';
+import { collection, getDocs, query, orderBy, where } from 'firebase/firestore';
 
 const getRankImage = (rank) => {
   const size = 40;
@@ -94,7 +94,7 @@ const rankTextStyle = (color) => ({
 const getRowBackground = (index) => (index % 2 === 0 ? 'white' : '#f9fafb');
 
 const rankTableHeaderStyle = {
-  backgroundColor: '#1e293b', // 더 진한 배경
+  backgroundColor: '#1e293b',
   color: 'white',
   padding: '14px 20px',
   fontWeight: '700',
@@ -124,6 +124,10 @@ const Ranking = () => {
   const [players, setPlayers] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // 풀리그 대국 현황 상태
+  const [matchMatrix, setMatchMatrix] = useState({});
+  const [loadingMatrix, setLoadingMatrix] = useState(true);
+
   const fetchRankings = async () => {
     try {
       const applicationsRef = collection(db, 'matchApplications');
@@ -147,15 +151,62 @@ const Ranking = () => {
     }
   };
 
+  // 풀리그 대국 현황 불러오기
+  const fetchMatchMatrix = async (playerList) => {
+    try {
+      const matchesRef = collection(db, 'matches');
+      const q = query(matchesRef, where("status", "==", "approve"));
+      const querySnapshot = await getDocs(q);
+
+      // 선수 목록만 문자열 배열로 (playerName만)
+      const playerNames = playerList.map(p => p.playerName);
+
+      // 초기 매트릭스 생성
+      const matrix = {};
+      playerNames.forEach(rowP => {
+        matrix[rowP] = {};
+        playerNames.forEach(colP => {
+          matrix[rowP][colP] = rowP === colP ? "-" : "X";
+        });
+      });
+
+      // 대국 기록 반영
+      querySnapshot.docs.forEach(doc => {
+        const data = doc.data();
+        // 예시 필드명: playerA, playerB
+        const pA = data.playerA || data.winner || null;
+        const pB = data.playerB || data.loser || null;
+        if (pA && pB && matrix[pA] && matrix[pB]) {
+          matrix[pA][pB] = "O";
+          matrix[pB][pA] = "O"; // 양방향 표시
+        }
+      });
+
+      setMatchMatrix(matrix);
+      setLoadingMatrix(false);
+    } catch (error) {
+      console.error("Error fetching matches:", error);
+      setLoadingMatrix(false);
+    }
+  };
+
   useEffect(() => {
     fetchRankings();
   }, []);
+
+  // 선수 목록 불러온 후 매트릭스도 불러오기
+  useEffect(() => {
+    if (players.length > 0) {
+      fetchMatchMatrix(players);
+    }
+  }, [players]);
 
   if (loading) return <div style={{ textAlign: 'center', padding: '20px', color: '#6b7280' }}>로딩 중...</div>;
   if (!players.length) return <div style={{ textAlign: 'center', padding: '20px', color: '#6b7280' }}>선수 데이터가 없습니다.</div>;
 
   return (
     <div style={containerStyle}>
+      {/* 기존 리그 순위표 */}
       <h2 style={headerStyle}>리그 순위표</h2>
       <table style={tableStyle}>
         <thead>
@@ -205,6 +256,7 @@ const Ranking = () => {
         </tbody>
       </table>
 
+      {/* 랭크 기준표 */}
       <h2 style={headerStyle}>랭크 기준표</h2>
       <table style={tableStyle}>
         <thead>
@@ -257,8 +309,74 @@ const Ranking = () => {
           </tr>
         </tbody>
       </table>
-    </div>
-  );
+
+      {/* ——— 여기부터 추가 ——— */}
+
+      <h2 style={headerStyle}>풀리그 대국 현황</h2>
+      {loadingMatrix ? (
+        <div style={{ textAlign: 'center', padding: '20px', color: '#6b7280' }}>대국 현황 로딩 중...</div>
+      ) : (
+        <div style={{ overflowX: 'auto' }}>
+          <table style={{ borderCollapse: 'collapse', minWidth: '600px', width: '100%' }}>
+            <thead>
+              <tr>
+                <th style={{ ...thStyle, position: 'sticky', left: 0, backgroundColor: '#374151', zIndex: 2 }}>선수명</th>
+                {players.map(p => (
+                  <th
+                    key={p.id}
+                    style={{
+                      ...thStyle,
+                      minWidth: 70,
+                      userSelect: 'none',
+                    }}
+                    title={p.playerName}
+                  >
+                    {p.playerName}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {players.map(rowPlayer => (
+                <tr key={rowPlayer.id} style={{ backgroundColor: getRowBackground(players.indexOf
+(rowPlayer)) }}>
+<td
+style={{
+...tdStyle,
+fontWeight: '600',
+position: 'sticky',
+left: 0,
+backgroundColor: getRowBackground(players.indexOf(rowPlayer)),
+zIndex: 1,
+}}
+>
+{rowPlayer.playerName}
+</td>
+{players.map(colPlayer => {
+const val = matchMatrix[rowPlayer.playerName]?.[colPlayer.playerName] || "X";
+return (
+<td
+key={colPlayer.id}
+style={{
+...tdStyle,
+fontWeight: val === "O" ? '700' : 'normal',
+color: val === "O" ? '#2563eb' : '#9ca3af',
+userSelect: 'none',
+}}
+title={val === "O" ? "대국 완료" : rowPlayer.playerName === colPlayer.playerName ? "-" : "대국 미완료"}
+>
+{val}
+</td>
+);
+})}
+</tr>
+))}
+</tbody>
+</table>
+</div>
+)}
+</div>
+);
 };
 
 export default Ranking;

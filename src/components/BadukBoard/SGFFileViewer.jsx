@@ -1,337 +1,351 @@
-import React, { useState, useEffect, useRef, memo } from "react";
+import React, { useState, useEffect, useRef } from 'react';
 
-// 좌표 변환 함수
-function sgfCoordToXY(coord) {
-  if (!coord || coord.length !== 2) return null;
-  const a = "a".charCodeAt(0);
-  return {
-    x: coord.charCodeAt(0) - a,
-    y: coord.charCodeAt(1) - a,
-  };
+const boardSize = 19;
+const boardPixelSize = 620;
+const padding = 20;
+const cellSize = (boardPixelSize - 2 * padding) / (boardSize - 1);
+
+const sgfFiles = [
+  '날일자 굳힘.sgf',
+  'example2.sgf',
+  'lee_sedol_vs_alphago.sgf',
+];
+
+// SGF 노드 구조
+class SGFNode {
+  constructor(move = null, parent = null) {
+    this.move = move; // {x, y, color} or null (root)
+    this.parent = parent;
+    this.children = [];
+    this.label = ''; // 분기 라벨 A, B, C...
+  }
 }
 
-const BOARD_SIZE = 19;
-const BOARD_PIXEL_SIZE = 600;
-const PADDING = 20;
-const CELL_SIZE = (BOARD_PIXEL_SIZE - 2 * PADDING) / (BOARD_SIZE - 1);
-
-// SGF 파서 (분기 포함)
-function parseSGF(sgf) {
+function parseSGFtoTree(sgf) {
   let pos = 0;
 
-  function skipWhitespace() {
-    while (pos < sgf.length && /\s/.test(sgf[pos])) pos++;
-  }
+  // 공백 등 넘기기
+  while (pos < sgf.length && sgf[pos] !== '(') pos++;
+  if (pos >= sgf.length) return null;
 
-  function parseNode() {
-    skipWhitespace();
-    if (sgf[pos] !== ";") return null;
-    pos++;
-
-    let node = { move: null, children: [] };
+  function parseNode(parent = null) {
+    let node = new SGFNode(null, parent);
     while (pos < sgf.length) {
-      skipWhitespace();
-      if (";()".includes(sgf[pos])) break;
-
-      let propName = "";
-      while (/[A-Z]/.test(sgf[pos])) {
-        propName += sgf[pos++];
-      }
-      skipWhitespace();
-
-      let values = [];
-      while (sgf[pos] === "[") {
+      if (sgf[pos] === ';') {
         pos++;
-        let val = "";
-        while (sgf[pos] !== "]") {
-          val += sgf[pos] === "\\" ? sgf[++pos] : sgf[pos];
-          pos++;
-        }
-        pos++; // skip ']'
-        values.push(val);
-        skipWhitespace();
-      }
+        // 여러 속성/수 파싱
+        while (true) {
+          // 착수 파싱
+          const moveMatch = /^[BW]\[[a-s]{2}\]/.exec(sgf.slice(pos));
+          if (moveMatch) {
+            const token = moveMatch[0];
+            const color = token[0] === 'B' ? 'black' : 'white';
+            const coord = token.slice(2, 4);
+            const x = coord.charCodeAt(0) - 97;
+            const y = coord.charCodeAt(1) - 97;
 
-      if ((propName === "B" || propName === "W") && values.length > 0) {
-        node.move = {
-          color: propName === "B" ? "black" : "white",
-          point: values[0],
-        };
+            const childNode = new SGFNode({ x, y, color }, node);
+            node.children.push(childNode);
+            node = childNode; // move down
+            pos += token.length;
+          } else {
+            // 기타 속성 (C[], etc)
+            const propMatch = /^[A-Z]+\[[^\]]*\]/.exec(sgf.slice(pos));
+            if (propMatch) {
+              pos += propMatch[0].length;
+            } else {
+              break;
+            }
+          }
+        }
+      } else if (sgf[pos] === '(') {
+        pos++;
+        // 분기 트리 파싱
+        const branchNode = parseNode(node);
+        if (branchNode) {
+          branchNode.parent = node;
+          node.children.push(branchNode);
+        }
+      } else if (sgf[pos] === ')') {
+        pos++;
+        return node;
+      } else {
+        pos++;
       }
     }
     return node;
   }
 
-  function parseSequence() {
-    const nodes = [];
-    while (pos < sgf.length) {
-      skipWhitespace();
-      if (sgf[pos] === ";") {
-        const node = parseNode();
-        if (node) nodes.push(node);
-      } else if (sgf[pos] === "(") {
-        pos++;
-        const variation = parseSequence();
-        if (nodes.length === 0) nodes.push(...variation);
-        else nodes[nodes.length - 1].children.push(...variation);
-      } else if (sgf[pos] === ")") {
-        pos++;
-        break;
-      } else {
-        pos++;
-      }
+  // 최상위 트리 파싱
+  if (sgf[pos] === '(') {
+    pos++;
+    const root = parseNode(null);
+    // 라벨링 분기
+    function labelBranches(node) {
+      node.children.forEach((child, i) => {
+        child.label = String.fromCharCode(65 + i);
+        labelBranches(child);
+      });
     }
-    return nodes;
+    labelBranches(root);
+    return root;
   }
-
-  return parseSequence();
+  return null;
 }
 
-function getNodeByPath(tree, path) {
-  let nodes = tree;
-  let node = null;
-  for (const idx of path) {
-    if (!nodes || idx >= nodes.length) return null;
-    node = nodes[idx];
-    nodes = node.children;
+
+
+// 현재 노드까지의 수 배열 (루트부터 현재 노드까지)
+function getPathToRoot(node) {
+  const moves = [];
+  let cur = node;
+  while (cur && cur.move) {
+    moves.push(cur.move);
+    cur = cur.parent;
   }
-  return node;
+  return moves.reverse();
 }
 
-// ✅ 현재 경로부터 연속되는 수까지 모두 누적해서 돌 생성
-function collectAllStonesFrom(tree, path) {
-  const stones = [];
-
-  let nodes = tree;
-  for (const idx of path) {
-    const node = nodes[idx];
-    if (node?.move) {
-      const xy = sgfCoordToXY(node.move.point);
-      if (xy) stones.push({ ...xy, color: node.move.color });
-    }
-    nodes = node?.children ?? [];
-  }
-
-  let node = getNodeByPath(tree, path);
-  while (node?.children?.length === 1) {
-    node = node.children[0];
-    if (node.move) {
-      const xy = sgfCoordToXY(node.move.point);
-      if (xy) stones.push({ ...xy, color: node.move.color });
-    }
-  }
-
-  return stones;
-}
-
-const SGFTreeNode = memo(function SGFTreeNode({
-  node,
-  path,
-  currentPath,
-  onSelectPath,
-  depth = 0,
-}) {
-  const [collapsed, setCollapsed] = useState(false);
-  if (!node) return null;
-
-  const isSelected =
-    path.length === currentPath.length &&
-    path.every((v, i) => v === currentPath[i]);
-
-  const label = node.move
-    ? `${node.move.color === "black" ? "⚫" : "⚪"} ${node.move.point}`
-    : "root";
-
-  return (
-    <div style={{ marginLeft: depth * 16 }}>
-      <div
-        onClick={() => {
-          onSelectPath(path);
-          setCollapsed(!collapsed);
-        }}
-        style={{
-          backgroundColor: isSelected ? "#bde4ff" : "transparent",
-          padding: "2px 6px",
-          borderRadius: 4,
-          cursor: "pointer",
-          display: "flex",
-          gap: 6,
-        }}
-      >
-        {node.children.length > 0 && (
-          <span>{collapsed ? "[+]" : "[-]"}</span>
-        )}
-        <span>{label}</span>
-      </div>
-      {!collapsed &&
-        node.children.map((child, i) => (
-          <SGFTreeNode
-            key={i}
-            node={child}
-            path={[...path, i]}
-            currentPath={currentPath}
-            onSelectPath={onSelectPath}
-            depth={depth + 1}
-          />
-        ))}
-    </div>
-  );
-});
-
-export default function SGFViewer() {
+const SGFFileViewer = () => {
   const canvasRef = useRef(null);
-  const [sgfText, setSgfText] = useState("");
-  const [sgfTree, setSgfTree] = useState([]);
-  const [currentPath, setCurrentPath] = useState([0]);
+  const [sgfRoot, setSgfRoot] = useState(null);
+  const [currentNode, setCurrentNode] = useState(null);
+  const [playing, setPlaying] = useState(false);
+  const timerRef = useRef(null);
 
-  const onFileChange = (e) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = () => setSgfText(reader.result);
-    reader.readAsText(file, "utf-8");
+  // SGF 파일 불러오기 & 트리 파싱
+  const handlePreloadedSGF = async (filename) => {
+    try {
+      const encodedName = encodeURIComponent(filename);
+      const res = await fetch(`/sgf/${encodedName}`);
+      if (!res.ok) throw new Error('SGF 파일 로드 실패');
+      const text = await res.text();
+      const root = parseSGFtoTree(text);
+      if (root && root.children.length > 0) {
+  setSgfRoot(root);
+  setCurrentNode(root.children[0]);
+} else {
+  setSgfRoot(root);
+  setCurrentNode(root);
+}
+
+      setPlaying(false);
+    } catch (err) {
+      alert(err.message);
+      setSgfRoot(null);
+      setCurrentNode(null);
+      setPlaying(false);
+    }
   };
 
+  // 자동재생 (트리 따라가기)
   useEffect(() => {
-    if (!sgfText) return;
-    try {
-      const tree = parseSGF(sgfText);
-      setSgfTree(tree);
-      setCurrentPath([0]);
-    } catch (e) {
-      console.error("SGF 파싱 실패", e);
+    if (playing && currentNode) {
+      timerRef.current = setInterval(() => {
+        if (currentNode.children.length > 0) {
+          setCurrentNode(currentNode.children[0]);
+        } else {
+          // 다음 형제 노드 찾기 (재귀)
+          const next = findNextSibling(currentNode);
+          if (next) {
+            setCurrentNode(next);
+          } else {
+            setPlaying(false);
+            clearInterval(timerRef.current);
+          }
+        }
+      }, 800);
+    } else {
+      clearInterval(timerRef.current);
     }
-  }, [sgfText]);
+    return () => clearInterval(timerRef.current);
+  }, [playing, currentNode]);
 
-  const currentNode = getNodeByPath(sgfTree, currentPath);
-  const nextNodes = currentNode?.children ?? [];
+  // 다음 형제 노드 찾기 함수
+  function findNextSibling(node) {
+  if (!node.parent) return null;
+  const siblings = node.parent.children;
+  const idx = siblings.indexOf(node);
+  if (idx === -1) return null;
+  if (idx + 1 < siblings.length) return siblings[idx + 1];
+  return findNextSibling(node.parent);
+}
 
-  const stones = collectAllStonesFrom(sgfTree, currentPath);
 
+  // 바둑판 그리기
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    ctx.clearRect(0, 0, BOARD_PIXEL_SIZE, BOARD_PIXEL_SIZE);
+    if (!canvas || !currentNode) return;
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = "#deb887";
-    ctx.fillRect(0, 0, BOARD_PIXEL_SIZE, BOARD_PIXEL_SIZE);
+    // 배경
+    ctx.fillStyle = '#f4deb3';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    ctx.strokeStyle = "#000";
-    for (let i = 0; i < BOARD_SIZE; i++) {
-      const pos = PADDING + i * CELL_SIZE;
+    // 격자 그리기
+    ctx.strokeStyle = '#000';
+    ctx.lineWidth = 1;
+    for (let i = 0; i < boardSize; i++) {
+      const pos = padding + i * cellSize;
       ctx.beginPath();
-      ctx.moveTo(PADDING, pos);
-      ctx.lineTo(BOARD_PIXEL_SIZE - PADDING, pos);
+      ctx.moveTo(padding, pos);
+      ctx.lineTo(boardPixelSize - padding, pos);
       ctx.stroke();
 
       ctx.beginPath();
-      ctx.moveTo(pos, PADDING);
-      ctx.lineTo(pos, BOARD_PIXEL_SIZE - PADDING);
+      ctx.moveTo(pos, padding);
+      ctx.lineTo(pos, boardPixelSize - padding);
       ctx.stroke();
     }
 
-    const star = [3, 9, 15];
-    ctx.fillStyle = "#000";
-    star.forEach((x) =>
-      star.forEach((y) => {
+    // 호선 표시
+    const hoshi = [3, 9, 15];
+    hoshi.forEach((x) => {
+      hoshi.forEach((y) => {
         ctx.beginPath();
-        ctx.arc(PADDING + x * CELL_SIZE, PADDING + y * CELL_SIZE, 4, 0, 2 * Math.PI);
+        ctx.arc(padding + x * cellSize, padding + y * cellSize, 4, 0, 2 * Math.PI);
+        ctx.fillStyle = 'black';
         ctx.fill();
-      })
-    );
+      });
+    });
 
-    stones.forEach(({ x, y, color }, i) => {
-      const px = PADDING + x * CELL_SIZE;
-      const py = PADDING + y * CELL_SIZE;
+    // 현재 노드까지 착수 기록 그리기
+    const history = getPathToRoot(currentNode);
+    history.forEach((move, i) => {
+      const px = padding + move.x * cellSize;
+      const py = padding + move.y * cellSize;
 
+      // 돌 그리기
       ctx.beginPath();
-      ctx.arc(px + 1, py + 1, CELL_SIZE / 2.3, 0, 2 * Math.PI);
-      ctx.fillStyle = "rgba(0,0,0,0.2)";
-      ctx.fill();
-
-      ctx.beginPath();
-      ctx.arc(px, py, CELL_SIZE / 2.5, 0, 2 * Math.PI);
-      ctx.fillStyle = color === "black" ? "#000" : "#fff";
-      ctx.shadowBlur = 5;
-      ctx.shadowColor = "rgba(0,0,0,0.5)";
+      ctx.arc(px, py, cellSize / 2.3, 0, 2 * Math.PI);
+      ctx.fillStyle = move.color === 'black' ? '#000' : '#fff';
+      ctx.shadowColor = 'rgba(0,0,0,0.5)';
+      ctx.shadowBlur = 4;
       ctx.fill();
       ctx.shadowBlur = 0;
-      ctx.strokeStyle = "#000";
-      ctx.stroke();
 
-      ctx.fillStyle = color === "black" ? "#fff" : "#000";
-      ctx.font = `${CELL_SIZE / 3}px Arial`;
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
+      // 번호 표시
+      ctx.fillStyle = move.color === 'black' ? '#fff' : '#000';
+      ctx.font = '12px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
       ctx.fillText(i + 1, px, py);
     });
-  }, [stones]);
 
-  function goNext(idx = 0) {
-    if (!currentNode || idx >= nextNodes.length) return;
-    setCurrentPath([...currentPath, idx]);
-  }
+    // 분기 표시 (현재 노드의 자식들 첫 수에 A,B,C...)
+    if (currentNode.children.length > 1) {
+      currentNode.children.forEach((child) => {
+        if (child.move) {
+          const px = padding + child.move.x * cellSize;
+          const py = padding + child.move.y * cellSize;
+          ctx.fillStyle = 'red';
+          ctx.font = 'bold 14px sans-serif';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(child.label, px, py - 15);
+        }
+      });
+    }
+  }, [currentNode]);
 
-  function goBack() {
-    if (currentPath.length > 1) setCurrentPath(currentPath.slice(0, -1));
-  }
+  // 이전 수 이동
+  const prevNode = () => {
+    if (currentNode && currentNode.parent) setCurrentNode(currentNode.parent);
+  };
+
+  // 다음 수 이동 (첫 번째 자식)
+  const nextNode = () => {
+    if (currentNode && currentNode.children.length > 0) {
+      setCurrentNode(currentNode.children[0]);
+    }
+  };
+
+  // 분기 선택
+  const selectBranch = (idx) => {
+    if (currentNode && currentNode.children[idx]) {
+      setCurrentNode(currentNode.children[idx]);
+    }
+  };
+
+  // 처음으로 이동
+  const toStart = () => {
+    if (sgfRoot && sgfRoot.children.length > 0) {
+      setCurrentNode(sgfRoot.children[0]);
+      setPlaying(false);
+    }
+  };
 
   return (
-    <div style={{ display: "flex", gap: 16 }}>
-      <div>
-        <h2>SGF 뷰어</h2>
-        <input type="file" accept=".sgf,.txt" onChange={onFileChange} />
-        <canvas
-          ref={canvasRef}
-          width={BOARD_PIXEL_SIZE}
-          height={BOARD_PIXEL_SIZE}
-          style={{ border: "3px solid black", marginTop: 10 }}
-        />
-        <div style={{ marginTop: 10 }}>
-          <button onClick={goBack} disabled={currentPath.length <= 1}>
-            이전 수
-          </button>
-          {nextNodes.length === 1 && (
-            <button onClick={() => goNext(0)}>다음 수</button>
-          )}
-        </div>
-        {nextNodes.length > 1 && (
-          <div style={{ marginTop: 10 }}>
-            분기 선택:{" "}
-            {nextNodes.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => goNext(i)}
-                style={{ marginRight: 8 }}
-              >
-                {i + 1}
-              </button>
-            ))}
-          </div>
-        )}
-      </div>
-      <div
-        style={{
-          width: 300,
-          maxHeight: BOARD_PIXEL_SIZE,
-          overflowY: "auto",
-          background: "#f0f0f0",
-          padding: 8,
-          borderRadius: 6,
-          border: "1px solid #ccc",
+    <div className="p-4 flex flex-col items-center">
+      <h2 className="text-2xl font-bold mb-4">📖 SGF 분기 지원 기보 뷰어</h2>
+
+      <select
+        onChange={(e) => {
+          if (e.target.value) handlePreloadedSGF(e.target.value);
+          else {
+            setSgfRoot(null);
+            setCurrentNode(null);
+            setPlaying(false);
+          }
         }}
+        className="mb-4 px-3 py-2 border border-gray-400 rounded"
       >
-        <h4>분기 트리</h4>
-        {sgfTree.length > 0 && (
-          <SGFTreeNode
-            node={{ children: sgfTree }}
-            path={[]}
-            currentPath={currentPath}
-            onSelectPath={setCurrentPath}
-          />
-        )}
+        <option value="">📂 SGF 파일 선택</option>
+        {sgfFiles.map((file, idx) => (
+          <option key={idx} value={file}>{file}</option>
+        ))}
+      </select>
+
+      <canvas
+        ref={canvasRef}
+        width={boardPixelSize}
+        height={boardPixelSize}
+        style={{
+          border: '4px solid #333',
+          backgroundColor: '#deb887',
+          boxShadow: '0 4px 10px rgba(0,0,0,0.3)',
+          borderRadius: 8,
+        }}
+      />
+
+      <div className="mt-4 text-sm text-gray-700">
+        {currentNode && currentNode.move
+          ? `${currentNode.move.color === 'black' ? '흑' : '백'} ${getPathToRoot(currentNode).length}수`
+          : '기보를 선택해주세요'}
       </div>
+
+      <div className="mt-4 flex gap-2 items-center flex-wrap">
+        <button onClick={toStart} className="px-3 py-1 bg-gray-200 rounded">⏮ 처음</button>
+        <button onClick={prevNode} className="px-3 py-1 bg-gray-200 rounded">◀ 이전</button>
+        <button onClick={nextNode} className="px-3 py-1 bg-gray-200 rounded">다음 ▶</button>
+        <button
+          onClick={() => setPlaying((prev) => !prev)}
+          className="px-3 py-1 bg-blue-300 rounded"
+        >
+          {playing ? '⏸ 일시정지' : '▶ 자동재생'}
+        </button>
+      </div>
+
+      {/* 분기 선택 UI */}
+      {currentNode && currentNode.children.length > 1 && (
+        <div className="mt-2 flex gap-2 flex-wrap">
+          {currentNode.children.map((child, idx) => (
+            <button
+              key={idx}
+              onClick={() => selectBranch(idx)}
+              className={`px-2 py-1 rounded border 
+                ${child === currentNode ? 'bg-blue-400 text-white border-blue-500' : 'bg-gray-300 border-gray-400'}
+              `}
+              title={`분기 ${child.label}`}
+            >
+              {child.label}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
-}
+};
+
+export default SGFFileViewer;
