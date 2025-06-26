@@ -183,13 +183,15 @@
 
 /* 메인 컨텐츠 레이아웃 */
 .main-layout {
+  
   display: grid;
   grid-template-columns: 2fr 1fr; /* 2열 */
-  grid-template-rows: 1fr 2fr 1fr; /* 3행 */
+  //grid-template-rows: 1fr 2fr 1fr; /* 3행 */
   gap: 20px; /* 간격 */
   max-width: 1200px;
   width: 100%;
   margin: 20px auto;
+  
 }
 
 .box {

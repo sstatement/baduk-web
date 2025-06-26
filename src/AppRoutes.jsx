@@ -40,6 +40,9 @@ import Footer from "./components/Footer";
 import SGFFileViewer from "./components/BadukBoard/SGFFileViewer";
 import HallOfFame from './pages/league/HallOfFame';
 
+
+
+
 import "./App.css";
 
 const functions = getFunctions();
@@ -182,6 +185,8 @@ const AppRoutes = () => {
         <Route path="/badukboard" element={<BadukBoard />} />
         <Route path="/SGFfileviewer" element={<SGFFileViewer />} />
         <Route path="/setup-profile" element={<SetupProfile />} />
+
+        
         <Route path="/signup" element={user ? <Navigate to="/" /> : <Signup />} />
         <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
       </Routes>

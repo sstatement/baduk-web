@@ -9,7 +9,7 @@ const Nav = () => {
   // 모바일 햄버거 메뉴 열림 상태
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  return (
+  return (  
     <nav className="App-header">
       {/* 모바일 햄버거 버튼: 모바일에서만 보임 */}
       <div className="hamburger-container">
@@ -65,7 +65,7 @@ const Nav = () => {
         <li><Link to="/quest" className="nav-button">주간 퀘스트</Link></li>
         <li><Link to="/boss" className="nav-button">주간 보스</Link></li>
         <li><Link to="/store" className="nav-button">마일리지 상점</Link></li>
-        <li><Link to="/badukboard" className="nav-button">바둑 대국</Link></li>     
+        <li><Link to="/badukboard" className="nav-button">바둑 대국</Link></li>  
         <li
           className="relative"
           onMouseEnter={() => setIsLeagueDropdownOpen(true)}
