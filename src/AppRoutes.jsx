@@ -44,7 +44,7 @@ import LectureIntro from './pages/Lecture/intro';
 import 입문Flow from './pages/Lecture/입문Flow';
 import 용어Flow from './pages/Lecture/용어Flow';  // 새로 만든 강의 플로우
 import 행마Flow from './pages/Lecture/행마Flow';
-
+import 정석Flow from './pages/Lecture/정석Flow';
 
 import "./App.css";
 
@@ -193,6 +193,8 @@ const AppRoutes = () => {
         <Route path="/lecture/입문" element={<입문Flow />} />
         <Route path="/lecture/용어" element={<용어Flow />} />
         <Route path="/lecture/행마" element={<행마Flow />} />
+        <Route path="/lecture/정석" element={<정석Flow />} />
+
 
         <Route path="/signup" element={user ? <Navigate to="/" /> : <Signup />} />
         <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
