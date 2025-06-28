@@ -1,0 +1,141 @@
+/* src/pages/Lecture/Lecture.css */
+
+/* 전체 폰트 모던하게 */
+.lecture-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.lecture-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 600px;
+  padding: 2.5rem 3rem;
+}
+
+.lecture-title {
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #222;
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lecture-subtitle {
+  font-weight: 400;
+  font-size: 1rem;
+  color: #666;
+  margin-left: auto;
+  font-style: italic;
+}
+
+.lecture-progress {
+  margin: 1.5rem 0 2rem;
+}
+
+.lecture-progress-bar {
+  width: 100%;
+  height: 12px;
+  border-radius: 10px;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #e0e0e0;
+  overflow: hidden;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.lecture-progress-bar::-webkit-progress-value {
+  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.lecture-progress-text {
+  text-align: right;
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.4rem;
+  font-weight: 600;
+}
+
+/* LessonStep 내부 버튼 스타일에 적용 */
+/* 버튼을 모던하고 둥글게 */
+.lesson-btn {
+  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.75rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0, 162, 255, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lesson-btn:hover,
+.lesson-btn:focus {
+  background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
+  box-shadow: 0 8px 20px rgba(0, 162, 255, 0.6);
+  outline: none;
+}
+
+.lesson-btn:disabled {
+  background: #bbb;
+  cursor: not-allowed;
+  box-shadow: none;
+  color: #eee;
+}
+
+/* 필요시 버튼에 클래스 추가해서 구분 가능 */
+/* src/pages/Lecture/Lecture.css */
+
+/* 기존 내용 유지 */
+
+/* LessonStep 부모 카드 너비 제한 */
+.lesson-step-container {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* 단일 이미지 */
+.lesson-step-container img.single-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  object-fit: contain;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* 다중 이미지 컨테이너 */
+.lesson-image-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+/* 다중 이미지 개별 */
+.lesson-image-group img {
+  max-width: 45%;
+  max-height: 320px;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  user-select: none;
+  pointer-events: none;
+  display: block;
+}
