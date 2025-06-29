@@ -65,7 +65,8 @@ const LectureIntro = () => {
     { path: '/lecture/용어', label: '용어 강의' },
     { path: '/lecture/행마', label: '행마와 맥 강의' },
     { path: '/lecture/정석', label: '정석 강의' },
-    { path: '/lecture/사활', label: '사활 강의' }
+    { path: '/lecture/사활', label: '사활 강의' },
+    { path: '/lecture/끝내기', label: '끝내기 강의' }
   ];
 
   const [hovered, setHovered] = useState(null);
