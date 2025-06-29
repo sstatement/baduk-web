@@ -15,6 +15,12 @@ export default function 사활Flow() {
     }
   };
 
+  const handlePrev = () => {
+    if (currentStep > 0) {
+      setCurrentStep((prev) => prev - 1);
+    }
+  };
+
   return (
     <div className="lecture-page">
       <div className="lecture-card">
@@ -42,6 +48,8 @@ export default function 사활Flow() {
         <LessonStep
           lesson={사활Steps[currentStep]}
           onNext={handleNext}
+          onPrev={handlePrev}
+          isFirst={currentStep === 0}
           isLast={currentStep === 사활Steps.length - 1}
         />
       </div>

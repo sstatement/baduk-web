@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LessonStep = ({ lesson, onNext, isLast }) => {
+const LessonStep = ({ lesson, onNext, onPrev, isFirst, isLast }) => {
   return (
     <div className="lesson-step-container bg-white rounded shadow p-6">
       <h2 className="text-2xl font-bold mb-4">{lesson.title}</h2>
@@ -37,9 +37,22 @@ const LessonStep = ({ lesson, onNext, isLast }) => {
         <p className="mt-2">{lesson.answer}</p>
       </details>
 
-      <button className="lesson-btn" onClick={onNext}>
-        {isLast ? '완료' : '다음'}
-      </button>
+      <div className="flex justify-between">
+        <button
+          className="lesson-btn"
+          onClick={onPrev}
+          disabled={isFirst}
+        >
+          이전
+        </button>
+
+        <button
+          className="lesson-btn"
+          onClick={onNext}
+        >
+          {isLast ? '완료' : '다음'}
+        </button>
+      </div>
     </div>
   );
 };

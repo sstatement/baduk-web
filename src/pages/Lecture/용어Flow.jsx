@@ -1,3 +1,4 @@
+// src/pages/Lecture/용어Flow.jsx
 import React, { useState } from 'react';
 import { 용어Steps } from './용어Steps';
 import LessonStep from './LessonStep';
@@ -11,6 +12,12 @@ export default function 용어Flow() {
       setCurrentStep(prev => prev + 1);
     } else {
       alert('🎉 용어 강의를 모두 완료했습니다! 축하합니다!');
+    }
+  };
+
+  const handlePrev = () => {
+    if (currentStep > 0) {
+      setCurrentStep(prev => prev - 1);
     }
   };
 
@@ -39,6 +46,8 @@ export default function 용어Flow() {
         <LessonStep
           lesson={용어Steps[currentStep]}
           onNext={handleNext}
+          onPrev={handlePrev}
+          isFirst={currentStep === 0}
           isLast={currentStep === 용어Steps.length - 1}
         />
       </div>

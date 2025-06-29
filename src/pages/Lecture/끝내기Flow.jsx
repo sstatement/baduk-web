@@ -16,6 +16,12 @@ export default function 끝내기Flow() {
     }
   };
 
+  const handlePrev = () => {
+    if (currentStep > 0) {
+      setCurrentStep((prev) => prev - 1);
+    }
+  };
+
   return (
     <div className="lecture-page">
       <div className="lecture-card">
@@ -43,6 +49,8 @@ export default function 끝내기Flow() {
         <LessonStep
           lesson={끝내기Steps[currentStep]}
           onNext={handleNext}
+          onPrev={handlePrev}
+          isFirst={currentStep === 0}
           isLast={currentStep === 끝내기Steps.length - 1}
         />
       </div>
