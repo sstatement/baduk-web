@@ -67,16 +67,71 @@
     display: none !important;
   }
 
-  /* 햄버거 버튼 보이기 */
-  .hamburger-container {
-    display: flex !important;
-    justify-content: flex-end;
-  }
+  /* 모바일 메뉴 베이스 스타일 */
+.mobile-menu {
+  background-color: #ffffff;
+  padding: 1rem 0;
+  border-top: 1px solid #ccc;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  margin: 0;
+  width: 100%;
+}
 
-  /* 모바일 메뉴 보이기 (JS 토글로 display:block 처리됨) */
-  .mobile-menu {
-    display: block;
-  }
+/* 모바일 메뉴 항목 스타일 */
+.mobile-menu li {
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+/* 모바일 메뉴 링크 스타일 */
+.mobile-menu li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  font-size: 1rem;
+}
+
+/* 호버 시 강조 효과 */
+.mobile-menu li a:hover {
+  background-color: #f9f9f9;
+  color: #007bff;
+}
+
+/* 섹션 타이틀(구분) */
+.mobile-section-title {
+  font-weight: bold;
+  background-color: #f5f5f5;
+  padding: 0.5rem 1.5rem;
+  color: #555;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+/* 햄버거 버튼 스타일 */
+.hamburger-btn {
+  font-size: 1.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
+
+/* 햄버거 버튼 hover 효과 */
+.hamburger-btn:hover {
+  color: #007bff;
+}
+
+/* 모바일 메뉴 애니메이션 살짝 추가 (선택) */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.mobile-menu {
+  animation: slideDown 0.3s ease;
+}
+
 }
 
 

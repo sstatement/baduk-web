@@ -89,18 +89,37 @@ const Nav = () => {
 
       {/* 모바일 햄버거 메뉴 내용 (모바일에서만 보이고, 토글 상태에 따라 보임) */}
       {mobileMenuOpen && (
-        <ul className="mobile-menu">
-          <li><Link to="/club/intro" onClick={() => setMobileMenuOpen(false)}>동아리 소개</Link></li>
-          <li><Link to="/mission/entry" onClick={() => setMobileMenuOpen(false)}>입문</Link></li>
-          <li><Link to="/quest" onClick={() => setMobileMenuOpen(false)}>주간 퀘스트</Link></li>
-          <li><Link to="/boss" onClick={() => setMobileMenuOpen(false)}>주간 보스</Link></li>
-          <li><Link to="/badukboard" onClick={() => setMobileMenuOpen(false)}>바둑 대국</Link></li>
-          <li><Link to="/league/ranking" onClick={() => setMobileMenuOpen(false)}>리그 순위표</Link></li>
-          <li><Link to="/league/History" onClick={() => setMobileMenuOpen(false)}>대전 기록</Link></li>
-          <li><Link to="/league/Analysis" onClick={() => setMobileMenuOpen(false)}>경기 분석</Link></li>
-          <li><Link to="/mypage" onClick={() => setMobileMenuOpen(false)}>마이페이지</Link></li>
-        </ul>
-      )}
+  <ul className="mobile-menu">
+    {/* 동아리 - PC 드롭다운과 같은 메뉴들 모두 펼침 */}
+    <li className="mobile-section-title">동아리</li>
+    <li><Link to="/club/intro" onClick={() => setMobileMenuOpen(false)}>동아리 소개</Link></li>
+    <li><Link to="/club/rules" onClick={() => setMobileMenuOpen(false)}>회칙</Link></li>
+    <li><Link to="/club/members" onClick={() => setMobileMenuOpen(false)}>회원 목록</Link></li>
+    <li><Link to="/club/announcements" onClick={() => setMobileMenuOpen(false)}>공지사항</Link></li>
+
+    {/* Mission - 전부 펼침 */}
+    <li className="mobile-section-title">Mission</li>
+    <li><Link to="/mission/entry" onClick={() => setMobileMenuOpen(false)}>입문</Link></li>
+    <li><Link to="/mission/beginner" onClick={() => setMobileMenuOpen(false)}>초급</Link></li>
+    <li><Link to="/mission/intermediate" onClick={() => setMobileMenuOpen(false)}>중급</Link></li>
+    <li><Link to="/mission/advanced" onClick={() => setMobileMenuOpen(false)}>고급</Link></li>
+
+    <li><Link to="/quest" onClick={() => setMobileMenuOpen(false)}>주간 퀘스트</Link></li>
+    <li><Link to="/boss" onClick={() => setMobileMenuOpen(false)}>주간 보스</Link></li>
+    <li><Link to="/store" onClick={() => setMobileMenuOpen(false)}>마일리지 상점</Link></li>
+    <li><Link to="/badukboard" onClick={() => setMobileMenuOpen(false)}>바둑 대국</Link></li>
+    <li><Link to="/lecture" onClick={() => setMobileMenuOpen(false)}>바둑 강의</Link></li>
+
+    {/* 리그전 - 전부 펼침 */}
+    <li className="mobile-section-title">복현기우회 리그전</li>
+    <li><Link to="/league/ranking" onClick={() => setMobileMenuOpen(false)}>리그 순위표</Link></li>
+    <li><Link to="/league/history" onClick={() => setMobileMenuOpen(false)}>대전 기록</Link></li>
+    <li><Link to="/league/analysis" onClick={() => setMobileMenuOpen(false)}>경기 분석</Link></li>
+
+    <li><Link to="/mypage" onClick={() => setMobileMenuOpen(false)}>마이페이지</Link></li>
+  </ul>
+)}
+
     </nav>
   );
 };
