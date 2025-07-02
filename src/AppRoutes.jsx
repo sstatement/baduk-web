@@ -47,6 +47,14 @@ import 행마Flow from './pages/Lecture/행마Flow';
 import 정석Flow from './pages/Lecture/정석Flow';
 import 사활Flow from './pages/Lecture/사활Flow';
 import 끝내기Flow from './pages/Lecture/끝내기Flow';
+import 격언Flow from './pages/Lecture/격언Flow';
+
+
+import TournamentCreate from './pages/TournamentCreate';
+import TournamentList from './pages/TournamentList';
+import TournamentDetail from './pages/TournamentDetail';
+
+
 
 import "./App.css";
 
@@ -198,6 +206,12 @@ const AppRoutes = () => {
         <Route path="/lecture/정석" element={<정석Flow />} />
         <Route path="/lecture/사활" element={<사활Flow />} />
         <Route path="/lecture/끝내기" element={<끝내기Flow />} />
+        <Route path="/lecture/격언" element={<격언Flow />} />
+
+        <Route path="/tournaments/create" element={<TournamentCreate />} />
+        <Route path="/tournaments" element={<TournamentList />} />
+        <Route path="/tournaments/:id" element={<TournamentDetail />} />
+
 
         <Route path="/signup" element={user ? <Navigate to="/" /> : <Signup />} />
         <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
