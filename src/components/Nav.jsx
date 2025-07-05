@@ -111,7 +111,8 @@ const Nav = () => {
     <li><Link to="/store" onClick={() => setMobileMenuOpen(false)}>마일리지 상점</Link></li>
     <li><Link to="/badukboard" onClick={() => setMobileMenuOpen(false)}>바둑 대국</Link></li>
     <li><Link to="/lecture" onClick={() => setMobileMenuOpen(false)}>바둑 강의</Link></li>
-
+    <li><Link to="/SGFfileviewer" onClick={() => setMobileMenuOpen(false)}>정석 공부</Link></li>
+    
     {/* 리그전 - 전부 펼침 */}
     <li className="mobile-section-title">복현기우회 리그전</li>
     <li><Link to="/league/ranking" onClick={() => setMobileMenuOpen(false)}>리그 순위표</Link></li>
