@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh; /* 화면 전체 높이 */
+  width: 100vw; /* 화면 전체 너비 */
+}
+
+.left-pane, .right-pane {
+  flex: 1; /* 좌우 동일 비율 */
+  overflow: hidden; /* 넘치는 내용 숨기기 */
+  box-sizing: border-box;
+}
+
+.left-pane {
+  background-color: #f0f0f0; /* 바둑판 배경 */
+  padding: 16px;
+  border-right: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.right-pane {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tree-container {
+  flex: 1; /* 트리뷰가 가능한 한 높이 꽉 채우기 */
+  overflow-y: auto; /* 세로 스크롤 */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  padding: 8px;
+}

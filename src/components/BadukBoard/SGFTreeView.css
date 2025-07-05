@@ -1,0 +1,153 @@
+.sgf-treeview {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  color: #222;
+  max-height: 100%;
+  overflow-y: auto;
+  padding-right: 8px;
+  user-select: none;
+}
+
+.tree-node {
+  margin-bottom: 6px;
+}
+
+.node-content {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.toggle-btn {
+  width: 18px;
+  height: 18px;
+  border: none;
+  background: transparent;
+  color: #666;
+  cursor: pointer;
+  font-weight: bold;
+  transform: rotate(0deg);
+  transition: transform 0.2s ease;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.toggle-btn.open {
+  transform: rotate(90deg);
+}
+
+.toggle-btn:hover {
+  color: #0078d7;
+}
+
+.toggle-placeholder {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+}
+
+.coord-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  background: #f0f0f0;
+  color: #333;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-family: monospace;
+  font-weight: 600;
+  user-select: none;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+}
+
+.coord-btn:hover {
+  background-color: #d0e7ff;
+  color: #005bb5;
+}
+
+.coord-btn.selected {
+  background-color: #005bb5;
+  color: white;
+  box-shadow: 0 0 8px #005bb5aa;
+}
+
+.stone {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.coords {
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+/* 자식 노드가 가로로 한 줄에 나열될 때 */
+.children-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+/* 기본 세로 나열 */
+.children-column {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+/* 기존 트리 노드 들여쓰기 유지 */
+.tree-node {
+  margin-bottom: 6px;
+}
+/* 자식 노드 컨테이너 왼쪽에 점선 선 추가 */
+.children-column {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 6px;
+
+  /* 부모-자식 연결 점선 */
+  border-left: 2px dotted #bbb;
+  padding-left: 16px;
+  position: relative;
+}
+
+/* 가로 배치시 점선 선 제거 */
+.children-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+  border-left: none;
+  padding-left: 0;
+}
+
+/* 각 자식 노드 왼쪽에 점선 연결선 역할을 하는 가로선 */
+.tree-node > .coord-btn {
+  position: relative;
+}
+
+/* 부모-자식 수평 연결선 */
+.tree-node > .coord-btn::before {
+  content: '';
+  position: absolute;
+  left: -16px;  /* 부모 점선과 맞춰줌 */
+  top: 50%;
+  width: 16px;
+  height: 0;
+  border-top: 2px dotted #bbb;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* 루트 노드는 연결선 제거 */
+.tree-node:first-child > .coord-btn::before {
+  content: none;
+}
