@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { getPathToRoot } from './utils/sgfUtils';
-
+import './BoardCanvas.css'
 const boardSize = 19;
 const boardPixelSize = 620;
 const padding = 20;
@@ -184,7 +184,7 @@ export default function BoardCanvas({ node }) {
       ref={canvasRef}
       width={boardPixelSize}
       height={boardPixelSize}
-      className="border-4 border-gray-800 rounded-lg shadow-lg"
+      className="baduk-canvas"
     />
   );
 }
