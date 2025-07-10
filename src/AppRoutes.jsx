@@ -49,6 +49,10 @@ import 사활Flow from './pages/Lecture/사활Flow';
 import 끝내기Flow from './pages/Lecture/끝내기Flow';
 import 격언Flow from './pages/Lecture/격언Flow';
 
+import GuanPage from './pages/GuanPage';
+import GuanRecordPage from './pages/GuanRecordPage';
+import AddProblemPage, { SolveProblemPage } from './pages/AddProblem';
+
 
 import TournamentCreate from './pages/TournamentCreate';
 import TournamentList from './pages/TournamentList';
@@ -66,6 +70,11 @@ const AppRoutes = () => {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+const [problems, setProblems] = useState([]); // 문제 리스트 상태
+
+const handleAddProblem = (newProblem) => {
+  setProblems(prev => [...prev, newProblem]);
+};
 
   const navigate = useNavigate();
 
@@ -208,9 +217,16 @@ const AppRoutes = () => {
         <Route path="/lecture/끝내기" element={<끝내기Flow />} />
         <Route path="/lecture/격언" element={<격언Flow />} />
 
+        <Route path="/guan" element={<GuanPage/>} />
+
+        <Route path="/guan/record/:problemId/:attemptId/:round" element={<GuanRecordPage />} />
+        <Route path="/guan/add" element={<AddProblemPage />} />
+        <Route path="/guan/solve/:problemId" element={<SolveProblemPage />} />
+
         <Route path="/tournaments/create" element={<TournamentCreate />} />
         <Route path="/tournaments" element={<TournamentList />} />
         <Route path="/tournaments/:id" element={<TournamentDetail />} />
+
 
 
         <Route path="/signup" element={user ? <Navigate to="/" /> : <Signup />} />
