@@ -35,7 +35,7 @@ const RankingPreview = () => {
             <div className="ranking-preview-player">
               {index + 1}위 - {player.playerName}
             </div>
-            <div className="ranking-preview-rating">레이팅: {player.rating}</div>
+            <div className="ranking-preview-rating">레이팅: {Math.floor(player.rating)}</div>
           </div>
         ))}
       </div>

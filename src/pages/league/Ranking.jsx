@@ -237,7 +237,7 @@ const Ranking = () => {
               >
                 <td style={tdStyle}>{idx + 1}</td>
                 <td style={{ ...tdStyle, fontWeight: '600', color: '#1f2937' }}>{player.playerName}</td>
-                <td style={{ ...tdStyle, fontFamily: 'monospace' }}>{player.rating}</td>
+                <td style={{ ...tdStyle, fontFamily: 'monospace' }}>{Math.floor(player.rating)}</td>
                 <td style={rankTextStyle(color)}>
                   {getRankImage(rank)}
                   <span>{rank}</span>
