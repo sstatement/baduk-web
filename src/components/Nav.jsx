@@ -108,16 +108,19 @@ const Nav = () => {
     <li><Link to="/mission/intermediate" onClick={() => setMobileMenuOpen(false)}>중급</Link></li>
     <li><Link to="/mission/advanced" onClick={() => setMobileMenuOpen(false)}>고급</Link></li>
 
+    {/* League - 전부 펼침 */}    
     <li className="mobile-section-title">복현기우회 리그전</li>
     <li><Link to="/league/ranking" onClick={() => setMobileMenuOpen(false)}>리그 순위표</Link></li>
     <li><Link to="/league/history" onClick={() => setMobileMenuOpen(false)}>대전 기록</Link></li>
     <li><Link to="/league/analysis" onClick={() => setMobileMenuOpen(false)}>경기 분석</Link></li>
 
+    {/* Study - 전부 펼침 */}    
     <li className="mobile-section-title">바둑 스터디</li>
     <li><Link to="/badukboard" onClick={() => setMobileMenuOpen(false)}>바둑 대국</Link></li>
     <li><Link to="/lecture" onClick={() => setMobileMenuOpen(false)}>바둑 강의</Link></li>
     <li><Link to="/SGFfileviewer" onClick={() => setMobileMenuOpen(false)}>정석 공부</Link></li>
-
+    
+    {/* content - 전부 펼침 */}    
     <li className="mobile-section-title">회원 컨텐츠</li>
     <li><Link to="/quest" onClick={() => setMobileMenuOpen(false)}>주간 퀘스트</Link></li>
     <li><Link to="/boss" onClick={() => setMobileMenuOpen(false)}>주간 보스</Link></li>
