@@ -57,8 +57,8 @@ import AddProblemPage, { SolveProblemPage } from './pages/AddProblem';
 import TournamentCreate from './pages/TournamentCreate';
 import TournamentList from './pages/TournamentList';
 import TournamentDetail from './pages/TournamentDetail';
-
-
+import { SeasonProvider } from "./contexts/SeasonContext"; 
+import LeagueLayout from './pages/league/LeagueLayout';
 
 import "./App.css";
 
@@ -142,7 +142,7 @@ const handleAddProblem = (newProblem) => {
   }
 
   return (
-    <>
+    <SeasonProvider>  {/* ✅ 여기서 전체를 감싸기 */}
       <Header />
       <Nav />
 
@@ -190,11 +190,13 @@ const handleAddProblem = (newProblem) => {
           path="/boss"
           element={user ? <Boss user={user} userData={userData} /> : <Navigate to="/login" />}
         />
-        <Route path="/league/ranking" element={<Ranking />} />
-        <Route path="/league/history" element={<History />} />
-        <Route path="/league/analysis" element={<Analysis />} />
-        <Route path="/league/apply" element={<Apply />} />
-        <Route path="/league/hall-of-fame" element={<HallOfFame />} />
+        <Route path="/league" element={<LeagueLayout />}>
+        <Route path="ranking" element={<Ranking />} />
++       <Route path="history" element={<History />} />
++       <Route path="analysis" element={<Analysis />} />
++       <Route path="apply" element={<Apply />} />
++       <Route path="hall-of-fame" element={<HallOfFame />} />
+        </Route>
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/club/intro" element={<ClubIntro />} />
@@ -234,7 +236,7 @@ const handleAddProblem = (newProblem) => {
       </Routes>
 
       <Footer />
-    </>
+    </SeasonProvider>
   );
 };
 

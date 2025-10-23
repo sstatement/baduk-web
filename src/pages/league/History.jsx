@@ -11,6 +11,8 @@ import {
   getDoc,
 } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
+// ✅ 시즌 컨텍스트 (없어도 안전 폴백)
+import { useSeason } from '../../contexts/SeasonContext';
 
 const styles = {
   container: {
@@ -18,7 +20,7 @@ const styles = {
     margin: '40px auto',
     padding: 24,
     fontFamily: `'Segoe UI', Tahoma, Geneva, Verdana, sans-serif`,
-    color: '#1f2937', // dark slate
+    color: '#1f2937',
     backgroundColor: '#f9fafb',
     borderRadius: 8,
     boxShadow: '0 6px 12px rgba(0,0,0,0.15)',
@@ -27,7 +29,7 @@ const styles = {
     fontSize: 28,
     fontWeight: 700,
     marginBottom: 24,
-    borderBottom: '3px solid #374151', // dark gray border
+    borderBottom: '3px solid #374151',
     paddingBottom: 8,
     letterSpacing: '0.04em',
   },
@@ -35,7 +37,7 @@ const styles = {
     fontSize: 20,
     fontWeight: 600,
     marginBottom: 16,
-    borderBottom: '2px solid #6b7280', // gray border
+    borderBottom: '2px solid #6b7280',
     paddingBottom: 6,
     color: '#374151',
   },
@@ -45,16 +47,13 @@ const styles = {
     marginBottom: 16,
     fontSize: 16,
     borderRadius: 4,
-    border: '1.8px solid #374151', // dark slate border
+    border: '1.8px solid #374151',
     outline: 'none',
     color: '#111827',
     backgroundColor: '#f3f4f6',
     transition: 'border-color 0.3s ease',
   },
-  inputFocus: {
-    borderColor: '#2563eb',
-    backgroundColor: '#fff',
-  },
+  inputFocus: { borderColor: '#2563eb', backgroundColor: '#fff' },
   button: {
     width: '100%',
     backgroundColor: '#1f2937',
@@ -68,38 +67,20 @@ const styles = {
     userSelect: 'none',
     transition: 'background-color 0.3s ease',
   },
-  buttonDisabled: {
-    backgroundColor: '#6b7280',
-    cursor: 'not-allowed',
-  },
-  message: {
-    marginTop: 12,
-    color: '#dc2626',
-    fontWeight: 600,
-  },
-  listContainer: {
-    marginBottom: 40,
-  },
+  buttonDisabled: { backgroundColor: '#6b7280', cursor: 'not-allowed' },
+  message: { marginTop: 12, color: '#dc2626', fontWeight: 600 },
+  listContainer: { marginBottom: 40 },
   listItem: {
-    backgroundColor: '#e5e7eb', // light gray
+    backgroundColor: '#e5e7eb',
     borderRadius: 6,
     padding: 18,
     marginBottom: 18,
     boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
     transition: 'box-shadow 0.3s ease',
   },
-  listItemHover: {
-    boxShadow: '0 6px 14px rgba(0,0,0,0.18)',
-  },
-  listLabel: {
-    fontWeight: 600,
-    marginRight: 8,
-    color: '#111827',
-  },
-  smallText: {
-    fontSize: 13,
-    color: '#6b7280',
-  },
+  listItemHover: { boxShadow: '0 6px 14px rgba(0,0,0,0.18)' },
+  listLabel: { fontWeight: 600, marginRight: 8, color: '#111827' },
+  smallText: { fontSize: 13, color: '#6b7280' },
   approveButton: {
     marginTop: 12,
     backgroundColor: '#166534',
@@ -112,13 +93,14 @@ const styles = {
     cursor: 'pointer',
     transition: 'background-color 0.3s ease',
   },
-  approveButtonDisabled: {
-    backgroundColor: '#4d7c0f',
-    cursor: 'not-allowed',
-  },
+  approveButtonDisabled: { backgroundColor: '#4d7c0f', cursor: 'not-allowed' },
 };
 
 const History = () => {
+  // ✅ 시즌 ID (Provider가 없으면 기본 S1로 폴백)
+  const seasonCtx = useSeason?.();
+  const seasonId = seasonCtx?.activeSeasonId ?? 'S1';
+
   const [matchResults, setMatchResults] = useState([]);
   const [pendingResults, setPendingResults] = useState([]);
   const [winner, setWinner] = useState('');
@@ -138,12 +120,13 @@ const History = () => {
         if (userDoc.exists()) {
           setUserRole(userDoc.data().role || 'user');
         }
-        await fetchPlayers(); // ✅ 선수 목록 로딩
-      await fetchMatchResults();
+        await fetchPlayers(); 
+        await fetchMatchResults(); // ✅ 시즌 바뀔 때마다 다시 가져옴
       }
     });
     return () => unsubscribe();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [seasonId]);
 
   const fetchPlayers = async () => {
     try {
@@ -225,6 +208,7 @@ const History = () => {
 
       await updateDoc(doc(db, 'matches', matchDocId), {
         status: 'approve',
+        seasonId, // ✅ 시즌 보존(안전장치)
         winnerELO: updatedWinnerRating,
         loserELO: updatedLoserRating,
         winnerWinRate,
@@ -243,15 +227,17 @@ const History = () => {
   const fetchMatchResults = async () => {
     try {
       const matchesRef = collection(db, 'matches');
-      const qApproved = query(matchesRef, where('status', '==', 'approve'));
-      const qPending = query(matchesRef, where('status', '==', 'pending'));
+
+      // ✅ 시즌 + 상태별로 가져오고, 날짜는 클라이언트에서 정렬
+      const qApproved = query(matchesRef, where('status', '==', 'approve'), where('seasonId', '==', seasonId));
+      const qPending = query(matchesRef, where('status', '==', 'pending'), where('seasonId', '==', seasonId));
 
       const approvedSnapshot = await getDocs(qApproved);
       const approvedResults = approvedSnapshot.docs.map(docSnap => ({
         id: docSnap.id,
         ...docSnap.data(),
       }));
-      approvedResults.sort((a, b) => b.date.toDate() - a.date.toDate());
+      approvedResults.sort((a, b) => (b.date?.toDate?.() ?? 0) - (a.date?.toDate?.() ?? 0));
       setMatchResults(approvedResults);
 
       const pendingSnapshot = await getDocs(qPending);
@@ -259,7 +245,7 @@ const History = () => {
         id: docSnap.id,
         ...docSnap.data(),
       }));
-      pendingResultsArr.sort((a, b) => b.date.toDate() - a.date.toDate());
+      pendingResultsArr.sort((a, b) => (b.date?.toDate?.() ?? 0) - (a.date?.toDate?.() ?? 0));
       setPendingResults(pendingResultsArr);
 
     } catch (error) {
@@ -287,6 +273,7 @@ const History = () => {
     try {
       const matchesRef = collection(db, 'matches');
       await addDoc(matchesRef, {
+        seasonId, // ✅ 시즌 저장
         date: new Date(date),
         winner,
         loser,
@@ -305,24 +292,22 @@ const History = () => {
       setSaving(false);
     }
   };
-const deleteMatch = async (matchId) => {
-  const confirmDelete = window.confirm('정말로 이 대전 기록을 삭제하시겠습니까?');
-  if (!confirmDelete) return;
 
-  try {
-    await updateDoc(doc(db, 'matches', matchId), {
-      status: 'deleted',
-      deletedAt: new Date(),
-    });
-    await fetchMatchResults(); // 목록 새로고침
-  } catch (error) {
-    console.error('대전 기록 삭제 실패:', error);
-    setMessage('대전 기록 삭제 중 오류가 발생했습니다.');
-  }
-};
+  const deleteMatch = async (matchId) => {
+    const confirmDelete = window.confirm('정말로 이 대전 기록을 삭제하시겠습니까?');
+    if (!confirmDelete) return;
 
-
-
+    try {
+      await updateDoc(doc(db, 'matches', matchId), {
+        status: 'deleted',
+        deletedAt: new Date(),
+      });
+      await fetchMatchResults();
+    } catch (error) {
+      console.error('대전 기록 삭제 실패:', error);
+      setMessage('대전 기록 삭제 중 오류가 발생했습니다.');
+    }
+  };
 
   return (
     <div style={styles.container}>
@@ -388,18 +373,24 @@ const deleteMatch = async (matchId) => {
               <p><span style={styles.listLabel}>패자:</span> {loser}</p>
               <p style={styles.smallText}>관리자 승인 대기 중</p>
               {['admin', 'staff'].includes(userRole) && (
-                <button
-                  onClick={() => updatePlayerStatsAndMatch(winner, loser, id)}
-                  disabled={approvingId === id}
-                  style={{
-                    ...styles.approveButton,
-                    ...(approvingId === id ? styles.approveButtonDisabled : {}),
-                  }}
-                >
-                  {approvingId === id ? '승인 중...' : '승인하기'}
-                </button>
-                
-                
+                <div style={{ display: 'flex', gap: 8 }}>
+                  <button
+                    onClick={() => updatePlayerStatsAndMatch(winner, loser, id)}
+                    disabled={approvingId === id}
+                    style={{
+                      ...styles.approveButton,
+                      ...(approvingId === id ? styles.approveButtonDisabled : {}),
+                    }}
+                  >
+                    {approvingId === id ? '승인 중...' : '승인하기'}
+                  </button>
+                  <button
+                    onClick={() => deleteMatch(id)}
+                    style={{ ...styles.approveButton, backgroundColor: '#991b1b', color: '#fee2e2' }}
+                  >
+                    삭제
+                  </button>
+                </div>
               )}
             </div>
           ))
@@ -416,9 +407,9 @@ const deleteMatch = async (matchId) => {
             const loserStats = playerStatsMap[loser] || {};
 
             const winnerEloToShow = winnerELO ?? winnerStats.rating;
-            const loserEloToShow = loserELO ?? loserStats.rating;
+            const loserEloToShow  = loserELO ?? loserStats.rating;
             const winnerRateToShow = winnerWinRate ?? winnerStats.winRate;
-            const loserRateToShow = loserWinRate ?? loserStats.winRate;
+            const loserRateToShow  = loserWinRate ?? loserStats.winRate;
 
             return (
               <div

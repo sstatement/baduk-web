@@ -10,14 +10,13 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import { getMatchApplications } from '../../firebase';
-import { 
-  getFirestore, collection, query, where, getDocs 
-} from 'firebase/firestore';
+// import { getMatchApplications } from '../../firebase'; // 과거 유틸: 불필요
+import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
+import { useSeason } from '../../contexts/SeasonContext'; // ★ 시즌 컨텍스트
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-const db = getFirestore();  // Firebase Firestore 인스턴스
+const db = getFirestore();
 
 const styles = {
   container: {
@@ -66,6 +65,13 @@ const styles = {
     marginTop: 32,
     marginBottom: 32,
   },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: 700,
+    marginTop: 12,
+    marginBottom: 8,
+    color: '#111827',
+  },
   winRateBox: {
     marginTop: 20,
     padding: 16,
@@ -78,113 +84,163 @@ const styles = {
   },
 };
 
+const BASE_ELO = 1500;
+
 const LeagueAnalysis = () => {
+  // ★ 시즌 정보(없을 때도 안전하게)
+  const seasonCtx = useSeason() || {};
+  const seasonId = seasonCtx.activeSeasonId || 'S1';
+  const seasons = Array.isArray(seasonCtx.seasons) ? seasonCtx.seasons : [];
+
   const [playerName, setPlayerName] = useState('');
   const [opponentName, setOpponentName] = useState('');
-  const [eloHistory, setEloHistory] = useState({ labels: [], data: [] });
+
+  // 1) 현재 시즌 내 ELO 변동
+  const [eloHistorySeason, setEloHistorySeason] = useState({ labels: [], data: [] });
+  // 2) 시즌별 최종 ELO(= playerStats.elo)
+  const [eloBySeason, setEloBySeason] = useState({ labels: [], data: [] });
+
   const [winProbability, setWinProbability] = useState(null);
 
-  // Firestore 'matches' 컬렉션에서 선수 이름 포함된 approve 상태 경기 가져오기
-  const getMatchesByPlayer = async (player) => {
-    if (!player) return [];
+  const currSeasonName =
+    seasons.find((s) => s.id === seasonId)?.name || seasonId;
 
+  // 현재 시즌 + 승인된 경기에서 플레이어 매치 가져오기
+  const getMatchesByPlayerInSeason = async (player) => {
+    if (!player) return [];
     try {
       const matchesRef = collection(db, 'matches');
-      // status == 'approve' AND (winner == player OR loser == player)
-      // Firestore 쿼리는 OR 조건 직접 지원하지 않아 2개 쿼리 병합 필요
-      const qWinner = query(matchesRef, where('status', '==', 'approve'), where('winner', '==', player));
-      const qLoser = query(matchesRef, where('status', '==', 'approve'), where('loser', '==', player));
+
+      const qWinner = query(
+        matchesRef,
+        where('seasonId', '==', seasonId),
+        where('status', '==', 'approve'),
+        where('winner', '==', player)
+      );
+      const qLoser = query(
+        matchesRef,
+        where('seasonId', '==', seasonId),
+        where('status', '==', 'approve'),
+        where('loser', '==', player)
+      );
 
       const [winnerSnap, loserSnap] = await Promise.all([getDocs(qWinner), getDocs(qLoser)]);
-      
-      const winnerMatches = winnerSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      const loserMatches = loserSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      const winnerMatches = winnerSnap.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      const loserMatches = loserSnap.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
 
       return [...winnerMatches, ...loserMatches];
     } catch (error) {
-      console.error('getMatchesByPlayer error:', error);
+      console.error('getMatchesByPlayerInSeason error:', error);
       return [];
     }
   };
 
-  // 선수 이름 입력 변경 시, matchApplications와 matches 합쳐서 ELO 변동 그래프 데이터 만들기
+  // 1) 현재 시즌 내 ELO 변동 시리즈 구성
   useEffect(() => {
-    const fetchEloHistory = async () => {
+    const buildSeasonEloSeries = async () => {
       if (!playerName) {
-        setEloHistory({ labels: [], data: [] });
+        setEloHistorySeason({ labels: [], data: [] });
         return;
       }
-
       try {
-        // 1) 기존 matchApplications 데이터 가져오기
-        const applications = await getMatchApplications(playerName);
-        const filteredApps = applications.filter(
-          (m) => m.status === 'approve' && (m.winner === playerName || m.loser === playerName)
-        );
+        const matches = await getMatchesByPlayerInSeason(playerName);
 
-        // 2) Firestore matches 컬렉션에서 데이터 가져오기
-        const firestoreMatches = await getMatchesByPlayer(playerName);
-
-        // 3) 둘 다 합치기
-        const combined = [...filteredApps, ...firestoreMatches];
-
-        // 4) createdAt 혹은 date 필드 가져오기 (둘 중에 있는 걸로)
-        // firestoreMatches는 createdAt, applications는 date 일 수도 있음
-        const processed = combined
-          .map((match) => {
-            // createdAt 또는 date 둘 중 있는 걸로 변환
-            const createdAtRaw = match.createdAt || match.date;
-            const createdAt = createdAtRaw instanceof Date ? createdAtRaw : createdAtRaw?.toDate?.();
-            if (!createdAt) return null;
-
-            // 선수 위치에 따른 ELO 값
-            let elo = null;
-            if (match.winner === playerName) elo = match.winnerELO || match.rating || null;
-            else if (match.loser === playerName) elo = match.loserELO || match.rating || null;
-
-            return {
-              createdAt,
-              elo,
-            };
+        const points = matches
+          .map((m) => {
+            const raw = m.date || m.createdAt;
+            const at = raw?.toDate ? raw.toDate() : raw;
+            if (!at) return null;
+            const elo =
+              m.winner === playerName
+                ? m.winnerELO
+                : m.loser === playerName
+                ? m.loserELO
+                : null;
+            if (elo == null) return null;
+            return { at, elo };
           })
-          .filter((item) => item !== null && item.elo !== null);
+          .filter(Boolean)
+          .sort((a, b) => a.at - b.at);
 
-        // 5) 날짜 오름차순 정렬
-        processed.sort((a, b) => a.createdAt - b.createdAt);
-
-        // 6) 날짜, ELO 분리
-        const labels = processed.map((p) => p.createdAt.toLocaleDateString());
-        const data = processed.map((p) => p.elo);
-
-        setEloHistory({ labels, data });
-      } catch (error) {
-        console.error('fetchEloHistory error:', error);
-        setEloHistory({ labels: [], data: [] });
+        setEloHistorySeason({
+          labels: points.map((p) => p.at.toLocaleDateString()),
+          data: points.map((p) => p.elo),
+        });
+      } catch (e) {
+        console.error('buildSeasonEloSeries error:', e);
+        setEloHistorySeason({ labels: [], data: [] });
       }
     };
 
-    fetchEloHistory();
-  }, [playerName]);
+    buildSeasonEloSeries();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [playerName, seasonId]);
 
-  // 예상 승률 계산 (기존 함수 재활용)
-  const getLatestRating = async (player) => {
-    if (!player) return null;
-
+  // 2) 시즌별 최종 ELO(= playerStats.elo) 시계열
+  const buildEloAcrossSeasons = async (player) => {
+    if (!player) {
+      setEloBySeason({ labels: [], data: [] });
+      return;
+    }
     try {
-      // 기존 matchApplications 기반
-      const matches = await getMatchApplications(player);
-      const filtered = matches.filter((m) => m.playerName === player);
-      if (filtered.length === 0) return null;
+      const statsRef = collection(db, 'playerStats');
+      const snap = await getDocs(query(statsRef, where('playerName', '==', player)));
 
-      filtered.sort((a, b) => {
-        const dateA = a.date instanceof Date ? a.date : a.date.toDate();
-        const dateB = b.date instanceof Date ? b.date : b.date.toDate();
-        return dateB - dateA;
+      const rows = snap.docs.map((d) => {
+        const s = d.data();
+        return { seasonId: s.seasonId, elo: s.elo ?? BASE_ELO };
       });
 
-      return filtered[0].rating || null;
+      // seasons 컨텍스트 기준으로 라벨/정렬
+      const seasonOrder = [...seasons].sort((a, b) => {
+        const aKey = a.startAt?.toMillis?.() ?? 0;
+        const bKey = b.startAt?.toMillis?.() ?? 0;
+        if (aKey === bKey) return (a.name || a.id).localeCompare(b.name || b.id);
+        return aKey - bKey;
+      });
+
+      const bySeasonId = {};
+      rows.forEach((r) => {
+        bySeasonId[r.seasonId] = r.elo;
+      });
+
+      if (seasonOrder.length > 0) {
+        const labels = seasonOrder.map((s) => s.name || s.id);
+        const data = seasonOrder.map((s) => (bySeasonId[s.id] ?? null));
+        setEloBySeason({ labels, data });
+      } else {
+        // 컨텍스트가 비어있으면 stats로 유추
+        const uniqueIds = Array.from(new Set(rows.map((r) => r.seasonId))).sort();
+        setEloBySeason({
+          labels: uniqueIds,
+          data: uniqueIds.map((sid) => rows.find((r) => r.seasonId === sid)?.elo ?? null),
+        });
+      }
+    } catch (e) {
+      console.error('buildEloAcrossSeasons error:', e);
+      setEloBySeason({ labels: [], data: [] });
+    }
+  };
+
+  // 플레이어 변경/시즌 목록 변경 시 시즌별 시계열 갱신
+  useEffect(() => {
+    buildEloAcrossSeasons(playerName);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [playerName, seasons]);
+
+  // 현재 시즌의 최신 레이팅(= playerStats[seasonId].elo)으로 승률 계산
+  const getLatestRatingInActiveSeason = async (player) => {
+    if (!player) return null;
+    try {
+      const statsRef = collection(db, 'playerStats');
+      const snap = await getDocs(
+        query(statsRef, where('seasonId', '==', seasonId), where('playerName', '==', player))
+      );
+      if (snap.empty) return null;
+      const s = snap.docs[0].data();
+      return s.elo ?? null;
     } catch (error) {
-      console.error('getLatestRating error:', error);
+      console.error('getLatestRatingInActiveSeason error:', error);
       return null;
     }
   };
@@ -195,8 +251,8 @@ const LeagueAnalysis = () => {
       return;
     }
 
-    const playerRating = await getLatestRating(playerName);
-    const opponentRating = await getLatestRating(opponentName);
+    const playerRating = await getLatestRatingInActiveSeason(playerName);
+    const opponentRating = await getLatestRatingInActiveSeason(opponentName);
 
     if (playerRating === null || opponentRating === null) {
       alert('선수 또는 상대방의 최신 레이팅을 찾을 수 없습니다.');
@@ -206,6 +262,27 @@ const LeagueAnalysis = () => {
 
     const expectedScore = 1 / (1 + Math.pow(10, (opponentRating - playerRating) / 400));
     setWinProbability((expectedScore * 100).toFixed(2));
+  };
+
+  // 공통 차트 옵션
+  const makeLineOptions = (yLabel = 'ELO', yData = []) => {
+    const numeric = yData.filter((v) => typeof v === 'number' && !Number.isNaN(v));
+    const hasData = numeric.length > 0;
+    return {
+      responsive: true,
+      plugins: {
+        legend: { position: 'top' },
+        title: { display: false },
+      },
+      scales: {
+        x: { title: { display: true, text: '날짜/시즌' } },
+        y: {
+          title: { display: true, text: yLabel },
+          min: hasData ? Math.min(...numeric) - 50 : undefined,
+          max: hasData ? Math.max(...numeric) + 50 : undefined,
+        },
+      },
+    };
   };
 
   return (
@@ -220,40 +297,56 @@ const LeagueAnalysis = () => {
         style={styles.input}
       />
 
-      {eloHistory.labels.length > 0 && eloHistory.data.length > 0 && (
-        <div style={styles.chartWrapper}>
-          <Line
-            data={{
-              labels: eloHistory.labels,
-              datasets: [
-                {
-                  label: `${playerName} ELO 변동`,
-                  data: eloHistory.data,
-                  borderColor: '#2563eb',
-                  backgroundColor: '#bfdbfe',
-                  borderWidth: 2,
-                  tension: 0.3,
-                  fill: false,
-                },
-              ],
-            }}
-            options={{
-              responsive: true,
-              plugins: {
-                legend: { position: 'top' },
-                title: { display: false },
-              },
-              scales: {
-                x: { title: { display: true, text: '날짜' } },
-                y: { 
-                  title: { display: true, text: 'ELO' },
-                  min: Math.min(...eloHistory.data) - 50,
-                  max: Math.max(...eloHistory.data) + 50,
-                },
-              },
-            }}
-          />
-        </div>
+      {/* 1) 현재 시즌 내 ELO 변동 */}
+      {eloHistorySeason.labels.length > 0 && eloHistorySeason.data.length > 0 && (
+        <>
+          <div style={styles.sectionTitle}>현재 시즌({currSeasonName}) ELO 변동</div>
+          <div style={styles.chartWrapper}>
+            <Line
+              data={{
+                labels: eloHistorySeason.labels,
+                datasets: [
+                  {
+                    label: `${playerName} - ${currSeasonName}`,
+                    data: eloHistorySeason.data,
+                    borderColor: '#2563eb',
+                    backgroundColor: '#bfdbfe',
+                    borderWidth: 2,
+                    tension: 0.3,
+                    fill: false,
+                  },
+                ],
+              }}
+              options={makeLineOptions('ELO', eloHistorySeason.data)}
+            />
+          </div>
+        </>
+      )}
+
+      {/* 2) 시즌별 최종 ELO 추이 */}
+      {eloBySeason.labels.length > 0 && eloBySeason.data.length > 0 && (
+        <>
+          <div style={styles.sectionTitle}>시즌별 최종 ELO 추이</div>
+          <div style={styles.chartWrapper}>
+            <Line
+              data={{
+                labels: eloBySeason.labels,
+                datasets: [
+                  {
+                    label: `${playerName} - 시즌별 최종 ELO`,
+                    data: eloBySeason.data,
+                    borderColor: '#0ea5e9',
+                    backgroundColor: '#bae6fd',
+                    borderWidth: 2,
+                    tension: 0.3,
+                    fill: false,
+                  },
+                ],
+              }}
+              options={makeLineOptions('ELO', eloBySeason.data)}
+            />
+          </div>
+        </>
       )}
 
       <input
@@ -265,7 +358,7 @@ const LeagueAnalysis = () => {
       />
 
       <button style={styles.button} onClick={calculateWinProbability}>
-        예상 승률 계산
+        예상 승률 계산 (현재 시즌 기준)
       </button>
 
       {winProbability !== null && (
