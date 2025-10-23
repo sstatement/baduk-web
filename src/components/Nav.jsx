@@ -83,6 +83,7 @@ const Nav = () => {
                 <li><Link to="/league/ranking" className="dropdown-item">리그 순위표</Link></li>
                 <li><Link to="/league/history" className="dropdown-item">대전 기록</Link></li>
                 <li><Link to="/league/analysis" className="dropdown-item">경기 분석</Link></li>
+                <li><Link to="/league/hall-of-fame" className="dropdown-item">명예의 전당</Link></li>
               </ul>
             </div>
           )}
