@@ -1,114 +1,174 @@
-/* src/pages/Lecture/Lecture.css */
+/* ================================
+   src/pages/Lecture/Lecture.css
+   Intellectual & Classic Style
+   ================================ */
 
-/* 전체 폰트 모던하게 */
+/* Theme tokens */
+:root{
+  --ink: #0f172a;         /* 본문 */
+  --muted: #475569;       /* 보조 */
+  --paper: #fbf8f1;       /* 미색 */
+  --edge: #efe7d6;        /* 안쪽 프레임 */
+  --line: #c9c1a7;        /* 샴페인 골드 라인 */
+  --accent: #7c6a46;      /* 브론즈 포인트 */
+  --focus: #155eef;       /* 포커스 링 */
+  --btn-grad-a: #b8892a;  /* 버튼 그라데이션 */
+  --btn-grad-b: #8b6a1a;
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --ink:#e5e7eb; --muted:#9aa4b2;
+    --paper:#0f1115; --edge:#0b0d10; --line:#4b4b4b; --accent:#b9a679;
+    --btn-grad-a:#d4af37; --btn-grad-b:#b0891a;
+  }
+}
+
+/* 모션 민감 사용자 */
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none !important; transition:none !important; }
+}
+
+/* 페이지: 미색 종이결 + 이중 프레임 */
 .lecture-page {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f7fa;
+  font-family: 'Noto Sans KR', system-ui, -apple-system, Segoe UI, Roboto, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.35)),
+    radial-gradient(1200px 600px at 10% -10%, rgba(0,0,0,.04), transparent 60%),
+    radial-gradient(800px 400px at 90% 110%, rgba(0,0,0,.05), transparent 60%),
+    var(--paper);
+  color: var(--ink);
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 2rem;
+  position: relative;
 }
 
 .lecture-card {
-  background: white;
+  background: color-mix(in srgb, #fff 88%, var(--paper) 12%);
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  box-shadow:
+    0 0 0 8px var(--edge) inset,
+    0 16px 36px rgba(0,0,0,.10);
   width: 100%;
-  max-width: 600px;
-  padding: 2.5rem 3rem;
+  max-width: 680px;
+  padding: 2.25rem 2.5rem;
+  border: 1.5px solid rgba(0,0,0,.12);
+  position: relative;
+  animation: lec-in .35s ease both;
 }
 
+@keyframes lec-in { from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:translateY(0)} }
+
+/* 타이틀: 중앙 장식선 + 절제된 위엄 */
 .lecture-title {
-  font-weight: 700;
-  font-size: 2.5rem;
-  color: #222;
-  margin-bottom: 0.25rem;
+  font-weight: 900;
+  font-size: clamp(2rem, 4.2vw, 2.6rem);
+  color: var(--ink);
+  margin: 0 0 .5rem;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: .6rem;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: .4px;
+  position: relative;
 }
+.lecture-title::after{
+  content:"";
+  display:block;
+  position: absolute;
+  left: 50%; transform: translateX(-50%);
+  bottom: -12px;
+  height: 2px; width: min(520px, 86%);
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent 0 6%, var(--line) 6% 94%, transparent 94% 100%);
+  animation: lec-line .6s ease-out .1s both;
+}
+@keyframes lec-line { from{transform:translateX(-50%) scaleX(0); opacity:.3} to{transform:translateX(-50%) scaleX(1); opacity:.9} }
 
 .lecture-subtitle {
-  font-weight: 400;
-  font-size: 1rem;
-  color: #666;
-  margin-left: auto;
+  font-weight: 500;
+  font-size: .95rem;
+  color: var(--muted);
+  margin-left: 0;
   font-style: italic;
+  text-align: center;
+  margin-top: .75rem;
 }
 
+/* 진행 영역 */
 .lecture-progress {
-  margin: 1.5rem 0 2rem;
+  margin: 1.8rem 0 2rem;
 }
 
+/* 클래식 진행바 */
 .lecture-progress-bar {
   width: 100%;
   height: 12px;
-  border-radius: 10px;
-  appearance: none;
-  -webkit-appearance: none;
-  background-color: #e0e0e0;
+  border-radius: 9999px;
+  appearance: none; -webkit-appearance: none;
+  background-color: #e7e2d8;
   overflow: hidden;
-  box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.08);
+  border: 1px solid #d7cfb6;
 }
-
+.lecture-progress-bar::-webkit-progress-bar{
+  background: transparent;
+}
 .lecture-progress-bar::-webkit-progress-value {
-  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
-  border-radius: 10px;
-  transition: width 0.3s ease;
+  background: linear-gradient(90deg, var(--btn-grad-a), var(--btn-grad-b));
+  border-radius: 9999px;
+  transition: width .4s cubic-bezier(.2,.8,.2,1);
+  box-shadow: 0 0 12px rgba(184,137,42,.22);
 }
-
 .lecture-progress-text {
   text-align: right;
-  font-size: 0.9rem;
-  color: #555;
-  margin-top: 0.4rem;
-  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+  font-weight: 800;
 }
 
-/* LessonStep 내부 버튼 스타일에 적용 */
-/* 버튼을 모던하고 둥글게 */
+/* 버튼: 브론즈-골드 클래식 캡슐 */
 .lesson-btn {
-  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
-  color: white;
-  border: none;
+  background: linear-gradient(180deg, var(--btn-grad-a), var(--btn-grad-b));
+  color: #fff;
+  border: 1px solid rgba(0,0,0,.12);
   border-radius: 9999px;
-  padding: 0.75rem 2.5rem;
-  font-size: 1.1rem;
-  font-weight: 700;
+  padding: 0.8rem 2.6rem;
+  font-size: 1.06rem;
+  font-weight: 900;
   cursor: pointer;
-  box-shadow: 0 6px 15px rgba(0, 162, 255, 0.4);
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 16px rgba(184,137,42, .28);
+  transition: transform .12s ease, box-shadow .15s ease, filter .15s ease, background .2s ease;
+  letter-spacing: .3px;
 }
-
 .lesson-btn:hover,
 .lesson-btn:focus {
-  background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
-  box-shadow: 0 8px 20px rgba(0, 162, 255, 0.6);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(184,137,42, .35);
   outline: none;
+  filter: brightness(1.02);
 }
-
+.lesson-btn:active{
+  transform: translateY(0);
+  box-shadow: 0 6px 16px rgba(184,137,42, .28);
+}
 .lesson-btn:disabled {
-  background: #bbb;
-  cursor: not-allowed;
-  box-shadow: none;
-  color: #eee;
+  background: #bbb; color: #eee; cursor: not-allowed; box-shadow: none; border-color:#bbb;
 }
 
-/* 필요시 버튼에 클래스 추가해서 구분 가능 */
-/* src/pages/Lecture/Lecture.css */
-
-/* 기존 내용 유지 */
-
-/* LessonStep 부모 카드 너비 제한 */
+/* 카드 너비 */
 .lesson-step-container {
-  max-width: 600px;
+  max-width: 640px;
   width: 100%;
   margin: 0 auto;
 }
 
-/* 단일 이미지 */
+/* 이미지: 얇은 테두리 + 소프트 그림자 */
 .lesson-step-container img.single-image {
   display: block;
   max-width: 100%;
@@ -116,10 +176,12 @@
   border-radius: 12px;
   margin-bottom: 1.5rem;
   object-fit: contain;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  border: 1px solid #e6decc;
+  background: #fff;
 }
 
-/* 다중 이미지 컨테이너 */
+/* 다중 이미지 */
 .lesson-image-group {
   display: flex;
   flex-wrap: wrap;
@@ -127,15 +189,31 @@
   justify-content: center;
   margin-bottom: 1.5rem;
 }
-
-/* 다중 이미지 개별 */
 .lesson-image-group img {
   max-width: 45%;
   max-height: 320px;
   object-fit: contain;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  border: 1px solid #e6decc;
   user-select: none;
   pointer-events: none;
   display: block;
+  background: #fff;
+}
+
+/* 포커스 접근성(키보드 탐색) */
+.lesson-btn:focus-visible,
+.lecture-card :where(a, button, input, select, textarea):focus-visible{
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* 작은 화면 */
+@media (max-width: 640px){
+  .lecture-card{ padding: 1.75rem 1.25rem; border-radius: 14px; }
+  .lecture-title{ font-size: 1.9rem; }
+  .lesson-step-container img.single-image{ border-radius: 10px; }
+  .lesson-image-group img{ max-width: 100%; }
 }

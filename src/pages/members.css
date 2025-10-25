@@ -1,78 +1,186 @@
-.members-container {
-  max-width: 900px;
-  margin: 50px auto 80px;
-  padding: 30px 20px;
-  background-color: #ffffff;
-  border-radius: 14px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  font-family: 'Noto Sans KR', sans-serif;
-  color: #2c3e50;
+/* =========================
+   Intro.css — Intellectual & Elegant
+   ========================= */
+
+/* Theme tokens */
+:root{
+  --ink: #0f172a;              /* 본문 */
+  --muted: #475569;            /* 보조 */
+  --paper: #fbf8f1;            /* 미색 배경 */
+  --edge: #f0eadb;             /* 안쪽 프레임 */
+  --line: #c9c1a7;             /* 구분선(샴페인 골드) */
+  --accent: #7c6a46;           /* 포인트(브론즈) */
+  --link: #3558a8;
+  --link-hover: #27478d;
+  --focus: #155eef;
 }
 
-.members-container h1 {
-  font-size: 28px;
+@media (prefers-color-scheme: dark){
+  :root{
+    --ink:#e5e7eb; --muted:#9aa4b2;
+    --paper:#0f1115; --edge:#0b0d10; --line:#4b4b4b; --accent:#b9a679;
+    --link:#8db4ff; --link-hover:#b9ceff;
+  }
+}
+
+/* 모션 민감 사용자 */
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none!important; transition:none!important; }
+}
+
+/* 컨테이너: 얇은 이중 프레임 + 은은한 종이질감 */
+.club-intro-container{
+  max-width: 980px;
+  margin: 44px auto 96px;
+  padding: 28px 24px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.35)),
+    radial-gradient(1200px 600px at 10% -10%, rgba(0,0,0,.04), transparent 60%),
+    radial-gradient(800px 400px  at 90% 110%, rgba(0,0,0,.05), transparent 60%),
+    var(--paper);
+  border-radius: 16px;
+  box-shadow:
+    0 0 0 8px var(--edge) inset,
+    0 16px 36px rgba(0,0,0,.08);
+  border: 1.5px solid rgba(0,0,0,.12);
+  color: var(--ink);
+  font-family: 'Noto Sans KR', system-ui, -apple-system, Segoe UI, Roboto, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  line-height: 1.75;
+  position: relative;
+}
+
+/* 상·하 장식선 */
+.club-intro-container::before,
+.club-intro-container::after{
+  content:"";
+  position:absolute; left:6%; right:6%; height:2px; border-radius:2px; opacity:.9;
+  background: linear-gradient(90deg, transparent 0 4%, var(--line) 4% 96%, transparent 96% 100%);
+}
+.club-intro-container::before{ top:14px; }
+.club-intro-container::after{ bottom:14px; }
+
+/* 타이틀: 정중앙 라인 + 절제된 위엄 */
+.club-intro-container .title{
+  font-size: clamp(28px, 3.4vw, 38px);
   font-weight: 900;
-  margin-bottom: 24px;
   text-align: center;
-  color: #34495e;
+  margin: 0 0 28px;
+  color: var(--ink);
+  letter-spacing: .4px;
+  position: relative;
+  display:flex; flex-direction:column; align-items:center;
+}
+.club-intro-container .title::after{
+  content:"";
+  display:block; margin-top:12px; height:2px; width: min(520px, 86%);
+  background: linear-gradient(90deg, transparent 0%, var(--line) 12%, var(--line) 88%, transparent 100%);
+  border-radius:2px;
+  animation: intro-line .6s ease-out .1s both;
+}
+@keyframes intro-line{ from{transform:scaleX(0); opacity:.2} to{transform:scaleX(1); opacity:.9} }
+
+/* 섹션 카드: 세미 글라스 + 정교한 보더 */
+.club-info, .about-club, .faq{
+  background: color-mix(in srgb, #fff 88%, var(--paper) 12%);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin-bottom: 26px;
+  border: 1px solid #e6decc;
+  box-shadow: 0 8px 20px rgba(0,0,0,.06);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.club-info:hover, .about-club:hover, .faq:hover{
+  transform: translateY(1px);
+  box-shadow: 0 14px 28px rgba(0,0,0,.10);
 }
 
-.members-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 12px;
+/* 섹션 제목: 세리프 느낌을 주는 레터스페이싱 + 더블라인 */
+.club-info h2, .about-club h2, .faq h2{
+  font-size: clamp(20px, 2.6vw, 24px);
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--ink);
+  padding-bottom: 10px;
+  border-bottom: 4px double var(--line);
+  letter-spacing: .3px;
 }
 
-.members-table thead tr th {
-  text-align: left;
-  padding: 12px 20px;
-  font-weight: 700;
+/* 본문 */
+.club-info p, .about-club p, .faq p, .faq strong{
   font-size: 16px;
-  color: #556677;
-  border-bottom: 2px solid #dcdfe6;
+  margin-bottom: 12px;
+  color: var(--muted);
+}
+.club-info p strong, .faq strong{ color: var(--ink); font-weight: 900; }
+
+/* 링크: 절제된 학술 톤 */
+.club-info a{
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color .15s ease;
+}
+.club-info a:hover{ color: var(--link-hover); }
+
+/* FAQ 아이템: 질문을 또렷하게 */
+.faq .faq-item{ margin-bottom: 18px; }
+.faq .faq-item strong{
+  display:block; font-weight:900; font-size: 17px; margin-bottom: 6px;
+  color: var(--accent);
 }
 
-.members-table tbody tr {
-  background-color: #f9fafb;
-  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
+/* 연락처 */
+.contact-info p{ font-size: 15px; color: var(--muted); margin-bottom: 6px; }
+.contact-info strong{ font-weight: 800; color: var(--ink); }
+
+/* 키보드 포커스 접근성 */
+.club-intro-container a:focus-visible,
+.club-intro-container button:focus-visible{
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 6px;
 }
 
-.members-table tbody tr:hover {
-  background-color: #e0f0ff;
-  cursor: pointer;
+/* 인용문/강조 블록(선택적) */
+.intro-note{
+  margin: 14px 0;
+  padding: 14px 16px;
+  background: #f9f3df;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  border-radius: 10px;
+  color: #1f2937;
 }
 
-.members-table tbody tr td {
-  padding: 14px 20px;
-  font-size: 15px;
-  color: #3a4a66;
-  border: none;
+/* 커리큘럼/목차(선택적) */
+.intro-syllabus{
+  margin: 12px 0 4px; padding-left: 0; list-style:none; counter-reset: s;
+}
+.intro-syllabus li{
+  counter-increment: s; padding: 8px 0 8px 56px; position:relative;
+  color: var(--muted);
+  border-top: 1px dashed rgba(0,0,0,.08);
+}
+.intro-syllabus li:first-child{ border-top:none; }
+.intro-syllabus li::before{
+  content: counter(s, decimal-leading-zero);
+  position:absolute; left:0; top:6px; width:44px; padding:4px 0;
+  text-align:center; font-weight:900; color: var(--ink);
+  border:1px solid var(--line); border-radius:8px;
+  background: linear-gradient(180deg, #fff, #f6f2e7);
+  box-shadow: 0 1px 0 rgba(255,255,255,.6) inset;
 }
 
-.members-table tbody tr td:first-child {
-  font-weight: 600;
-}
+/* 미세 등장 애니메이션 */
+@keyframes intro-in{ from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:translateY(0)} }
+.club-info, .about-club, .faq{ animation: intro-in .35s ease both; }
+.club-info{ animation-delay:.02s } .about-club{ animation-delay:.06s } .faq{ animation-delay:.1s }
 
-.members-table tbody tr td:last-child {
-  color: #7a8aab;
-  font-style: italic;
-}
-
-@media (max-width: 600px) {
-  .members-container {
-    padding: 20px 10px;
-    margin: 30px 10px 50px;
-  }
-
-  .members-container h1 {
-    font-size: 22px;
-  }
-
-  .members-table thead tr th,
-  .members-table tbody tr td {
-    padding: 10px 12px;
-    font-size: 14px;
-  }
+/* 반응형 */
+@media (max-width: 768px){
+  .club-intro-container{ padding: 20px 15px; margin: 30px auto 64px; }
+  .club-info, .about-club, .faq{ padding: 18px 20px; border-radius: 12px; }
+  .club-intro-container .title{ font-size: 26px; }
+  .club-info h2, .about-club h2, .faq h2{ font-size: 20px; }
+  .club-info p, .about-club p, .faq p, .faq strong{ font-size: 14px; }
 }

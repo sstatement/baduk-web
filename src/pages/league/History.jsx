@@ -11,93 +11,174 @@ import {
   getDoc,
 } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
-// ✅ 시즌 컨텍스트 (없어도 안전 폴백)
-import { useSeason } from '../../contexts/SeasonContext';
+import { useSeason } from '../../contexts/SeasonContext'; // 있어도 되고 없어도 됨
 
-const styles = {
-  container: {
-    maxWidth: 720,
-    margin: '40px auto',
-    padding: 24,
-    fontFamily: `'Segoe UI', Tahoma, Geneva, Verdana, sans-serif`,
-    color: '#1f2937',
-    backgroundColor: '#f9fafb',
-    borderRadius: 8,
-    boxShadow: '0 6px 12px rgba(0,0,0,0.15)',
-  },
-  header: {
-    fontSize: 28,
-    fontWeight: 700,
-    marginBottom: 24,
-    borderBottom: '3px solid #374151',
-    paddingBottom: 8,
-    letterSpacing: '0.04em',
-  },
-  sectionHeader: {
-    fontSize: 20,
-    fontWeight: 600,
-    marginBottom: 16,
-    borderBottom: '2px solid #6b7280',
-    paddingBottom: 6,
-    color: '#374151',
-  },
-  input: {
-    width: '100%',
-    padding: '10px 12px',
-    marginBottom: 16,
-    fontSize: 16,
-    borderRadius: 4,
-    border: '1.8px solid #374151',
-    outline: 'none',
-    color: '#111827',
-    backgroundColor: '#f3f4f6',
-    transition: 'border-color 0.3s ease',
-  },
-  inputFocus: { borderColor: '#2563eb', backgroundColor: '#fff' },
-  button: {
-    width: '100%',
-    backgroundColor: '#1f2937',
-    color: '#f9fafb',
-    fontWeight: '600',
-    padding: '12px 0',
-    fontSize: 18,
-    borderRadius: 6,
-    border: 'none',
-    cursor: 'pointer',
-    userSelect: 'none',
-    transition: 'background-color 0.3s ease',
-  },
-  buttonDisabled: { backgroundColor: '#6b7280', cursor: 'not-allowed' },
-  message: { marginTop: 12, color: '#dc2626', fontWeight: 600 },
-  listContainer: { marginBottom: 40 },
-  listItem: {
-    backgroundColor: '#e5e7eb',
-    borderRadius: 6,
-    padding: 18,
-    marginBottom: 18,
-    boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-    transition: 'box-shadow 0.3s ease',
-  },
-  listItemHover: { boxShadow: '0 6px 14px rgba(0,0,0,0.18)' },
-  listLabel: { fontWeight: 600, marginRight: 8, color: '#111827' },
-  smallText: { fontSize: 13, color: '#6b7280' },
-  approveButton: {
-    marginTop: 12,
-    backgroundColor: '#166534',
-    color: '#d1fae5',
-    padding: '8px 16px',
-    fontSize: 14,
-    fontWeight: 600,
-    border: 'none',
-    borderRadius: 5,
-    cursor: 'pointer',
-    transition: 'background-color 0.3s ease',
-  },
-  approveButtonDisabled: { backgroundColor: '#4d7c0f', cursor: 'not-allowed' },
-};
+const historyCss = `
+:root{
+  --ink:#121417;
+  --ink-2:#374151;
+  --muted:#6b7280;
+  --paper:#fbfaf7;
+  --card:#ffffff;
+  --line:#e5e7eb;
+  --gold:#d6b36a;
+  --gold-deep:#b0893d;
+  --emerald:#10b981;
+  --emerald-2:#065f46;
+  --amber:#f59e0b;
+  --amber-2:#7c4a03;
+  --crimson:#991b1b;
+  --focus:#155eef;
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --ink:#f3f4f6; --ink-2:#e5e7eb; --muted:#cbd5e1;
+    --paper:#151517; --card:#1b1c1f; --line:#2a2d33;
+    --gold:#e2c178; --gold-deep:#caa85b;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .hx-anim, .hx-shine, .hx-fade, .hx-rise { animation:none !important; transition:none !important; }
+}
+
+/* 페이지 배경 */
+.hx-page{
+  min-height:100vh; padding:28px 20px;
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(214,179,106,.15), transparent 60%),
+    linear-gradient(180deg, var(--paper), #fff);
+}
+
+/* 컨테이너(카드) */
+.hx-container{
+  max-width: 920px; margin: 0 auto 50px; background: var(--card);
+  border-radius: 16px; padding: 24px 22px;
+  box-shadow: 0 14px 36px rgba(0,0,0,.12), 0 0 0 1px rgba(0,0,0,.03) inset;
+  color: var(--ink);
+}
+
+/* 타이틀 */
+.hx-title{
+  font-size: 28px; font-weight: 900; text-align:center; margin: 0 0 16px; letter-spacing:.4px;
+  color: var(--ink);
+  text-shadow: 0 1px 0 rgba(255,255,255,.25);
+}
+.hx-title::after{
+  content:""; display:block; height: 2px; width:min(520px,86%);
+  margin: 12px auto 0;
+  background:
+    linear-gradient(90deg, transparent 0 6%, var(--gold) 6% 94%, transparent 94% 100%);
+  box-shadow: 0 0 12px rgba(214,179,106,.35);
+}
+
+/* 구분 소제목 */
+.hx-subtitle{
+  font-size: 18px; font-weight: 800; color: var(--ink-2);
+  border-bottom: 2px solid var(--line); padding-bottom: 8px; margin: 22px 0 16px;
+}
+
+/* 폼 카드 */
+.hx-form{
+  background: linear-gradient(180deg, rgba(214,179,106,.06), rgba(214,179,106,.02));
+  border:1px solid var(--line);
+  border-radius: 12px; padding: 16px;
+}
+
+/* 3열 그리드(모바일 1열) */
+.hx-grid{
+  display:grid; gap: 12px;
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 780px){ .hx-grid{ grid-template-columns: 1fr; } }
+
+/* 인풋 */
+.hx-input{
+  width:100%; border: 1.8px solid var(--ink-2); border-radius: 10px;
+  background: #f7f8fb; color: var(--ink);
+  padding: 12px 14px; font-size: 15px;
+  outline: none; transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.hx-input:focus{
+  border-color: var(--focus); background:#fff;
+  box-shadow: 0 0 0 3px rgba(21,94,239,.15);
+}
+
+/* 메인 버튼 */
+.hx-btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  width:100%; border:none; cursor:pointer; user-select:none;
+  background: linear-gradient(180deg, #1f2937, #0f172a);
+  color:#f8fafc; font-weight:800; font-size:16px; padding: 12px 16px;
+  border-radius: 12px; position: relative; overflow:hidden;
+  transition: transform .12s ease, box-shadow .2s ease, opacity .2s ease;
+  box-shadow: 0 10px 28px rgba(0,0,0,.22);
+}
+.hx-btn:hover{ transform: translateY(-1px); box-shadow: 0 16px 36px rgba(0,0,0,.28); }
+.hx-btn:disabled{ background:#6b7280; cursor:not-allowed; }
+
+.hx-shine::after{
+  content:""; position:absolute; inset:0; background:
+    linear-gradient(120deg, transparent 0 30%, rgba(255,255,255,.18) 35% 50%, transparent 55% 100%);
+  transform: translateX(-120%); pointer-events:none;
+  animation: shine 2.8s ease-in-out infinite;
+}
+@keyframes shine { 0%{ transform: translateX(-120%) } 60%{ transform: translateX(110%) } 100%{ transform: translateX(110%) } }
+
+/* 리스트 카드 */
+.hx-item{
+  border:1px solid var(--line); border-radius: 12px; padding: 14px 16px; margin-bottom: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.8));
+  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+  position: relative; overflow:hidden;
+  transition: box-shadow .2s ease, transform .12s ease;
+}
+.hx-item::before{
+  content:""; position:absolute; left:0; top:0; bottom:0; width:6px;
+  background: linear-gradient(180deg, var(--gold), var(--gold-deep));
+  opacity:.8;
+}
+.hx-item:hover{ box-shadow: 0 8px 24px rgba(0,0,0,.16); transform: translateY(-1px); }
+
+/* 라벨-값 정렬 */
+.hx-row{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin: 4px 0; }
+.hx-label{ font-weight:900; color: var(--ink); min-width: 68px; }
+.hx-val{ color: var(--ink-2); }
+
+/* 상태 배지 */
+.hx-badges{ display:flex; gap:8px; flex-wrap:wrap; margin-top: 10px; }
+.hx-badge{
+  display:inline-flex; align-items:center; gap:6px; padding: 6px 10px;
+  border-radius: 9999px; font-weight:900; font-size: 12px; letter-spacing:.3px;
+  border:1px solid transparent;
+}
+.hx-badge.pending{ color:#7a4a00; background: rgba(245,158,11,.18); border-color: rgba(245,158,11,.45); }
+.hx-badge.approved{ color:#064e3b; background: rgba(16,185,129,.18); border-color: rgba(16,185,129,.45); }
+
+/* 관리자 액션 */
+.hx-actions{ display:flex; gap:8px; margin-top: 10px; }
+.hx-approve{
+  background: linear-gradient(180deg, #166534, #065f46);
+  color:#d1fae5; border:none; border-radius: 10px; padding: 8px 14px; font-weight:800; cursor:pointer;
+  box-shadow: 0 8px 20px rgba(6,95,70,.35);
+}
+.hx-approve:disabled{ background:#4d7c0f; cursor:not-allowed; }
+.hx-delete{
+  background: linear-gradient(180deg, #b91c1c, #7f1d1d);
+  color:#fee2e2; border:none; border-radius: 10px; padding: 8px 14px; font-weight:800; cursor:pointer;
+  box-shadow: 0 8px 20px rgba(127,29,29,.35);
+}
+
+/* 메시지 */
+.hx-msg{ margin-top:10px; font-weight:800; color:#b91c1c; }
+
+/* 리스트 그룹 제목 여백 */
+.hx-block{ margin-bottom: 36px; }
+`;
 
 const History = () => {
-  // ✅ 시즌 ID (Provider가 없으면 기본 S1로 폴백)
+  // 시즌 ID (Provider 없으면 S1 폴백)
   const seasonCtx = useSeason?.();
   const seasonId = seasonCtx?.activeSeasonId ?? 'S1';
 
@@ -117,11 +198,9 @@ const History = () => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         const userDoc = await getDoc(doc(db, 'users', user.uid));
-        if (userDoc.exists()) {
-          setUserRole(userDoc.data().role || 'user');
-        }
-        await fetchPlayers(); 
-        await fetchMatchResults(); // ✅ 시즌 바뀔 때마다 다시 가져옴
+        if (userDoc.exists()) setUserRole(userDoc.data().role || 'user');
+        await fetchPlayers();
+        await fetchMatchResults();
       }
     });
     return () => unsubscribe();
@@ -134,9 +213,8 @@ const History = () => {
       const querySnapshot = await getDocs(playersRef);
       const playersList = [];
       const stats = {};
-
-      querySnapshot.forEach((doc) => {
-        const data = doc.data();
+      querySnapshot.forEach((docu) => {
+        const data = docu.data();
         if (data.playerName) {
           playersList.push(data.playerName);
           stats[data.playerName] = {
@@ -145,7 +223,6 @@ const History = () => {
           };
         }
       });
-
       setPlayers(playersList);
       setPlayerStatsMap(stats);
     } catch (error) {
@@ -156,7 +233,6 @@ const History = () => {
   const updatePlayerStatsAndMatch = async (winnerName, loserName, matchDocId) => {
     if (approvingId === matchDocId) return;
     setApprovingId(matchDocId);
-
     try {
       const playersRef = collection(db, 'matchApplications');
 
@@ -208,7 +284,7 @@ const History = () => {
 
       await updateDoc(doc(db, 'matches', matchDocId), {
         status: 'approve',
-        seasonId, // ✅ 시즌 보존(안전장치)
+        seasonId,
         winnerELO: updatedWinnerRating,
         loserELO: updatedLoserRating,
         winnerWinRate,
@@ -227,8 +303,6 @@ const History = () => {
   const fetchMatchResults = async () => {
     try {
       const matchesRef = collection(db, 'matches');
-
-      // ✅ 시즌 + 상태별로 가져오고, 날짜는 클라이언트에서 정렬
       const qApproved = query(matchesRef, where('status', '==', 'approve'), where('seasonId', '==', seasonId));
       const qPending = query(matchesRef, where('status', '==', 'pending'), where('seasonId', '==', seasonId));
 
@@ -273,7 +347,7 @@ const History = () => {
     try {
       const matchesRef = collection(db, 'matches');
       await addDoc(matchesRef, {
-        seasonId, // ✅ 시즌 저장
+        seasonId,
         date: new Date(date),
         winner,
         loser,
@@ -310,127 +384,160 @@ const History = () => {
   };
 
   return (
-    <div style={styles.container}>
-      <h2 style={styles.header}>대전 기록 입력</h2>
+    <div className="hx-page">
+      <style>{historyCss}</style>
 
-      <div style={{ ...styles.listItem, backgroundColor: '#f3f4f6', boxShadow: 'none' }}>
-        <input
-          type="text"
-          placeholder="승자 이름"
-          value={winner}
-          onChange={(e) => setWinner(e.target.value)}
-          list="players-list"
-          style={styles.input}
-          autoComplete="off"
-        />
-        <input
-          type="text"
-          placeholder="패자 이름"
-          value={loser}
-          onChange={(e) => setLoser(e.target.value)}
-          list="players-list"
-          style={styles.input}
-          autoComplete="off"
-        />
-        <datalist id="players-list">
-          {players.map((player) => (
-            <option key={player} value={player} />
-          ))}
-        </datalist>
+      <div className="hx-container">
+        <h2 className="hx-title">대전 기록 입력</h2>
 
-        <input
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          style={styles.input}
-        />
+        {/* 입력 폼 */}
+        <div className="hx-form hx-block" role="form" aria-label="대전 기록 입력 폼">
+          <div className="hx-grid" style={{ marginBottom: 10 }}>
+            <input
+              type="text"
+              placeholder="승자 이름"
+              value={winner}
+              onChange={(e) => setWinner(e.target.value)}
+              list="players-list"
+              className="hx-input"
+              autoComplete="off"
+              aria-label="승자 이름"
+            />
+            <input
+              type="text"
+              placeholder="패자 이름"
+              value={loser}
+              onChange={(e) => setLoser(e.target.value)}
+              list="players-list"
+              className="hx-input"
+              autoComplete="off"
+              aria-label="패자 이름"
+            />
+            <datalist id="players-list">
+              {players.map((player) => (
+                <option key={player} value={player} />
+              ))}
+            </datalist>
 
-        <button
-          onClick={saveMatchResult}
-          disabled={saving}
-          style={{
-            ...styles.button,
-            ...(saving ? styles.buttonDisabled : {}),
-          }}
-        >
-          {saving ? '저장 중...' : '대국 결과 저장 (승인 대기)'}
-        </button>
-        {message && <p style={styles.message}>{message}</p>}
-      </div>
+            <input
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              className="hx-input"
+              aria-label="대국 날짜"
+            />
+          </div>
 
-      <h3 style={styles.sectionHeader}>승인 대기 중인 대전 기록</h3>
-      <div style={styles.listContainer}>
-        {pendingResults.length > 0 ? (
-          pendingResults.map(({ id, date, winner, loser }) => (
-            <div
-              key={id}
-              style={styles.listItem}
-              onMouseOver={(e) => e.currentTarget.style.boxShadow = styles.listItemHover.boxShadow}
-              onMouseOut={(e) => e.currentTarget.style.boxShadow = styles.listItem.boxShadow}
-            >
-              <p><span style={styles.listLabel}>날짜:</span> {new Date(date.toDate()).toLocaleDateString()}</p>
-              <p><span style={styles.listLabel}>승자:</span> {winner}</p>
-              <p><span style={styles.listLabel}>패자:</span> {loser}</p>
-              <p style={styles.smallText}>관리자 승인 대기 중</p>
-              {['admin', 'staff'].includes(userRole) && (
-                <div style={{ display: 'flex', gap: 8 }}>
-                  <button
-                    onClick={() => updatePlayerStatsAndMatch(winner, loser, id)}
-                    disabled={approvingId === id}
-                    style={{
-                      ...styles.approveButton,
-                      ...(approvingId === id ? styles.approveButtonDisabled : {}),
-                    }}
-                  >
-                    {approvingId === id ? '승인 중...' : '승인하기'}
-                  </button>
-                  <button
-                    onClick={() => deleteMatch(id)}
-                    style={{ ...styles.approveButton, backgroundColor: '#991b1b', color: '#fee2e2' }}
-                  >
-                    삭제
-                  </button>
-                </div>
-              )}
-            </div>
-          ))
-        ) : (
-          <p>승인 대기 중인 대전 기록이 없습니다.</p>
-        )}
-      </div>
+          <button
+            onClick={saveMatchResult}
+            disabled={saving}
+            className="hx-btn hx-shine"
+            aria-live="polite"
+          >
+            {saving ? '저장 중…' : '대국 결과 저장 (승인 대기)'}
+          </button>
+          {message && <p className="hx-msg" role="status">{message}</p>}
+        </div>
 
-      <h3 style={styles.sectionHeader}>승인된 대전 기록 목록</h3>
-      <div style={styles.listContainer}>
-        {matchResults.length > 0 ? (
-          matchResults.map(({ id, date, winner, loser, winnerELO, loserELO, winnerWinRate, loserWinRate }) => {
-            const winnerStats = playerStatsMap[winner] || {};
-            const loserStats = playerStatsMap[loser] || {};
-
-            const winnerEloToShow = winnerELO ?? winnerStats.rating;
-            const loserEloToShow  = loserELO ?? loserStats.rating;
-            const winnerRateToShow = winnerWinRate ?? winnerStats.winRate;
-            const loserRateToShow  = loserWinRate ?? loserStats.winRate;
-
-            return (
+        {/* 대기 중 목록 */}
+        <h3 className="hx-subtitle">승인 대기 중인 대전 기록</h3>
+        <div className="hx-block">
+          {pendingResults.length > 0 ? (
+            pendingResults.map(({ id, date, winner, loser }) => (
               <div
                 key={id}
-                style={styles.listItem}
-                onMouseOver={(e) => e.currentTarget.style.boxShadow = styles.listItemHover.boxShadow}
-                onMouseOut={(e) => e.currentTarget.style.boxShadow = styles.listItem.boxShadow}
+                className="hx-item"
+                role="article"
+                aria-label="승인 대기 대전 기록"
               >
-                <p><span style={styles.listLabel}>날짜:</span> {new Date(date.toDate()).toLocaleDateString()}</p>
-                <p>
-                  <span style={styles.listLabel}>승자:</span> {winner} (ELO: {winnerEloToShow ? Math.round(winnerEloToShow) : 'N/A'}, 승률: {winnerRateToShow ? (winnerRateToShow * 100).toFixed(1) : '0'}%)
-                </p>
-                <p>
-                  <span style={styles.listLabel}>패자:</span> {loser} (ELO: {loserEloToShow ? Math.round(loserEloToShow) : 'N/A'}, 승률: {loserRateToShow ? (loserRateToShow * 100).toFixed(1) : '0'}%)
-                </p>
+                <div className="hx-row">
+                  <span className="hx-label">날짜</span>
+                  <span className="hx-val">{new Date(date.toDate()).toLocaleDateString()}</span>
+                </div>
+                <div className="hx-row">
+                  <span className="hx-label">승자</span>
+                  <span className="hx-val">{winner}</span>
+                </div>
+                <div className="hx-row">
+                  <span className="hx-label">패자</span>
+                  <span className="hx-val">{loser}</span>
+                </div>
+
+                <div className="hx-badges" aria-hidden="true">
+                  <span className="hx-badge pending">PENDING</span>
+                </div>
+
+                {['admin', 'staff'].includes(userRole) && (
+                  <div className="hx-actions">
+                    <button
+                      onClick={() => updatePlayerStatsAndMatch(winner, loser, id)}
+                      disabled={approvingId === id}
+                      className="hx-approve"
+                    >
+                      {approvingId === id ? '승인 중…' : '승인하기'}
+                    </button>
+                    <button
+                      onClick={() => deleteMatch(id)}
+                      className="hx-delete"
+                    >
+                      삭제
+                    </button>
+                  </div>
+                )}
               </div>
-            );
-          })
-        ) : (
-          <p>승인된 대전 기록이 없습니다.</p>
-        )}
+            ))
+          ) : (
+            <p style={{ color: 'var(--muted)' }}>승인 대기 중인 대전 기록이 없습니다.</p>
+          )}
+        </div>
+
+        {/* 승인된 목록 */}
+        <h3 className="hx-subtitle">승인된 대전 기록 목록</h3>
+        <div className="hx-block">
+          {matchResults.length > 0 ? (
+            matchResults.map(({ id, date, winner, loser, winnerELO, loserELO, winnerWinRate, loserWinRate }) => {
+              const winnerStats = playerStatsMap[winner] || {};
+              const loserStats = playerStatsMap[loser] || {};
+              const winnerEloToShow = winnerELO ?? winnerStats.rating;
+              const loserEloToShow  = loserELO ?? loserStats.rating;
+              const winnerRateToShow = winnerWinRate ?? winnerStats.winRate;
+              const loserRateToShow  = loserWinRate ?? loserStats.winRate;
+
+              return (
+                <div key={id} className="hx-item" role="article" aria-label="승인된 대전 기록">
+                  <div className="hx-row">
+                    <span className="hx-label">날짜</span>
+                    <span className="hx-val">{new Date(date.toDate()).toLocaleDateString()}</span>
+                  </div>
+                  <div className="hx-row">
+                    <span className="hx-label">승자</span>
+                    <span className="hx-val">
+                      {winner}
+                      {' '}<span style={{ color:'#6b7280' }}>
+                        (ELO: {winnerEloToShow ? Math.round(winnerEloToShow) : 'N/A'}, 승률: {winnerRateToShow ? (winnerRateToShow * 100).toFixed(1) : '0'}%)
+                      </span>
+                    </span>
+                  </div>
+                  <div className="hx-row">
+                    <span className="hx-label">패자</span>
+                    <span className="hx-val">
+                      {loser}
+                      {' '}<span style={{ color:'#6b7280' }}>
+                        (ELO: {loserEloToShow ? Math.round(loserEloToShow) : 'N/A'}, 승률: {loserRateToShow ? (loserRateToShow * 100).toFixed(1) : '0'}%)
+                      </span>
+                    </span>
+                  </div>
+
+                  <div className="hx-badges" aria-hidden="true">
+                    <span className="hx-badge approved">APPROVED</span>
+                  </div>
+                </div>
+              );
+            })
+          ) : (
+            <p style={{ color: 'var(--muted)' }}>승인된 대전 기록이 없습니다.</p>
+          )}
+        </div>
       </div>
     </div>
   );
