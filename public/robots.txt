@@ -1,3 +1,18 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+# 사이트맵 위치
+Sitemap: https://baduk-web-sstatements-projects.vercel.app/sitemap.xml
+
+# Crawlers에게 캐시된 페이지가 아닌 최신 버전 요청 유도
+Cache-control: no-cache
+
+# 구글봇(이미지)도 허용
+User-agent: Googlebot-Image
+Allow: /
+
+# Bing, Naver, Daum 등 주요 검색 엔진에도 열림
+User-agent: Naverbot
+User-agent: Yeti
+User-agent: Daum
+Allow: /
