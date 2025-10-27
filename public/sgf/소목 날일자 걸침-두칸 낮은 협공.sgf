@@ -5,7 +5,10 @@
 (;W[rg]
 (;B[le]
 (;W[ic];B[gc])
-(;W[jd]))
+(;W[jd];B[qh];W[qg];B[pg];W[ph];B[qi];W[oh];B[pj];W[ne];B[nf];W[pd];B[od];W[oe]
+;B[ng];W[me];B[qb];W[pb];B[pc];W[qc]
+(;B[md];W[ld];B[nc];W[rb];B[mf];W[fc];B[ke];W[je])
+(;B[ob];W[rb];B[lf];W[mc];B[pa];W[ra];B[po])))
 (;B[me];W[le];B[lf]
 (;W[ke];B[kf]
 (;W[je];B[jf];W[gd])
@@ -80,13 +83,32 @@ B는 연구중]
 ;B[qo])
 (;W[oh];B[re];W[rd];B[qb];W[pi];B[qi];W[qj];B[rj]C[백 곤란])))
 (;W[ne]
-(;B[pb];W[nb]C[연구중];B[re]
+(;B[pb]
+(;W[nb]C[연구중];B[re]
 (;W[qb];B[rb];W[qa];B[qc];W[pc];B[rc];W[ob];B[rd];W[pa]CR[qe]C[o 자리 단수는 나중에 침])
 (;W[rd];B[qe]C[B가 정수]
 (;W[qb]C[백 망];B[rb];W[qa];B[ra];W[qc];B[pa])
 (;W[rb];B[qb]C[그냥 A로 이으면 안됨]
 (;W[rc];B[mc];W[md];B[mb])
 (;W[se];B[sf];W[nd];B[sd];W[rc];B[nc];W[mc];B[ra];W[ng];B[pi]C[호각]))))
+(;W[nd]
+(;B[nc];W[mc];B[rb];W[qg]
+(;B[rf];W[qf];B[qe];W[re];B[rd];W[pg];B[of];W[ng];B[nf];W[mf];B[se];W[og];B[re]
+;W[fc])
+(;B[re];W[og];B[pg];W[ph];B[qh];W[qi];B[rh];W[rg];B[of];W[ri];B[nf];W[le];B[ng]
+;W[oh];B[nh];W[qe];B[qf];W[rf];B[rd];W[ni];B[mi];W[nj];B[mj];W[nk];B[mk];W[nl];B[ic]
+(;W[jc])
+(;W[id])))
+(;B[rb];W[qg];B[rf];W[pg];B[of];W[ng]
+(;B[re];W[nf];B[qi];W[rg];B[rd];W[qn])
+(;B[nf];W[mf];B[re];W[og]
+(;B[rg];W[rh];B[ri];W[qi];B[sh];W[qh];B[rj];W[sg];B[sf];W[ql];B[rl];W[qm];B[rm]
+;W[qn];B[jp];W[cq])
+(;B[qj]
+(;W[ql];B[rg];W[rh];B[ri];W[qi];B[sh];W[qh];B[rk];W[pj];B[rl];W[qm];B[rm];W[qn]
+;B[qk];W[pk];B[rn];W[cq])
+(;W[qk];B[ri];W[rg];B[rd];W[pk];B[pp])
+(;W[pj];B[ri];W[qk];B[pi];W[rj];B[qi];W[rg];B[rd];W[pk];B[pp]))))))
 (;B[qb]C[A가 정수]
 (;W[rf]
 (;B[qg]C[C는 연구중]
@@ -108,8 +130,13 @@ B는 연구중]
 (;W[pg]C[흑 망])
 (;W[mg];B[mf];W[mh];B[nf];W[pg]C[흑 망]))
 (;B[qf];W[ng];B[re]C[백 우세])))
-(;W[rg];B[qi];W[rb];B[pb];W[rc];B[md]C[백 망함]))
-(;B[md];W[nd];B[nc];W[mc];B[ld]
+(;W[rg];B[qi]
+(;W[rb];B[pb];W[rc];B[md]C[백 망함])
+(;W[og];B[of];W[nf];B[ng];W[rb];B[md];W[lf];B[pb];W[oh];B[rh];W[qe];B[qf];W[rc]
+;B[ld];W[oj];B[ql];W[kc];B[kd];W[ic];B[jd];W[mc];B[nd];W[mg];B[kf];W[kh];B[lh];W[li]
+;B[kg];W[qn];B[gb])))
+(;B[md]
+(;W[nd];B[nc];W[mc];B[ld]
 (;W[mf];B[kc];W[kb];B[jc];W[mb];B[nb];W[jb];B[ma];W[lb]
 (;B[rd];W[rc];B[qc];W[sd];B[ic];W[ib];B[rb]
 (;W[re];B[hc];W[hb];B[qg]C[흑 유리])
@@ -127,7 +154,12 @@ B는 연구중]
 ;W[na];B[la];W[ma];B[sb];W[pa];B[kc];W[qa];B[ra];W[sc];B[ja];W[lb];B[ia];W[ka];B[qf]
 ;W[re];B[qh]C[빅이지만 흑 선수로 흑 2점이 준동하는 결과임]))
 (;W[kb];B[pg];W[ng];B[qc];W[ph];B[rd];W[qe];B[re];W[qg];B[ic];W[mb];B[ib];W[la]
-C[호각]))))
+C[호각])))
+(;W[og];B[pg];W[nd];B[nc];W[mc]
+(;B[rc];W[rd];B[ob];W[ph];B[of];W[me];B[qg];W[qh];B[rg];W[ng];B[rh];W[qj];B[rj]
+;W[rk];B[ri];W[pk];B[nf];W[mf];B[mg];W[ni]C[백 유리])
+(;B[rb];W[mb];B[oa];W[ph];B[of];W[me];B[qg];W[qh];B[rg];W[rh];B[ng];W[sg];B[le]
+;W[ld];B[mf];W[ke];B[lf];W[rd];B[nf];W[md];B[nb];W[ql];B[je];W[jc];B[kf]C[백 유리]))))
 (;W[rc];B[re];W[rb];B[ob];W[mb];B[ra]C[백 곤란])
 (;W[rb]C[정수는 C]
 (;B[rc];W[pb];B[pc];W[qc])

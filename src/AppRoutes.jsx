@@ -53,12 +53,15 @@ import GuanPage from './pages/GuanPage';
 import GuanRecordPage from './pages/GuanRecordPage';
 import AddProblemPage, { SolveProblemPage } from './pages/AddProblem';
 
-
-import TournamentCreate from './pages/TournamentCreate';
-import TournamentList from './pages/TournamentList';
-import TournamentDetail from './pages/TournamentDetail';
 import { SeasonProvider } from "./contexts/SeasonContext"; 
 import LeagueLayout from './pages/league/LeagueLayout';
+
+
+import TournamentsList from "./components/tournaments/TournamentsList";
+import TournamentDetail from "./components/tournaments/TournamentDetail";
+import Rankings from "./pages/Rankings"; 
+
+
 
 import "./App.css";
 
@@ -219,17 +222,15 @@ const handleAddProblem = (newProblem) => {
         <Route path="/lecture/끝내기" element={<끝내기Flow />} />
         <Route path="/lecture/격언" element={<격언Flow />} />
 
+        <Route path="/tournaments" element={<TournamentsList />} />
+        <Route path="/tournaments/:id" element={<TournamentDetail />} />
+        <Route path="/rankings" element={<Rankings />} />
+
         <Route path="/guan" element={<GuanPage/>} />
 
         <Route path="/guan/record/:problemId/:attemptId/:round" element={<GuanRecordPage />} />
         <Route path="/guan/add" element={<AddProblemPage />} />
         <Route path="/guan/solve/:problemId" element={<SolveProblemPage />} />
-
-        <Route path="/tournaments/create" element={<TournamentCreate />} />
-        <Route path="/tournaments" element={<TournamentList />} />
-        <Route path="/tournaments/:id" element={<TournamentDetail />} />
-
-
 
         <Route path="/signup" element={user ? <Navigate to="/" /> : <Signup />} />
         <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />

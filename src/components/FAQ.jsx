@@ -146,12 +146,8 @@ export default function FAQ() {
                     </span>
                     <span className="hint-text">
                       더 자세한 안내가 필요하신가요?{" "}
-                      <a href="/intro" className="hint-link">
+                      <a href="../club/intro" className="hint-link">
                         동아리 소개
-                      </a>{" "}
-                      또는{" "}
-                      <a href="/contact" className="hint-link">
-                        문의 페이지
                       </a>
                       로 이동하세요.
                     </span>

@@ -1,153 +1,118 @@
-.sgf-treeview {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 14px;
-  color: #222;
-  max-height: 100%;
-  overflow-y: auto;
-  padding-right: 8px;
-  user-select: none;
-}
-
-.tree-node {
-  margin-bottom: 6px;
-}
-
-.node-content {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.toggle-btn {
-  width: 18px;
-  height: 18px;
-  border: none;
-  background: transparent;
-  color: #666;
-  cursor: pointer;
-  font-weight: bold;
-  transform: rotate(0deg);
-  transition: transform 0.2s ease;
-  user-select: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  font-size: 16px;
-  line-height: 1;
-}
-
-.toggle-btn.open {
-  transform: rotate(90deg);
-}
-
-.toggle-btn:hover {
-  color: #0078d7;
-}
-
-.toggle-placeholder {
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-}
-
-.coord-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  border: none;
-  background: #f0f0f0;
-  color: #333;
-  padding: 6px 12px;
-  border-radius: 9999px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  font-family: monospace;
-  font-weight: 600;
-  user-select: none;
-  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
-}
-
-.coord-btn:hover {
-  background-color: #d0e7ff;
-  color: #005bb5;
-}
-
-.coord-btn.selected {
-  background-color: #005bb5;
-  color: white;
-  box-shadow: 0 0 8px #005bb5aa;
-}
-
-.stone {
-  font-size: 18px;
-  line-height: 1;
-}
-
-.coords {
-  font-size: 14px;
-  letter-spacing: 0.05em;
-}
-/* 자식 노드가 가로로 한 줄에 나열될 때 */
-.children-row {
-  display: flex;
-  gap: 12px;
-  margin-top: 6px;
-}
-
-/* 기본 세로 나열 */
-.children-column {
+.sgf-treeview{
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  margin-top: 6px;
+  height: 100%;
+  gap: 10px;
 }
 
-/* 기존 트리 노드 들여쓰기 유지 */
-.tree-node {
-  margin-bottom: 6px;
-}
-/* 자식 노드 컨테이너 왼쪽에 점선 선 추가 */
-.children-column {
+/* 상단 툴바 + 브레드크럼 */
+.tree-toolbar{
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px;
+  position: sticky;
+  top: 0;
+  background: var(--panel, #fff);
+  z-index: 2;
+  border-bottom: 1px solid var(--border, #e5e7eb);
+}
+
+.crumbs{
+  display: flex; flex-wrap: wrap; gap: 4px;
+}
+.crumb{
+  border: 1px solid var(--border, #e5e7eb);
+  background: var(--panel, #fff);
+  color: var(--text, #111);
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.crumb.active{
+  border-color: color-mix(in srgb, var(--accent,#2563eb) 30%, var(--border,#e5e7eb));
+  background: color-mix(in srgb, var(--accent,#2563eb) 10%, transparent);
+}
+.crumb .sep{ margin-left: 6px; color: var(--muted,#6b7280); }
+
+.toolbar-actions{ display: flex; gap: 6px; }
+.toolbar-btn{
+  border: 1px solid var(--border, #e5e7eb);
+  background: var(--panel, #fff);
+  color: var(--text, #111);
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.toolbar-btn:disabled{ opacity: .5; cursor: not-allowed; }
+
+/* 노드 행 */
+.tree-node{ position: relative; }
+.node-row{
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  align-items: center;
   gap: 6px;
-  margin-top: 6px;
-
-  /* 부모-자식 연결 점선 */
-  border-left: 2px dotted #bbb;
-  padding-left: 16px;
-  position: relative;
+  padding: 2px 6px;
+  border-radius: 8px;
+}
+.node-row.is-selected{
+  background: color-mix(in srgb, var(--accent,#2563eb) 12%, transparent);
+  outline: 1px solid color-mix(in srgb, var(--accent,#2563eb) 25%, transparent);
 }
 
-/* 가로 배치시 점선 선 제거 */
-.children-row {
-  display: flex;
-  gap: 12px;
-  margin-top: 6px;
-  border-left: none;
-  padding-left: 0;
+/* 케럿 / 노드 버튼 */
+.caret{
+  width: 22px; height: 22px;
+  border: none; background: transparent;
+  color: var(--muted,#6b7280); cursor: pointer;
+}
+.caret.placeholder{ opacity: .35; cursor: default; }
+.node-btn{
+  display: inline-flex; align-items: center; gap: 8px; width: 100%;
+  padding: 6px 10px; border-radius: 8px; background: transparent;
+  border: 1px solid transparent; color: var(--text,#111); cursor: pointer; text-align: left;
+}
+.node-btn:hover{
+  background: color-mix(in srgb, var(--accent,#2563eb) 8%, transparent);
+  border-color: color-mix(in srgb, var(--accent,#2563eb) 18%, transparent);
 }
 
-/* 각 자식 노드 왼쪽에 점선 연결선 역할을 하는 가로선 */
-.tree-node > .coord-btn {
-  position: relative;
+/* 점/수순/라벨 */
+.dot{
+  width: 14px; height: 14px; border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.15) inset;
+}
+.dot.black{ background: #0b0b0b; }
+.dot.white{ background: #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.35) inset; }
+.dot.root{ background: linear-gradient(135deg,#999,#ddd); }
+.num{ min-width: 34px; font-variant-numeric: tabular-nums; font-size: 12px; color: var(--muted,#6b7280); }
+.label{ font-size: 14px; color: var(--text,#111); }
+
+/* 자식 배치 */
+.children-column{
+  margin-left: 16px;
+  border-left: 1px dashed color-mix(in srgb, var(--text,#111) 12%, transparent);
+  padding-left: 10px;
+}
+.children-row{
+  display: flex; gap: 8px; margin: 2px 0 2px 22px; flex-wrap: wrap;
 }
 
-/* 부모-자식 수평 연결선 */
-.tree-node > .coord-btn::before {
-  content: '';
-  position: absolute;
-  left: -16px;  /* 부모 점선과 맞춰줌 */
-  top: 50%;
-  width: 16px;
-  height: 0;
-  border-top: 2px dotted #bbb;
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-
-/* 루트 노드는 연결선 제거 */
-.tree-node:first-child > .coord-btn::before {
-  content: none;
+/* 다크모드 */
+@media (prefers-color-scheme: dark){
+  .crumb.active{
+    background: color-mix(in srgb, var(--accent,#60a5fa) 15%, transparent);
+    border-color: color-mix(in srgb, var(--accent,#60a5fa) 35%, var(--border,#232731));
+  }
+  .node-btn:hover{
+    background: color-mix(in srgb, var(--accent,#60a5fa) 10%, transparent);
+    border-color: color-mix(in srgb, var(--accent,#60a5fa) 22%, transparent);
+  }
+  .children-column{
+    border-left: 1px dashed color-mix(in srgb, var(--text,#e5e7eb) 18%, transparent);
+  }
 }

@@ -1,12 +1,83 @@
 .baduk-canvas {
+  /* 레이아웃 */
   width: 100%;
-  height: 100%;
-  max-width: 100%;
-  max-height: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1; /* 정사각형 유지 */
   display: block;
-  border: 4px solid #333;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
-  background-color: #deb887;
+  border-radius: 14px;
+  border: 3px solid rgba(0, 0, 0, 0.8);
+
+  /* 나무 바탕 */
+  background: 
+    repeating-linear-gradient(45deg, #dcb77f, #deb887 12px, #e0bb91 24px),
+    linear-gradient(180deg, #deb887, #caa86b);
+  background-blend-mode: multiply;
+  background-size: 200% 200%;
+  animation: woodgrain 18s linear infinite;
+
+  /* 입체감 및 그림자 */
+  box-shadow:
+    inset 0 0 12px rgba(0, 0, 0, 0.25),
+    0 10px 25px rgba(0, 0, 0, 0.45);
+
+  /* 미세한 광택 효과 */
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.baduk-canvas::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 40% 30%,
+    rgba(255, 255, 255, 0.25),
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+/* hover 시 살짝 떠오르는 느낌 */
+.baduk-canvas:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    inset 0 0 10px rgba(0, 0, 0, 0.25),
+    0 16px 35px rgba(0, 0, 0, 0.55);
+}
+
+/* 나무결 흐르는 애니메이션 */
+@keyframes woodgrain {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 100% 100%, 0 0; }
+}
+
+/* 다크 모드 대응 */
+@media (prefers-color-scheme: dark) {
+  .baduk-canvas {
+    border-color: rgba(255, 255, 255, 0.25);
+    background: 
+      repeating-linear-gradient(45deg, #4b3822, #5a4324 12px, #614a2b 24px),
+      linear-gradient(180deg, #5a4324, #3c2d1a);
+    box-shadow:
+      inset 0 0 12px rgba(255, 255, 255, 0.05),
+      0 10px 25px rgba(0, 0, 0, 0.8);
+  }
+  .baduk-canvas::after {
+    background: radial-gradient(
+      circle at 40% 30%,
+      rgba(255, 255, 255, 0.15),
+      transparent 70%
+    );
+  }
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .baduk-canvas {
+    border-width: 2px;
+    border-radius: 10px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+  }
 }

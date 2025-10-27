@@ -11,12 +11,14 @@
 (;B[lc];W[oc];B[pb];W[md]C[B는 약간 손해]
 (;B[mc])
 (;B[nd];W[ne];B[mc])))
-(;W[oc]N[단수];B[pb]
-(;W[od]
-(;B[ob]
+(;W[oc]N[단수];B[pb]C[보통은 A로 많이 잇지만, 끊는 싸움을 하고 싶은때는 B로 나온다.
+C는 A랑 거의 비슷]
+(;W[od]C[대게 A로 넘어가지만, 귀를 빼앗고 싶으면 B를 두기도 한다.]
+(;B[ob]C[우변의 세력을 키우고 싶다면 A나 C, 실리를 얻고 싶다면 B를 많이 둔다.]
 (;W[nd]C[B는 연구중
 C는 떨어짐]
-(;B[mc];W[md]
+(;B[mc]
+(;W[md]
 (;B[ld]
 (;W[lc]C[A는 흑 불만]
 (;B[kc];W[lb];B[mb];W[ma];B[nb];W[kb];B[jc]
@@ -49,7 +51,11 @@ C는 떨어짐]
 (;W[lg])
 (;W[kg]))
 (;W[db];B[qd];W[lg]C[연구중])))
-(;B[kb];W[jc];B[le];W[je];B[lg];W[fc];B[pg];W[rh])))
+(;B[kb];W[jc];B[le];W[je];B[lg];W[fc];B[pg];W[rh])
+(;B[jc]
+(;W[kb]C[환원];B[kd];W[jb];B[ic];W[ib];B[hc])
+(;W[kd];B[kb];W[jd];B[ic]LB[le:A]C[후에 흑은 A로 준동 가능]))
+(;B[le];W[kb];B[qd]C[어려움])))
 (;W[le];B[kd];W[ke]
 (;B[jd];W[je];B[ie];W[id]
 (;B[hd];W[ic];B[hc]C[A가 좋은 수]
@@ -98,6 +104,34 @@ o교환 해도 나쁘지 않음])))
 (;W[rc];B[rd];W[rb]
 (;B[ra];W[qa];B[pa];W[nb])
 (;B[kc];W[ld];B[jb];W[mb];B[ka];W[nb];B[ra]))))
+(;W[nq]
+(;B[md]
+(;W[pj];B[ph];W[me];B[le];W[mf];B[lf];W[mg])
+(;W[fq]
+(;B[ph]
+(;W[rh])
+(;W[qh];B[qi];W[pi]
+(;B[rh];W[qg];B[qj];W[oi];B[qm];W[pk];B[qk])
+(;B[qj]
+(;W[oh];B[pg]C[연구중])
+(;W[oi];B[rh];W[qg];B[qm];W[pk];B[qk]))))
+(;B[qh];W[qk]
+(;B[oh];W[me];B[le];W[mf])
+(;B[ng];W[me];B[ne];W[pi];B[ph];W[og];B[oh];W[nf];B[mg];W[le];B[qd];W[rc];B[rd]
+;W[re];B[rb];W[qe];B[sc];W[pg];B[nj];W[ol];B[ml]))))
+(;B[ph]
+(;W[rh])
+(;W[md];B[ld];W[lc];B[lb];W[kc];B[kb];W[jc];B[le];W[je];B[lg];W[nh]
+(;B[if];W[fc]
+(;B[jf];W[db];B[hc];W[ee])
+(;B[id];W[ic];B[hc];W[hb];B[hd];W[ke];B[ng];W[kg];B[lh]))
+(;B[id];W[ke];B[ng];W[oh];B[og];W[pg];B[mh];W[pi];B[qh];W[qi];B[jg];W[if];B[fd]
+;W[ig])))
+(;B[le];W[cq];B[dq];W[cp];B[do];W[bn]
+(;B[qh];W[oh];B[qk];W[qm];B[qd];W[rc];B[rd];W[qe];B[rb];W[oj];B[of];W[ph];B[qi]
+;W[ol])
+(;B[ph];W[rh])))
+(;W[le];B[qg];W[qh];B[pg];W[rg]))
 (;B[md]
 (;W[mc];B[nb]
 (;W[lc];B[qd]C[B는 축이 안될때]
@@ -113,9 +147,14 @@ o교환 해도 나쁘지 않음])))
 (;B[qd];W[mc];B[nb];W[kd]CR[le]C[흑의 잽]))
 (;W[rc]C[B는 안전한 수]
 (;B[nd]C[대게 백은 B를 노림]
-(;W[lc])
+(;W[lc]
+(;B[nf];W[mb];B[nb];W[ic];B[gc]C[환원])
+(;B[pg]
+(;W[qg];B[ic])
+(;W[of];B[ld];W[kd];B[le];W[jc];B[pf];W[ne];B[qe];W[qd];B[re])))
 (;W[mb]
-(;B[nb];W[ic];B[gc];W[lc]
+(;B[nb];W[ic]
+(;B[gc];W[lc]
 (;B[jd]
 (;W[jc];B[ld]
 (;W[id];B[je];W[ie];B[ge];W[of]
@@ -160,9 +199,28 @@ CR[gb][ge]C[o는 비슷함];W[ge];B[hf]
 (;W[gd];B[ec])
 (;W[dc]))
 (;B[nf];W[id]))))
-(;B[me];W[ke]
+(;B[me]
+(;W[ke]
 (;B[jd];W[jc];B[pg];W[qg];B[ph];W[ri]CR[kd]C[o는 연구중])
-(;B[pg];W[qg];B[ph];W[ri];B[jd])))
+(;B[pg];W[qg];B[ph];W[ri];B[jd])
+(;B[mg];W[ph];B[jd];W[hb]))
+(;W[je];B[ke]
+(;W[kd];B[kf])
+(;W[jf];B[kd];W[ge]C[연구중]))
+(;W[gb];B[fb];W[hb];B[fc];W[ke];B[pg];W[qg];B[ph];W[ri]))
+(;B[lf]C[B는 악수]
+(;W[ke];B[oe];W[pe];B[of];W[qh];B[le])
+(;W[me];B[ne];W[mf];B[ld])))
+(;B[jd];W[jc];B[fc];W[kd])
+(;B[jc]
+(;W[jb];B[jd]
+(;W[kb];B[gc];W[lc]
+(;B[me])
+(;B[ld]))
+(;W[kc];B[kb];W[lb];B[ib];W[ka];B[hc]C[축 좋으면 흑 만족]))
+(;W[jd];B[kc];W[kd];B[lc];W[ld];B[md];W[hd];B[ie];W[he]
+(;B[cf])
+(;B[if];W[id];B[ec]))))
 (;B[lc];W[lb]
 (;B[nb];W[kc]
 (;B[ld];W[hc];B[fc]
@@ -198,7 +256,12 @@ CR[gf]C[백은 o 행마가 괜찮음];B[rb]
 (;W[cf])
 (;W[jf];B[ib];W[jb];B[kg];W[jg];B[kh];W[jh];B[ki];W[of]
 (;B[ng];W[cc])
-(;B[pg];W[qg];B[ij]))))
+(;B[pg];W[qg];B[ij])))
+(;W[hc];B[hb];W[ib];B[hd];W[ic];B[gb];W[je];B[kf];W[gd];B[he];W[ke];B[lf]
+(;W[fd];B[ec])
+(;W[fc]C[백 승률 올라감];B[fb];W[ec];B[fd];W[ed];B[ge];W[ee];B[ig];W[mc];B[pg];W[qg]
+;B[ph];W[qh];B[dc];W[eb];B[de];W[ef];B[db];W[da];B[ca];W[ea];B[cg];W[cb];B[cc];W[ba]
+;B[bc];W[eh])))
 (;B[jc];W[mc];B[qd];W[rd];B[pe]
 (;W[oe];B[ld]C[손 뺌])
 (;W[qe];B[oe];W[qd];B[nb];W[kc];B[le];W[ld];B[jd]
@@ -214,8 +277,30 @@ CR[gf]C[백은 o 행마가 괜찮음];B[rb]
 (;W[me];B[pe];W[ke];B[id];W[je]C[흑 유리]))
 (;W[id]
 (;B[jd];W[kd];B[hc];W[je];B[ld];W[le];B[nb])
-(;B[hc]))))
-(;B[lc];W[kc];B[kd]
+(;B[hc])))
+(;W[nq]
+(;B[pg];W[qg];B[pi];W[ph];B[oh];W[qh];B[mi])
+(;B[nf]
+(;W[ph])
+(;W[fq];B[qh];W[og];B[ng];W[pi]
+(;B[qi];W[pj];B[qj];W[of];B[qm])
+(;B[qj];W[qi];B[ri];W[ph];B[rh];W[ql]))))
+(;W[ld]
+(;B[lb];W[ne];B[me];W[nf]
+(;B[mf];W[ng];B[ke])
+(;B[le];W[fc]))
+(;B[jd];W[mb];B[nb];W[jc];B[ic];W[id];B[kc];W[jb];B[kd];W[hc];B[kb];W[ib])
+(;B[nf];W[mb]
+(;B[nb];W[ph])
+(;B[lb];W[mc];B[nb];W[ic];B[le];W[ke]
+(;B[lf];W[qi])
+(;B[kd];W[me];B[lf];W[md];B[ne];W[mf];B[mg];W[kc];B[jd];W[lg];B[kf];W[kb]
+(;B[ng];W[qi])
+(;B[kg]
+(;W[ng];B[lh];W[mh])
+(;W[lh])))))))
+(;B[lc];W[kc]
+(;B[kd]
 (;W[jc];B[ld];W[fc])
 (;W[lb]
 (;B[mb];W[ld];B[mc]
@@ -231,11 +316,17 @@ CR[gf]C[백은 o 행마가 괜찮음];B[rb]
 (;W[cc])
 (;W[cd]))
 (;B[jc];W[nb];B[kb];W[mc])))
-(;W[jd];B[jc];W[kb];B[jb]C[여기서 손 빼는 진행도 있음];W[nd];B[ld];W[mc];B[nb]C[이후 손 뺌])))
+(;W[jd];B[jc];W[kb];B[jb]C[여기서 손 빼는 진행도 있음];W[nd];B[ld];W[mc];B[nb]C[이후 손 뺌]))
+(;B[ld];W[nd];B[kd];W[mc];B[nb];W[md];B[mb]LB[ic:A][dc:B])
+(;B[kb];W[ld];B[mc])
+(;B[lb]C[자체로 백 이득])))
 (;W[me]C[B가 정수]
 (;B[ld])
 (;B[qd];W[rc];B[rd];W[qe];B[rb];W[re];B[sc];W[pj])
-(;B[pg]C[연구중])))
+(;B[pg]C[연구중]))
+(;W[ld]
+(;B[nd];W[rc]C[환원])
+(;B[qd];W[nd];B[mc];W[md])))
 (;B[qd];W[rc];B[rd]C[손뺌도 가능];W[rb];B[ra];W[ob];B[sb]))
 (;W[ob]
 (;B[qd];W[od]
@@ -248,7 +339,11 @@ CR[gf]C[백은 o 행마가 괜찮음];B[rb]
 (;W[mf];B[nf];W[mg]C[A교환을 먼저 해도 됨
 D는 승률 떨어짐]
 (;B[lb];W[mb])
-(;B[pg];W[rh];B[qg];W[rc]C[백4가 좋은 수];B[rb];W[rg];B[pi];W[qj])
+(;B[pg];W[rh]C[B가 정수]
+(;B[qg];W[rc]C[백4가 좋은 수];B[rb];W[rg];B[pi];W[qj])
+(;B[pi]
+(;W[qi];B[pj];W[qk];B[mi];W[pk];B[ok];W[ol];B[nk];W[id])
+(;W[qj];B[ok];W[ni];B[pj];W[qk];B[qg];W[rc];B[rb];W[rg];B[mj];W[id])))
 (;B[ph]
 (;W[pg];B[nh];W[qh];B[pi];W[qi];B[rg]
 (;W[qg];B[pk];W[qj];B[ol]C[흑이 1집가량 좋은 결과])
@@ -261,7 +356,13 @@ D는 승률 떨어짐]
 (;W[qj];B[ri];W[ne];B[pj]
 (;W[hc])
 (;W[og])))
-(;W[pi];B[qg];W[pg];B[rh];W[oh];B[pf];W[qh];B[rg];W[gd])))
+(;W[pi];B[qg];W[pg];B[rh];W[oh];B[pf];W[qh];B[rg];W[gd]))
+(;W[qi];B[qh];W[rc];B[rb];W[oh];B[oi];W[og];B[pf];W[pg];B[qe];W[pi];B[rh];W[qg]
+;B[ri];W[qk];B[pk];W[qj];B[ql]
+(;W[ni];B[oj];W[rl];B[qm];W[rm];B[qo];W[qq];B[rn];W[rg];B[on];W[mp])
+(;W[oj];B[ni];W[rl]
+(;B[pq])
+(;B[rm];W[pl];B[qm];W[ol];B[ro]))))
 (;B[qg];W[pg];B[pf];W[qe];B[re];W[rg];B[qh];W[rf];B[og];W[qi];B[ph];W[rh];B[nh]
 C[흑 승률 떨어짐]))
 (;W[qh]
@@ -277,7 +378,8 @@ C[흑 승률 떨어짐]))
 (;B[qg]
 (;W[rg];B[oe];W[nh];B[pf])
 (;W[rc];B[rb];W[rg];B[oe];W[re];B[oh];W[oi];B[nh]))))))
-(;W[ld];B[nf];W[of];B[md];W[lc]
+(;W[ld]
+(;B[nf];W[of];B[md];W[lc]
 (;B[ng];W[pi];B[lf];W[id];B[mj])
 (;B[le];W[ke];B[lf];W[kf];B[lg]
 (;W[pj];B[ic];W[jd])
@@ -289,6 +391,25 @@ C[흑 승률 떨어짐]))
 (;W[hd];B[qj]
 (;W[ni])
 (;W[pj];B[pk];W[qi];B[qk];W[oj];B[ri];W[qh];B[pg];W[rh];B[qn])))))
+(;B[of];W[oe]
+(;B[me];W[qh];B[le];W[kd];B[ke];W[je];B[jf];W[ie];B[if];W[he];B[fc])
+(;B[ne];W[nf]
+(;B[me])
+(;B[mf];W[ng];B[me];W[og];B[ic]
+(;W[kf];B[mg];W[mh];B[lg])
+(;W[lh];B[kf];W[jd];B[kc];W[kd];B[lb];W[mb];B[jg])
+(;W[id];B[mg]
+(;W[jc];B[hc];W[jb];B[ni];W[ph];B[li])
+(;W[mh];B[lh];W[mi];B[jd]
+(;W[jc];B[kc];W[jb];B[lb];W[kd];B[mb];W[je])
+(;W[je];B[kd];W[ke];B[le];W[lc];B[kb]
+(;W[li];B[jg])
+(;W[jg];B[li]))))
+(;W[jc];B[jb];W[kg];B[kf];W[jf];B[lb];W[mb];B[mg];W[mh];B[ke];W[jd];B[lh];W[mi]
+;B[jg];W[id];B[hc]
+(;W[hd];B[jh])
+(;W[jh];B[ig];W[kh];B[je];W[hd];B[gc];W[kb];B[ka];W[kc];B[li])))))
+(;B[me];W[le];B[mg];W[kg];B[pg];W[qg];B[ph];W[qh];B[pi];W[qj];B[ok];W[ql]))
 (;W[of];B[md];W[lc];B[ld];W[jc];B[kd];W[ib]
 (;B[pj])
 (;B[pi];W[oh]))

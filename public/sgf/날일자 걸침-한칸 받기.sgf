@@ -44,7 +44,10 @@
 (;B[gc];W[ob];B[oc];W[pc];B[nb];W[qb]
 (;B[kd];W[ic];B[hd];W[eb]C[연구중])
 (;B[kc]CR[hd]C[백 손 뺌
-o 활용 가능];W[hd])))
+o 활용 가능];W[hd]))
+(;B[ic];W[jd];B[id];W[oc]
+(;B[ob];W[nb];B[mb];W[mc];B[na];W[nd];B[nb];W[md];B[qc])
+(;B[nb];W[me])))
 (;W[me];B[ld]))
 (;W[of];B[qc]
 (;W[pc];B[pe];W[qe];B[qd];W[qb];B[re];W[qf];B[rb];W[pb];B[ne]
@@ -64,7 +67,9 @@ o 활용 가능];W[hd])))
 (;B[lc];W[sd];B[nf];W[md]C[연구중]
 (;B[ke])
 (;B[ld];W[me])))))
-(;W[qd];B[pc];W[od];B[mb]))
+(;W[qd];B[pc];W[od]
+(;B[mb])
+(;B[nd])))
 (;W[oc];B[pe];W[qe]
 (;B[nd]
 (;W[qg];B[of]

@@ -1,13 +1,16 @@
 // src/utils/sgfParser.js
 export class SGFNode {
   constructor(properties = {}, parent = null) {
+    this.id = SGFNode._nextId++;
     this.properties = properties;
     this.parent = parent;
     this.children = [];
-    this.move = null;
+    this.move = null;     // { color, x, y, pass?: true }
     this.comment = '';
+    this.setup = { AB: [], AW: [], AE: [] }; // 배치/제거 정보만 보존
   }
 }
+SGFNode._nextId = 1;
 
 export function parseSGF(sgf) {
   let pos = 0;
@@ -16,33 +19,47 @@ export function parseSGF(sgf) {
     while (pos < sgf.length && /\s/.test(sgf[pos])) pos++;
   }
 
+  function readValue() {
+    // '[' ... ']' 읽기 (이스케이프 \ 처리)
+    if (sgf[pos] !== '[') return null;
+    pos++;
+    let value = '';
+    while (pos < sgf.length && sgf[pos] !== ']') {
+      if (sgf[pos] === '\\') {
+        pos++;
+        if (pos < sgf.length) value += sgf[pos++]; // 다음 글자 그대로
+      } else {
+        value += sgf[pos++];
+      }
+    }
+    if (sgf[pos] === ']') pos++;
+    return value;
+  }
+
   function parseProperties(node) {
     while (true) {
       skipWhitespace();
       if (pos >= sgf.length || ['(', ';', ')'].includes(sgf[pos])) break;
 
       const keyMatch = /^[A-Z]+/.exec(sgf.slice(pos));
-      if (!keyMatch) throw new Error(`Invalid property at pos ${pos}: ${sgf.slice(pos, pos + 10)}`);
+      if (!keyMatch) throw new Error(`Invalid property at ${pos}: ${sgf.slice(pos, pos + 10)}`);
       const key = keyMatch[0];
       pos += key.length;
 
       const values = [];
       while (sgf[pos] === '[') {
-        pos++;
-        let value = '';
-        while (pos < sgf.length && sgf[pos] !== ']') {
-          if (sgf[pos] === '\\') {
-            pos++;
-            if (pos < sgf.length) value += sgf[pos++];
-          } else {
-            value += sgf[pos++];
-          }
-        }
-        if (sgf[pos] === ']') pos++;
-        values.push(value);
+        const v = readValue();
+        values.push(v ?? '');
       }
 
       node.properties[key] = values;
+
+      // 자주 쓰는 키는 sugar로 보존
+      if (key === 'C') {
+        node.comment = values.join('\n').replace(/\r\n?/g, '\n');
+      } else if (key === 'AB' || key === 'AW' || key === 'AE') {
+        node.setup[key] = values.slice();
+      }
     }
   }
 
@@ -54,84 +71,86 @@ export function parseSGF(sgf) {
     const node = new SGFNode({}, parent);
     parseProperties(node);
 
-    const coord = node.properties.B?.[0] || node.properties.W?.[0];
-    if (coord?.length === 2) {
-      node.move = {
-        color: node.properties.B ? 'black' : 'white',
-        x: coord.charCodeAt(0) - 97,
-        y: coord.charCodeAt(1) - 97,
-      };
+    // move: B[] / W[] / B[aa] / W[pp]
+    let color = null, coord = null;
+    if (node.properties.B && node.properties.B.length) {
+      color = 'black';
+      coord = node.properties.B[0] || '';
+    } else if (node.properties.W && node.properties.W.length) {
+      color = 'white';
+      coord = node.properties.W[0] || '';
     }
-
-    if (node.properties.C) {
-      node.comment = node.properties.C.join(' ');
+    if (color !== null) {
+      if (!coord || coord.length === 0) {
+        node.move = { color, pass: true }; // ✅ 패스 처리
+      } else if (coord.length === 2) {
+        node.move = {
+          color,
+          x: coord.charCodeAt(0) - 97,
+          y: coord.charCodeAt(1) - 97,
+        };
+      }
     }
-
     return node;
   }
 
-  function parseTree(parent) {
-  skipWhitespace();
-  if (sgf[pos] !== '(') return null;
-  pos++; // skip '('
+  function parseGameTree(parent) {
+    skipWhitespace();
+    if (sgf[pos] !== '(') return null;
+    pos++; // '('
 
-  let curParent = parent;
-  let root = null;
+    let curParent = parent;
+    let root = null;
 
+    while (pos < sgf.length) {
+      skipWhitespace();
+      const ch = sgf[pos];
+
+      if (ch === ';') {
+        const node = parseNode(curParent);
+        if (!node) break;
+        if (!root) root = node;
+        if (curParent) {
+  node.parent = curParent;
+  curParent.children.push(node);
+}
+        curParent = node;
+      } else if (ch === '(') {
+        // variation: 같은 부모(curParent)의 다른 분기
+        const branchRoot = parseGameTree(curParent);
+        if (!root) root = branchRoot || root;
+      } else if (ch === ')') {
+        pos++; // ')'
+        break;
+      } else {
+        pos++; // 잡다한 공백/문자 스킵
+      }
+    }
+    return root;
+  }
+
+  // 컬렉션: (;...)(;...)(;...)
+  const fakeRoot = new SGFNode({}); // 여러 트리를 담기 위한 가짜 루트
   while (pos < sgf.length) {
     skipWhitespace();
-    if (sgf[pos] === ';') {
-      // 새 노드 생성
-      const node = parseNode(curParent);
-      if (!node) break;
+    if (pos >= sgf.length) break;
+    if (sgf[pos] === '(') {
+      const gRoot = parseGameTree(fakeRoot);
+      if (gRoot) {
+  gRoot.parent = fakeRoot;
+  fakeRoot.children.push(gRoot);
+}
 
-      // 중복 방지: 부모의 자식 중 동일 move가 있으면 재사용
-      let existing = null;
-      if (curParent && node.move) {
-        existing = curParent.children.find(
-          (child) =>
-            child.move &&
-            child.move.color === node.move.color &&
-            child.move.x === node.move.x &&
-            child.move.y === node.move.y
-        );
-      }
-
-      if (existing) {
-        curParent = existing;
-      } else {
-        if (!root) root = node;
-        if (curParent) curParent.children.push(node);
-        curParent = node;
-      }
-    } else if (sgf[pos] === '(') {
-      const branch = parseTree(curParent);
-      if (branch && curParent) {
-        if (!curParent.children.includes(branch)) {
-          curParent.children.push(branch);
-        }
-      }
-    } else if (sgf[pos] === ')') {
-      pos++;
-      break;
     } else {
       pos++;
     }
   }
 
-  return root;
-}
-
-
-  function setParentLinks(node, parent = null) {
-    if (!node) return;
-    node.parent = parent;
-    for (const child of node.children) {
-      setParentLinks(child, node);
-    }
-  }
-
-  const root = parseTree(null);
-  setParentLinks(root);
-  return root;
+  // 루트 링크/메타
+  // 바둑판 크기: 최상위(혹은 각 게임 루트)의 SZ 사용 (없으면 19)
+  const firstGame = fakeRoot.children[0];
+  const sizeProp = firstGame?.properties?.SZ?.[0];
+  const boardSize = sizeProp ? parseInt(sizeProp, 10) : 19;
+  fakeRoot.properties.SZ = [String(boardSize)];
+  return fakeRoot.children.length === 1 ? firstGame : fakeRoot;
 }
