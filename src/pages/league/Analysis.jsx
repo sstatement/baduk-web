@@ -54,7 +54,7 @@ const labCss = `
   .lab-anim, .lab-shine, .lab-pulse, .lab-scan, .lab-rise { animation: none !important; transition: none !important; }
 }
 
-/* 페이지 배경: 분석실 네온 그리드 + 스캔라인 */
+/* 페이지 배경 */
 .lab-page{
   min-height:100vh;
   padding: 28px 18px 40px;
@@ -66,7 +66,6 @@ const labCss = `
   overflow-x: hidden;
 }
 .lab-page::before{
-  /* 부드러운 그리드 */
   content:""; position: fixed; inset:0; pointer-events:none; opacity:.4;
   background-image:
     linear-gradient(var(--grid) 1px, transparent 1px),
@@ -75,17 +74,13 @@ const labCss = `
   mask-image: radial-gradient(1000px 500px at 50% -10%, #000 60%, transparent 100%);
 }
 .lab-page::after{
-  /* 아주 미세한 스캔라인 */
   content:""; position: fixed; inset:0; pointer-events:none; opacity:.06;
   background: repeating-linear-gradient(180deg, #0000 0 2px, #000 2.6px 3px);
   animation: scan 12s linear infinite;
 }
-@keyframes scan{
-  0%{ transform: translateY(-10px) }
-  100%{ transform: translateY(10px) }
-}
+@keyframes scan{ 0%{ transform: translateY(-10px) } 100%{ transform: translateY(10px) } }
 
-/* 컨테이너(글래스 패널) */
+/* 컨테이너 */
 .lab-container{
   max-width: 980px; margin: 0 auto;
   background: var(--lab-glass);
@@ -102,165 +97,101 @@ const labCss = `
   display:flex; align-items:center; gap:12px; justify-content:center;
   margin: 2px 0 12px;
 }
-.lab-title{
-  font-size: 24px; font-weight: 900; letter-spacing: .4px; text-align:center;
-  text-shadow: 0 1px 0 rgba(255,255,255,.15);
-}
-.lab-sub{
-  font-size: 12px; color: var(--muted); letter-spacing: .2px;
-}
+.lab-title{ font-size: 24px; font-weight: 900; letter-spacing: .4px; text-align:center; text-shadow: 0 1px 0 rgba(255,255,255,.15); }
+.lab-sub{ font-size: 12px; color: var(--muted); letter-spacing: .2px; }
 .lab-divider{
   height: 2px; width: min(560px, 92%); margin: 12px auto 18px;
   background: linear-gradient(90deg, transparent 0 6%, var(--accent) 6% 94%, transparent 94% 100%);
   filter: drop-shadow(0 0 10px rgba(56,189,248,.35));
 }
 
-/* 그리드 레이아웃 */
-.lab-grid{
-  display:grid; gap: 14px;
-  grid-template-columns: 1fr;
-}
-@media(min-width: 900px){
-  .lab-grid{ grid-template-columns: 1.1fr .9fr; }
-}
+/* 그리드 */
+.lab-grid{ display:grid; gap: 14px; grid-template-columns: 1fr; }
+@media(min-width: 900px){ .lab-grid{ grid-template-columns: 1.1fr .9fr; } }
 
-/* 패널 공통 */
+/* 패널 */
 .lab-panel{
   background: linear-gradient(180deg, rgba(96,165,250,.08), rgba(96,165,250,.03));
   border: 1px solid var(--lab-border);
   border-radius: 14px;
   padding: 16px 14px;
   box-shadow: 0 10px 30px rgba(0,0,0,.18);
-  position: relative;
-  overflow: hidden;
+  position: relative; overflow: hidden;
 }
 
-/* 입력 폼 */
-.lab-form{
-  display:grid; gap: 10px;
-  grid-template-columns: repeat(2, 1fr);
-}
+/* 폼 */
+.lab-form{ display:grid; gap: 10px; grid-template-columns: repeat(2, 1fr); }
 @media(max-width: 640px){ .lab-form{ grid-template-columns: 1fr; } }
-
 .lab-input{
-  width:100%;
-  background: rgba(255,255,255,.06);
-  color: var(--ink);
-  border: 1.5px solid var(--lab-border);
-  border-radius: 12px;
-  padding: 12px 14px;
-  font-size: 15px;
-  outline:none;
+  width:100%; background: rgba(255,255,255,.06); color: var(--ink);
+  border: 1.5px solid var(--lab-border); border-radius: 12px;
+  padding: 12px 14px; font-size: 15px; outline:none;
   transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
 }
-.lab-input:focus{
-  border-color: var(--focus);
-  box-shadow: 0 0 0 3px rgba(96,165,250,.18);
-  background: rgba(255,255,255,.12);
-}
+.lab-input:focus{ border-color: var(--focus); box-shadow: 0 0 0 3px rgba(96,165,250,.18); background: rgba(255,255,255,.12); }
 
 /* 버튼 */
 .lab-btn{
-  grid-column: 1 / -1;
-  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  grid-column: 1 / -1; display:inline-flex; align-items:center; justify-content:center; gap:8px;
   background: linear-gradient(180deg, #111827, #0b1020);
-  color:#e6f0ff; border:none; border-radius: 12px;
-  padding: 12px 16px; font-weight: 800; letter-spacing:.2px; cursor:pointer;
-  box-shadow: 0 16px 36px rgba(2,6,23,.45);
-  position: relative; overflow:hidden;
+  color:#e6f0ff; border:none; border-radius: 12px; padding: 12px 16px; font-weight: 800; letter-spacing:.2px; cursor:pointer;
+  box-shadow: 0 16px 36px rgba(2,6,23,.45); position: relative; overflow:hidden;
   transition: transform .12s ease, box-shadow .2s ease;
 }
 .lab-btn:hover{ transform: translateY(-1px); box-shadow: 0 22px 48px rgba(2,6,23,.6); }
 .lab-shine::after{
   content:""; position:absolute; inset:0; pointer-events:none;
   background: linear-gradient(120deg, transparent 0 30%, rgba(255,255,255,.16) 40% 52%, transparent 60% 100%);
-  transform: translateX(-120%);
-  animation: shine 2.8s ease-in-out infinite;
+  transform: translateX(-120%); animation: shine 2.8s ease-in-out infinite;
 }
-@keyframes shine{
-  0%{ transform: translateX(-120%) } 55%{ transform: translateX(110%) } 100%{ transform: translateX(110%) }
-}
+@keyframes shine{ 0%{ transform: translateX(-120%) } 55%{ transform: translateX(110%) } 100%{ transform: translateX(110%) } }
 
 /* 섹션 제목 */
-.lab-section{
-  font-weight:900; color: var(--ink);
-  display:flex; align-items:center; gap:8px;
-  margin: 4px 0 10px;
-}
+.lab-section{ font-weight:900; color: var(--ink); display:flex; align-items:center; gap:8px; margin: 4px 0 10px; }
 
 /* 차트 카드 */
 .lab-chart{
   background: radial-gradient(800px 300px at 20% -20%, rgba(125,211,252,.12), transparent 60%),
               radial-gradient(800px 300px at 80% 120%, rgba(56,189,248,.08), transparent 60%),
               linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-  border: 1px solid var(--lab-border);
-  border-radius: 14px; padding: 12px 10px;
+  border: 1px solid var(--lab-border); border-radius: 14px; padding: 12px 10px;
 }
 
-/* KPI 게이지 */
+/* KPI */
 .lab-kpis{ display:grid; gap: 12px; grid-template-columns: repeat(3, 1fr); }
 @media(max-width: 740px){ .lab-kpis{ grid-template-columns: 1fr; } }
-
 .lab-gauge{
   position:relative; display:flex; align-items:center; gap:12px;
   background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-  border: 1px solid var(--lab-border);
-  border-radius: 12px; padding: 12px;
+  border: 1px solid var(--lab-border); border-radius: 12px; padding: 12px;
   box-shadow: 0 10px 24px rgba(0,0,0,.16);
 }
 .gauge-ring{
-  --val: 0;
-  width: 64px; height: 64px; border-radius: 9999px;
-  background:
-    conic-gradient(var(--gcolor) calc(var(--val)*1%), rgba(255,255,255,.08) 0),
-    radial-gradient(circle at 50% 50%, rgba(0,0,0,.25), transparent 60%);
-  display:grid; place-items:center;
-  transition: background .35s ease;
+  --val: 0; width: 64px; height: 64px; border-radius: 9999px;
+  background: conic-gradient(var(--gcolor) calc(var(--val)*1%), rgba(255,255,255,.08) 0),
+             radial-gradient(circle at 50% 50%, rgba(0,0,0,.25), transparent 60%);
+  display:grid; place-items:center; transition: background .35s ease;
   box-shadow: inset 0 0 12px rgba(0,0,0,.4), 0 0 16px rgba(56,189,248,.25);
 }
-.gauge-val{
-  font-weight:900; font-size: 12px; color: var(--ink);
-  text-shadow: 0 1px 0 rgba(0,0,0,.3);
-}
+.gauge-val{ font-weight:900; font-size: 12px; color: var(--ink); text-shadow: 0 1px 0 rgba(0,0,0,.3); }
 .gauge-meta{ display:flex; flex-direction:column; gap:2px; }
 .gauge-title{ font-weight:800; }
 .gauge-sub{ font-size:12px; color: var(--muted); }
 
-/* 정보 알림 */
-.lab-note{
-  margin-top: 10px;
-  padding: 12px;
-  background: linear-gradient(180deg, rgba(56,189,248,.08), rgba(56,189,248,.03));
-  border: 1px dashed var(--lab-border);
-  border-radius: 12px;
-  color: var(--muted);
-}
-
-/* 작은 캡션 */
-.lab-caption{
-  font-size: 12px; color: var(--muted); text-align:right; margin-top: 6px;
-}
+/* 알림/캡션 */
+.lab-note{ margin-top: 10px; padding: 12px; background: linear-gradient(180deg, rgba(56,189,248,.08), rgba(56,189,248,.03)); border: 1px dashed var(--lab-border); border-radius: 12px; color: var(--muted); }
+.lab-caption{ font-size: 12px; color: var(--muted); text-align:right; margin-top: 6px; }
 `;
-
-const styles = {
-  page: { }, // CSS 클래스로 처리
-};
 
 const BASE_ELO = 1500;
 
-/* 게이지 컴포넌트 (접근성 포함) */
+/* 게이지 컴포넌트 */
 const Gauge = ({ label, sub, value }) => {
   const pct = Math.max(0, Math.min(100, Number(value ?? 0)));
-  const gcolor =
-    pct >= 66 ? 'var(--good)' : pct >= 40 ? 'var(--warn)' : 'var(--bad)';
-
+  const gcolor = pct >= 66 ? 'var(--good)' : pct >= 40 ? 'var(--warn)' : 'var(--bad)';
   return (
     <div className="lab-gauge" role="group" aria-label={`${label} 지표`}>
-      <div
-        className="gauge-ring"
-        style={{ ['--val']: pct, ['--gcolor']: gcolor }}
-        aria-label={`${label} 게이지`}
-      >
+      <div className="gauge-ring" style={{ ['--val']: pct, ['--gcolor']: gcolor }} aria-label={`${label} 게이지`}>
         <span className="gauge-val" aria-live="polite">{pct}%</span>
       </div>
       <div className="gauge-meta">
@@ -269,6 +200,28 @@ const Gauge = ({ label, sub, value }) => {
       </div>
     </div>
   );
+};
+
+/* 안전한 차트 데이터 빌더: 항상 datasets 존재 보장 */
+const makeSafeChartData = (labels, data, labelText, lineColor, fillColor) => {
+  const safeLabels = Array.isArray(labels) ? labels : [];
+  const safeData = Array.isArray(data) ? data : [];
+  return {
+    labels: safeLabels,
+    datasets: [
+      {
+        label: labelText,
+        data: safeData.map((v) => (Number.isFinite(Number(v)) ? Number(v) : null)),
+        borderColor: lineColor,
+        backgroundColor: fillColor,
+        borderWidth: 2,
+        tension: 0.3,
+        fill: true,
+        pointRadius: 2.5,
+        pointHoverRadius: 5,
+      },
+    ],
+  };
 };
 
 const LeagueAnalysis = () => {
@@ -330,20 +283,17 @@ const LeagueAnalysis = () => {
             const at = raw?.toDate ? raw.toDate() : raw;
             if (!at) return null;
             const elo =
-              m.winner === playerName
-                ? m.winnerELO
-                : m.loser === playerName
-                ? m.loserELO
-                : null;
+              m.winner === playerName ? m.winnerELO :
+              m.loser === playerName ? m.loserELO : null;
             if (elo == null) return null;
-            return { at, elo };
+            return { at, elo: Number(elo) };
           })
           .filter(Boolean)
           .sort((a, b) => a.at - b.at);
 
         setEloHistorySeason({
           labels: points.map((p) => p.at.toLocaleDateString()),
-          data: points.map((p) => p.elo),
+          data: points.map((p) => Number(p.elo)).filter((v) => Number.isFinite(v)),
         });
       } catch (e) {
         console.error('buildSeasonEloSeries error:', e);
@@ -367,7 +317,7 @@ const LeagueAnalysis = () => {
 
       const rows = snap.docs.map((d) => {
         const s = d.data();
-        return { seasonId: s.seasonId, elo: s.elo ?? BASE_ELO };
+        return { seasonId: s.seasonId, elo: Number(s.elo ?? BASE_ELO) };
       });
 
       // seasons 컨텍스트 기준 라벨/정렬
@@ -383,13 +333,19 @@ const LeagueAnalysis = () => {
 
       if (seasonOrder.length > 0) {
         const labels = seasonOrder.map((s) => s.name || s.id);
-        const data = seasonOrder.map((s) => (bySeasonId[s.id] ?? null));
+        const data = seasonOrder.map((s) => {
+          const v = bySeasonId[s.id];
+          return Number.isFinite(Number(v)) ? Number(v) : null;
+        });
         setEloBySeason({ labels, data });
       } else {
         const uniqueIds = Array.from(new Set(rows.map((r) => r.seasonId))).sort();
         setEloBySeason({
           labels: uniqueIds,
-          data: uniqueIds.map((sid) => rows.find((r) => r.seasonId === sid)?.elo ?? null),
+          data: uniqueIds.map((sid) => {
+            const v = rows.find((r) => r.seasonId === sid)?.elo;
+            return Number.isFinite(Number(v)) ? Number(v) : null;
+          }),
         });
       }
     } catch (e) {
@@ -413,7 +369,8 @@ const LeagueAnalysis = () => {
       );
       if (snap.empty) return null;
       const s = snap.docs[0].data();
-      return s.elo ?? null;
+      const val = Number(s.elo);
+      return Number.isFinite(val) ? val : null;
     } catch (error) {
       console.error('getLatestRatingInActiveSeason error:', error);
       return null;
@@ -439,9 +396,11 @@ const LeagueAnalysis = () => {
     setWinProbability((expectedScore * 100).toFixed(2));
   };
 
-  // 공통 차트 옵션 (분석실 톤으로 커스텀)
+  // 공통 차트 옵션
   const makeLineOptions = (yLabel = 'ELO', yData = []) => {
-    const numeric = yData.filter((v) => typeof v === 'number' && !Number.isNaN(v));
+    const numeric = (Array.isArray(yData) ? yData : []).filter(
+      (v) => typeof v === 'number' && !Number.isNaN(v)
+    );
     const hasData = numeric.length > 0;
     return {
       responsive: true,
@@ -468,46 +427,28 @@ const LeagueAnalysis = () => {
     };
   };
 
-  // 라인 그라디언트 (캔버스 기반)
-  const seasonDataset = (canvas) => {
-    const ctx = canvas.getContext('2d');
-    const grad = ctx.createLinearGradient(0, 0, 0, 220);
-    grad.addColorStop(0, 'rgba(125,211,252,.35)');
-    grad.addColorStop(1, 'rgba(56,189,248,0)');
-    return {
-      label: `${playerName} - ${currSeasonName}`,
-      data: eloHistorySeason.data,
-      borderColor: '#38bdf8',
-      backgroundColor: grad,
-      borderWidth: 2,
-      tension: 0.3,
-      fill: true,
-      pointRadius: 2.5,
-      pointHoverRadius: 5,
-      pointBackgroundColor: '#7dd3fc',
-    };
-  };
+  /* ===== 함수형 data 제거: useMemo로 고정 객체 생성 ===== */
+  const seasonChartData = useMemo(() => {
+    return makeSafeChartData(
+      eloHistorySeason.labels,
+      eloHistorySeason.data,
+      `${playerName} - ${currSeasonName}`,
+      '#38bdf8',
+      'rgba(56,189,248,0.15)'
+    );
+  }, [eloHistorySeason.labels, eloHistorySeason.data, playerName, currSeasonName]);
 
-  const seasonsDataset = (canvas) => {
-    const ctx = canvas.getContext('2d');
-    const grad = ctx.createLinearGradient(0, 0, 0, 220);
-    grad.addColorStop(0, 'rgba(96,165,250,.35)');
-    grad.addColorStop(1, 'rgba(37,99,235,0)');
-    return {
-      label: `${playerName} - 시즌별 최종 ELO`,
-      data: eloBySeason.data,
-      borderColor: '#60a5fa',
-      backgroundColor: grad,
-      borderWidth: 2,
-      tension: 0.35,
-      fill: true,
-      pointRadius: 2.5,
-      pointHoverRadius: 5,
-      pointBackgroundColor: '#93c5fd',
-    };
-  };
+  const seasonsChartData = useMemo(() => {
+    return makeSafeChartData(
+      eloBySeason.labels,
+      eloBySeason.data,
+      `${playerName} - 시즌별 최종 ELO`,
+      '#60a5fa',
+      'rgba(96,165,250,0.15)'
+    );
+  }, [eloBySeason.labels, eloBySeason.data, playerName]);
 
-  // KPI 값 유도
+  // KPI 값
   const eloSlope = useMemo(() => {
     const d = eloHistorySeason.data;
     if (!d || d.length < 2) return 0;
@@ -520,13 +461,11 @@ const LeagueAnalysis = () => {
     const mean = d.reduce((a, b) => a + b, 0) / d.length;
     const variance = d.reduce((s, v) => s + (v - mean) ** 2, 0) / d.length;
     const std = Math.sqrt(variance);
-    // 표준편차가 낮을수록 안정성 ↑
     const score = Math.max(0, Math.min(100, 100 - std));
     return Number(score.toFixed(0));
   }, [eloHistorySeason.data]);
 
   const seasonCoverage = useMemo(() => {
-    // 데이터 포인트가 많을수록 커버리지 ↑
     const n = eloHistorySeason.data?.length || 0;
     const pct = Math.max(0, Math.min(100, (n / 10) * 100)); // 10회 기준 100%
     return Number(pct.toFixed(0));
@@ -594,13 +533,7 @@ const LeagueAnalysis = () => {
             <div className="lab-section">📈 현재 시즌 ELO 변동</div>
             <div className="lab-chart">
               {eloHistorySeason.labels.length > 0 && eloHistorySeason.data.length > 0 ? (
-                <Line
-                  data={(canvas) => ({
-                    labels: eloHistorySeason.labels,
-                    datasets: [seasonDataset(canvas)],
-                  })}
-                  options={makeLineOptions('ELO', eloHistorySeason.data)}
-                />
+                <Line data={seasonChartData} options={makeLineOptions('ELO', eloHistorySeason.data)} />
               ) : (
                 <div className="lab-note">선수 이름을 입력하면 시즌 내 변동 추이가 표시됩니다.</div>
               )}
@@ -614,13 +547,7 @@ const LeagueAnalysis = () => {
           <div className="lab-section">🧪 시즌별 최종 ELO 추이</div>
           <div className="lab-chart">
             {eloBySeason.labels.length > 0 && eloBySeason.data.length > 0 ? (
-              <Line
-                data={(canvas) => ({
-                  labels: eloBySeason.labels,
-                  datasets: [seasonsDataset(canvas)],
-                })}
-                options={makeLineOptions('ELO', eloBySeason.data)}
-              />
+              <Line data={seasonsChartData} options={makeLineOptions('ELO', eloBySeason.data)} />
             ) : (
               <div className="lab-note">선수의 시즌별 통계가 있으면 여기서 비교됩니다.</div>
             )}
