@@ -68,7 +68,8 @@ export default function TournamentList() {
           <p className="text-gray-400 text-sm mt-1">상단 탭을 바꾸거나 ‘개최하기’를 눌러 시작하세요.</p>
         </div>
       ) : (
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        // ⬇️ 여기만 변경
+        <div className="tg-grid" style={{ marginTop: 20 }}>
           {items.map((t) => (
             <TournamentCard key={t.id} data={t} />
           ))}

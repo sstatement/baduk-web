@@ -78,11 +78,12 @@ const Announcements = () => {
       {isAdmin && (
         <div className="text-center mb-6">
           <button
-            onClick={() => navigate("/announcements/create")}
-            className="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600"
-          >
-            공지사항 작성하기
-          </button>
+  onClick={() => navigate("/announcements/create")}
+  className="create-announcement-btn"
+>
+  ✏️ 공지사항 작성하기
+</button>
+
         </div>
       )}
 
@@ -108,7 +109,7 @@ const Announcements = () => {
               {isAdmin && (
                 <button
                   onClick={() => deleteAnnouncement(announcement.id)}
-                  className="mt-4 px-4 py-2 bg-red-500 text-white font-semibold rounded-md hover:bg-red-600"
+                  className="create-announcement-btn"
                 >
                   삭제
                 </button>

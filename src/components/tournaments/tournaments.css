@@ -1,95 +1,212 @@
-/* ===== Grand League Aesthetic for Tournaments ===== */
+/* ===== Grand League / Tournament Hub – photo-level finish ===== */
 :root{
-  --tg-ink:#0a0b10; --tg-glass:rgba(255,255,255,.08);
-  --tg-gold:#f5c859; --tg-gold-2:#ffde8a; --tg-cyan:#66e7ff;
-  --tg-bronze:#eab308; --tg-shadow:rgba(0,0,0,.35);
+  --tg-ink:#0a0b10;
+  --tg-panel:rgba(255,255,255,.06);
+  --tg-line:rgba(255,255,255,.12);
+  --tg-glow:rgba(245,200,89,.35);
+  --tg-shadow:rgba(0,0,0,.35);
+
+  --tg-gold:#f5c859;
+  --tg-gold-2:#ffde8a;
+  --tg-cyan:#66e7ff;
+  --tg-slate:#0f172a;
+
+  --tg-text-1:#ffffff;
+  --tg-text-2:#cbd5e1;
+  --tg-text-3:#94a3b8;
 }
 @media (prefers-color-scheme: light){
-  :root{ --tg-ink:#0b0c12; --tg-glass:rgba(255,255,255,.6); }
+  :root{ --tg-ink:#0b0c12; --tg-panel:rgba(255,255,255,.6); }
 }
 
-/* 배경: 대회 현수막 느낌의 레이저 + 그래디언트 */
-.tg-hero {
-  position: relative; overflow: hidden; border-radius: 20px;
-  background:
-    radial-gradient(1100px 400px at -10% -20%, rgba(101,223,255,.16), transparent 55%),
-    radial-gradient(900px 320px at 110% 120%, rgba(245,200,89,.18), transparent 60%),
-    linear-gradient(180deg, #0b0d16 0%, #0a0b10 100%);
-  border: 1px solid rgba(255,255,255,.1);
-  box-shadow: 0 30px 80px var(--tg-shadow), inset 0 0 0 1px rgba(255,255,255,.06);
+/* Page scope (안 겹치게 범위 좁힘) */
+.tournaments-page {
+  color: var(--tg-text-1);
 }
-.tg-hero::before{
-  content:""; position:absolute; inset:-40%; 
+
+/* 컨테이너 */
+.tournaments-page .container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ===== HERO: 레이저 + 레이어드 그라디언트 + 라인 텍스처 ===== */
+.tg-hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  padding: 28px 24px;
   background:
-    repeating-linear-gradient(115deg, rgba(255,255,255,.06) 0 3px, transparent 3px 9px);
+    radial-gradient(1100px 420px at -10% -20%, rgba(101,223,255,.16), transparent 55%),
+    radial-gradient(900px 340px at 110% 120%, rgba(245,200,89,.18), transparent 60%),
+    linear-gradient(180deg, #0b0d16 0%, #0a0b10 100%);
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow:
+    0 30px 80px var(--tg-shadow),
+    inset 0 0 0 1px rgba(255,255,255,.06);
+}
+
+/* 대각선 라인 텍스처 */
+.tg-hero::before{
+  content:"";
+  position:absolute; inset:-40%;
+  background: repeating-linear-gradient(115deg, rgba(255,255,255,.06) 0 3px, transparent 3px 9px);
   transform: rotate(-3deg);
   mask-image: radial-gradient(60% 45% at 50% 0%, #000 60%, transparent 75%);
   pointer-events:none;
 }
 
-/* 크라운/트로피 느낌의 헤드라인 */
-.tg-title {
-  font-weight: 900; letter-spacing: 0.02em;
+/* 레이저 빔(가느다란 광선 두 줄) */
+.tg-hero::after{
+  content:"";
+  position:absolute; left:-15%; right:-15%; top:55%;
+  height: 2px;
+  background:
+    linear-gradient(90deg, transparent, rgba(102,231,255,.85), transparent 40%),
+    linear-gradient(90deg, transparent 60%, rgba(245,200,89,.85), transparent);
+  filter: blur(0.3px);
+  opacity:.55;
+}
+
+/* 내부 레이아웃 */
+.tg-hero .tg-hero-row{
+  display:flex; gap:14px; flex-direction:column;
+}
+@media (min-width: 768px){
+  .tg-hero .tg-hero-row{ flex-direction:row; align-items:center; justify-content:space-between; }
+}
+
+/* 타이틀/서브 – 메탈릭 그라디언트 텍스트 */
+.tg-title-wrap{ display:flex; align-items:center; gap:12px; }
+.tg-emoji{ font-size:40px; }
+.tg-title{
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 900; letter-spacing: .02em;
+  line-height: 1.2;
   background: linear-gradient(180deg, #fff, #f1f5f9 55%, #d1d5db);
   -webkit-background-clip:text; background-clip:text; color: transparent;
-  text-shadow: 0 2px 0 rgba(0,0,0,.2);
+  text-shadow: 0 2px 0 rgba(0,0,0,.25);
 }
-.tg-sub { color: #cbd5e1; }
+.tg-sub{
+  margin-top:6px;
+  color: var(--tg-text-2);
+  font-size: clamp(13px, 1.8vw, 16px);
+}
 
-/* 라지 버튼 */
-.tg-btn {
+/* 오른쪽 영역 */
+.tg-right{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+
+/* ===== 탭 ===== */
+.tg-tabs{
+  display:inline-flex; padding:6px; border-radius:14px;
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(6px);
+}
+.tg-tab{
+  padding:.62rem 1rem; border-radius:10px; font-weight:800; cursor:pointer;
+  color: var(--tg-text-2);
+  border:1px solid transparent;
+  transition: all .18s ease;
+}
+.tg-tab:hover{ color:#e5e7eb; border-color: rgba(255,255,255,.18); }
+.tg-tab.is-active{
+  background: var(--tg-slate);
+  color:#fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+}
+
+/* ===== 버튼 ===== */
+.tg-btn{
   display:inline-flex; align-items:center; gap:.6rem;
-  padding:.8rem 1.1rem; border-radius: 14px; font-weight: 800;
+  padding:.85rem 1.1rem; border-radius:14px; font-weight:800;
   border:1px solid rgba(255,255,255,.14);
-  transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease, filter .2s ease;
+  text-decoration:none;
 }
-.tg-btn:active { transform: translateY(1px); }
-.tg-btn-primary {
+.tg-btn:active{ transform: translateY(1px); }
+.tg-btn-primary{
   background: linear-gradient(180deg, #fff, #eef2ff);
-  color:#111827; box-shadow:0 18px 40px rgba(245,200,89,.28);
+  color:#111827;
   border-color: rgba(245,200,89,.55);
+  box-shadow:
+    0 12px 28px var(--tg-glow),
+    inset 0 0 0 1px rgba(255,255,255,.6);
+  position:relative; overflow:hidden;
 }
-.tg-btn-primary:hover{ box-shadow:0 26px 60px rgba(245,200,89,.36); }
-.tg-btn-ghost {
-  background: rgba(255,255,255,.06); color:#e5e7eb;
+.tg-btn-primary:hover{ box-shadow: 0 20px 52px var(--tg-glow); filter: saturate(1.05); }
+/* 버튼 하이라이트 섬광 */
+.tg-btn-primary::after{
+  content:"";
+  position:absolute; top:-120%; left:-30%;
+  width: 60%; height: 340%;
+  transform: rotate(25deg);
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.9) 50%, transparent 100%);
+  opacity:.0; pointer-events:none;
+  transition: opacity .25s ease, transform .25s ease;
+}
+.tg-btn-primary:hover::after{ opacity:.25; transform: rotate(25deg) translateX(35%); }
+
+.tg-btn-ghost{
+  background: var(--tg-panel);
+  color:#e5e7eb;
 }
 .tg-btn-ghost:hover{ background: rgba(255,255,255,.12); }
 
-/* 탭(피타입) */
-.tg-tabs {
-  display:inline-flex; padding:6px; border-radius:14px;
-  background: rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
-  backdrop-filter: blur(6px);
+/* ===== 리스트 그리드 ===== */
+.tg-grid{
+  display:grid; gap:20px; grid-template-columns:repeat(1, minmax(0,1fr));
+  margin-top: 22px;
 }
-.tg-tab {
-  padding:.6rem 1rem; border-radius:10px; font-weight:800;
-  color:#cbd5e1; transition: all .18s ease;
-}
-.tg-tab.is-active { background:#0f172a; color:#fff; box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+@media (min-width:640px){ .tg-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); } }
+@media (min-width:1024px){ .tg-grid{ grid-template-columns:repeat(3, minmax(0,1fr)); } }
 
-/* 카드: 유리패널 + 골드 라인 */
-.tg-card {
-  position:relative; border-radius:18px; overflow:hidden;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.12);
+/* ===== 카드 ===== */
+.tg-card{
+  position:relative; overflow:hidden; border-radius:18px;
+  background: var(--tg-panel);
+  border: 1px solid var(--tg-line);
   backdrop-filter: blur(6px);
-  transition: transform .18s ease, box-shadow .25s ease, border-color .25s ease;
+  transition: transform .18s ease, box-shadow .25s ease, border-color .25s ease, filter .2s ease;
+  display:flex; flex-direction:column; min-height: 220px;
 }
 .tg-card:hover{
   transform: translateY(-2px);
-  border-color: rgba(245,200,89,.4);
+  border-color: rgba(245,200,89,.45);
   box-shadow: 0 24px 60px rgba(0,0,0,.22);
+  filter: saturate(1.03);
 }
-.tg-card-top {
-  height: 3px; background: linear-gradient(90deg, var(--tg-gold), var(--tg-cyan));
-}
-.tg-badge { font-size:.78rem; font-weight:900; letter-spacing:.02em; padding:.38rem .6rem; border-radius:10px; }
+/* 상단 골드 라인 */
+.tg-card-top{ height:3px; background: linear-gradient(90deg, var(--tg-gold), var(--tg-cyan)); }
+
+/* 카드 헤더 */
+.tg-card h3{ color:#e5e7eb; }
+
+/* 상태 배지 */
+.tg-badge{ font-size:.78rem; font-weight:900; letter-spacing:.02em; padding:.38rem .6rem; border-radius:10px; }
 .tg-badge-reg{ background:#ecfccb; color:#3f6212; border:1px solid #bef264; }
 .tg-badge-live{ background:#ffe4e6; color:#9f1239; border:1px solid #fecdd3; }
 .tg-badge-done{ background:#e5e7eb; color:#374151; border:1px solid #cbd5e1; }
 
-.tg-stage { font-weight:900; text-transform:uppercase; font-size:.72rem;
-  padding:.35rem .6rem; border-radius:8px; color:#e5e7eb;
+.tg-desc{ color:#cdd6df; }
+
+/* 카드 하단 푸터: 항상 아래 고정 */
+.tg-footer{ margin-top:auto; display:flex; align-items:center; justify-content:space-between; }
+
+/* 스테이지 태그 */
+.tg-stage{
+  font-weight:900; text-transform:uppercase; font-size:.72rem;
+  padding:.36rem .6rem; border-radius:8px; color:#e5e7eb;
   background: linear-gradient(180deg, #0b1220, #070a12);
   border:1px solid rgba(255,255,255,.12);
 }
+
+/* 빈 상태 */
+.tg-empty{
+  text-align:center; padding:48px 16px; border-radius:14px;
+  background: rgba(20,22,28,.55);
+  border:1px dashed rgba(148,163,184,.25);
+}
+.tg-empty .big{ font-size:44px; margin-bottom:10px; }
+.tg-empty .help{ color:var(--tg-text-3); font-size:13px; margin-top:4px; }

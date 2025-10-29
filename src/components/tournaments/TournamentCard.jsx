@@ -16,7 +16,8 @@ export default function TournamentCard({ data }) {
 
       <p className="text-sm text-gray-300 line-clamp-2">{desc}</p>
 
-      <div className="mt-4 flex items-center justify-between">
+       {/* ⬇️ 여기 클래스 추가 */}
+      <div className="tg-footer">
         <span className="tg-stage">
           {format === "se" ? "Single Elim" : format === "de" ? "Double Elim" : format?.toUpperCase() || "Format"}
         </span>

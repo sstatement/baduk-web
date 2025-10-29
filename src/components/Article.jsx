@@ -19,7 +19,7 @@ import {
   orderBy,
   getDocs,
 } from "firebase/firestore";
-
+import "../App.css";
 const rankImages = {
   챌린저: "/images/챌린저.jpg",
   그랜드마스터: "/images/그랜드마스터.jpg",
@@ -401,12 +401,10 @@ const Article = () => {
             마이페이지 보기
           </Link>
 
-          <button
-            onClick={() => signOut(auth)}
-            className="mt-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition"
-          >
-            로그아웃
-          </button>
+          <button onClick={() => signOut(auth)} class="logout-btn">
+  로그아웃
+  </button>
+
         </div>
       )}
     </article>
