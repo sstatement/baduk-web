@@ -293,92 +293,109 @@ const Ranking = () => {
     }
   };
 
-  const fetchRankings = async () => {
-    try {
-      setLoading(true);
-      const [list, matches] = await Promise.all([fetchPlayersList(), fetchSeasonMatches()]);
-      setSeasonMatches(matches);
+ // ⬇️ Ranking 컴포넌트 안의 fetchRankings 함수만 교체
+const fetchRankings = async () => {
+  try {
+    setLoading(true);
 
-      if (!list.length) {
-        setPlayers([]);
-        setLoading(false);
-        return;
-      }
+    // 1) 지원서(시즌에 경기 없을 때 현재값 fallback)
+    const applicationsRef = collection(db, 'matchApplications');
+    const qApps = query(applicationsRef, orderBy('rating', 'desc'));
+    const appsSnap = await getDocs(qApps);
+    const appList = appsSnap.docs.map((d) => ({
+      id: d.id,
+      playerName: d.data().playerName,
+      seedRating: d.data().rating ?? BASE_ELO, // 경기 없을 때 현재값으로 사용
+      stamina: d.data().stamina ?? null,
+    }));
 
-      if (matches.length === 0) {
-        const fallback = list.map((p) => ({
-          id: p.id,
-          playerName: p.playerName,
-          rating: p.baseRating,
-          baseRating: p.baseRating,
-          delta: 0,
-          stamina: p.stamina,
-          win: 0,
-          loss: 0,
-          _source: 'applications',
-        }));
-        setPlayers(fallback.sort((a, b) => b.rating - a.rating));
-        setLoading(false);
-        return;
-      }
+    // 2) 시즌 경기
+    const matchesRef = collection(db, 'matches');
+    const qM = query(matchesRef, where('status', '==', 'approve'), where('seasonId', '==', seasonId));
+    const mSnap = await getDocs(qM);
+    const matches = mSnap.docs.map((d) => ({ id: d.id, ...d.data() }));
+    setSeasonMatches(matches);
 
-      const map = new Map();
-      list.forEach((p) => {
-        map.set(p.playerName, {
-          rating: p.baseRating,
-          baseRating: p.baseRating,
-          win: 0,
-          loss: 0,
-          lastAt: null,
-          stamina: p.stamina,
-        });
-      });
-
-      matches.forEach((m) => {
-        const atRaw = m.date || m.createdAt;
-        const at = atRaw?.toDate ? atRaw.toDate() : atRaw;
-
-        if (m.winner && map.has(m.winner)) {
-          const cur = map.get(m.winner);
-          cur.win = (cur.win || 0) + 1;
-          if (!cur.lastAt || (at && at > cur.lastAt)) {
-            cur.lastAt = at || cur.lastAt;
-            cur.rating = m.winnerELO ?? cur.rating ?? BASE_ELO;
-          }
-          map.set(m.winner, cur);
-        }
-        if (m.loser && map.has(m.loser)) {
-          const cur = map.get(m.loser);
-          cur.loss = (cur.loss || 0) + 1;
-          if (!cur.lastAt || (at && at > cur.lastAt)) {
-            cur.lastAt = at || cur.lastAt;
-            cur.rating = m.loserELO ?? cur.rating ?? BASE_ELO;
-          }
-          map.set(m.loser, cur);
-        }
-      });
-
-      const rows = Array.from(map.entries()).map(([playerName, v]) => ({
-        id: playerName,
-        playerName,
-        rating: v.rating ?? BASE_ELO,
-        baseRating: v.baseRating ?? BASE_ELO,
-        delta: (v.rating ?? BASE_ELO) - (v.baseRating ?? BASE_ELO),
-        stamina: v.stamina,
-        win: v.win || 0,
-        loss: v.loss || 0,
-        _source: 'matches',
-      }));
-
-      rows.sort((a, b) => b.rating - a.rating);
-      setPlayers(rows);
-      setLoading(false);
-    } catch (e) {
-      console.error('Error building rankings:', e);
+    // 3) 선수 집합
+    const nameSet = new Set(appList.map((p) => p.playerName));
+    matches.forEach((m) => {
+      if (m.winner) nameSet.add(m.winner);
+      if (m.loser) nameSet.add(m.loser);
+    });
+    if (nameSet.size === 0) {
       setPlayers([]);
       setLoading(false);
+      return;
     }
-  };
+
+    // 4) 선수별 '현재 ELO'(시즌 내 가장 최근 경기 기준) 계산
+    const stats = {};
+    for (const name of nameSet) {
+      const app = appList.find((p) => p.playerName === name);
+      stats[name] = {
+        seed: app?.seedRating ?? BASE_ELO,
+        stamina: app?.stamina ?? null,
+        latestAt: null,
+        latestElo: null,
+        win: 0,
+        loss: 0,
+      };
+    }
+
+    matches.forEach((m) => {
+      const atRaw = m.date || m.createdAt;
+      const at = atRaw?.toDate ? atRaw.toDate() : (atRaw ? new Date(atRaw) : null);
+
+      if (m.winner && stats[m.winner]) {
+        const me = stats[m.winner];
+        me.win += 1;
+        const elo = Number.isFinite(Number(m.winnerELO)) ? Number(m.winnerELO) : null;
+        if (elo != null && (!me.latestAt || (at && at > me.latestAt))) {
+          me.latestAt = at;
+          me.latestElo = elo;
+        }
+      }
+      if (m.loser && stats[m.loser]) {
+        const me = stats[m.loser];
+        me.loss += 1;
+        const elo = Number.isFinite(Number(m.loserELO)) ? Number(m.loserELO) : null;
+        if (elo != null && (!me.latestAt || (at && at > me.latestAt))) {
+          me.latestAt = at;
+          me.latestElo = elo;
+        }
+      }
+    });
+
+    // 5) rows 조립: ★ baseRating을 무조건 1500으로, ΔELO = current - 1500
+    const rows = Array.from(nameSet).map((playerName) => {
+      const s = stats[playerName];
+      const currentRating = s.latestElo ?? s.seed ?? BASE_ELO;  // 최근 경기 ELO > seed > 1500
+      const baseRating = BASE_ELO;                               // ← 고정 기준
+      const delta = Math.floor(currentRating - baseRating);
+
+      return {
+        id: playerName,
+        playerName,
+        rating: currentRating,
+        baseRating,
+        delta,
+        stamina: s.stamina,
+        win: s.win,
+        loss: s.loss,
+        _source: s.latestElo != null ? 'matches' : 'applications',
+      };
+    });
+
+    rows.sort((a, b) => b.rating - a.rating);
+    setPlayers(rows);
+    setLoading(false);
+  } catch (e) {
+    console.error('Error building rankings:', e);
+    setPlayers([]);
+    setLoading(false);
+  }
+};
+
 
   const buildMatchMatrix = useCallback(async (playerList) => {
     try {
