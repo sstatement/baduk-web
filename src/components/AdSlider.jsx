@@ -32,9 +32,9 @@ const AdSlider = () => {
       },
       {
         image: Img4,
-        title: "주간 퀘스트",
-        description: "주간 퀘스트를 확인하고 참여하세요.",
-        link: "/quest",
+        title: "바둑 강의",
+        description: "강의를 보고 기력 쑥쑥!",
+        link: "/Lecture",
       },
     ],
     []
