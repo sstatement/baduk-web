@@ -62,6 +62,11 @@ import TournamentDetail from "./components/tournaments/TournamentDetail";
 import Rankings from "./pages/Rankings"; 
 
 
+import TsumegoPage from "./pages/tsumego";
+
+
+
+
 
 import "./App.css";
 
@@ -231,6 +236,8 @@ const handleAddProblem = (newProblem) => {
         <Route path="/guan/record/:problemId/:attemptId/:round" element={<GuanRecordPage />} />
         <Route path="/guan/add" element={<AddProblemPage />} />
         <Route path="/guan/solve/:problemId" element={<SolveProblemPage />} />
+
+        <Route path="/tsumego" element={<TsumegoPage />} />
 
         <Route path="/signup" element={user ? <Navigate to="/" /> : <Signup />} />
         <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
