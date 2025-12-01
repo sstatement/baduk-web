@@ -1,0 +1,19 @@
+@keyframes run {
+  0%   { transform: translateX(0) translateY(0) scale(1); }
+  25%  { transform: translateX(8px) translateY(-2px) scale(1.01); }
+  50%  { transform: translateX(16px) translateY(0) scale(1); }
+  75%  { transform: translateX(8px) translateY(2px) scale(0.995); }
+  100% { transform: translateX(0) translateY(0) scale(1); }
+}
+@keyframes sweat {
+  0%   { transform: translate(0,0); opacity: 0.9; }
+  100% { transform: translate(8px,6px); opacity: 0; }
+}
+@keyframes speedline {
+  0%   { transform: translateX(0); opacity: .7; width: 40px; }
+  100% { transform: translateX(-30px); opacity: 0; width: 10px; }
+}
+
+.animate-run { animation: run .6s infinite cubic-bezier(.25,.6,.3,1); }
+.animate-sweat { animation: sweat .9s infinite; }
+.animate-speedline { animation: speedline .5s infinite; }

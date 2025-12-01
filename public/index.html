@@ -7,9 +7,9 @@
     <!-- 기본 세팅 -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#0f172a" />
+    <meta name="theme-color" content="#111827" />
     <link rel="icon" href="%PUBLIC_URL%/바통이.ico" />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/icons/icon-192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
     <!-- ✅ SEO 메타데이터 -->
@@ -25,18 +25,29 @@
     />
     <meta name="author" content="성재명" />
 
-    <!-- ✅ SNS 공유 시 미리보기 (Open Graph / Twitter Card) -->
+    <!-- ✅ SNS 미리보기 (OG / Twitter) -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="경북대학교 바둑 동아리 복현기우회" />
     <meta property="og:description" content="바둑을 배우고 즐기며 성장하는 경북대 복현기우회 — 리그전, 강의, 상점까지 한 곳에!" />
     <meta property="og:url" content="https://baduk-web-sstatements-projects.vercel.app/" />
-    <meta property="og:image" content="%PUBLIC_URL%/logo192.png" />
+    <meta property="og:image" content="%PUBLIC_URL%/icons/icon-512.png" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="경북대학교 바둑 동아리 복현기우회" />
     <meta name="twitter:description" content="바둑을 배우고 즐기며 성장하는 경북대 복현기우회" />
-    <meta name="twitter:image" content="%PUBLIC_URL%/logo192.png" />
+    <meta name="twitter:image" content="%PUBLIC_URL%/icons/icon-512.png" />
 
+    <!-- ✅ PWA Service Worker 등록 -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("%PUBLIC_URL%/sw.js")
+            .then(() => console.log("✅ Service Worker 등록 완료"))
+            .catch((err) => console.error("Service Worker 등록 실패:", err));
+        });
+      }
+    </script>
   </head>
 
   <body>

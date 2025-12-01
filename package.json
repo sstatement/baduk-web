@@ -35,7 +35,8 @@
     "build": "react-scripts build",
     "tailwind:watch": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "fetch:yt-thumbs": "node scripts/fetchYtThumbnails.mjs"
   },
   "eslintConfig": {
     "extends": [

@@ -1,13 +1,16 @@
 // src/AppRoutes.jsx
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense, lazy } from "react";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 
 import { auth, db } from "./firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { getFunctions, httpsCallable } from "firebase/functions";
+import { LoadingProvider, useLoading } from "./contexts/LoadingContext";
+// ❌ Home은 lazy로 쓸 거라 아래 두 줄은 지웁니다.
+// import Home from "./pages/Home";
+// import League from "./pages/league/League";
 
-import Home from "./pages/Home";
 import Login from "./pages/Login";
 import MyPage from "./pages/MyPage";
 import SetupProfile from "./pages/SetupProfile";
@@ -38,37 +41,42 @@ import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import SGFFileViewer from "./components/BadukBoard/SGFFileViewer";
-import HallOfFame from './pages/league/HallOfFame';
+import HallOfFame from "./pages/league/HallOfFame";
 
-import LectureIntro from './pages/Lecture/intro';
-import 입문Flow from './pages/Lecture/입문Flow';
-import 용어Flow from './pages/Lecture/용어Flow';  // 새로 만든 강의 플로우
-import 행마Flow from './pages/Lecture/행마Flow';
-import 정석Flow from './pages/Lecture/정석Flow';
-import 사활Flow from './pages/Lecture/사활Flow';
-import 끝내기Flow from './pages/Lecture/끝내기Flow';
-import 격언Flow from './pages/Lecture/격언Flow';
+import LectureIntro from "./pages/Lecture/intro";
+import 입문Flow from "./pages/Lecture/입문Flow";
+import 용어Flow from "./pages/Lecture/용어Flow";
+import 행마Flow from "./pages/Lecture/행마Flow";
+import 정석Flow from "./pages/Lecture/정석Flow";
+import 사활Flow from "./pages/Lecture/사활Flow";
+import 끝내기Flow from "./pages/Lecture/끝내기Flow";
+import 격언Flow from "./pages/Lecture/격언Flow";
 
-import GuanPage from './pages/GuanPage';
-import GuanRecordPage from './pages/GuanRecordPage';
-import AddProblemPage, { SolveProblemPage } from './pages/AddProblem';
+import GuanPage from "./pages/GuanPage";
+import GuanRecordPage from "./pages/GuanRecordPage";
+import AddProblemPage, { SolveProblemPage } from "./pages/AddProblem";
 
-import { SeasonProvider } from "./contexts/SeasonContext"; 
-import LeagueLayout from './pages/league/LeagueLayout';
-
+import { SeasonProvider } from "./contexts/SeasonContext";
+import LeagueLayout from "./pages/league/LeagueLayout";
 
 import TournamentsList from "./components/tournaments/TournamentsList";
 import TournamentDetail from "./components/tournaments/TournamentDetail";
-import Rankings from "./pages/Rankings"; 
-
+import Rankings from "./pages/Rankings";
 
 import TsumegoPage from "./pages/tsumego";
 
-
-
-
-
 import "./App.css";
+import BatongiLoader from "./components/Loader/BatongiLoader";
+
+import GoYoutubePage from "./pages/GoYoutube";
+import JosekiRecommender from "./pages/JosekiRecommender";
+
+const GlobalLoader = () => {
+  const { loading } = useLoading();
+  return loading ? <BatongiLoader fullscreen text="로딩 중..." /> : null;
+};
+// ✅ lazy 로딩은 여기서만 선언
+const Home = lazy(() => import("./pages/Home"));
 
 const functions = getFunctions();
 const setAdminRole = httpsCallable(functions, "setAdminRole");
@@ -78,11 +86,11 @@ const AppRoutes = () => {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-const [problems, setProblems] = useState([]); // 문제 리스트 상태
+  const [problems, setProblems] = useState([]); // 문제 리스트 상태
 
-const handleAddProblem = (newProblem) => {
-  setProblems(prev => [...prev, newProblem]);
-};
+  const handleAddProblem = (newProblem) => {
+    setProblems((prev) => [...prev, newProblem]);
+  };
 
   const navigate = useNavigate();
 
@@ -141,109 +149,123 @@ const handleAddProblem = (newProblem) => {
     }
   };
 
+  // ✅ 초기 전역 로딩 시에도 바통이 로더 사용
   if (loading) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
-      </div>
-    );
+    return <BatongiLoader fullscreen text="로그인 상태 확인 중..." />;
   }
 
   return (
-    <SeasonProvider>  {/* ✅ 여기서 전체를 감싸기 */}
+    <SeasonProvider>
+      <LoadingProvider>
       <Header />
       <Nav />
-
+      <GlobalLoader />
       {error && (
         <div className="bg-red-500 text-white text-center py-2">
           <p>{error}</p>
         </div>
       )}
+      
+      <Suspense fallback={<BatongiLoader fullscreen />}>
+        <Routes>
+          <Route path="/" element={<Home user={user} userData={userData} />} />
 
-      <Routes>
-        <Route path="/" element={<Home user={user} userData={userData} />} />
-        <Route
-          path="/mypage"
-          element={user ? <MyPage userId={user.uid} user={user} userData={userData} /> : <Navigate to="/login" />}
-        />
-        <Route
-          path="/quest"
-          element={user ? <Quest user={user} userData={userData} /> : <Navigate to="/login" />}
-        />
-        <Route
-          path="/quest/:id"
-          element={user ? <QuestPage user={user} userData={userData} /> : <Navigate to="/login" />}
-        />
-        <Route
-          path="/store"
-          element={user ? <Store user={user} userData={userData} /> : <Navigate to="/login" />}
-        />
-        <Route
-          path="/mission/entry"
-          element={user ? <Entry user={user} userData={userData} /> : <Navigate to="/login" />}
-        />
-        <Route
-          path="/mission/beginner"
-          element={user ? <Beginner user={user} userData={userData} /> : <Navigate to="/login" />}
-        />
-        <Route
-          path="/mission/intermediate"
-          element={user ? <Intermediate user={user} userData={userData} /> : <Navigate to="/login" />}
-        />
-        <Route
-          path="/mission/advanced"
-          element={user ? <Advanced user={user} userData={userData} /> : <Navigate to="/login" />}
-        />
-        <Route
-          path="/boss"
-          element={user ? <Boss user={user} userData={userData} /> : <Navigate to="/login" />}
-        />
-        <Route path="/league" element={<LeagueLayout />}>
-        <Route path="ranking" element={<Ranking />} />
-+       <Route path="history" element={<History />} />
-+       <Route path="analysis" element={<Analysis />} />
-+       <Route path="apply" element={<Apply />} />
-+       <Route path="hall-of-fame" element={<HallOfFame />} />
-        </Route>
-        <Route path="/terms-of-service" element={<TermsOfService />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/club/intro" element={<ClubIntro />} />
-        <Route path="/club/rules" element={<ClubRules />} />
-        <Route path="/club/members" element={<ClubMembers />} />
-        <Route path="/club/announcements" element={<Announcements />} />
-        <Route path="/announcements/create" element={<CreateAnnouncement />} />
-        <Route path="/announcements/:id" element={<AnnouncementDetail />} />
-        <Route path="/club/board" element={<Board />} />
-        <Route path="/badukboard" element={<BadukBoard />} />
-        <Route path="/SGFfileviewer" element={<SGFFileViewer />} />
-        <Route path="/setup-profile" element={<SetupProfile />} />
+          <Route
+            path="/mypage"
+            element={
+              user ? (
+                <MyPage userId={user.uid} user={user} userData={userData} />
+              ) : (
+                <Navigate to="/login" />
+              )
+            }
+          />
 
-        <Route path="/lecture" element={<LectureIntro />} />
-        <Route path="/lecture/입문" element={<입문Flow />} />
-        <Route path="/lecture/용어" element={<용어Flow />} />
-        <Route path="/lecture/행마" element={<행마Flow />} />
-        <Route path="/lecture/정석" element={<정석Flow />} />
-        <Route path="/lecture/사활" element={<사활Flow />} />
-        <Route path="/lecture/끝내기" element={<끝내기Flow />} />
-        <Route path="/lecture/격언" element={<격언Flow />} />
+          <Route
+            path="/quest"
+            element={user ? <Quest user={user} userData={userData} /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/quest/:id"
+            element={user ? <QuestPage user={user} userData={userData} /> : <Navigate to="/login" />}
+          />
 
-        <Route path="/tournaments" element={<TournamentsList />} />
-        <Route path="/tournaments/:id" element={<TournamentDetail />} />
-        <Route path="/rankings" element={<Rankings />} />
+          <Route
+            path="/store"
+            element={user ? <Store user={user} userData={userData} /> : <Navigate to="/login" />}
+          />
 
-        <Route path="/guan" element={<GuanPage/>} />
+          <Route
+            path="/mission/entry"
+            element={user ? <Entry user={user} userData={userData} /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/mission/beginner"
+            element={user ? <Beginner user={user} userData={userData} /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/mission/intermediate"
+            element={user ? <Intermediate user={user} userData={userData} /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/mission/advanced"
+            element={user ? <Advanced user={user} userData={userData} /> : <Navigate to="/login" />}
+          />
 
-        <Route path="/guan/record/:problemId/:attemptId/:round" element={<GuanRecordPage />} />
-        <Route path="/guan/add" element={<AddProblemPage />} />
-        <Route path="/guan/solve/:problemId" element={<SolveProblemPage />} />
+          <Route path="/boss" element={user ? <Boss user={user} userData={userData} /> : <Navigate to="/login" />} />
 
-        <Route path="/tsumego" element={<TsumegoPage />} />
+          <Route path="/league" element={<LeagueLayout />}>
+            <Route path="ranking" element={<Ranking />} />
+            <Route path="history" element={<History />} />
+            <Route path="analysis" element={<Analysis />} />
+            <Route path="apply" element={<Apply />} />
+            <Route path="hall-of-fame" element={<HallOfFame />} />
+          </Route>
 
-        <Route path="/signup" element={user ? <Navigate to="/" /> : <Signup />} />
-        <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
-      </Routes>
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+
+          <Route path="/club/intro" element={<ClubIntro />} />
+          <Route path="/club/rules" element={<ClubRules />} />
+          <Route path="/club/members" element={<ClubMembers />} />
+          <Route path="/club/announcements" element={<Announcements />} />
+          <Route path="/announcements/create" element={<CreateAnnouncement />} />
+          <Route path="/announcements/:id" element={<AnnouncementDetail />} />
+          <Route path="/club/board" element={<Board />} />
+
+          <Route path="/badukboard" element={<BadukBoard />} />
+          <Route path="/SGFfileviewer" element={<SGFFileViewer />} />
+          <Route path="/setup-profile" element={<SetupProfile />} />
+
+          <Route path="/lecture" element={<LectureIntro />} />
+          <Route path="/lecture/입문" element={<입문Flow />} />
+          <Route path="/lecture/용어" element={<용어Flow />} />
+          <Route path="/lecture/행마" element={<행마Flow />} />
+          <Route path="/lecture/정석" element={<정석Flow />} />
+          <Route path="/lecture/사활" element={<사활Flow />} />
+          <Route path="/lecture/끝내기" element={<끝내기Flow />} />
+          <Route path="/lecture/격언" element={<격언Flow />} />
+
+          <Route path="/tournaments" element={<TournamentsList />} />
+          <Route path="/tournaments/:id" element={<TournamentDetail />} />
+          <Route path="/rankings" element={<Rankings />} />
+
+          <Route path="/guan" element={<GuanPage />} />
+          <Route path="/guan/record/:problemId/:attemptId/:round" element={<GuanRecordPage />} />
+          <Route path="/guan/add" element={<AddProblemPage />} />
+          <Route path="/guan/solve/:problemId" element={<SolveProblemPage />} />
+
+          <Route path="/tsumego" element={<TsumegoPage />} />
+
+          <Route path="/go-youtube" element={<GoYoutubePage />} />
+          <Route path="/joseki-reco" element={<JosekiRecommender />} />
+          <Route path="/signup" element={user ? <Navigate to="/" /> : <Signup />} />
+          <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
+        </Routes>
+      </Suspense>
 
       <Footer />
+      </LoadingProvider>
     </SeasonProvider>
   );
 };

@@ -71,7 +71,8 @@ const Nav = () => {
         <li><Link to="/SGFfileviewer" className="nav-button">정석 공부</Link></li>
 
         <li><Link to="/tsumego" className="nav-button">사활 라이브러리</Link></li>
-
+        <li><Link to="/go-youtube" className="nav-button">바둑 유튜버 추천</Link></li>
+        {/*<Link to="/joseki-reco" className="nav-button">정석 추천 바둑판</Link>*/}
         {/* 토너먼트 ★ 추가 */}
         <li
           className="relative"
@@ -141,6 +142,7 @@ const Nav = () => {
     {/*<li><Link to="/badukboard" onClick={() => setMobileMenuOpen(false)}>바둑 대국</Link></li>*/}
     <li><Link to="/lecture" onClick={() => setMobileMenuOpen(false)}>바둑 강의</Link></li>/
     <li><Link to="/SGFfileviewer" onClick={() => setMobileMenuOpen(false)}>정석 공부</Link></li>
+    <li><Link to="/tsumego" onClick={() => setMobileMenuOpen(false)}>사활 라이브러리</Link></li>
     
     {/* content - 전부 펼침  */}   
     <li className="mobile-section-title">회원 컨텐츠</li>

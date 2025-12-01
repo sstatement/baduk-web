@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { db, auth } from '../firebase';
 import { getDoc, doc, updateDoc, increment } from 'firebase/firestore';
 import "./store.css";
-
+import BatongiLoader from "../components/Loader/BatongiLoader";
 /* ===== 데이터(기존 유지) ===== */
 const titles = [
   "초고수","명인 (名人)","대가 (大家)","국수 (國手)","신의 한 수",
@@ -166,7 +166,7 @@ const Store = () => {
     } catch (e) { console.error('테두리 선택 오류:', e); alert('오류가 발생했습니다.'); }
   };
 
-  if (loading) return <p className="text-center text-gray-500">로딩 중...</p>;
+  if (loading) return <BatongiLoader fullscreen text="상점 불러오는 중..." />;
   if (!user) return <p className="text-center text-red-500">로그인이 필요합니다.</p>;
 
   return (
