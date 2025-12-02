@@ -162,9 +162,9 @@ export default function AdminSeasonClose() {
           const pref = doc(db, LEAGUE_COLLECTION, p.id);
           batch.update(pref, {
             rating: BASE_RATING,
-            // win: p.win || 0,    // 그대로 유지 (아예 건드리지 않으려면 이 줄도 빼는 게 더 깨끗함)
-            // loss: p.loss || 0,
-            // winRate는 다음 시즌부터 다시 계산되게 놔두거나 0으로 초기화해도 됨
+            win: p.win || 0,    // 그대로 유지 (아예 건드리지 않으려면 이 줄도 빼는 게 더 깨끗함)
+            loss: p.loss || 0,
+            winRate: 0,
           });
         });
       }
