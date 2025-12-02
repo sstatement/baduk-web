@@ -38,6 +38,9 @@ const ALLOWED_MIME = ["image/png", "image/jpeg", "image/webp", "image/gif"];
 const GENERATIONS = Array.from({ length: 100 }, (_, i) => i + 1);
 const DEFAULT_GENERATION = 49;
 
+// 🔐 복현기우회 전용 코드
+const INVITE_CODE = "GoGoBokhyun123";
+
 export default function SetupProfile() {
   const navigate = useNavigate();
   const user = auth.currentUser;
@@ -47,6 +50,9 @@ export default function SetupProfile() {
   const [rank, setRank] = useState("18급");
   const [bio, setBio] = useState("");
   const [generation, setGeneration] = useState(DEFAULT_GENERATION);
+
+  // ✅ 전용 코드 입력 상태
+  const [inviteCode, setInviteCode] = useState("");
 
   // ✅ 알림 수신: 단일 동의 토글
   const [notifyAll, setNotifyAll] = useState(true);
@@ -144,6 +150,13 @@ export default function SetupProfile() {
     if (!agreedPrivacy) err.agreedPrivacy = "개인정보 처리방침에 동의해야 합니다.";
     if (nameAvailable === false) err.realName = "이미 사용 중인 이름입니다.";
 
+    // 🔐 전용 코드 검사
+    if (!inviteCode.trim()) {
+      err.inviteCode = "복현기우회 전용 코드를 입력해주세요.";
+    } else if (inviteCode.trim() !== INVITE_CODE) {
+      err.inviteCode = "복현기우회 전용 코드가 올바르지 않습니다.";
+    }
+
     setErrors(err);
     return Object.keys(err).length === 0;
   };
@@ -178,7 +191,6 @@ export default function SetupProfile() {
           rank,
           bio: bio.trim(),
           photoURL,
-          // ✅ 공개/리그 필드 제거
           generation: Number(generation),
           generationLabel: `${Number(generation)}대`,
           consent: {
@@ -186,8 +198,10 @@ export default function SetupProfile() {
             terms: { agreed: true, agreedAt: now },
             privacy: { agreed: true, agreedAt: now },
           },
-          // ✅ 알림: 단일 동의만
           notificationsEnabled: !!notifyAll,
+
+          // 🔐 어떤 코드로 가입했는지 기록
+          inviteCode: INVITE_CODE,
 
           // 기타 기본값
           points: 0,
@@ -462,7 +476,12 @@ export default function SetupProfile() {
           <label style={{ fontWeight: 700, display: "block", marginBottom: 6 }}>
             프로필 사진
           </label>
-          <input type="file" accept="image/*" onChange={handleImageChange} style={{ width: "100%", fontSize: 14 }} />
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+            style={{ width: "100%", fontSize: 14 }}
+          />
           <div style={{ marginTop: 12, display: "flex", alignItems: "center", gap: 16 }}>
             <img
               src={photoPreview || defaultPhotoURL}
@@ -482,8 +501,6 @@ export default function SetupProfile() {
             </div>
           </div>
         </div>
-
-        {/* ✅ (삭제됨) 프로필 공개 / 리그 참가 — 요청대로 제거 */}
 
         {/* 알림 수신: 단일 토글 */}
         <div>
@@ -517,12 +534,43 @@ export default function SetupProfile() {
             }}
           >
             {GENERATIONS.map((g) => (
-              <option key={g} value={g}>{g}대</option>
+              <option key={g} value={g}>
+                {g}대
+              </option>
             ))}
           </select>
           <div style={{ marginTop: 6, fontSize: 12, color: "#64748b" }}>
             기본값은 {DEFAULT_GENERATION}대입니다. 실제 기수를 선택하세요.
           </div>
+        </div>
+
+        {/* 🔐 복현기우회 전용 코드 입력란 */}
+        <div>
+          <label style={{ fontWeight: 700, display: "block", marginBottom: 6 }}>
+            복현기우회 전용 코드 <span style={{ color: "#ef4444" }}>*</span>
+          </label>
+          <input
+            type="text"
+            value={inviteCode}
+            onChange={(e) => setInviteCode(e.target.value)}
+            placeholder="운영진에게 안내받은 코드를 입력하세요."
+            aria-invalid={!!errors.inviteCode}
+            style={{
+              width: "100%",
+              padding: "10px 12px",
+              borderRadius: 10,
+              border: "1px solid #cbd5e1",
+              fontSize: 16,
+            }}
+          />
+          <div style={{ marginTop: 6, fontSize: 12, color: "#64748b" }}>
+            복현기우회 회원에게만 안내되는 전용 코드입니다.
+          </div>
+          {errors.inviteCode && (
+            <div style={{ marginTop: 4, fontSize: 12, color: "#b91c1c" }}>
+              {errors.inviteCode}
+            </div>
+          )}
         </div>
 
         {/* 약관/개인정보 동의 + 다이얼로그 링크 */}
@@ -550,7 +598,14 @@ export default function SetupProfile() {
               <button
                 type="button"
                 onClick={() => setTermsOpen(true)}
-                style={{ color: "#2563eb", textDecoration: "underline", background: "none", border: "none", cursor: "pointer", padding: 0 }}
+                style={{
+                  color: "#2563eb",
+                  textDecoration: "underline",
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  padding: 0,
+                }}
               >
                 이용약관
               </button>
@@ -568,7 +623,14 @@ export default function SetupProfile() {
               <button
                 type="button"
                 onClick={() => setPrivacyOpen(true)}
-                style={{ color: "#2563eb", textDecoration: "underline", background: "none", border: "none", cursor: "pointer", padding: 0 }}
+                style={{
+                  color: "#2563eb",
+                  textDecoration: "underline",
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  padding: 0,
+                }}
               >
                 개인정보 처리방침
               </button>
@@ -601,7 +663,9 @@ export default function SetupProfile() {
             boxShadow: "0 4px 12px rgba(59, 130, 246, 0.35)",
             transition: "filter .15s ease",
           }}
-          onMouseOver={(e) => !submitting && (e.currentTarget.style.filter = "brightness(0.95)")}
+          onMouseOver={(e) =>
+            !submitting && (e.currentTarget.style.filter = "brightness(0.95)")
+          }
           onMouseOut={(e) => (e.currentTarget.style.filter = "none")}
         >
           {submitting ? "저장 중..." : "저장하고 시작하기"}
@@ -612,30 +676,43 @@ export default function SetupProfile() {
       <Modal open={termsOpen} onClose={() => setTermsOpen(false)} title="이용약관">
         <p style={{ color: "#334155", lineHeight: 1.6 }}>
           복현기우회 동아리 웹사이트의 이용약관은 아래와 같습니다:
-          <br /><br />
+          <br />
+          <br />
           1. 서비스 이용: 회원은 본 웹사이트에서 제공하는 서비스를 선의로 이용해야 합니다. 불법/유해 행위는 금지됩니다.
-          <br /><br />
+          <br />
+          <br />
           2. 개인정보 보호: 회원의 개인정보는 회원 관리 및 서비스 제공 목적 범위 내에서만 이용됩니다.
-          <br /><br />
+          <br />
+          <br />
           3. 서비스 변경/중지: 서비스 내용은 사전 예고 없이 변경 또는 중지될 수 있습니다.
-          <br /><br />
+          <br />
+          <br />
           4. 면책: 서비스 이용 과정에서 발생한 손해에 대해 동아리는 법적 책임을 지지 않습니다.
         </p>
       </Modal>
 
       {/* 개인정보 처리방침 다이얼로그 */}
-      <Modal open={privacyOpen} onClose={() => setPrivacyOpen(false)} title="개인정보 처리방침">
+      <Modal
+        open={privacyOpen}
+        onClose={() => setPrivacyOpen(false)}
+        title="개인정보 처리방침"
+      >
         <p style={{ color: "#334155", lineHeight: 1.6 }}>
           복현기우회 동아리는 회원의 개인정보를 아래와 같이 처리합니다:
-          <br /><br />
+          <br />
+          <br />
           1. 수집 항목: 이름, 이메일 등 회원 식별에 필요한 최소 정보
-          <br /><br />
+          <br />
+          <br />
           2. 이용 목적: 회원 관리, 서비스 제공 및 개선
-          <br /><br />
+          <br />
+          <br />
           3. 보유 기간: 탈퇴 시까지(관련 법령에 따라 일부 보관 가능)
-          <br /><br />
+          <br />
+          <br />
           4. 안전성 확보: 암호화·접근통제 등 보호조치 적용
-          <br /><br />
+          <br />
+          <br />
           5. 제3자 제공: 법령이 허용하는 경우 또는 사전 동의가 있는 경우에 한함
         </p>
       </Modal>
