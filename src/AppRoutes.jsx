@@ -70,6 +70,7 @@ import BatongiLoader from "./components/Loader/BatongiLoader";
 
 import GoYoutubePage from "./pages/GoYoutube";
 import JosekiRecommender from "./pages/JosekiRecommender";
+import AdminSeasonClose from "./pages/league/AdminSeasonClose";
 
 const GlobalLoader = () => {
   const { loading } = useLoading();
@@ -220,6 +221,8 @@ const AppRoutes = () => {
             <Route path="analysis" element={<Analysis />} />
             <Route path="apply" element={<Apply />} />
             <Route path="hall-of-fame" element={<HallOfFame />} />
+             {/* 👇 여기 추가: 시즌 정산 관리자 페이지 */}
+        <Route path="admin/season-close" element={<AdminSeasonClose />} />
           </Route>
 
           <Route path="/terms-of-service" element={<TermsOfService />} />

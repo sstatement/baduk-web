@@ -104,6 +104,9 @@ const Nav = () => {
                 <li><Link to="/league/history" className="dropdown-item">대전 기록</Link></li>
                 <li><Link to="/league/analysis" className="dropdown-item">경기 분석</Link></li>
                 <li><Link to="/league/hall-of-fame" className="dropdown-item">명예의 전당</Link></li>
+
+                
+                {/*<li><Link to="/league/admin/season-close"className="dropdown-item">시즌 정산</Link></li>*/}
               </ul>
             </div>
           )}
@@ -143,7 +146,7 @@ const Nav = () => {
     <li><Link to="/lecture" onClick={() => setMobileMenuOpen(false)}>바둑 강의</Link></li>/
     <li><Link to="/SGFfileviewer" onClick={() => setMobileMenuOpen(false)}>정석 공부</Link></li>
     <li><Link to="/tsumego" onClick={() => setMobileMenuOpen(false)}>사활 라이브러리</Link></li>
-    
+    <li><Link to="/go-youtube" onClick={() => setMobileMenuOpen(false)}>바둑 유튜버 추천</Link></li>
     {/* content - 전부 펼침  */}   
     <li className="mobile-section-title">회원 컨텐츠</li>
     {/*<li><Link to="/quest" onClick={() => setMobileMenuOpen(false)}>주간 퀘스트</Link></li>
