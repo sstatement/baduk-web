@@ -10,6 +10,7 @@ import { LoadingProvider, useLoading } from "./contexts/LoadingContext";
 // ❌ Home은 lazy로 쓸 거라 아래 두 줄은 지웁니다.
 // import Home from "./pages/Home";
 // import League from "./pages/league/League";
+import SEO from "./components/SEO";
 
 import Login from "./pages/Login";
 import MyPage from "./pages/MyPage";
@@ -169,7 +170,23 @@ const AppRoutes = () => {
       
       <Suspense fallback={<BatongiLoader fullscreen />}>
         <Routes>
-          <Route path="/" element={<Home user={user} userData={userData} />} />
+          <Route path="/" element={<>
+      <SEO
+        title="경북대학교 바둑 동아리 복현기우회"
+        description="경북대 복현기우회 공식 사이트 — 바둑을 배우고 즐기며 함께 성장하는 공간. 리그전, 강의, 마일리지 상점 등 다양한 콘텐츠를 운영 중입니다."
+        canonical="https://baduk-web-sstatements-projects.vercel.app"
+        image="https://baduk-web-sstatements-projects.vercel.app/logo192.png" // 로고/배너 경로
+        keywords={[
+          "경북대학교",
+          "복현기우회",
+          "바둑 동아리",
+          "바둑 리그전",
+          "사활",
+          "경북대 동아리"
+        ]}
+      />
+      <Home user={user} userData={userData} />
+    </>} />
 
           <Route
             path="/mypage"
