@@ -73,6 +73,11 @@ import GoYoutubePage from "./pages/GoYoutube";
 import JosekiRecommender from "./pages/JosekiRecommender";
 import AdminSeasonClose from "./pages/league/AdminSeasonClose";
 
+
+import FreeBoardList from "./pages/board/FreeBoardList";
+import FreeBoardWrite from "./pages/board/FreeBoardWrite";
+import FreeBoardDetail from "./pages/board/FreeBoardDetail";
+
 const GlobalLoader = () => {
   const { loading } = useLoading();
   return loading ? <BatongiLoader fullscreen text="로딩 중..." /> : null;
@@ -279,6 +284,13 @@ const AppRoutes = () => {
 
           <Route path="/go-youtube" element={<GoYoutubePage />} />
           <Route path="/joseki-reco" element={<JosekiRecommender />} />
+
+          <Route path="/board" element={<FreeBoardList />} />
+          <Route path="/board/write" element={<FreeBoardWrite />} />
+          <Route path="/board/:id" element={<FreeBoardDetail />} />
+
+
+
           <Route path="/signup" element={user ? <Navigate to="/" /> : <Signup />} />
           <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
         </Routes>

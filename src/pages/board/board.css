@@ -1,0 +1,626 @@
+/* ===== 복현기우회 테마 팔레트 ===== */
+
+:root {
+  --board-bg: #fbf4e6;          /* 전체 배경 (나무판 느낌) */
+  --board-paper: #fdfaf4;       /* 카드 안 배경 */
+  --board-edge: #e2d4b7;        /* 카드 테두리/분리선 */
+  --board-ink: #111827;         /* 기본 글자색 */
+  --board-ink-muted: #6b7280;   /* 보조 텍스트 */
+  --board-ink-soft: #9ca3af;    /* 더 옅은 텍스트 */
+  --board-primary: #174f2a;     /* 포인트: 짙은 초록 (바둑판 + 복현 느낌) */
+  --board-primary-soft: #e2f0e5;
+  --board-primary-dark: #123d20;
+  --board-gold: #c49a3a;        /* 공지/강조용 금색 */
+  --board-gold-soft: #f8ead0;
+  --board-danger: #b91c1c;
+}
+
+/* ===== 공통 레이아웃 ===== */
+
+.board-page {
+  max-width: 960px;
+  margin: 24px auto;
+  padding: 0 16px 40px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Noto Sans KR", sans-serif;
+  color: var(--board-ink);
+  box-sizing: border-box;
+  background:
+    radial-gradient(circle at 0 0, rgba(255,255,255,0.45), transparent 60%),
+    radial-gradient(circle at 100% 0, rgba(255,255,255,0.35), transparent 60%),
+    radial-gradient(circle at 0 100%, rgba(0,0,0,0.03), transparent 55%),
+    var(--board-bg);
+}
+
+.board-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  padding-bottom: 6px;
+}
+
+.board-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 작은 바둑알 로고 느낌 */
+.board-title::before,
+.board-title::after {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.08);
+}
+
+.board-title::before {
+  background: radial-gradient(circle at 30% 30%, #ffffff, #d4d4d4);
+}
+
+.board-title::after {
+  background: radial-gradient(circle at 30% 30%, #f9fafb, #020617);
+}
+
+.board-button-primary {
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--board-primary), var(--board-primary-dark));
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.board-button-primary::before {
+  content: "●";
+  font-size: 0.8rem;
+}
+
+.board-button-primary:hover {
+  filter: brightness(1.05);
+  transform: translateY(-0.5px);
+}
+
+.board-button-primary:disabled {
+  opacity: 0.6;
+  cursor: default;
+  box-shadow: none;
+}
+
+/* ===== 목록 카드 (바둑판 테두리 느낌) ===== */
+
+.board-card {
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.06);
+  background: 
+    linear-gradient(135deg, rgba(255,255,255,0.9), rgba(250,248,242,0.95));
+  box-shadow:
+    0 14px 30px rgba(0,0,0,0.12),
+    0 1px 0 rgba(255,255,255,0.8) inset;
+  overflow: hidden;
+}
+
+/* ===== 목록 테이블 스타일 ===== */
+
+.board-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.board-table thead {
+  background: linear-gradient(90deg, rgba(0,0,0,0.02), rgba(0,0,0,0.04));
+  color: var(--board-ink-muted);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.board-table th,
+.board-table td {
+  padding: 9px 12px;
+  text-align: center;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+.board-table th:first-child,
+.board-table td:first-child {
+  text-align: left;
+  padding-left: 18px;
+}
+
+.board-table tr:last-child td {
+  border-bottom: none;
+}
+
+.board-table-row {
+  cursor: pointer;
+  transition: background-color 0.12s ease, transform 0.05s ease;
+}
+
+.board-table-row:hover {
+  background-color: rgba(8,47,13,0.04);
+}
+
+/* 제목 링크 */
+
+.board-link {
+  color: var(--board-primary-dark);
+  text-decoration: none;
+}
+
+.board-link:hover {
+  text-decoration: underline;
+}
+
+/* 공지 뱃지 - 금색 + 바둑판 라벨 */
+
+.board-badge-pinned {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  font-size: 0.7rem;
+  border-radius: 999px;
+  background-color: var(--board-gold-soft);
+  color: #7c5b15;
+  border: 1px solid var(--board-gold);
+  margin-right: 6px;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.7) inset;
+}
+
+/* ===== 상태 / 빈 목록 ===== */
+
+.board-status {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--board-ink-muted);
+  margin-top: 16px;
+}
+
+/* ===== 글 작성 페이지 ===== */
+
+.board-form {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px 18px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.06);
+  background: linear-gradient(135deg, #fdfaf4, #fbf4e7);
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.08),
+    0 1px 0 rgba(255,255,255,0.7) inset;
+}
+
+.board-form-group {
+  margin-bottom: 16px;
+}
+
+.board-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 4px;
+}
+
+/* 입력 요소 - 살짝 둥근 바둑판 칸 느낌 */
+
+.board-input,
+.board-textarea {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.12);
+  font-size: 0.875rem;
+  padding: 8px 10px;
+  box-sizing: border-box;
+  background-color: rgba(255,255,255,0.96);
+  transition: border-color 0.12s ease, box-shadow 0.12s ease,
+    background-color 0.12s ease;
+}
+
+.board-input:focus,
+.board-textarea:focus {
+  outline: none;
+  border-color: var(--board-primary);
+  box-shadow: 0 0 0 1px rgba(23,79,42,0.22);
+  background-color: #ffffff;
+}
+
+.board-textarea {
+  min-height: 260px;
+  resize: vertical;
+}
+
+/* 옵션 영역 */
+
+.board-form-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 0.85rem;
+}
+
+.board-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.board-checkbox-label input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+}
+
+/* 파일 입력 안내 */
+
+.board-file-info {
+  margin-top: 4px;
+  font-size: 0.75rem;
+  color: var(--board-ink-soft);
+}
+
+/* 버튼 영역 */
+
+.board-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.board-button-secondary {
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.09);
+  background-color: #fdfdfc;
+  font-size: 0.8rem;
+  padding: 7px 16px;
+  cursor: pointer;
+  color: #374151;
+}
+
+.board-button-secondary:hover {
+  background-color: #f3f4f6;
+}
+
+/* ===== 글 상세 ===== */
+
+.board-detail-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.board-detail-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+}
+
+.board-detail-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  word-break: break-word;
+}
+
+.board-detail-meta-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 0.75rem;
+  color: var(--board-ink-soft);
+}
+
+/* 아래쪽 보조줄 */
+
+.board-card[style] {
+  /* JSX에서 style로 패딩 넣었으니 여기선 카드 안 내용만 조정 */
+  background: linear-gradient(135deg, #fdfaf4, #fbf4e7);
+}
+
+.board-detail-subrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--board-ink-soft);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+
+.board-detail-subbuttons {
+  display: flex;
+  gap: 6px;
+}
+
+/* 작은 칩 버튼들 (공지, 수정, 삭제 등) */
+
+.board-chip-button {
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background-color: rgba(255,255,255,0.96);
+  font-size: 0.7rem;
+  padding: 4px 9px;
+  cursor: pointer;
+  color: #374151;
+}
+
+.board-chip-button:hover {
+  background-color: #f3f4f6;
+}
+
+.board-chip-button--danger {
+  color: var(--board-danger);
+  border-color: rgba(185,28,28,0.25);
+}
+
+.board-chip-button--primary {
+  color: var(--board-primary-dark);
+  border-color: rgba(23,79,42,0.35);
+}
+
+/* 상세 내용 */
+
+.board-detail-body {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  color: #111827;
+}
+
+/* 첨부 이미지 */
+
+.board-image-wrapper {
+  margin-bottom: 12px;
+}
+
+.board-image {
+  max-height: 320px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.1);
+  object-fit: contain;
+  max-width: 100%;
+  background-color: rgba(255,255,255,0.95);
+}
+
+/* 좋아요 버튼 - 바둑알 배치 느낌 */
+
+.board-like-wrap {
+  margin-top: 12px;
+}
+
+.board-like-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: radial-gradient(circle at 30% 20%, #ffffff, #e5e7eb);
+  cursor: pointer;
+  color: #374151;
+}
+
+.board-like-button--active {
+  background: radial-gradient(circle at 30% 20%, #fdf2f8, #f9a8d4);
+  border-color: #f472b6;
+  color: #be185d;
+}
+
+.board-like-button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* ===== 댓글 ===== */
+
+.board-comment-section-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 20px 0 8px;
+}
+
+/* 댓글 입력 */
+
+.board-comment-form {
+  margin-bottom: 12px;
+}
+
+.board-comment-textarea {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.12);
+  font-size: 0.875rem;
+  padding: 8px 10px;
+  min-height: 80px;
+  resize: vertical;
+  box-sizing: border-box;
+  background-color: rgba(255,255,255,0.96);
+}
+
+.board-comment-textarea:focus {
+  outline: none;
+  border-color: var(--board-primary);
+  box-shadow: 0 0 0 1px rgba(23,79,42,0.22);
+}
+
+.board-comment-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 6px;
+}
+
+/* 댓글 리스트 */
+
+.board-comment-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* 댓글 카드: 바둑판 위 돌이 놓인 느낌으로 살짝 그림자 */
+
+.board-comment-item {
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.06);
+  background: radial-gradient(circle at 0 0, rgba(255,255,255,0.9), #f7f1e6);
+  padding: 8px 10px;
+  font-size: 0.8125rem;
+  box-shadow:
+    0 4px 8px rgba(0,0,0,0.08),
+    0 1px 0 rgba(255,255,255,0.8) inset;
+}
+
+.board-comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.board-comment-author {
+  font-weight: 600;
+  color: #111827;
+}
+
+.board-comment-date {
+  font-size: 0.7rem;
+  color: var(--board-ink-soft);
+}
+
+.board-comment-body {
+  white-space: pre-wrap;
+  color: #374151;
+  margin-top: 2px;
+}
+
+/* 댓글 삭제 */
+
+.board-comment-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+.board-comment-delete-button {
+  font-size: 0.7rem;
+  color: var(--board-danger);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.board-comment-delete-button:hover {
+  text-decoration: underline;
+}
+
+/* ===== 상단 네비 버튼 ===== */
+
+.board-top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.board-top-link {
+  font-size: 0.8rem;
+  color: #4b5563;
+  text-decoration: none;
+}
+
+.board-top-link:hover {
+  text-decoration: underline;
+}
+
+/* ===== 반응형 (모바일) ===== */
+
+@media (max-width: 640px) {
+  .board-table thead {
+    display: none;
+  }
+
+  .board-table tr {
+    display: block;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .board-table td {
+    display: block;
+    text-align: left;
+    padding: 6px 14px;
+    border-bottom: none;
+  }
+
+  .board-table td:last-child {
+    padding-bottom: 10px;
+  }
+
+  .board-table-row {
+    padding: 4px 0;
+  }
+
+  .board-table td::before {
+    display: inline-block;
+    min-width: 60px;
+    font-size: 0.75rem;
+    color: var(--board-ink-soft);
+    margin-right: 4px;
+  }
+
+  .board-table td:nth-child(2)::before {
+    content: "작성자";
+  }
+
+  .board-table td:nth-child(3)::before {
+    content: "조회";
+  }
+
+  .board-table td:nth-child(4)::before {
+    content: "좋아요";
+  }
+
+  .board-table td:nth-child(5)::before {
+    content: "작성일";
+  }
+
+  .board-detail-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .board-detail-meta-right {
+    align-items: flex-start;
+  }
+
+  .board-detail-subrow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .board-top-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}

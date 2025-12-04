@@ -72,6 +72,7 @@ const Nav = () => {
 
         <li><Link to="/tsumego" className="nav-button">사활 라이브러리</Link></li>
         <li><Link to="/go-youtube" className="nav-button">바둑 유튜버 추천</Link></li>
+        <li><Link to="/board" className="nav-button">자유게시판</Link></li>
         {/*<Link to="/joseki-reco" className="nav-button">정석 추천 바둑판</Link>*/}
         {/* 토너먼트 ★ 추가 */}
         <li
