@@ -1,57 +1,104 @@
 // src/components/SEO.jsx
-import React from "react";
-import { Helmet } from "react-helmet-async";
+import { useEffect } from "react";
 
-// 사이트 공통 기본값 (필요 시 수정)
+// 사이트 공통 설정
 const SITE_NAME = "복현기우회 동아리 사이트";
 const SITE_URL  = "https://baduk-web-sstatements-projects.vercel.app";
 const DEFAULT_DESC = "경북대 복현기우회 공식 사이트 — 리그전, 토너먼트, 강의, 마일리지 상점까지!";
-const DEFAULT_IMAGE = `${SITE_URL}/logo192.png`; // og 기본 이미지(있다면 배너로 교체 권장)
+const DEFAULT_IMAGE = `${SITE_URL}/logo192.png`;
 
 export default function SEO({
   title,
   description = DEFAULT_DESC,
   url = SITE_URL,
   image = DEFAULT_IMAGE,
-  canonical,            // 지정 안 하면 url 사용
+  canonical,
   keywords = [],
-  noindex = false,      // 검색 제외 페이지에만 true로
-  jsonLd = null,        // JSON-LD 스키마 객체 넣기
+  noindex = false,
+  jsonLd = null,
 }) {
-  const fullTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
-  const canonicalUrl = canonical || url;
+  useEffect(() => {
+    // 페이지 제목 설정
+    const fullTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
+    document.title = fullTitle;
 
-  return (
-    <Helmet prioritizeSeoTags>
-      {/* 기본 */}
-      <title>{fullTitle}</title>
-      <meta name="description" content={description} />
-      {keywords.length > 0 && (
-        <meta name="keywords" content={keywords.join(", ")} />
-      )}
-      <link rel="canonical" href={canonicalUrl} />
-      {noindex && <meta name="robots" content="noindex,nofollow" />}
+    // description
+    const descTag = document.querySelector('meta[name="description"]');
+    if (descTag) descTag.setAttribute("content", description);
 
-      {/* Open Graph */}
-      <meta property="og:site_name" content={SITE_NAME} />
-      <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:image" content={image} />
+    // keywords
+    let keywordTag = document.querySelector('meta[name="keywords"]');
+    if (!keywordTag) {
+      keywordTag = document.createElement("meta");
+      keywordTag.setAttribute("name", "keywords");
+      document.head.appendChild(keywordTag);
+    }
+    keywordTag.setAttribute("content", keywords.join(", "));
 
-      {/* Twitter Card */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+    // canonical
+    let canonicalTag = document.querySelector('link[rel="canonical"]');
+    if (!canonicalTag) {
+      canonicalTag = document.createElement("link");
+      canonicalTag.setAttribute("rel", "canonical");
+      document.head.appendChild(canonicalTag);
+    }
+    canonicalTag.setAttribute("href", canonical || url);
 
-      {/* JSON-LD 구조화 데이터 */}
-      {jsonLd && (
-        <script type="application/ld+json">
-          {JSON.stringify(jsonLd)}
-        </script>
-      )}
-    </Helmet>
-  );
+    // noindex
+    let robotsTag = document.querySelector('meta[name="robots"]');
+    if (!robotsTag) {
+      robotsTag = document.createElement("meta");
+      robotsTag.setAttribute("name", "robots");
+      document.head.appendChild(robotsTag);
+    }
+    robotsTag.setAttribute("content", noindex ? "noindex,nofollow" : "index,follow");
+
+    // og/meta 태그
+    const setOG = (property, content) => {
+      let tag = document.querySelector(`meta[property="${property}"]`);
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute("property", property);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute("content", content);
+    };
+
+    setOG("og:site_name", SITE_NAME);
+    setOG("og:title", fullTitle);
+    setOG("og:description", description);
+    setOG("og:type", "website");
+    setOG("og:url", url);
+    setOG("og:image", image);
+
+    // Twitter
+    const setTwitter = (name, content) => {
+      let tag = document.querySelector(`meta[name="${name}"]`);
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute("name", name);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute("content", content);
+    };
+
+    setTwitter("twitter:card", "summary_large_image");
+    setTwitter("twitter:title", fullTitle);
+    setTwitter("twitter:description", description);
+    setTwitter("twitter:image", image);
+
+    // JSON-LD
+    if (jsonLd) {
+      let scriptTag = document.getElementById("seo-jsonld");
+      if (!scriptTag) {
+        scriptTag = document.createElement("script");
+        scriptTag.id = "seo-jsonld";
+        scriptTag.type = "application/ld+json";
+        document.head.appendChild(scriptTag);
+      }
+      scriptTag.textContent = JSON.stringify(jsonLd);
+    }
+  }, [title, description, url, image, canonical, keywords, noindex, jsonLd]);
+
+  return null;
 }
